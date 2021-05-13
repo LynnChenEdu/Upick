@@ -7,13 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>會員資料</title>
     <!--檔頭外掛-->
-    <?php require("C:\\xampp\htdocs\Upick\parts\html_head.php"); ?>
+    <?php include __DIR__ . '/../../parts/html_head.php' ?>
     <!-- memberEdit.css -->
     <link rel="stylesheet" href="/Upick/css/memberEdit.css">
 </head>
 
 <body>
-    <?php require("C:\\xampp\htdocs\Upick\parts\html_navbar.php"); ?>
+    <?php include __DIR__ . '/../../parts/html_navbar.php' ?>
     <div class="container">
         <div class="memberCen_HC testest">
             <!-- 左側Menu -->
@@ -83,20 +83,20 @@
     <!--區隔撐開頁尾的空間-->
     <div class="shpFooterSpace-CL"></div>
     <!--頁尾-->
-    <?php require("C:\\xampp\htdocs\Upick\parts\html_footer.php"); ?>
+    <?php include __DIR__ . '/../../parts/html_footer.php' ?>
 
 </body>
 <!--SCRIPT-->
-<?php require("C:\\xampp\htdocs\Upick\parts\scripts.php"); ?>
+<?php include __DIR__ . '/../../parts/scripts.php' ?>
 <script>
-    $("#twzipcode").twzipcode();
+$("#twzipcode").twzipcode();
 
-    $("#zipcode2").twzipcode({
-        zipcodeIntoDistrict: true, // 郵遞區號自動顯示在地區
-        css: ["city memChooseAdd_HC", "town memChooseAdd_HC"], // 自訂 "城市"、"地區" class 名稱
-        countyName: "city", // 自訂城市 select 標籤的 name 值
-        districtName: "town" // 自訂地區 select 標籤的 name 值
-    });
+$("#zipcode2").twzipcode({
+    zipcodeIntoDistrict: true, // 郵遞區號自動顯示在地區
+    css: ["city memChooseAdd_HC", "town memChooseAdd_HC"], // 自訂 "城市"、"地區" class 名稱
+    countyName: "city", // 自訂城市 select 標籤的 name 值
+    districtName: "town" // 自訂地區 select 標籤的 name 值
+});
 </script>
 
 </html>

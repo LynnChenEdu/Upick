@@ -8,11 +8,13 @@
     <title>UPICK電腦零件購物網-購物車</title>
 
     <link rel="stylesheet" href="/Upick/css/reset.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="/Upick/css/shopcart_origin_stepbar.css">
     <link rel="stylesheet" href="/Upick/css/shopcart_origin_item.css">
 
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous">
 
     <!--navbar style-->
     <link rel="stylesheet" href="/Upick/css/style_navbar.css">
@@ -22,7 +24,7 @@
 </head>
 
 <body>
-    <?php require("C:\\xampp\htdocs\Upick\parts\html_navbar.php"); ?>
+    <?php include __DIR__ . '/../../parts/html_navbar.php' ?>
     <div class="wrapper">
         <div class="main-wrapper">
 
@@ -344,11 +346,12 @@
         <!--區隔撐開頁尾的空間-->
         <div class="shpFooterSpace-CL"></div>
         <!--頁尾-->
-        <?php require("C:\\xampp\htdocs\Upick\parts\html_footer.php"); ?>
+        <?php include __DIR__ . '/../../parts/html_footer.php' ?>
+
 
 
         <!--SCRIPT-->
-        <?php require("C:\\xampp\htdocs\Upick\parts\scripts.php"); ?>
+        <?php include __DIR__ . '/../../parts/scripts.php' ?>
 </body>
 
 </html>

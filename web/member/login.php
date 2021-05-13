@@ -7,20 +7,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>會員登入</title>
     <!--檔頭外掛-->
-    <?php require("C:\\xampp\htdocs\Upick\parts\html_head.php"); ?>
+    <?php include __DIR__ . '/../../parts/html_head.php' ?>
     <!-- login.css -->
     <link rel="stylesheet" href="/Upick/css/login.css">
 </head>
 
 <body>
-    <?php require("C:\\xampp\htdocs\Upick\parts\html_navbar.php"); ?>
+    <?php include __DIR__ . '/../../parts/html_navbar.php' ?>
     <div class="container">
         <div id="memLoginTab_HC">
             <!-- Tab分頁 -->
             <div class="memTabTitle_HC">
-                <a href="javascript:void(0)" class="barItem_HC memTabStyle_HC memDivider_HC memTablink_HC memTestbtn_HC" onclick="openClass(event, 'tab01_HC')">會員登入
+                <a href="javascript:void(0)" class="barItem_HC memTabStyle_HC memDivider_HC memTablink_HC memTestbtn_HC"
+                    onclick="openClass(event, 'tab01_HC')">會員登入
                 </a>
-                <a href="javascript:void(0)" class="barItem_HC memTabStyle_HC memTablink_HC memTestbtn_HC" onclick="openClass(event, 'tab02_HC')">加入會員
+                <a href="javascript:void(0)" class="barItem_HC memTabStyle_HC memTablink_HC memTestbtn_HC"
+                    onclick="openClass(event, 'tab02_HC')">加入會員
                 </a>
             </div>
             <!-- 會員登入 -->
@@ -28,7 +30,8 @@
                 <!-- 帳號 -->
                 <div class="memColumn_HC">
                     <p>帳號</p>
-                    <input onkeyup="check()" type="text" placeholder="請輸入信箱" class="memEmailCheck_HC memAccountEmail_HC">
+                    <input onkeyup="check()" type="text" placeholder="請輸入信箱"
+                        class="memEmailCheck_HC memAccountEmail_HC">
                     <div class="memErroCSS_HC memErroEmail_HC">
                         <i class="fas fa-exclamation-circle"> 帳號格式錯誤！</i>
                     </div>
@@ -39,7 +42,8 @@
                 <!-- 密碼 -->
                 <div class="memColumn_HC memLoginPassword_HC">
                     <p>密碼</p>
-                    <input id="memLoginPassword_HC" type="password" placeholder="請輸入密碼" name="password" class="memNull2_HC memPassWord_HC">
+                    <input id="memLoginPassword_HC" type="password" placeholder="請輸入密碼" name="password"
+                        class="memNull2_HC memPassWord_HC">
                     <i toggle="#memLoginPassword_HC" class="far fa-eye-slash memPassIcon_HC memTogglePassword_HC"></i>
                     <div class="memErroCSS_HC">
                         <i class="fas fa-exclamation-circle"> 密碼輸入錯誤！</i>
@@ -62,7 +66,8 @@
                 <!-- 帳號 -->
                 <div class="memColumn_HC">
                     <p>帳號</p>
-                    <input onkeyup="check2()" type="text" placeholder="請輸入信箱" class="memEmailCheck2_HC memNI_HC memAccountEmail_HC">
+                    <input onkeyup="check2()" type="text" placeholder="請輸入信箱"
+                        class="memEmailCheck2_HC memNI_HC memAccountEmail_HC">
                     <div class="memErroCSS_HC">
                         <i class="fas fa-exclamation-circle"> 帳號已被註冊過！</i>
                     </div>
@@ -73,13 +78,17 @@
                 <!-- 密碼 -->
                 <div class="memColumn_HC memRegisterPassword_HC">
                     <p>密碼</p>
-                    <input onkeyup="checkPass()" id="memRegisterPassword_HC" type="password" placeholder="請輸入密碼" name="password" class="memCheckPswrd1_HC memPassWord_HC">
-                    <i toggle="#memRegisterPassword_HC" class="far fa-eye-slash memPassIcon_HC memToggleRegisterPassword_HC"></i>
+                    <input onkeyup="checkPass()" id="memRegisterPassword_HC" type="password" placeholder="請輸入密碼"
+                        name="password" class="memCheckPswrd1_HC memPassWord_HC">
+                    <i toggle="#memRegisterPassword_HC"
+                        class="far fa-eye-slash memPassIcon_HC memToggleRegisterPassword_HC"></i>
                 </div>
                 <div class="memColumn_HC memRegisterCheckPassword_HC">
                     <p>確認密碼</p>
-                    <input onkeyup="checkPass()" id="memRegisterCheckPassword_HC" type="password" placeholder="請再次輸入密碼" name="password" class="memCheckPswrd2_HC">
-                    <i toggle="#memRegisterCheckPassword_HC" class="far fa-eye-slash memPassIcon_HC memToggleRegisterCheckPassword_HC"></i>
+                    <input onkeyup="checkPass()" id="memRegisterCheckPassword_HC" type="password" placeholder="請再次輸入密碼"
+                        name="password" class="memCheckPswrd2_HC">
+                    <i toggle="#memRegisterCheckPassword_HC"
+                        class="far fa-eye-slash memPassIcon_HC memToggleRegisterCheckPassword_HC"></i>
                     <div class="memErroCSS_HC memCheckErro_HC">
                         <i class="fas fa-exclamation-circle"> 密碼不符！</i>
                     </div>
@@ -113,143 +122,143 @@
 </body>
 
 <!--SCRIPT-->
-<?php require("C:\\xampp\htdocs\Upick\parts\scripts.php"); ?>
+<?php include __DIR__ . '/../../parts/scripts.php' ?>
 <script>
-    // 帳號格式錯誤
-    const email = document.querySelector('.memEmailCheck_HC');
-    const email2 = document.querySelector('.memEmailCheck2_HC');
-    const Erro = document.querySelector('.memErroEmail_HC');
-    const Erro2 = document.querySelector('.memErroEmail2_HC');
-    let regExp = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+// 帳號格式錯誤
+const email = document.querySelector('.memEmailCheck_HC');
+const email2 = document.querySelector('.memEmailCheck2_HC');
+const Erro = document.querySelector('.memErroEmail_HC');
+const Erro2 = document.querySelector('.memErroEmail2_HC');
+let regExp = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
 
-    function check() {
-        if (email.value.match(regExp)) {
-            email.style.borderColor = "#7FFFE1";
-            Erro.style.display = "none";
-        } else {
-            email.style.borderColor = "#FF8888";
-            Erro.style.display = "block";
-        }
-        if (email.value == "") {
-            email.style.borderColor = "#7FFFE1";
-            Erro.style.display = "none";
-        }
+function check() {
+    if (email.value.match(regExp)) {
+        email.style.borderColor = "#7FFFE1";
+        Erro.style.display = "none";
+    } else {
+        email.style.borderColor = "#FF8888";
+        Erro.style.display = "block";
+    }
+    if (email.value == "") {
+        email.style.borderColor = "#7FFFE1";
+        Erro.style.display = "none";
+    }
+}
+
+function check2() {
+    if (email2.value.match(regExp)) {
+        email2.style.borderColor = "#7FFFE1";
+        Erro2.style.display = "none";
+    } else {
+        email2.style.borderColor = "#FF8888";
+        Erro2.style.display = "block";
+    }
+    if (email2.value == "") {
+        email2.style.borderColor = "#7FFFE1";
+        Erro2.style.display = "none";
+    }
+}
+
+// 確認密碼
+const CP1 = document.querySelector('.memCheckPswrd1_HC');
+const CP2 = document.querySelector('.memCheckPswrd2_HC');
+const passErro = document.querySelector('.memCheckErro_HC');
+const passCheck = document.querySelector('.memRegisterBtn');
+
+function checkPass() {
+    if (CP1.value != CP2.value) {
+        passErro.style.display = "block";
+        CP1.style.borderColor = "#FF8888";
+        CP2.style.borderColor = "#FF8888";
+
+    } else {
+        passErro.style.display = "none";
+        CP1.style.borderColor = "#7FFFE1";
+        CP2.style.borderColor = "#7FFFE1";
+    }
+}
+
+// 登入註冊Tab切換
+function openClass(evt, className) {
+    var i, x, memTablink_HCs;
+    x = document.getElementsByClassName("memTabClass_HC");
+    for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
     }
 
-    function check2() {
-        if (email2.value.match(regExp)) {
-            email2.style.borderColor = "#7FFFE1";
-            Erro2.style.display = "none";
-        } else {
-            email2.style.borderColor = "#FF8888";
-            Erro2.style.display = "block";
-        }
-        if (email2.value == "") {
-            email2.style.borderColor = "#7FFFE1";
-            Erro2.style.display = "none";
-        }
+    memTablink_HCs = document.getElementsByClassName("memTablink_HC");
+    for (i = 0; i < x.length; i++) {
+        memTablink_HCs[i].classList.remove("memActive_HC");
+    }
+    document.getElementById(className).style.display = "block";
+    evt.currentTarget.classList.add("memActive_HC");
+}
+var mybtn = document.getElementsByClassName("memTestbtn_HC")[0];
+mybtn.click();
+
+// 會員登入-顯示隱藏密碼
+$(".memTogglePassword_HC").click(function() {
+    $(this).toggleClass("fa-eye fa-eye-slash");
+    var input = $($(this).attr("toggle"));
+    if (input.attr("type") == "password") {
+        input.attr("type", "text");
+    } else {
+        input.attr("type", "password");
+    }
+});
+// 加入會員 - 顯示隱藏密碼
+$(".memToggleRegisterPassword_HC").click(function() {
+    $(this).toggleClass("fa-eye fa-eye-slash");
+    var input = $($(this).attr("toggle"));
+    if (input.attr("type") == "password") {
+        input.attr("type", "text");
+    } else {
+        input.attr("type", "password");
+    }
+});
+// 加入會員 - 顯示隱藏確認密碼
+$(".memToggleRegisterCheckPassword_HC").click(function() {
+    $(this).toggleClass("fa-eye fa-eye-slash");
+    var input = $($(this).attr("toggle"));
+    if (input.attr("type") == "password") {
+        input.attr("type", "text");
+    } else {
+        input.attr("type", "password");
+    }
+});
+
+// 註冊成功
+const Succ = document.querySelector('.memRegisterBtn');
+const SuccBox = document.querySelector('.memSuccess_HC');
+const noInput = document.querySelector('.memNoInput_HC');
+const noCon = document.querySelector('input');
+Succ.onclick = function() {
+    SuccBox.style.display = "block";
+    if (noCon.value == "") {
+        email2.style.borderColor = "#FF8888";
+        CP1.style.borderColor = "#FF8888";
+        CP2.style.borderColor = "#FF8888";
+        noInput.style.display = "block";
     }
 
-    // 確認密碼
-    const CP1 = document.querySelector('.memCheckPswrd1_HC');
-    const CP2 = document.querySelector('.memCheckPswrd2_HC');
-    const passErro = document.querySelector('.memCheckErro_HC');
-    const passCheck = document.querySelector('.memRegisterBtn');
-
-    function checkPass() {
-        if (CP1.value != CP2.value) {
-            passErro.style.display = "block";
-            CP1.style.borderColor = "#FF8888";
-            CP2.style.borderColor = "#FF8888";
-
-        } else {
-            passErro.style.display = "none";
-            CP1.style.borderColor = "#7FFFE1";
-            CP2.style.borderColor = "#7FFFE1";
-        }
-    }
-
-    // 登入註冊Tab切換
-    function openClass(evt, className) {
-        var i, x, memTablink_HCs;
-        x = document.getElementsByClassName("memTabClass_HC");
-        for (i = 0; i < x.length; i++) {
-            x[i].style.display = "none";
-        }
-
-        memTablink_HCs = document.getElementsByClassName("memTablink_HC");
-        for (i = 0; i < x.length; i++) {
-            memTablink_HCs[i].classList.remove("memActive_HC");
-        }
-        document.getElementById(className).style.display = "block";
-        evt.currentTarget.classList.add("memActive_HC");
-    }
-    var mybtn = document.getElementsByClassName("memTestbtn_HC")[0];
-    mybtn.click();
-
-    // 會員登入-顯示隱藏密碼
-    $(".memTogglePassword_HC").click(function() {
-        $(this).toggleClass("fa-eye fa-eye-slash");
-        var input = $($(this).attr("toggle"));
-        if (input.attr("type") == "password") {
-            input.attr("type", "text");
-        } else {
-            input.attr("type", "password");
-        }
-    });
-    // 加入會員 - 顯示隱藏密碼
-    $(".memToggleRegisterPassword_HC").click(function() {
-        $(this).toggleClass("fa-eye fa-eye-slash");
-        var input = $($(this).attr("toggle"));
-        if (input.attr("type") == "password") {
-            input.attr("type", "text");
-        } else {
-            input.attr("type", "password");
-        }
-    });
-    // 加入會員 - 顯示隱藏確認密碼
-    $(".memToggleRegisterCheckPassword_HC").click(function() {
-        $(this).toggleClass("fa-eye fa-eye-slash");
-        var input = $($(this).attr("toggle"));
-        if (input.attr("type") == "password") {
-            input.attr("type", "text");
-        } else {
-            input.attr("type", "password");
-        }
-    });
-
-    // 註冊成功
-    const Succ = document.querySelector('.memRegisterBtn');
-    const SuccBox = document.querySelector('.memSuccess_HC');
-    const noInput = document.querySelector('.memNoInput_HC');
-    const noCon = document.querySelector('input');
-    Succ.onclick = function() {
+    if (noCon.value != "") {
         SuccBox.style.display = "block";
-        if (noCon.value == "") {
-            email2.style.borderColor = "#FF8888";
-            CP1.style.borderColor = "#FF8888";
-            CP2.style.borderColor = "#FF8888";
-            noInput.style.display = "block";
-        }
-
-        if (noCon.value != "") {
-            SuccBox.style.display = "block";
-        } else {
-            email2.style.borderColor = "#7FFFE1";
-            CP1.style.borderColor = "#7FFFE1";
-            CP2.style.borderColor = "#7FFFE1";
-            // noInput.style.display = "block";
-        }
+    } else {
+        email2.style.borderColor = "#7FFFE1";
+        CP1.style.borderColor = "#7FFFE1";
+        CP2.style.borderColor = "#7FFFE1";
+        // noInput.style.display = "block";
     }
+}
 
-    // const checkbox = document.querySelector('.memNotCheck_HC');
-    // Succ.onclick = function(){
-    //     if($(".memChecking_HC").attr('checked')){
-    //         SuccBox.style.display = "block";
-    //     }else{
-    //         checkBox.style.display = "block";
-    //     }
-    // }
+// const checkbox = document.querySelector('.memNotCheck_HC');
+// Succ.onclick = function(){
+//     if($(".memChecking_HC").attr('checked')){
+//         SuccBox.style.display = "block";
+//     }else{
+//         checkBox.style.display = "block";
+//     }
+// }
 </script>
 
 </html>

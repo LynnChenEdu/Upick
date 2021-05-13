@@ -7,13 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>查詢訂單</title>
     <!--檔頭外掛-->
-    <?php require("C:\\xampp\htdocs\Upick\parts\html_head.php"); ?>
+    <?php include __DIR__ . '/../../parts/html_head.php' ?>
     <!-- memberOrder.css -->
     <link rel="stylesheet" href="/Upick/css/memberOrder.css">
 </head>
 
 <body>
-    <?php require("C:\\xampp\htdocs\Upick\parts\html_navbar.php"); ?>
+    <?php include __DIR__ . '/../../parts/html_navbar.php' ?>
     <div class="container">
         <div class="memberCen_HC">
             <!-- 左側Menu -->
@@ -70,7 +70,8 @@
                             </tr>
                             <tr class="memOder_HC">
                                 <td class="memSerialNumTd_HC">
-                                    <a href="/Upick/web/member/memberOderDetail.php" class="memSerialNum_HC">1006127192</a>
+                                    <a href="/Upick/web/member/memberOderDetail.php"
+                                        class="memSerialNum_HC">1006127192</a>
                                 </td>
                                 <td>
                                     <p class="memBuyDay_HC">2021-05-01</p>
@@ -168,19 +169,20 @@
     <!--區隔撐開頁尾的空間-->
     <div class="shpFooterSpace-CL"></div>
     <!--頁尾-->
-    <?php require("C:\\xampp\htdocs\Upick\parts\html_footer.php"); ?>
+    <?php include __DIR__ . '/../../parts/html_footer.php' ?>
+
 </body>
 
 <!--SCRIPT-->
-<?php require("C:\\xampp\htdocs\Upick\parts\scripts.php"); ?>
+<?php include __DIR__ . '/../../parts/scripts.php' ?>
 
 <script>
-    //網頁版頁碼focus顏色
-    $('.wWhitePGnumber').click(function() {
-        $(this).css('backgroundColor', '#7FE0DC').siblings().css('backgroundColor', '#FFFFFF');
-        newPg1 = $(this).text();
-        $('.wWhiteNewPG').text(newPg1);
-    })
+//網頁版頁碼focus顏色
+$('.wWhitePGnumber').click(function() {
+    $(this).css('backgroundColor', '#7FE0DC').siblings().css('backgroundColor', '#FFFFFF');
+    newPg1 = $(this).text();
+    $('.wWhiteNewPG').text(newPg1);
+})
 </script>
 
 </html>

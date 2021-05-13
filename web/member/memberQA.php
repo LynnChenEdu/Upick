@@ -7,14 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>客服中心</title>
     <!--檔頭外掛-->
-    <?php require("C:\\xampp\htdocs\Upick\parts\html_head.php"); ?>
+    <?php include __DIR__ . '/../../parts/html_head.php' ?>
     <!-- memberQA.css -->
     <link rel="stylesheet" href="/Upick/css/memberQA.css">
 
 </head>
 
 <body>
-    <?php require("C:\\xampp\htdocs\Upick\parts\html_navbar.php"); ?>
+    <?php include __DIR__ . '/../../parts/html_navbar.php' ?>
     <div class="container">
         <div class="memberCen_HC">
             <!-- 左側Menu -->
@@ -50,15 +50,20 @@
                 <div id="memQATab_HC">
                     <!-- Tab分頁 -->
                     <div class="memQATabTitle_HC">
-                        <a href="javascript:void(0)" class="barItem_HC memQATabStyle_HC memQATablink_HC memQATestbtn_HC" onclick="openClass(event, 'QAtab01_HC')">提出問題
+                        <a href="javascript:void(0)" class="barItem_HC memQATabStyle_HC memQATablink_HC memQATestbtn_HC"
+                            onclick="openClass(event, 'QAtab01_HC')">提出問題
                         </a>
-                        <a href="javascript:void(0)" class="barItem_HC memQATabStyle_HC memQATablink_HC memQATestbtn_HC" onclick="openClass(event, 'QAtab02_HC')">退換貨問題
+                        <a href="javascript:void(0)" class="barItem_HC memQATabStyle_HC memQATablink_HC memQATestbtn_HC"
+                            onclick="openClass(event, 'QAtab02_HC')">退換貨問題
                         </a>
-                        <a href="javascript:void(0)" class="barItem_HC memQATabStyle_HC memQATablink_HC memQATestbtn_HC" onclick="openClass(event, 'QAtab03_HC')">運送問題
+                        <a href="javascript:void(0)" class="barItem_HC memQATabStyle_HC memQATablink_HC memQATestbtn_HC"
+                            onclick="openClass(event, 'QAtab03_HC')">運送問題
                         </a>
-                        <a href="javascript:void(0)" class="barItem_HC memQATabStyle_HC memQATablink_HC memQATestbtn_HC" onclick="openClass(event, 'QAtab04_HC')">付款問題
+                        <a href="javascript:void(0)" class="barItem_HC memQATabStyle_HC memQATablink_HC memQATestbtn_HC"
+                            onclick="openClass(event, 'QAtab04_HC')">付款問題
                         </a>
-                        <a href="javascript:void(0)" class="barItem_HC memQATabStyle_HC memQATablink_HC memQATestbtn_HC" onclick="openClass(event, 'QAtab05_HC')">其他問題
+                        <a href="javascript:void(0)" class="barItem_HC memQATabStyle_HC memQATablink_HC memQATestbtn_HC"
+                            onclick="openClass(event, 'QAtab05_HC')">其他問題
                         </a>
                     </div>
                     <!-- Tab分頁內容 -->
@@ -86,7 +91,8 @@
                                     </div>
                                     <div class="memColumnWhite_HC">
                                         <p>內容</p>
-                                        <textarea name="" id="" class="memTextArea_HC" placeholder="請輸入您想詢問的內容"></textarea>
+                                        <textarea name="" id="" class="memTextArea_HC"
+                                            placeholder="請輸入您想詢問的內容"></textarea>
                                     </div>
                                     <button class="wBtnNGr memQAFormBtnShare_HC">送出</button>
                                 </div>
@@ -116,7 +122,8 @@
                         <div class="memQAGroup_HC">
                             <div class="memQABox_HC">
                                 <h4>Q：發票收到了，我的商品怎麼還沒送到？</h4>
-                                <p>發票與商品為分開寄送，因此不會同時到達，商品寄送時間請依商品網頁上說明敬請稍等！或是您可至本站「<a href="./memberOrder.html">查詢訂單</a> 」功能查詢出貨進度。</p>
+                                <p>發票與商品為分開寄送，因此不會同時到達，商品寄送時間請依商品網頁上說明敬請稍等！或是您可至本站「<a href="./memberOrder.html">查詢訂單</a>
+                                    」功能查詢出貨進度。</p>
                             </div>
                             <div class="memQABox_HC">
                                 <h4>Q：已經完成付款，商品約何時送達？</h4>
@@ -124,7 +131,8 @@
                             </div>
                             <div class="memQABox_HC">
                                 <h4>Q：可以指定時段、夜間或週日送貨嗎？</h4>
-                                <p>訂單查詢如有顯示【完成付款】，表示我們收到您的帳款了，商品將會在付款完成日算起的 7個工作天內送達。或是您可至本站「<a href="./memberOrder.html">查詢訂單</a> 」功能查詢出貨進度。</p>
+                                <p>訂單查詢如有顯示【完成付款】，表示我們收到您的帳款了，商品將會在付款完成日算起的 7個工作天內送達。或是您可至本站「<a
+                                        href="./memberOrder.html">查詢訂單</a> 」功能查詢出貨進度。</p>
                             </div>
                         </div>
                     </div>
@@ -150,20 +158,24 @@
                             </div>
                             <div class="memQABox_HC">
                                 <h4>Q：我刷卡失敗，持卡行告知請貴公司打電話去確認？</h4>
-                                <p>銀行是一般實體商店的作法，客戶正好在刷卡機旁邊，店家可以直接打電話並請客戶與銀行確認身份，可是本站是網路訂購方式非上述情況，請客戶向持卡行要求放寬「網路單筆消費額度」，或是直接在網路訂購時選擇ATM轉帳的方式。</p>
+                                <p>銀行是一般實體商店的作法，客戶正好在刷卡機旁邊，店家可以直接打電話並請客戶與銀行確認身份，可是本站是網路訂購方式非上述情況，請客戶向持卡行要求放寬「網路單筆消費額度」，或是直接在網路訂購時選擇ATM轉帳的方式。
+                                </p>
                             </div>
                             <div class="memQABox_HC">
                                 <h4>Q：如果信用卡換新卡，那分期付款帳單如何計算？</h4>
-                                <p>目前若您的訂單是選擇分期付款的方式，信用卡年度更換新卡，對於您在PChome的消費資料是不會有影響的。信用卡中心會將您舊的消費轉換至新卡，敬請放心。若仍有疑問，建議您與原發卡銀行聯絡較為清楚。</p>
+                                <p>目前若您的訂單是選擇分期付款的方式，信用卡年度更換新卡，對於您在PChome的消費資料是不會有影響的。信用卡中心會將您舊的消費轉換至新卡，敬請放心。若仍有疑問，建議您與原發卡銀行聯絡較為清楚。
+                                </p>
                             </div>
                             <div class="memQABox_HC">
                                 <h4>Q：商品未送達，信用卡帳單來了怎辦？需先繳款嗎？</h4>
-                                <p>本站受限銀行請款時效，因此需要先請款，訂單方能完整成立，若待商品送達再請款則時效不及，訂單將會失效。因此本站統一作業，訂購者均需先完成付款，故訂購者若已收到帳單是需要先行繳款。</p>
+                                <p>本站受限銀行請款時效，因此需要先請款，訂單方能完整成立，若待商品送達再請款則時效不及，訂單將會失效。因此本站統一作業，訂購者均需先完成付款，故訂購者若已收到帳單是需要先行繳款。
+                                </p>
                             </div>
                             <div class="memQABox_HC">
                                 <h4>Q：查詢訂單狀態為授權失敗，銀行會請款嗎？</h4>
                                 <p>如確認訂單為授權失敗，原因可能為網路壅塞或是系統機制..等等不明因素，導致未接獲此筆訂單授權碼，而我們現行電子商務與銀行端無人工授權，故無法向您的發卡銀行辦理請款事宜，因此訂單如為失效亦不會做請款作業。<br>
-                                    在此，請您與發卡行確認提供授權碼，我們可以協助透過銀行與銀行間取消此筆授權金額，盡快歸還您的信用額度，以利您再消費使用，如您尚需此商品，請網站上重新下訂單即可，如有不便之處，尚祈見諒！</p>
+                                    在此，請您與發卡行確認提供授權碼，我們可以協助透過銀行與銀行間取消此筆授權金額，盡快歸還您的信用額度，以利您再消費使用，如您尚需此商品，請網站上重新下訂單即可，如有不便之處，尚祈見諒！
+                                </p>
                             </div>
                             <div class="memQABox_HC">
                                 <h4>Q：使用行動支付注意事項</h4>
@@ -176,11 +188,15 @@
                         <div class="memQAGroup_HC">
                             <div class="memQABox_HC">
                                 <h4>Q：如何與客服中心聯絡？</h4>
-                                <p>訂單如有訂購、付款、發票、運送、商品等問題，在常見問題Q&A中仍無法為您解答，請依發票上的客服專線連絡我們或是至本站「<a href="./memberQA.html">客服中心</a>」透過填寫表單聯絡客服，我們將在1-2個工作天內 (不含週六日)確認結果後，儘速回覆在帳戶中「問答紀錄」，並隨後寄發一封Email或是電話通知。</p>
+                                <p>訂單如有訂購、付款、發票、運送、商品等問題，在常見問題Q&A中仍無法為您解答，請依發票上的客服專線連絡我們或是至本站「<a
+                                        href="./memberQA.html">客服中心</a>」透過填寫表單聯絡客服，我們將在1-2個工作天內
+                                    (不含週六日)確認結果後，儘速回覆在帳戶中「問答紀錄」，並隨後寄發一封Email或是電話通知。</p>
                             </div>
                             <div class="memQABox_HC">
                                 <h4>Q：補貨中的商品約何時到貨？請貨到通知我好嗎？</h4>
-                                <p>補貨約需1-2週，敬請稍稍等候！如有需商品貨到通知，請將該商品加入「<a href="./memberFollow.html">追蹤清單</a>」功能，待商品一到貨開放訂購，系統將自動寄發E-Mail通知。倘若確定補貨不到，商品將進行下架。</p>
+                                <p>補貨約需1-2週，敬請稍稍等候！如有需商品貨到通知，請將該商品加入「<a
+                                        href="./memberFollow.html">追蹤清單</a>」功能，待商品一到貨開放訂購，系統將自動寄發E-Mail通知。倘若確定補貨不到，商品將進行下架。
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -195,37 +211,38 @@
     <!--區隔撐開頁尾的空間-->
     <div class="shpFooterSpace-CL"></div>
     <!--頁尾-->
-    <?php require("C:\\xampp\htdocs\Upick\parts\html_footer.php"); ?>
+    <?php include __DIR__ . '/../../parts/html_footer.php' ?>
+
 
 </body>
 <!--SCRIPT-->
-<?php require("C:\\xampp\htdocs\Upick\parts\scripts.php"); ?>
+<?php include __DIR__ . '/../../parts/scripts.php' ?>
 <script>
-    // 客服中心Tab切換
-    function openClass(evt, className) {
-        var i, x, memQATablink_HCs;
-        x = document.getElementsByClassName("memQATabClass_HC");
-        for (i = 0; i < x.length; i++) {
-            x[i].style.display = "none";
-        }
-
-        memQATablink_HCs = document.getElementsByClassName("memQATablink_HC");
-        for (i = 0; i < x.length; i++) {
-            memQATablink_HCs[i].classList.remove("memQAActive_HC");
-        }
-        document.getElementById(className).style.display = "block";
-        evt.currentTarget.classList.add("memQAActive_HC");
+// 客服中心Tab切換
+function openClass(evt, className) {
+    var i, x, memQATablink_HCs;
+    x = document.getElementsByClassName("memQATabClass_HC");
+    for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
     }
-    var QAmybtn = document.getElementsByClassName("memQATestbtn_HC")[0];
-    QAmybtn.click();
 
-    // Top
-    function topMove() {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
+    memQATablink_HCs = document.getElementsByClassName("memQATablink_HC");
+    for (i = 0; i < x.length; i++) {
+        memQATablink_HCs[i].classList.remove("memQAActive_HC");
     }
+    document.getElementById(className).style.display = "block";
+    evt.currentTarget.classList.add("memQAActive_HC");
+}
+var QAmybtn = document.getElementsByClassName("memQATestbtn_HC")[0];
+QAmybtn.click();
+
+// Top
+function topMove() {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
 </script>
 
 </html>

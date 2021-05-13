@@ -7,13 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>會員中心</title>
     <!--檔頭外掛-->
-    <?php require("C:\\xampp\htdocs\Upick\parts\html_head.php"); ?>
+    <?php include __DIR__ . '/../../parts/html_head.php' ?>
     <!-- memberCentre.css -->
     <link rel="stylesheet" href="/Upick/css/memberCentre.css">
 </head>
 
 <body>
-    <?php require("C:\\xampp\htdocs\Upick\parts\html_navbar.php"); ?>
+    <?php include __DIR__ . '/../../parts/html_navbar.php' ?>
     <div class="container">
         <div class="memberCen_HC">
             <div class="memberTitle_HC">
@@ -69,7 +69,7 @@
     </div>
 
     <!--SCRIPT-->
-    <?php require("C:\\xampp\htdocs\Upick\parts\scripts.php"); ?>
+    <?php include __DIR__ . '/../../parts/scripts.php' ?>
 
 </body>
 

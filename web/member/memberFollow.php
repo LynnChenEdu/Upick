@@ -7,14 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>追蹤清單</title>
     <!--檔頭外掛-->
-    <?php require("C:\\xampp\htdocs\Upick\parts\html_head.php"); ?>
+    <?php include __DIR__ . '/../../parts/html_head.php' ?>
     <!-- memberFollow.css -->
     <link rel="stylesheet" href="/Upick/css/memberFollow.css">
 
 </head>
 
 <body>
-    <?php require("C:\\xampp\htdocs\Upick\parts\html_navbar.php"); ?>
+    <?php include __DIR__ . '/../../parts/html_navbar.php' ?>
     <div class="container">
         <div class="memberCen_HC">
             <!-- 左側Menu -->
@@ -174,18 +174,19 @@
     <!--區隔撐開頁尾的空間-->
     <div class="shpFooterSpace-CL"></div>
     <!--頁尾-->
-    <?php require("C:\\xampp\htdocs\Upick\parts\html_footer.php"); ?>
+    <?php include __DIR__ . '/../../parts/html_footer.php' ?>
+
 
 </body>
 <!--SCRIPT-->
-<?php require("C:\\xampp\htdocs\Upick\parts\scripts.php"); ?>
+<?php include __DIR__ . '/../../parts/scripts.php' ?>
 <script>
-    function topMove() {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-    }
+function topMove() {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
 </script>
 
 </html>

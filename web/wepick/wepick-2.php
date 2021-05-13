@@ -7,22 +7,22 @@
     <title>wepickCPU</title>
 
     <!--檔頭外掛-->
-    <?php require("C:\\xampp\htdocs\Upick\parts\html_head.php"); ?>
+    <?php include __DIR__ . '/../../parts/html_head.php' ?>
 
     <!-- wp-2.css -->
     <link rel="stylesheet" href="/Upick/css/wp-2.css">
     <link rel="stylesheet" href="/Upick/css/up-color.css">
     <!-- style -->
     <style>
-        /* 卡片 */
-        .wp-card {
-            background-color: #FF98C930;
-        }
+    /* 卡片 */
+    .wp-card {
+        background-color: #FF98C930;
+    }
     </style>
 </head>
 
 <body>
-    <?php require("C:\\xampp\htdocs\Upick\parts\html_navbar.php"); ?>
+    <?php include __DIR__ . '/../../parts/html_navbar.php' ?>
     <div class="wpNavSpace-CL"></div>
 
     <div class="container">
@@ -472,59 +472,65 @@
 
 
     <!--SCRIPT-->
-    <?php require("C:\\xampp\htdocs\Upick\parts\scripts.php"); ?>
+    <?php include __DIR__ . '/../../parts/scripts.php' ?>
 
     <script>
-        let nowItem = 0;
-        // 下一步
-        $('.btn-next').click(function() {
-            if (nowItem < 9) {
-                console.log(nowItem);
-                nowItem = nowItem + 1;
-                // 進度條長度
-                let lineWidth = nowItem * 11.1 + '%';
-                console.log(lineWidth);
-                $('.line').css('width', lineWidth);
-                // 進度條對話框
-                $('.wp-point').eq(nowItem).children('.title-delta').addClass('title-delta-0');
-                $('.wp-point').eq(nowItem).children('.title').addClass('title-0');
-                $('.wp-point').eq(nowItem).prevAll().children('.title-delta.title-delta-0').removeClass('title-delta-0').addClass('title-delta-1');
-                $('.wp-point').eq(nowItem).prevAll().children('.title.title-0').removeClass('title-0').addClass('title-1');
-                // 商品內容
-                $('.wp-slide').css({
-                    'right': '+=100%'
-                })
-            } else false;
-        })
-        // 上一步
-        $('.btn-last').click(function() {
-            if (nowItem > 0) {
-                console.log(nowItem);
-                nowItem = nowItem - 1;
-                // 進度條長度
-                let lineWidth = nowItem * 11.1 + '%';
-                console.log(lineWidth);
-                $('.line').css('width', lineWidth);
-                // 進度條對話框
-                $('.wp-point').eq(nowItem).children('.title-delta').removeClass('title-delta-1').addClass('title-delta-0');
-                $('.wp-point').eq(nowItem).children('.title').removeClass('title-1').addClass('title-0');
-                $('.wp-point').eq(nowItem).nextAll().children('.title-delta.title-delta-0').removeClass('title-delta-0');
-                $('.wp-point').eq(nowItem).nextAll().children('.title.title-0').removeClass('title-0');
-                // 商品內容頁
-                $('.wp-slide').css({
-                    'right': '-=100%'
-                })
-            } else false;
-        })
-        // 商品選單
-        $('.wp-row').hover(function() {
-            $('.wp-btn-product').toggleClass('wp-btn-product-hover')
-        });
-        // 選擇後新增li
-        $('.wp-btn-product').click(function() {
-            console.log('hi')
-            $("#menu").append('<li class="list-group-item d-flex"><p class= "col-9 my-auto" > HyperX FURY DDR4 3200 8G x2 桌上型超頻記憶體 HX432C16FB3K2 / 16 </p><h5 class="price col-3 my-auto">$1000</h5></li >');
-        })
+    let nowItem = 0;
+    // 下一步
+    $('.btn-next').click(function() {
+        if (nowItem < 9) {
+            console.log(nowItem);
+            nowItem = nowItem + 1;
+            // 進度條長度
+            let lineWidth = nowItem * 11.1 + '%';
+            console.log(lineWidth);
+            $('.line').css('width', lineWidth);
+            // 進度條對話框
+            $('.wp-point').eq(nowItem).children('.title-delta').addClass('title-delta-0');
+            $('.wp-point').eq(nowItem).children('.title').addClass('title-0');
+            $('.wp-point').eq(nowItem).prevAll().children('.title-delta.title-delta-0').removeClass(
+                'title-delta-0').addClass('title-delta-1');
+            $('.wp-point').eq(nowItem).prevAll().children('.title.title-0').removeClass('title-0').addClass(
+                'title-1');
+            // 商品內容
+            $('.wp-slide').css({
+                'right': '+=100%'
+            })
+        } else false;
+    })
+    // 上一步
+    $('.btn-last').click(function() {
+        if (nowItem > 0) {
+            console.log(nowItem);
+            nowItem = nowItem - 1;
+            // 進度條長度
+            let lineWidth = nowItem * 11.1 + '%';
+            console.log(lineWidth);
+            $('.line').css('width', lineWidth);
+            // 進度條對話框
+            $('.wp-point').eq(nowItem).children('.title-delta').removeClass('title-delta-1').addClass(
+                'title-delta-0');
+            $('.wp-point').eq(nowItem).children('.title').removeClass('title-1').addClass('title-0');
+            $('.wp-point').eq(nowItem).nextAll().children('.title-delta.title-delta-0').removeClass(
+                'title-delta-0');
+            $('.wp-point').eq(nowItem).nextAll().children('.title.title-0').removeClass('title-0');
+            // 商品內容頁
+            $('.wp-slide').css({
+                'right': '-=100%'
+            })
+        } else false;
+    })
+    // 商品選單
+    $('.wp-row').hover(function() {
+        $('.wp-btn-product').toggleClass('wp-btn-product-hover')
+    });
+    // 選擇後新增li
+    $('.wp-btn-product').click(function() {
+        console.log('hi')
+        $("#menu").append(
+            '<li class="list-group-item d-flex"><p class= "col-9 my-auto" > HyperX FURY DDR4 3200 8G x2 桌上型超頻記憶體 HX432C16FB3K2 / 16 </p><h5 class="price col-3 my-auto">$1000</h5></li >'
+        );
+    })
     </script>
 </body>
 

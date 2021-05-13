@@ -7,12 +7,13 @@
     <title>Document</title>
 
     <!--檔頭外掛-->
-    <?php require("C:\\xampp\htdocs\Upick\parts\html_head.php"); ?>
+    <?php include __DIR__ . '/../../parts/html_head.php' ?>
 
     <!-- up style -->
     <link rel="stylesheet" href="/Upick/css/up-color.css">
     <link rel="stylesheet" href="/Upick/css/upick-web.css">
-    <link rel="stylesheet" href="/Upick/css/upick-phone.css" type="text/css" media="only screen and (min-width: 0px) and (max-width: 767px)" />
+    <link rel="stylesheet" href="/Upick/css/upick-phone.css" type="text/css"
+        media="only screen and (min-width: 0px) and (max-width: 767px)" />
     <style>
 
     </style>
@@ -21,7 +22,7 @@
 
 <body>
     <!--navbar-->
-    <?php require("C:\\xampp\htdocs\Upick\parts\html_navbar.php"); ?>
+    <?php include __DIR__ . '/../../parts/html_navbar.php' ?>
 
     <div class="container up-container">
         <div class="row ">
@@ -48,7 +49,9 @@
                             <!-- 選擇品牌下拉 -->
                             <td class="brand">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm " data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm "
+                                        data-toggle="dropdown" data-display="static" aria-haspopup="true"
+                                        aria-expanded="false">
                                         請選擇品牌
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
@@ -61,7 +64,9 @@
                             <!-- 選擇商品下拉 -->
                             <td class="item">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm " data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm "
+                                        data-toggle="dropdown" data-display="static" aria-haspopup="true"
+                                        aria-expanded="false">
                                         請選擇商品
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
@@ -75,7 +80,9 @@
                             <td class="itemprice">＄0</td>
                             <!-- 選擇商品數量 -->
                             <td class="amount">
-                                <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                                <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm"
+                                    data-toggle="dropdown" data-display="static" aria-haspopup="true"
+                                    aria-expanded="false">
                                     數量
                                 </button>
                             </td>
@@ -105,7 +112,9 @@
                             <!-- 選擇品牌下拉 -->
                             <td class="brand">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm " data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm "
+                                        data-toggle="dropdown" data-display="static" aria-haspopup="true"
+                                        aria-expanded="false">
                                         請選擇品牌
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
@@ -118,7 +127,9 @@
                             <!-- 選擇商品下拉 -->
                             <td class="item">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm " data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm "
+                                        data-toggle="dropdown" data-display="static" aria-haspopup="true"
+                                        aria-expanded="false">
                                         請選擇商品
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
@@ -132,7 +143,9 @@
                             <td class="itemprice">＄0</td>
                             <!-- 選擇商品數量 -->
                             <td class="amount">
-                                <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                                <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm"
+                                    data-toggle="dropdown" data-display="static" aria-haspopup="true"
+                                    aria-expanded="false">
                                     數量
                                 </button>
                             </td>
@@ -148,7 +161,9 @@
                             <!-- 選擇品牌下拉 -->
                             <td class="brand">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm " data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm "
+                                        data-toggle="dropdown" data-display="static" aria-haspopup="true"
+                                        aria-expanded="false">
                                         請選擇品牌
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
@@ -161,7 +176,9 @@
                             <!-- 選擇商品下拉 -->
                             <td class="item">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm " data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm "
+                                        data-toggle="dropdown" data-display="static" aria-haspopup="true"
+                                        aria-expanded="false">
                                         請選擇商品
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
@@ -175,7 +192,9 @@
                             <td class="itemprice">＄0</td>
                             <!-- 選擇商品數量 -->
                             <td class="amount">
-                                <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                                <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm"
+                                    data-toggle="dropdown" data-display="static" aria-haspopup="true"
+                                    aria-expanded="false">
                                     數量
                                 </button>
                             </td>
@@ -192,7 +211,9 @@
                             <!-- 選擇品牌下拉 -->
                             <td class="brand">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm " data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm "
+                                        data-toggle="dropdown" data-display="static" aria-haspopup="true"
+                                        aria-expanded="false">
                                         請選擇品牌
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
@@ -205,7 +226,9 @@
                             <!-- 選擇商品下拉 -->
                             <td class="item">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm " data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm "
+                                        data-toggle="dropdown" data-display="static" aria-haspopup="true"
+                                        aria-expanded="false">
                                         請選擇商品
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
@@ -219,7 +242,9 @@
                             <td class="itemprice">＄0</td>
                             <!-- 選擇商品數量 -->
                             <td class="amount">
-                                <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                                <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm"
+                                    data-toggle="dropdown" data-display="static" aria-haspopup="true"
+                                    aria-expanded="false">
                                     數量
                                 </button>
                             </td>
@@ -236,7 +261,9 @@
                             <!-- 選擇品牌下拉 -->
                             <td class="brand">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm " data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm "
+                                        data-toggle="dropdown" data-display="static" aria-haspopup="true"
+                                        aria-expanded="false">
                                         請選擇品牌
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
@@ -249,7 +276,9 @@
                             <!-- 選擇商品下拉 -->
                             <td class="item">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm " data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm "
+                                        data-toggle="dropdown" data-display="static" aria-haspopup="true"
+                                        aria-expanded="false">
                                         請選擇商品
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
@@ -263,7 +292,9 @@
                             <td class="itemprice">＄0</td>
                             <!-- 選擇商品數量 -->
                             <td class="amount">
-                                <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                                <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm"
+                                    data-toggle="dropdown" data-display="static" aria-haspopup="true"
+                                    aria-expanded="false">
                                     數量
                                 </button>
                             </td>
@@ -280,7 +311,9 @@
                             <!-- 選擇品牌下拉 -->
                             <td class="brand">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm " data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm "
+                                        data-toggle="dropdown" data-display="static" aria-haspopup="true"
+                                        aria-expanded="false">
                                         請選擇品牌
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
@@ -293,7 +326,9 @@
                             <!-- 選擇商品下拉 -->
                             <td class="item">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm " data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm "
+                                        data-toggle="dropdown" data-display="static" aria-haspopup="true"
+                                        aria-expanded="false">
                                         請選擇商品
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
@@ -307,7 +342,9 @@
                             <td class="itemprice">＄0</td>
                             <!-- 選擇商品數量 -->
                             <td class="amount">
-                                <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                                <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm"
+                                    data-toggle="dropdown" data-display="static" aria-haspopup="true"
+                                    aria-expanded="false">
                                     數量
                                 </button>
                             </td>
@@ -324,7 +361,9 @@
                             <!-- 選擇品牌下拉 -->
                             <td class="brand">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm " data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm "
+                                        data-toggle="dropdown" data-display="static" aria-haspopup="true"
+                                        aria-expanded="false">
                                         請選擇品牌
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
@@ -337,7 +376,9 @@
                             <!-- 選擇商品下拉 -->
                             <td class="item">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm " data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm "
+                                        data-toggle="dropdown" data-display="static" aria-haspopup="true"
+                                        aria-expanded="false">
                                         請選擇商品
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
@@ -351,7 +392,9 @@
                             <td class="itemprice">＄0</td>
                             <!-- 選擇商品數量 -->
                             <td class="amount">
-                                <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                                <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm"
+                                    data-toggle="dropdown" data-display="static" aria-haspopup="true"
+                                    aria-expanded="false">
                                     數量
                                 </button>
                             </td>
@@ -368,7 +411,9 @@
                             <!-- 選擇品牌下拉 -->
                             <td class="brand">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm " data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm "
+                                        data-toggle="dropdown" data-display="static" aria-haspopup="true"
+                                        aria-expanded="false">
                                         請選擇品牌
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
@@ -381,7 +426,9 @@
                             <!-- 選擇商品下拉 -->
                             <td class="item">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm " data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm "
+                                        data-toggle="dropdown" data-display="static" aria-haspopup="true"
+                                        aria-expanded="false">
                                         請選擇商品
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
@@ -395,7 +442,9 @@
                             <td class="itemprice">＄0</td>
                             <!-- 選擇商品數量 -->
                             <td class="amount">
-                                <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                                <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm"
+                                    data-toggle="dropdown" data-display="static" aria-haspopup="true"
+                                    aria-expanded="false">
                                     數量
                                 </button>
                             </td>
@@ -411,7 +460,9 @@
                             <!-- 選擇品牌下拉 -->
                             <td class="brand">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm " data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm "
+                                        data-toggle="dropdown" data-display="static" aria-haspopup="true"
+                                        aria-expanded="false">
                                         請選擇品牌
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
@@ -424,7 +475,9 @@
                             <!-- 選擇商品下拉 -->
                             <td class="item">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm " data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm "
+                                        data-toggle="dropdown" data-display="static" aria-haspopup="true"
+                                        aria-expanded="false">
                                         請選擇商品
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
@@ -438,7 +491,9 @@
                             <td class="itemprice">＄0</td>
                             <!-- 選擇商品數量 -->
                             <td class="amount">
-                                <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                                <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm"
+                                    data-toggle="dropdown" data-display="static" aria-haspopup="true"
+                                    aria-expanded="false">
                                     數量
                                 </button>
                             </td>
@@ -469,7 +524,9 @@
                             <!-- 選擇品牌下拉 -->
                             <td class="brand">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm " data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm "
+                                        data-toggle="dropdown" data-display="static" aria-haspopup="true"
+                                        aria-expanded="false">
                                         請選擇品牌
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
@@ -482,7 +539,9 @@
                             <!-- 選擇商品下拉 -->
                             <td class="item">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm " data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm "
+                                        data-toggle="dropdown" data-display="static" aria-haspopup="true"
+                                        aria-expanded="false">
                                         請選擇商品
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
@@ -496,7 +555,9 @@
                             <td class="itemprice">＄0</td>
                             <!-- 選擇商品數量 -->
                             <td class="amount">
-                                <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                                <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm"
+                                    data-toggle="dropdown" data-display="static" aria-haspopup="true"
+                                    aria-expanded="false">
                                     數量
                                 </button>
                             </td>
@@ -513,7 +574,9 @@
                             <!-- 選擇品牌下拉 -->
                             <td class="brand">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm " data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm "
+                                        data-toggle="dropdown" data-display="static" aria-haspopup="true"
+                                        aria-expanded="false">
                                         請選擇品牌
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
@@ -526,7 +589,9 @@
                             <!-- 選擇商品下拉 -->
                             <td class="item">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm " data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm "
+                                        data-toggle="dropdown" data-display="static" aria-haspopup="true"
+                                        aria-expanded="false">
                                         請選擇商品
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
@@ -540,7 +605,9 @@
                             <td class="itemprice">＄0</td>
                             <!-- 選擇商品數量 -->
                             <td class="amount">
-                                <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                                <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm"
+                                    data-toggle="dropdown" data-display="static" aria-haspopup="true"
+                                    aria-expanded="false">
                                     數量
                                 </button>
                             </td>
@@ -557,7 +624,9 @@
                             <!-- 選擇品牌下拉 -->
                             <td class="brand">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm " data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm "
+                                        data-toggle="dropdown" data-display="static" aria-haspopup="true"
+                                        aria-expanded="false">
                                         請選擇品牌
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
@@ -570,7 +639,9 @@
                             <!-- 選擇商品下拉 -->
                             <td class="item">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm " data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm "
+                                        data-toggle="dropdown" data-display="static" aria-haspopup="true"
+                                        aria-expanded="false">
                                         請選擇商品
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
@@ -584,7 +655,9 @@
                             <td class="itemprice">＄0</td>
                             <!-- 選擇商品數量 -->
                             <td class="amount">
-                                <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                                <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm"
+                                    data-toggle="dropdown" data-display="static" aria-haspopup="true"
+                                    aria-expanded="false">
                                     數量
                                 </button>
                             </td>
@@ -615,7 +688,9 @@
                             <!-- 選擇品牌下拉 -->
                             <td class="brand">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm " data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm "
+                                        data-toggle="dropdown" data-display="static" aria-haspopup="true"
+                                        aria-expanded="false">
                                         請選擇品牌
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
@@ -628,7 +703,9 @@
                             <!-- 選擇商品下拉 -->
                             <td class="item">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm " data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm "
+                                        data-toggle="dropdown" data-display="static" aria-haspopup="true"
+                                        aria-expanded="false">
                                         請選擇商品
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
@@ -642,7 +719,9 @@
                             <td class="itemprice">＄0</td>
                             <!-- 選擇商品數量 -->
                             <td class="amount">
-                                <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                                <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm"
+                                    data-toggle="dropdown" data-display="static" aria-haspopup="true"
+                                    aria-expanded="false">
                                     數量
                                 </button>
                             </td>
@@ -659,7 +738,9 @@
                             <!-- 選擇品牌下拉 -->
                             <td class="brand">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm " data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm "
+                                        data-toggle="dropdown" data-display="static" aria-haspopup="true"
+                                        aria-expanded="false">
                                         請選擇品牌
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
@@ -672,7 +753,9 @@
                             <!-- 選擇商品下拉 -->
                             <td class="item">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm " data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm "
+                                        data-toggle="dropdown" data-display="static" aria-haspopup="true"
+                                        aria-expanded="false">
                                         請選擇商品
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
@@ -686,7 +769,9 @@
                             <td class="itemprice">＄0</td>
                             <!-- 選擇商品數量 -->
                             <td class="amount">
-                                <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                                <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm"
+                                    data-toggle="dropdown" data-display="static" aria-haspopup="true"
+                                    aria-expanded="false">
                                     數量
                                 </button>
                             </td>
@@ -703,7 +788,9 @@
                             <!-- 選擇品牌下拉 -->
                             <td class="brand">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm " data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm "
+                                        data-toggle="dropdown" data-display="static" aria-haspopup="true"
+                                        aria-expanded="false">
                                         請選擇品牌
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
@@ -716,7 +803,9 @@
                             <!-- 選擇商品下拉 -->
                             <td class="item">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm " data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm "
+                                        data-toggle="dropdown" data-display="static" aria-haspopup="true"
+                                        aria-expanded="false">
                                         請選擇商品
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
@@ -730,7 +819,9 @@
                             <td class="itemprice">＄0</td>
                             <!-- 選擇商品數量 -->
                             <td class="amount">
-                                <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                                <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm"
+                                    data-toggle="dropdown" data-display="static" aria-haspopup="true"
+                                    aria-expanded="false">
                                     數量
                                 </button>
                             </td>
@@ -782,12 +873,14 @@
 
 
     <!--SCRIPT-->
-    <?php require("C:\\xampp\htdocs\Upick\parts\scripts.php"); ?>
+    <?php include __DIR__ . '/../../parts/scripts.php' ?>
     <script>
-        $(document).on('click', '.add', function() {
-            console.log('hi')
-            $("#menu").append('<li class="list-group-item d-flex"><p class= "col-9 my-auto" > HyperX FURY DDR4 3200 8G x2 桌上型超頻記憶體 HX432C16FB3K2 / 16 </p><h5 class="price col-3 my-auto">$1000</h5></li >');
-        })
+    $(document).on('click', '.add', function() {
+        console.log('hi')
+        $("#menu").append(
+            '<li class="list-group-item d-flex"><p class= "col-9 my-auto" > HyperX FURY DDR4 3200 8G x2 桌上型超頻記憶體 HX432C16FB3K2 / 16 </p><h5 class="price col-3 my-auto">$1000</h5></li >'
+        );
+    })
     </script>
 </body>
 

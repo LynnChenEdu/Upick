@@ -7,13 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>忘記密碼</title>
     <!--檔頭外掛-->
-    <?php require("C:\\xampp\htdocs\Upick\parts\html_head.php"); ?>
+    <?php include __DIR__ . '/../../parts/html_head.php' ?>
     <!-- gorget.css -->
     <link rel="stylesheet" href="/Upick/css/forget.css">
 </head>
 
 <body>
-    <?php require("C:\\xampp\htdocs\Upick\parts\html_navbar.php"); ?>
+    <?php include __DIR__ . '/../../parts/html_navbar.php' ?>
     <div class="container">
         <div id="memForget_HC">
             <div class="memTitle_HC">
@@ -38,35 +38,35 @@
 </body>
 
 <!--SCRIPT-->
-<?php require("C:\\xampp\htdocs\Upick\parts\scripts.php"); ?>
+<?php include __DIR__ . '/../../parts/scripts.php' ?>
 <script>
-    const email = document.querySelector('.memEmailCheck_HC');
-    const Erro = document.querySelector('.memErroEmail_HC');
-    const checkBtn = document.querySelector('.memSendBtn');
-    let regExp = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+const email = document.querySelector('.memEmailCheck_HC');
+const Erro = document.querySelector('.memErroEmail_HC');
+const checkBtn = document.querySelector('.memSendBtn');
+let regExp = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
 
-    function check() {
-        if (email.value.match(regExp)) {
-            email.style.borderColor = "#7FFFE1";
-            Erro.style.display = "none";
-        } else {
-            email.style.borderColor = "#FF8888";
-            Erro.style.display = "block";
-        }
-        if (email.value == "") {
-            email.style.borderColor = "#7FFFE1";
-            Erro.style.display = "none";
-        }
+function check() {
+    if (email.value.match(regExp)) {
+        email.style.borderColor = "#7FFFE1";
+        Erro.style.display = "none";
+    } else {
+        email.style.borderColor = "#FF8888";
+        Erro.style.display = "block";
     }
-    checkBtn.onclick = function() {
-        if (email.value.match(regExp)) {
-            passErro.style.display = "block";
-            CP1.style.borderColor = "#FF8888";
-            CP2.style.borderColor = "#FF8888";
-        } else {
-            passErro.style.display = "none";
-        }
+    if (email.value == "") {
+        email.style.borderColor = "#7FFFE1";
+        Erro.style.display = "none";
     }
+}
+checkBtn.onclick = function() {
+    if (email.value.match(regExp)) {
+        passErro.style.display = "block";
+        CP1.style.borderColor = "#FF8888";
+        CP2.style.borderColor = "#FF8888";
+    } else {
+        passErro.style.display = "none";
+    }
+}
 </script>
 
 </html>

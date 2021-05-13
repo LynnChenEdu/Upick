@@ -7,7 +7,7 @@
     <title>Document</title>
 
     <!--檔頭外掛-->
-    <?php require("C:\\xampp\htdocs\Upick\parts\html_head.php"); ?>
+    <?php include __DIR__ . '/../../parts/html_head.php' ?>
     <!-- google font 'Freckle Face', cursive-->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Freckle+Face&display=swap" rel="stylesheet">
@@ -17,14 +17,14 @@
     <link rel="stylesheet" href="/Upick/css/wp-1.css">
     <!-- style -->
     <style>
-        .wp-button:hover {
-            background-color: #BDAAFF;
-        }
+    .wp-button:hover {
+        background-color: #BDAAFF;
+    }
     </style>
 </head>
 
 <body>
-    <?php require("C:\\xampp\htdocs\Upick\parts\html_navbar.php"); ?>
+    <?php include __DIR__ . '/../../parts/html_navbar.php' ?>
     <div class="wpNavSpace-CL"></div>
 
 
@@ -55,7 +55,7 @@
 
 
     <!--SCRIPT-->
-    <?php require("C:\\xampp\htdocs\Upick\parts\scripts.php"); ?>
+    <?php include __DIR__ . '/../../parts/scripts.php' ?>
 </body>
 
 </html>

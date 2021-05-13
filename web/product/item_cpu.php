@@ -2,17 +2,18 @@
 <html lang="en">
 
 <head>
-    <?php require("C:\\xampp\htdocs\Upick\parts\html_head.php"); ?>
+    <?php include __DIR__ . '/../../parts/html_head.php' ?>
     <!--固定元件:UMA小幫手style-->
     <link rel="stylesheet" href="/Upick/css/style_fixed_element.css">
+
     <!--item style-->
     <link rel="stylesheet" href="/Upick/css/style_item.css">
 </head>
 
 <body>
-    <?php require("C:\\xampp\htdocs\Upick\parts\html_navbar.php"); ?>
+    <?php include __DIR__ . '/../../parts/html_navbar.php' ?>
     <!--固定元件:UMA小幫手html-->
-    <?php require("C:\\xampp\htdocs\Upick\parts\html_fixed_element.php"); ?>
+    <?php include __DIR__ . '/../../parts/html_fixed_element.php' ?>
 
     <!--SiteButton,此為固定元件-->
     <div class="siteBtn-CL">
@@ -398,7 +399,7 @@
 
             </div>
             <!--頁尾-->
-            <?php require("C:\\xampp\htdocs\Upick\parts\html_footer.php"); ?>
+            <?php include __DIR__ . '/../../parts/html_footer.php' ?>
 
         </div>
     </div>
@@ -406,7 +407,7 @@
 
 
     <!--SCRIPT-->
-    <?php require("C:\\xampp\htdocs\Upick\parts\scripts.php"); ?>
+    <?php include __DIR__ . '/../../parts/scripts.php' ?>
     <script>
         $(document).ready(function() {
             //手機版-小於1200則searchbar不出現

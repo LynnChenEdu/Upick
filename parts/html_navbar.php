@@ -121,7 +121,7 @@
 </div>
 
 <!--SCRIPT-->
-<?php require("C:\\xampp\htdocs\Upick\parts\scripts.php"); ?>
+<?php include __DIR__ . '/../parts/scripts.php' ?>
 <script>
     $('.navSearchText-CL').mouseover(function() {
         $(this).css('marginTop', '-5px').css('transition', '0.2s').siblings().css('marginTop', '0px');

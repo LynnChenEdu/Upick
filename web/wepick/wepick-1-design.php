@@ -11,10 +11,7 @@
 
     <!-- google font 'Freckle Face', cursive-->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Freckle+Face&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Concert+One&family=Freckle+Face&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Freckle+Face&display=swap" rel="stylesheet">
 
     <!-- wp-1.css -->
     <link rel="stylesheet" href="/Upick/css/wp-1.css">

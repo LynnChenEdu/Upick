@@ -35,6 +35,9 @@ $row8 = $stmt8->fetchall();
 $row9 = $stmt9->fetchall();
 $row10 = $stmt10->fetchall();*/
 
+$row1 = $pdo->query($sql1)->fetchAll();
+
+
 echo json_encode($row1, JSON_UNESCAPED_UNICODE);
 
 echo json_encode($row2, JSON_UNESCAPED_UNICODE);

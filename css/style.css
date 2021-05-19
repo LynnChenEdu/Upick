@@ -322,6 +322,10 @@
             margin-left: -8px;
         }
 
+        .wWhitePgColor {
+            background-color: #7FE0DC;
+        }
+
         /*深色WEB版輸入框元件*/
         /*wInputShare為深色WEB版輸入框共用設定*/
         .wInputShare {

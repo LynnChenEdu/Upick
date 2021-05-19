@@ -2,6 +2,40 @@
 <html lang="en">
 
 <head>
+    <!--資料庫連結-->
+    <?php
+    require __DIR__ . '/../../__connect_db.php';
+    define('WEB_ROOT', '/UPICK');
+    session_start();
+
+    //取得cpu表格有資料欄位
+    $cpu1 = "SELECT * FROM 01cpu";
+    $cpurow1 = $pdo->query($cpu1)->fetchAll();
+
+
+    // 分類
+    $qs = [];
+    $where = ' WHERE 1 ';
+
+    // 取得總筆數, 總頁數, 該頁的商品資料
+    $perPage = 12; // 每一頁有幾筆
+    // 用戶要看第幾頁的商品
+    $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
+
+    $t_sql = "SELECT COUNT(id) FROM 01cpu";
+    $totalRows = $pdo->query($t_sql)->fetch(PDO::FETCH_NUM)[0];
+    $totalPages = ceil($totalRows / $perPage);
+
+    if ($page < 1) $page = 1;
+    if ($page > $totalPages) $page = $totalPages;
+
+    $p_sql = sprintf("SELECT * FROM 01cpu $where LIMIT %s, %s ", ($page - 1) * $perPage, $perPage);
+
+    $rows = $pdo->query($p_sql)->fetchAll();
+
+    ?>
+
+
     <?php include __DIR__ . '/../../parts/html_head.php' ?>
     <!--固定元件:UMA小幫手style-->
     <link rel="stylesheet" href="/Upick/css/style_fixed_element.css">
@@ -269,95 +303,26 @@
                 <div class="shpItem-CL shpCpu-CL">
 
                     <div class="row">
-                        <div class="col-xl col-6">
-                            <a href="">
-                                <img class="itemShowImg_CL" src="/Upick/images/item_01.png" alt="">
-                                <p class="itemShowName_CL">Corsair HX1200 80Plus白金牌電源供應器白金牌電源供應器</p>
-                                <!--加入追蹤之愛心,購物車,金額-->
-                                <div class="shpHotCartInfo-CL"><i class="far fa-heart shpHeart-CL"></i><i class="fas fa-shopping-cart shpShopCar-CL"></i> <span class="shpItemDollor-CL">8790</span></div>
-                            </a>
-                        </div>
-                        <div class="col-xl col-6">
-                            <img src="/Upick/images/item_01.png" alt="">
-                            <p>Corsair HX1200 80Plus白金牌電源供應器白金牌電源供應器</p>
-                            <!--加入追蹤之愛心,購物車,金額-->
-                            <div class="shpHotCartInfo-CL"><i class="far fa-heart shpHeart-CL"></i><i class="fas fa-shopping-cart shpShopCar-CL"></i> <span class="shpItemDollor-CL">8790</span></div>
-                        </div>
-                        <div class="col-xl col-6">
-                            <img src="/Upick/images/item_01.png" alt="">
-                            <p>Corsair HX1200 80Plus白金牌電源供應器白金牌電源供應器</p>
-                            <!--加入追蹤之愛心,購物車,金額-->
-                            <div class="shpHotCartInfo-CL"><i class="far fa-heart shpHeart-CL"></i><i class="fas fa-shopping-cart shpShopCar-CL"></i> <span class="shpItemDollor-CL">8790</span></div>
-                        </div>
-                        <div class="col-xl col-6">
-                            <img src="/Upick/images/item_01.png" alt="">
-                            <p>Corsair HX1200 80Plus白金牌電源供應器白金牌電源供應器</p>
-                            <!--加入追蹤之愛心,購物車,金額-->
-                            <div class="shpHotCartInfo-CL"><i class="far fa-heart shpHeart-CL"></i><i class="fas fa-shopping-cart shpShopCar-CL"></i> <span class="shpItemDollor-CL">8790</span></div>
-                        </div>
+                        <?php foreach ($rows as $r) : ?>
+
+                            <div class="col-xl col-6">
+                                <a href="dtl_page.php" data-sid="<?= $r['sid'] ?>">
+                                    <img class="itemShowImg_CL" src="<?= WEB_ROOT ?>/images/product/01_CPU/<?= $r['imgs'] ?>.jpg" alt="">
+                                    <p class="itemShowName_CL"><?= $r['name'] ?></p>
+                                    <!--加入追蹤之愛心,購物車,金額-->
+                                    <div class="shpHotCartInfo-CL"><i class="far fa-heart shpHeart-CL"></i><i class="fas fa-shopping-cart shpShopCar-CL"></i> <span class="shpItemDollor-CL"><?= $r['price'] ?></span></div>
+                                </a>
+                            </div>
+                        <?php endforeach; ?>
                     </div>
 
 
-                    <div class="row">
-                        <div class="col-xl col-6">
-                            <a href="">
-                                <img src="/Upick/images/item_01.png" alt="">
-                                <p>Corsair HX1200 80Plus白金牌電源供應器白金牌電源供應器</p>
-                                <!--加入追蹤之愛心,購物車,金額-->
-                                <div class="shpHotCartInfo-CL"><i class="far fa-heart shpHeart-CL"></i><i class="fas fa-shopping-cart shpShopCar-CL"></i> <span class="shpItemDollor-CL">8790</span></div>
-                            </a>
-                        </div>
-                        <div class="col-xl col-6">
-                            <img src="/Upick/images/item_01.png" alt="">
-                            <p>Corsair HX1200 80Plus白金牌電源供應器白金牌電源供應器</p>
-                            <!--加入追蹤之愛心,購物車,金額-->
-                            <div class="shpHotCartInfo-CL"><i class="far fa-heart shpHeart-CL"></i><i class="fas fa-shopping-cart shpShopCar-CL"></i> <span class="shpItemDollor-CL">8790</span></div>
-                        </div>
-                        <div class="col-xl col-6">
-                            <img src="/Upick/images/item_01.png" alt="">
-                            <p>Corsair HX1200 80Plus白金牌電源供應器白金牌電源供應器</p>
-                            <!--加入追蹤之愛心,購物車,金額-->
-                            <div class="shpHotCartInfo-CL"><i class="far fa-heart shpHeart-CL"></i><i class="fas fa-shopping-cart shpShopCar-CL"></i> <span class="shpItemDollor-CL">8790</span></div>
-                        </div>
-                        <div class="col-xl col-6">
-                            <img src="/Upick/images/item_01.png" alt="">
-                            <p>Corsair HX1200 80Plus白金牌電源供應器白金牌電源供應器</p>
-                            <!--加入追蹤之愛心,購物車,金額-->
-                            <div class="shpHotCartInfo-CL"><i class="far fa-heart shpHeart-CL"></i><i class="fas fa-shopping-cart shpShopCar-CL"></i> <span class="shpItemDollor-CL">8790</span></div>
-                        </div>
-                    </div>
 
 
-                    <div class="row">
-                        <div class="col-xl col-6">
-                            <a href="">
-                                <img src="/Upick/images/item_01.png" alt="">
-                                <p>Corsair HX1200 80Plus白金牌電源供應器白金牌電源供應器</p>
-                                <!--加入追蹤之愛心,購物車,金額-->
-                                <div class="shpHotCartInfo-CL"><i class="far fa-heart shpHeart-CL"></i><i class="fas fa-shopping-cart shpShopCar-CL"></i> <span class="shpItemDollor-CL">8790</span></div>
-                            </a>
-                        </div>
-                        <div class="col-xl col-6">
-                            <img src="/Upick/images/item_01.png" alt="">
-                            <p>Corsair HX1200 80Plus白金牌電源供應器白金牌電源供應器</p>
-                            <!--加入追蹤之愛心,購物車,金額-->
-                            <div class="shpHotCartInfo-CL"><i class="far fa-heart shpHeart-CL"></i><i class="fas fa-shopping-cart shpShopCar-CL"></i> <span class="shpItemDollor-CL">8790</span></div>
-                        </div>
-                        <div class="col-xl col-6">
-                            <img src="/Upick/images/item_01.png" alt="">
-                            <p>Corsair HX1200 80Plus白金牌電源供應器白金牌電源供應器</p>
-                            <!--加入追蹤之愛心,購物車,金額-->
-                            <div class="shpHotCartInfo-CL"><i class="far fa-heart shpHeart-CL"></i><i class="fas fa-shopping-cart shpShopCar-CL"></i> <span class="shpItemDollor-CL">8790</span></div>
-                        </div>
-                        <div class="col-xl col-6">
-                            <img src="/Upick/images/item_01.png" alt="">
-                            <p>Corsair HX1200 80Plus白金牌電源供應器白金牌電源供應器</p>
-                            <!--加入追蹤之愛心,購物車,金額-->
-                            <div class="shpHotCartInfo-CL"><i class="far fa-heart shpHeart-CL"></i><i class="fas fa-shopping-cart shpShopCar-CL"></i> <span class="shpItemDollor-CL">8790</span></div>
-                        </div>
-                    </div>
+
 
                 </div>
+
 
                 <!--頁碼-->
                 <ul class="wWhitePgArea itemPage-CL">
@@ -366,32 +331,27 @@
                     </li>
                     <!--前一頁button-->
                     <li class="wWhitePgItem"><a class="wWhitePgLink" href="#"><i class="fas fa-angle-left"></i></a></li>
+
+
                     <!--橫向顯示頁碼-->
-                    <li class="wWhitePgItem wWhitePGnumber"><a class="wWhitePgLink" href="#">1</a></li>
-                    <li class="wWhitePgItem wWhitePGnumber"><a class="wWhitePgLink" href="#">2</a></li>
-                    <li class="wWhitePgItem wWhitePGnumber"><a class="wWhitePgLink" href="#">3</a></li>
+                    <?php for ($i = $page - 2; $i <= $page + 2; $i++) :
+                        if ($i >= 1 and $i <= $totalPages) :
+                            $qs['page'] = $i;
+                    ?>
+                            <!--頁數號碼-->
+                            <li class="wWhitePgItem wWhitePGnumber <?= $i == $page ? 'wWhitePgColor' : '' ?>"><a class="wWhitePgLink" href="?<?= http_build_query($qs) ?>"><?= $i ?></a></li>
+
+                        <?php endif; ?>
+                    <?php endfor; ?>
+
+
                     <!--橫向顯示頁碼終止-->
                     <!--下一頁button-->
                     <li class="wWhitePgItem"><a class="wWhitePgLink" href="#"><i class="fas fa-angle-right"></i></a></li>
                     <!--最後一頁button-->
                     <li class="wWhitePgItem"><a class="wWhitePgLink" href="#"><i class="fas fa-angle-double-right"></i></a>
                     </li>
-                    <span class="wWhiteText">跳轉至</span>
-                    <div class="wWhitePGJPareaL">
-                        <div class="wWhitePGJParea">
-                            <!--顯示跳轉頁數的方框-->
-                            <div class="wWhiteNewPG"></div>
-                            <!--選擇欲跳轉頁數的下拉選單按鈕-->
-                            <div class="wWhiteSlePG"><i class="fas fa-chevron-down"></i></div>
-                        </div>
-                        <ul class="wWhiteJPPGarea">
-                            <!--下拉選單頁碼-->
-                            <li class="wWhiteJPPG"><a class="wWhitePgLink2" href="#">1</a></li>
-                            <li class="wWhiteJPPG"><a class="wWhitePgLink2" href="#">2</a></li>
-                            <li class="wWhiteJPPG"><a class="wWhitePgLink2" href="#">3</a></li>
-                            <!--下拉選單頁碼終止-->
-                        </ul>
-                    </div>
+
                 </ul>
 
                 <!--區隔撐開頁尾的空間-->
@@ -409,6 +369,26 @@
     <!--SCRIPT-->
     <?php include __DIR__ . '/../../parts/scripts.php' ?>
     <script>
+        //開啟商品細節頁
+        const openDtlPgBtn = $('.itemShowImg_CL');
+        openDtlPgBtn.click(function() {
+            const card = $(this).closest('a');
+            const cardid = card.attr('data-sid');
+            console.log('cardid is ', cardid);
+
+            $.get('dtl_api.php', {
+                action: 'list',
+                cardid
+            }, function(data) {
+                console.log(data);
+            }, 'json');
+
+        })
+
+
+
+
+        //網頁初始元件呈現
         $(document).ready(function() {
             //手機版-小於1200則searchbar不出現
             if ($(window).width() < 1200) {

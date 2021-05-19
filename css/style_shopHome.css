@@ -731,14 +731,19 @@
             height: 120px;
         }
 
+        .shpItem-CL img:hover {
+            box-shadow: -1px 1px 3px gray;
+        }
+
         /*設定零件區-文字金額資訊區總體margin-left*/
         .shpItemInfo-CL {
-            margin-left: 6px;
+            margin-left: 10px;
         }
 
         /*設定零件區-p標籤的間距*/
         .shpItem-CL p {
             line-height: 22px;
+            height: 85px;
         }
 
         /*設定零件區-heart, car, dollor的間距*/

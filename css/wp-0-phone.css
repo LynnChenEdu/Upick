@@ -28,47 +28,52 @@
     flex-wrap: wrap;
 }
 
-
 .wp-img {
-    width: 100%;
+    width: 30%;
     padding: 30px 15px;
 }
 
 .wp-originStyle {
-    border-radius: 150px;
+    border-radius: 100px;
     width: 400px;
-    height: 60px;
+    height: 100px;
+    padding: 0 10px;
+    margin: 15px 10px;
+    display: flex;
+   align-items: center;
+   /* justify-content: space-around; */
+}
+.wp-originStyle>h2{
+padding-left: 30px;
 }
 
-.wp-design-hover:hover {
+.wp-design-hover {
     background-color: #ff98c930;
-    border-radius: 150px;
-    width: 400px;
-    height: 60px;
-    transition: .8s;
 }
 
-.wp-document-hover:hover {
-    background-color: #BDAAFF30;
-    border-radius: 150px;
-    width: 400px;
-    height: 60px;
-    transition: .5s;
+.wp-document-hover {
+    background-color: #BDAAFF30; 
 }
 
-.wp-editing-hover:hover {
+.wp-editing-hover{
     background-color: #47D5CE30;
-    border-radius: 150px;
-    width: 400px;
-    height: 60px;
-    transition: .5s;
+   
 }
 
-
-.wp-gaming-hover:hover {
+.wp-gaming-hover {
     background-color: #43D3FD30;
-    border-radius: 150px;
-    width: 400px;
-    height: 60px;
-    transition: .5s;
+   
+}
+
+.wp-design-info{
+    display: none;
+}
+.wp-document-info{
+    display: none;
+}
+.wp-editing-info{
+    display: none;
+}
+.wp-gaming-info{
+    display: none;
 }

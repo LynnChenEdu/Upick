@@ -3,6 +3,11 @@
     width: 1300px;
 }
 
+.wp-0-container a:hover{
+    color: transparent;
+    text-decoration: none;
+}
+
 .wp-title {
     color: #FF2181;
     letter-spacing: 20px;

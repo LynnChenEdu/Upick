@@ -1,19 +1,14 @@
-.wpNavSpace-CL {
-    height: 80px;
-    width: 1300px;
-}
-
 /* 進度條 */
 #wp-progressBar {
     width: 1000px;
     margin: auto;
-    padding-top: 100px;
+    padding-top: 200px;
 }
 
 .wp-progress {
     position: relative;
     width: 100%;
-    height: 120px;
+    height: 160px;
     display: flex;
     flex: wrap;
     justify-content: space-between;
@@ -51,7 +46,7 @@
     /* 區塊大小 */
     height: 16px;
     /* 區塊大小 */
-    background-color: #FDBD3F;
+    background-color: #FF8888;;
     /* 區塊顏色 */
     border-radius: 50%;
     /* 區塊圓角 */
@@ -74,7 +69,7 @@
     width: 80px;
     height: 45px;
     background: #fff;
-    color: #13a3de;
+    color: #4AC8C2;
     border-radius: 15px;
 }
 
@@ -95,7 +90,7 @@
     transform: translateX(-40%);
     width: 80px;
     height: 45px;
-    background: #13a3de;
+    background: #4AC8C2;
     color: #fff;
     border-radius: 15px;
 }
@@ -106,7 +101,7 @@
     width: 0;
     height: 0;
     border: 8px solid;
-    border-color: transparent transparent #13a3de transparent;
+    border-color: transparent transparent #4AC8C2 transparent;
 }
 
 /* 對話框 灰色樣式 */
@@ -148,7 +143,6 @@
     margin: 0 auto;
     overflow: hidden;
     display: flex;
-    align-items: center;
 }
 
 .wp-row {
@@ -166,7 +160,7 @@
     /* height: 400px; */
     padding: 10px;
     border-radius: 4px;
-    background-color: #fafafa;
+    background-color: #f5f6f8;
     /* justify-self: start; */
 }
 .wp-row 
@@ -195,7 +189,7 @@ h5 {
 }
 
 .wp-button:hover {
-    color: #ccc;
+    color: #E4E8EE;
 }
 
 .wp-btn-product {
@@ -210,7 +204,13 @@ h5 {
     font-size: 14px;
     color: #fff;
     transition: .5s;
+    align-items: end;
 }
+.wp-btn-product:hover {
+    color: #fff;
+    transition: .5s;
+}
+
 
 .wp-btn-product-hover {
     width: 80px;
@@ -219,11 +219,21 @@ h5 {
     text-align: center;
     transition: .5s;
     background-color: #384449;
-    color: #Fff;
+    color: #fff;
 }
 
 /* 卡片 */
 .wp-card {
     border-radius: 4px;
     padding: 16px;
+}
+
+.totalPrice{
+    display: flex;
+   justify-content: flex-end;
+}
+
+.list-group{
+    height: 280px;
+    overflow-y: scroll;
 }

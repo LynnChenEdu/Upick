@@ -23,864 +23,1372 @@
 <body>
     <!--navbar-->
     <?php include __DIR__ . '/../../parts/html_navbar.php' ?>
-
-    <div class="container up-container">
-        <div class="row ">
-
-            <!-- 表格 -->
-            <div class="up-table-frame col-lg-8">
-                <table class="up-table">
-                    <thead class="up-table-title-fixed">
-                        <tr class="up-table-title">
-                            <th scope=col class="item">品項</th>
-                            <td scope="col" class="brand">品牌</td>
-                            <td scope="col" class="item">商品名稱</td>
-                            <td scope="col" class="itemprice">單價</td>
-                            <td scope="col" class="amount">數量</td>
-                            <td scope="col" class="sub">小計</td>
-                            <td scope="col"></td>
-                        </tr>
-                    </thead>
-                    <!-- 主題機 -->
-                    <tbody>
-                        <tr>
-                            <th scope="row" class="item">主題機
-                            </th>
-                            <!-- 選擇品牌下拉 -->
-                            <td class="brand">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm "
-                                        data-toggle="dropdown" data-display="static" aria-haspopup="true"
-                                        aria-expanded="false">
-                                        請選擇品牌
-                                    </button>
-                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
-                                        <button class="dropdown-item" type="button">Action</button>
-                                        <button class="dropdown-item" type="button">Another action</button>
-                                        <button class="dropdown-item" type="button">Something else here</button>
-                                    </div>
-                                </div>
-                            </td>
-                            <!-- 選擇商品下拉 -->
-                            <td class="item">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm "
-                                        data-toggle="dropdown" data-display="static" aria-haspopup="true"
-                                        aria-expanded="false">
-                                        請選擇商品
-                                    </button>
-                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
-                                        <button class="dropdown-item" type="button">Action</button>
-                                        <button class="dropdown-item" type="button">Another action</button>
-                                        <button class="dropdown-item" type="button">Something else here</button>
-                                    </div>
-                                </div>
-                            </td>
-                            <!-- 商品單價 -->
-                            <td class="itemprice">＄0</td>
-                            <!-- 選擇商品數量 -->
-                            <td class="amount">
-                                <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm"
-                                    data-toggle="dropdown" data-display="static" aria-haspopup="true"
-                                    aria-expanded="false">
-                                    數量
-                                </button>
-                            </td>
-                            <!-- 小計 -->
-                            <td class="sub price">$0</td>
-                            <!-- 新增 -->
-                            <td class="add"><i class="fas fa-plus-circle "></i></td>
-                        </tr>
-                    </tbody>
-                    <!-- 電腦零組件 -->
-                    <thead>
-                        <tr class="up-table-subtitle">
-                            <th scope="row" class="product">電腦零組件</th>
-                            <td class="brand"></td>
-                            <td class="item"></td>
-                            <td class="itemprice"></td>
-                            <td class="amount"></td>
-                            <td class="sub"></td>
-                            <td class="add"></td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- CPU -->
-                        <tr>
-                            <th scope="row" class="product">中央處理器 CPU
-                            </th>
-                            <!-- 選擇品牌下拉 -->
-                            <td class="brand">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm "
-                                        data-toggle="dropdown" data-display="static" aria-haspopup="true"
-                                        aria-expanded="false">
-                                        請選擇品牌
-                                    </button>
-                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
-                                        <button class="dropdown-item" type="button">Action</button>
-                                        <button class="dropdown-item" type="button">Another action</button>
-                                        <button class="dropdown-item" type="button">Something else here</button>
-                                    </div>
-                                </div>
-                            </td>
-                            <!-- 選擇商品下拉 -->
-                            <td class="item">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm "
-                                        data-toggle="dropdown" data-display="static" aria-haspopup="true"
-                                        aria-expanded="false">
-                                        請選擇商品
-                                    </button>
-                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
-                                        <button class="dropdown-item" type="button">Action</button>
-                                        <button class="dropdown-item" type="button">Another action</button>
-                                        <button class="dropdown-item" type="button">Something else here</button>
-                                    </div>
-                                </div>
-                            </td>
-                            <!-- 商品單價 -->
-                            <td class="itemprice">＄0</td>
-                            <!-- 選擇商品數量 -->
-                            <td class="amount">
-                                <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm"
-                                    data-toggle="dropdown" data-display="static" aria-haspopup="true"
-                                    aria-expanded="false">
-                                    數量
-                                </button>
-                            </td>
-                            <!-- 小計 -->
-                            <td class="sub price">$0</td>
-                            <!-- 新增 -->
-                            <td class="add"><i class="fas fa-plus-circle "></i></td>
-                        </tr>
-                        <!-- MB -->
-                        <tr>
-                            <th scope="row" class="product">主機板 MB
-                            </th>
-                            <!-- 選擇品牌下拉 -->
-                            <td class="brand">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm "
-                                        data-toggle="dropdown" data-display="static" aria-haspopup="true"
-                                        aria-expanded="false">
-                                        請選擇品牌
-                                    </button>
-                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
-                                        <button class="dropdown-item" type="button">Action</button>
-                                        <button class="dropdown-item" type="button">Another action</button>
-                                        <button class="dropdown-item" type="button">Something else here</button>
-                                    </div>
-                                </div>
-                            </td>
-                            <!-- 選擇商品下拉 -->
-                            <td class="item">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm "
-                                        data-toggle="dropdown" data-display="static" aria-haspopup="true"
-                                        aria-expanded="false">
-                                        請選擇商品
-                                    </button>
-                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
-                                        <button class="dropdown-item" type="button">Action</button>
-                                        <button class="dropdown-item" type="button">Another action</button>
-                                        <button class="dropdown-item" type="button">Something else here</button>
-                                    </div>
-                                </div>
-                            </td>
-                            <!-- 商品單價 -->
-                            <td class="itemprice">＄0</td>
-                            <!-- 選擇商品數量 -->
-                            <td class="amount">
-                                <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm"
-                                    data-toggle="dropdown" data-display="static" aria-haspopup="true"
-                                    aria-expanded="false">
-                                    數量
-                                </button>
-                            </td>
-                            <!-- 小計 -->
-                            <td class="sub price">$0</td>
-                            <!-- 新增 -->
-                            <td class="add"><i class="fas fa-plus-circle "></i></td>
-
-                        </tr>
-                        <!-- RAM -->
-                        <tr>
-                            <th scope="row" class="product">記憶體 RAM
-                            </th>
-                            <!-- 選擇品牌下拉 -->
-                            <td class="brand">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm "
-                                        data-toggle="dropdown" data-display="static" aria-haspopup="true"
-                                        aria-expanded="false">
-                                        請選擇品牌
-                                    </button>
-                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
-                                        <button class="dropdown-item" type="button">Action</button>
-                                        <button class="dropdown-item" type="button">Another action</button>
-                                        <button class="dropdown-item" type="button">Something else here</button>
-                                    </div>
-                                </div>
-                            </td>
-                            <!-- 選擇商品下拉 -->
-                            <td class="item">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm "
-                                        data-toggle="dropdown" data-display="static" aria-haspopup="true"
-                                        aria-expanded="false">
-                                        請選擇商品
-                                    </button>
-                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
-                                        <button class="dropdown-item" type="button">Action</button>
-                                        <button class="dropdown-item" type="button">Another action</button>
-                                        <button class="dropdown-item" type="button">Something else here</button>
-                                    </div>
-                                </div>
-                            </td>
-                            <!-- 商品單價 -->
-                            <td class="itemprice">＄0</td>
-                            <!-- 選擇商品數量 -->
-                            <td class="amount">
-                                <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm"
-                                    data-toggle="dropdown" data-display="static" aria-haspopup="true"
-                                    aria-expanded="false">
-                                    數量
-                                </button>
-                            </td>
-                            <!-- 小計 -->
-                            <td class="sub price">$0</td>
-                            <!-- 新增 -->
-                            <td class="add"><i class="fas fa-plus-circle "></i></td>
-
-                        </tr>
-                        <!-- SSD -->
-                        <tr>
-                            <th scope="row" class="product">固態硬碟 SSD
-                            </th>
-                            <!-- 選擇品牌下拉 -->
-                            <td class="brand">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm "
-                                        data-toggle="dropdown" data-display="static" aria-haspopup="true"
-                                        aria-expanded="false">
-                                        請選擇品牌
-                                    </button>
-                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
-                                        <button class="dropdown-item" type="button">Action</button>
-                                        <button class="dropdown-item" type="button">Another action</button>
-                                        <button class="dropdown-item" type="button">Something else here</button>
-                                    </div>
-                                </div>
-                            </td>
-                            <!-- 選擇商品下拉 -->
-                            <td class="item">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm "
-                                        data-toggle="dropdown" data-display="static" aria-haspopup="true"
-                                        aria-expanded="false">
-                                        請選擇商品
-                                    </button>
-                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
-                                        <button class="dropdown-item" type="button">Action</button>
-                                        <button class="dropdown-item" type="button">Another action</button>
-                                        <button class="dropdown-item" type="button">Something else here</button>
-                                    </div>
-                                </div>
-                            </td>
-                            <!-- 商品單價 -->
-                            <td class="itemprice">＄0</td>
-                            <!-- 選擇商品數量 -->
-                            <td class="amount">
-                                <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm"
-                                    data-toggle="dropdown" data-display="static" aria-haspopup="true"
-                                    aria-expanded="false">
-                                    數量
-                                </button>
-                            </td>
-                            <!-- 小計 -->
-                            <td class="sub price">$0</td>
-                            <!-- 新增 -->
-                            <td class="add"><i class="fas fa-plus-circle "></i></td>
-
-                        </tr>
-                        <!-- VGA -->
-                        <tr>
-                            <th scope="row" class="product">顯示卡 VGA
-                            </th>
-                            <!-- 選擇品牌下拉 -->
-                            <td class="brand">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm "
-                                        data-toggle="dropdown" data-display="static" aria-haspopup="true"
-                                        aria-expanded="false">
-                                        請選擇品牌
-                                    </button>
-                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
-                                        <button class="dropdown-item" type="button">Action</button>
-                                        <button class="dropdown-item" type="button">Another action</button>
-                                        <button class="dropdown-item" type="button">Something else here</button>
-                                    </div>
-                                </div>
-                            </td>
-                            <!-- 選擇商品下拉 -->
-                            <td class="item">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm "
-                                        data-toggle="dropdown" data-display="static" aria-haspopup="true"
-                                        aria-expanded="false">
-                                        請選擇商品
-                                    </button>
-                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
-                                        <button class="dropdown-item" type="button">Action</button>
-                                        <button class="dropdown-item" type="button">Another action</button>
-                                        <button class="dropdown-item" type="button">Something else here</button>
-                                    </div>
-                                </div>
-                            </td>
-                            <!-- 商品單價 -->
-                            <td class="itemprice">＄0</td>
-                            <!-- 選擇商品數量 -->
-                            <td class="amount">
-                                <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm"
-                                    data-toggle="dropdown" data-display="static" aria-haspopup="true"
-                                    aria-expanded="false">
-                                    數量
-                                </button>
-                            </td>
-                            <!-- 小計 -->
-                            <td class="sub price">$0</td>
-                            <!-- 新增 -->
-                            <td class="add"><i class="fas fa-plus-circle "></i></td>
-
-                        </tr>
-                        <!-- POWER -->
-                        <tr>
-                            <th scope="row" class="product">電源供應器 POWER
-                            </th>
-                            <!-- 選擇品牌下拉 -->
-                            <td class="brand">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm "
-                                        data-toggle="dropdown" data-display="static" aria-haspopup="true"
-                                        aria-expanded="false">
-                                        請選擇品牌
-                                    </button>
-                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
-                                        <button class="dropdown-item" type="button">Action</button>
-                                        <button class="dropdown-item" type="button">Another action</button>
-                                        <button class="dropdown-item" type="button">Something else here</button>
-                                    </div>
-                                </div>
-                            </td>
-                            <!-- 選擇商品下拉 -->
-                            <td class="item">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm "
-                                        data-toggle="dropdown" data-display="static" aria-haspopup="true"
-                                        aria-expanded="false">
-                                        請選擇商品
-                                    </button>
-                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
-                                        <button class="dropdown-item" type="button">Action</button>
-                                        <button class="dropdown-item" type="button">Another action</button>
-                                        <button class="dropdown-item" type="button">Something else here</button>
-                                    </div>
-                                </div>
-                            </td>
-                            <!-- 商品單價 -->
-                            <td class="itemprice">＄0</td>
-                            <!-- 選擇商品數量 -->
-                            <td class="amount">
-                                <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm"
-                                    data-toggle="dropdown" data-display="static" aria-haspopup="true"
-                                    aria-expanded="false">
-                                    數量
-                                </button>
-                            </td>
-                            <!-- 小計 -->
-                            <td class="sub price">$0</td>
-                            <!-- 新增 -->
-                            <td class="add"><i class="fas fa-plus-circle "></i></td>
-
-                        </tr>
-                        <!-- CASE -->
-                        <tr>
-                            <th scope="row" class="product">電腦機殼 CASE
-                            </th>
-                            <!-- 選擇品牌下拉 -->
-                            <td class="brand">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm "
-                                        data-toggle="dropdown" data-display="static" aria-haspopup="true"
-                                        aria-expanded="false">
-                                        請選擇品牌
-                                    </button>
-                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
-                                        <button class="dropdown-item" type="button">Action</button>
-                                        <button class="dropdown-item" type="button">Another action</button>
-                                        <button class="dropdown-item" type="button">Something else here</button>
-                                    </div>
-                                </div>
-                            </td>
-                            <!-- 選擇商品下拉 -->
-                            <td class="item">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm "
-                                        data-toggle="dropdown" data-display="static" aria-haspopup="true"
-                                        aria-expanded="false">
-                                        請選擇商品
-                                    </button>
-                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
-                                        <button class="dropdown-item" type="button">Action</button>
-                                        <button class="dropdown-item" type="button">Another action</button>
-                                        <button class="dropdown-item" type="button">Something else here</button>
-                                    </div>
-                                </div>
-                            </td>
-                            <!-- 商品單價 -->
-                            <td class="itemprice">＄0</td>
-                            <!-- 選擇商品數量 -->
-                            <td class="amount">
-                                <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm"
-                                    data-toggle="dropdown" data-display="static" aria-haspopup="true"
-                                    aria-expanded="false">
-                                    數量
-                                </button>
-                            </td>
-                            <!-- 小計 -->
-                            <td class="sub price">$0</td>
-                            <!-- 新增 -->
-                            <td class="add"><i class="fas fa-plus-circle "></i></td>
-
-                        </tr>
-                        <tr>
-                            <th scope="row" class="product">鍵盤 / 滑鼠
-                            </th>
-                            <!-- 選擇品牌下拉 -->
-                            <td class="brand">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm "
-                                        data-toggle="dropdown" data-display="static" aria-haspopup="true"
-                                        aria-expanded="false">
-                                        請選擇品牌
-                                    </button>
-                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
-                                        <button class="dropdown-item" type="button">Action</button>
-                                        <button class="dropdown-item" type="button">Another action</button>
-                                        <button class="dropdown-item" type="button">Something else here</button>
-                                    </div>
-                                </div>
-                            </td>
-                            <!-- 選擇商品下拉 -->
-                            <td class="item">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm "
-                                        data-toggle="dropdown" data-display="static" aria-haspopup="true"
-                                        aria-expanded="false">
-                                        請選擇商品
-                                    </button>
-                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
-                                        <button class="dropdown-item" type="button">Action</button>
-                                        <button class="dropdown-item" type="button">Another action</button>
-                                        <button class="dropdown-item" type="button">Something else here</button>
-                                    </div>
-                                </div>
-                            </td>
-                            <!-- 商品單價 -->
-                            <td class="itemprice">＄0</td>
-                            <!-- 選擇商品數量 -->
-                            <td class="amount">
-                                <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm"
-                                    data-toggle="dropdown" data-display="static" aria-haspopup="true"
-                                    aria-expanded="false">
-                                    數量
-                                </button>
-                            </td>
-                            <!-- 小計 -->
-                            <td class="sub price">$0</td>
-                            <!-- 新增 -->
-                            <td class="add"><i class="fas fa-plus-circle "></i></td>
-
-                        </tr>
-                    </tbody>
-                    <!-- 散熱模組 -->
-                    <thead>
-                        <tr class="up-table-subtitle">
-                            <th scope="row" class="product">散熱模組</th>
-                            <td class="brand"></td>
-                            <td class="item"></td>
-                            <td class="itemprice"></td>
-                            <td class="amount"></td>
-                            <td class="sub"></td>
-                            <td class="add"></td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- 散熱器 -->
-                        <tr>
-                            <th scope="row" class="product">散熱器
-                            </th>
-                            <!-- 選擇品牌下拉 -->
-                            <td class="brand">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm "
-                                        data-toggle="dropdown" data-display="static" aria-haspopup="true"
-                                        aria-expanded="false">
-                                        請選擇品牌
-                                    </button>
-                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
-                                        <button class="dropdown-item" type="button">Action</button>
-                                        <button class="dropdown-item" type="button">Another action</button>
-                                        <button class="dropdown-item" type="button">Something else here</button>
-                                    </div>
-                                </div>
-                            </td>
-                            <!-- 選擇商品下拉 -->
-                            <td class="item">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm "
-                                        data-toggle="dropdown" data-display="static" aria-haspopup="true"
-                                        aria-expanded="false">
-                                        請選擇商品
-                                    </button>
-                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
-                                        <button class="dropdown-item" type="button">Action</button>
-                                        <button class="dropdown-item" type="button">Another action</button>
-                                        <button class="dropdown-item" type="button">Something else here</button>
-                                    </div>
-                                </div>
-                            </td>
-                            <!-- 商品單價 -->
-                            <td class="itemprice">＄0</td>
-                            <!-- 選擇商品數量 -->
-                            <td class="amount">
-                                <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm"
-                                    data-toggle="dropdown" data-display="static" aria-haspopup="true"
-                                    aria-expanded="false">
-                                    數量
-                                </button>
-                            </td>
-                            <!-- 小計 -->
-                            <td class="sub price">$0</td>
-                            <!-- 新增 -->
-                            <td class="add"><i class="fas fa-plus-circle "></i></td>
-
-                        </tr>
-                        <!-- 散熱膏 -->
-                        <tr>
-                            <th scope="row" class="product">散熱膏
-                            </th>
-                            <!-- 選擇品牌下拉 -->
-                            <td class="brand">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm "
-                                        data-toggle="dropdown" data-display="static" aria-haspopup="true"
-                                        aria-expanded="false">
-                                        請選擇品牌
-                                    </button>
-                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
-                                        <button class="dropdown-item" type="button">Action</button>
-                                        <button class="dropdown-item" type="button">Another action</button>
-                                        <button class="dropdown-item" type="button">Something else here</button>
-                                    </div>
-                                </div>
-                            </td>
-                            <!-- 選擇商品下拉 -->
-                            <td class="item">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm "
-                                        data-toggle="dropdown" data-display="static" aria-haspopup="true"
-                                        aria-expanded="false">
-                                        請選擇商品
-                                    </button>
-                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
-                                        <button class="dropdown-item" type="button">Action</button>
-                                        <button class="dropdown-item" type="button">Another action</button>
-                                        <button class="dropdown-item" type="button">Something else here</button>
-                                    </div>
-                                </div>
-                            </td>
-                            <!-- 商品單價 -->
-                            <td class="itemprice">＄0</td>
-                            <!-- 選擇商品數量 -->
-                            <td class="amount">
-                                <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm"
-                                    data-toggle="dropdown" data-display="static" aria-haspopup="true"
-                                    aria-expanded="false">
-                                    數量
-                                </button>
-                            </td>
-                            <!-- 小計 -->
-                            <td class="sub price">$0</td>
-                            <!-- 新增 -->
-                            <td class="add"><i class="fas fa-plus-circle "></i></td>
-
-                        </tr>
-                        <!-- 水冷 -->
-                        <tr>
-                            <th scope="row" class="product">水冷
-                            </th>
-                            <!-- 選擇品牌下拉 -->
-                            <td class="brand">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm "
-                                        data-toggle="dropdown" data-display="static" aria-haspopup="true"
-                                        aria-expanded="false">
-                                        請選擇品牌
-                                    </button>
-                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
-                                        <button class="dropdown-item" type="button">Action</button>
-                                        <button class="dropdown-item" type="button">Another action</button>
-                                        <button class="dropdown-item" type="button">Something else here</button>
-                                    </div>
-                                </div>
-                            </td>
-                            <!-- 選擇商品下拉 -->
-                            <td class="item">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm "
-                                        data-toggle="dropdown" data-display="static" aria-haspopup="true"
-                                        aria-expanded="false">
-                                        請選擇商品
-                                    </button>
-                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
-                                        <button class="dropdown-item" type="button">Action</button>
-                                        <button class="dropdown-item" type="button">Another action</button>
-                                        <button class="dropdown-item" type="button">Something else here</button>
-                                    </div>
-                                </div>
-                            </td>
-                            <!-- 商品單價 -->
-                            <td class="itemprice">＄0</td>
-                            <!-- 選擇商品數量 -->
-                            <td class="amount">
-                                <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm"
-                                    data-toggle="dropdown" data-display="static" aria-haspopup="true"
-                                    aria-expanded="false">
-                                    數量
-                                </button>
-                            </td>
-                            <!-- 小計 -->
-                            <td class="sub price">$0</td>
-                            <!-- 新增 -->
-                            <td class="add"><i class="fas fa-plus-circle "></i></td>
-
-                        </tr>
-                    </tbody>
-                    <!-- 周邊零件 -->
-                    <thead>
-                        <tr class="up-table-subtitle">
-                            <th scope="row" class="product">周邊零件</th>
-                            <td class="brand"></td>
-                            <td class="item"></td>
-                            <td class="itemprice"></td>
-                            <td class="amount"></td>
-                            <td class="sub"></td>
-                            <td class="add"></td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- 外接硬碟 -->
-                        <tr>
-                            <th scope="row" class="product">外接硬碟
-                            </th>
-                            <!-- 選擇品牌下拉 -->
-                            <td class="brand">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm "
-                                        data-toggle="dropdown" data-display="static" aria-haspopup="true"
-                                        aria-expanded="false">
-                                        請選擇品牌
-                                    </button>
-                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
-                                        <button class="dropdown-item" type="button">Action</button>
-                                        <button class="dropdown-item" type="button">Another action</button>
-                                        <button class="dropdown-item" type="button">Something else here</button>
-                                    </div>
-                                </div>
-                            </td>
-                            <!-- 選擇商品下拉 -->
-                            <td class="item">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm "
-                                        data-toggle="dropdown" data-display="static" aria-haspopup="true"
-                                        aria-expanded="false">
-                                        請選擇商品
-                                    </button>
-                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
-                                        <button class="dropdown-item" type="button">Action</button>
-                                        <button class="dropdown-item" type="button">Another action</button>
-                                        <button class="dropdown-item" type="button">Something else here</button>
-                                    </div>
-                                </div>
-                            </td>
-                            <!-- 商品單價 -->
-                            <td class="itemprice">＄0</td>
-                            <!-- 選擇商品數量 -->
-                            <td class="amount">
-                                <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm"
-                                    data-toggle="dropdown" data-display="static" aria-haspopup="true"
-                                    aria-expanded="false">
-                                    數量
-                                </button>
-                            </td>
-                            <!-- 小計 -->
-                            <td class="sub price">$0</td>
-                            <!-- 新增 -->
-                            <td class="add"><i class="fas fa-plus-circle "></i></td>
-
-                        </tr>
-                        <!-- 隨身硬碟 -->
-                        <tr>
-                            <th scope="row" class="product">隨身碟 USB
-                            </th>
-                            <!-- 選擇品牌下拉 -->
-                            <td class="brand">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm "
-                                        data-toggle="dropdown" data-display="static" aria-haspopup="true"
-                                        aria-expanded="false">
-                                        請選擇品牌
-                                    </button>
-                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
-                                        <button class="dropdown-item" type="button">Action</button>
-                                        <button class="dropdown-item" type="button">Another action</button>
-                                        <button class="dropdown-item" type="button">Something else here</button>
-                                    </div>
-                                </div>
-                            </td>
-                            <!-- 選擇商品下拉 -->
-                            <td class="item">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm "
-                                        data-toggle="dropdown" data-display="static" aria-haspopup="true"
-                                        aria-expanded="false">
-                                        請選擇商品
-                                    </button>
-                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
-                                        <button class="dropdown-item" type="button">Action</button>
-                                        <button class="dropdown-item" type="button">Another action</button>
-                                        <button class="dropdown-item" type="button">Something else here</button>
-                                    </div>
-                                </div>
-                            </td>
-                            <!-- 商品單價 -->
-                            <td class="itemprice">＄0</td>
-                            <!-- 選擇商品數量 -->
-                            <td class="amount">
-                                <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm"
-                                    data-toggle="dropdown" data-display="static" aria-haspopup="true"
-                                    aria-expanded="false">
-                                    數量
-                                </button>
-                            </td>
-                            <!-- 小計 -->
-                            <td class="sub price">$0</td>
-                            <!-- 新增 -->
-                            <td class="add"><i class="fas fa-plus-circle "></i></td>
-
-                        </tr>
-                        <!-- 記憶卡 -->
-                        <tr>
-                            <th scope="row" class="product">記憶卡
-                            </th>
-                            <!-- 選擇品牌下拉 -->
-                            <td class="brand">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm "
-                                        data-toggle="dropdown" data-display="static" aria-haspopup="true"
-                                        aria-expanded="false">
-                                        請選擇品牌
-                                    </button>
-                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
-                                        <button class="dropdown-item" type="button">Action</button>
-                                        <button class="dropdown-item" type="button">Another action</button>
-                                        <button class="dropdown-item" type="button">Something else here</button>
-                                    </div>
-                                </div>
-                            </td>
-                            <!-- 選擇商品下拉 -->
-                            <td class="item">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm "
-                                        data-toggle="dropdown" data-display="static" aria-haspopup="true"
-                                        aria-expanded="false">
-                                        請選擇商品
-                                    </button>
-                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
-                                        <button class="dropdown-item" type="button">Action</button>
-                                        <button class="dropdown-item" type="button">Another action</button>
-                                        <button class="dropdown-item" type="button">Something else here</button>
-                                    </div>
-                                </div>
-                            </td>
-                            <!-- 商品單價 -->
-                            <td class="itemprice">＄0</td>
-                            <!-- 選擇商品數量 -->
-                            <td class="amount">
-                                <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm"
-                                    data-toggle="dropdown" data-display="static" aria-haspopup="true"
-                                    aria-expanded="false">
-                                    數量
-                                </button>
-                            </td>
-                            <!-- 小計 -->
-                            <td class="sub price">$0</td>
-                            <!-- 新增 -->
-                            <td class="add"><i class="fas fa-plus-circle "></i></td>
-                        </tr>
-                    </tbody>
-                </table>
-
+    <div class="container up-container d-flex">
+        <!-- 商品表格 -->
+        <div class="col-lg-8 col-sm-12 up-table-frame ">
+            <!-- title -->
+            <div class="up-table-title row">
+                <div class="col-2 item">品項</div>
+                <div class="col-2 brand">品牌</div>
+                <div class="col-4 productname">商品名稱</div>
+                <div class="col itemprice">單價</div>
+                <div class="col amount">數量</div>
+                <div class="col sub">小計</div>
+                <div class="col add"></div>
             </div>
-            <!-- 表單 -->
-            <div class="col-lg-4 up-card">
-                <div class="d-flex ">
-                    <div class="d-flexalign-items-start justify-content-between">
-                        <h5>商品清單</h5>
-                        <a href="">
-                            <h5>清空</h5>
-                        </a>
-                    </div>
-
-                    <h5 class="price align-self-end">$10000</h5>
+            <!-- 主題機 -->
+            <div class="up-table row">
+                <div class="col-2 item">主題機</div>
+                <div class="col-2 brand">
+                    <form class="widget brand">
+                        <select name="brand">
+                            <option>商品名稱</option>
+                            <option>pro2</option>
+                            <option>pro3</option>
+                            <option>pro4</option>
+                            <option>pro5</option>
+                        </select>
+                        <div class="select">
+                            <span class="value"></span>
+                            <ul class="optList hidden">
+                                <li class="option">品牌</li>
+                                <li class="option">pro2</li>
+                                <li class="option">pro3</li>
+                                <li class="option">pro4</li>
+                                <li class="option">pro5</li>
+                            </ul>
+                        </div>
+                    </form>
                 </div>
+                <div class="col-4 productname">
+                    <form class="widget productname">
+                        <select name="productname">
+                            <option>商品名稱</option>
+                            <option>pro2</option>
+                            <option>pro3</option>
+                            <option>pro4</option>
+                            <option>pro5</option>
+                        </select>
 
-                <ul id="menu" class="list-group ">
-                    <li class="list-group-item d-flex">
-                        <p class="col-9 my-auto">AMD Athlon™ 3000G</p>
-
-                        <h5 class="price col-3 my-auto">$1000</h5>
-                    </li>
-                    <li class="list-group-item d-flex">
-                        <p class="col-9 my-auto">HyperX FURY DDR4 3200 8G x2 桌上型超頻記憶體 HX432C16FB3K2/16</p>
-
-                        <h5 class="price col-3 my-auto">$1000</h5>
-                    </li>
-
-                </ul>
-                <div class="card-body ">
-                    <a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>
+                        <div class="select">
+                            <span class="value">品牌</span>
+                            <ul class="optList hidden">
+                                <li class="option">商品名稱</li>
+                                <li class="option">pro2</li>
+                                <li class="option">pro3</li>
+                                <li class="option">pro4</li>
+                                <li class="option">pro5</li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+                <div class="col itemprice">$0</div>
+                <div class="col amount">
+                    <form class="widget amount">
+                        <select name="amount">
+                            <option>數量</option>
+                            <option>pro2</option>
+                            <option>pro3</option>
+                            <option>pro4</option>
+                            <option>pro5</option>
+                        </select>
+                        <div class="select">
+                            <span class="value"></span>
+                            <ul class="optList hidden">
+                                <li class="option">0</li>
+                                <li class="option">1</li>
+                                <li class="option">2</li>
+                                <li class="option">3</li>
+                                <li class="option">4</li>
+                                <li class="option">5</li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+                <div class="col sub price">$0</div>
+                <div class="col add">
+                    <span>
+                        <i class="fas fa-plus-circle "></i>
+                    </span>
                 </div>
             </div>
+            <!-- subtitle -->
+            <div class="up-table-subtitle row">
+                <div class="col-12 item">電腦零組件</div>
+            </div>
+            <!-- CPU -->
+            <div class="up-table row">
+                <div class="col-2 item">中央處理器</div>
+                <div class="col-2 brand">
+                    <form class="widget brand">
+                        <select name="brand">
+                            <option>商品名稱</option>
+                            <option>pro2</option>
+                            <option>pro3</option>
+                            <option>pro4</option>
+                            <option>pro5</option>
+                        </select>
+                        <div class="select">
+                            <span class="value"></span>
+                            <ul class="optList hidden">
+                                <li class="option">品牌</li>
+                                <li class="option">pro2</li>
+                                <li class="option">pro3</li>
+                                <li class="option">pro4</li>
+                                <li class="option">pro5</li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-4 productname">
+                    <form class="widget productname">
+                        <select name="productname">
+                            <option>商品名稱</option>
+                            <option>pro2</option>
+                            <option>pro3</option>
+                            <option>pro4</option>
+                            <option>pro5</option>
+                        </select>
+
+                        <div class="select">
+                            <span class="value">品牌</span>
+                            <ul class="optList hidden">
+                                <li class="option">商品名稱</li>
+                                <li class="option">pro2</li>
+                                <li class="option">pro3</li>
+                                <li class="option">pro4</li>
+                                <li class="option">pro5</li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+                <div class="col itemprice">$0</div>
+                <div class="col amount">
+                    <form class="widget amount">
+                        <select name="amount">
+                            <option>商品名稱</option>
+                            <option>pro2</option>
+                            <option>pro3</option>
+                            <option>pro4</option>
+                            <option>pro5</option>
+                        </select>
+                        <div class="select">
+                            <span class="value">品牌</span>
+                            <ul class="optList hidden">
+                                <li class="option">0</li>
+                                <li class="option">1</li>
+                                <li class="option">2</li>
+                                <li class="option">3</li>
+                                <li class="option">4</li>
+                                <li class="option">5</li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+                <div class="col sub price">$0</div>
+                <div class="col add" id="add">
+                    <span>
+                        <i class="fas fa-plus-circle "></i>
+                    </span>
+                </div>
+            </div>
+            <!-- 主機板 MB -->
+            <div class="up-table row">
+                <div class="col-2 item">主機板 MB</div>
+                <div class="col-2 brand">
+                    <form class="widget brand">
+                        <select name="brand">
+                            <option>商品名稱</option>
+                            <option>pro2</option>
+                            <option>pro3</option>
+                            <option>pro4</option>
+                            <option>pro5</option>
+                        </select>
+                        <div class="select">
+                            <span class="value"></span>
+                            <ul class="optList hidden">
+                                <li class="option">品牌</li>
+                                <li class="option">pro2</li>
+                                <li class="option">pro3</li>
+                                <li class="option">pro4</li>
+                                <li class="option">pro5</li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-4 productname">
+                    <form class="widget productname">
+                        <select name="productname">
+                            <option>商品名稱</option>
+                            <option>pro2</option>
+                            <option>pro3</option>
+                            <option>pro4</option>
+                            <option>pro5</option>
+                        </select>
+
+                        <div class="select">
+                            <span class="value">品牌</span>
+                            <ul class="optList hidden">
+                                <li class="option">商品名稱</li>
+                                <li class="option">pro2</li>
+                                <li class="option">pro3</li>
+                                <li class="option">pro4</li>
+                                <li class="option">pro5</li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+                <div class="col itemprice">$0</div>
+                <div class="col amount">
+                    <form class="widget amount">
+                        <select name="amount">
+                            <option>商品名稱</option>
+                            <option>pro2</option>
+                            <option>pro3</option>
+                            <option>pro4</option>
+                            <option>pro5</option>
+                        </select>
+                        <div class="select">
+                            <span class="value">品牌</span>
+                            <ul class="optList hidden">
+                                <li class="option">0</li>
+                                <li class="option">1</li>
+                                <li class="option">2</li>
+                                <li class="option">3</li>
+                                <li class="option">4</li>
+                                <li class="option">5</li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+                <div class="col sub price">$0</div>
+                <div class="col add">
+                    <span>
+                        <i class="fas fa-plus-circle "></i>
+                    </span>
+                </div>
+            </div>
+            <!-- 記憶體 RAM -->
+            <div class="up-table row">
+                <div class="col-2 item">記憶體 RAM</div>
+                <div class="col-2 brand">
+                    <form class="widget brand">
+                        <select name="brand">
+                            <option>商品名稱</option>
+                            <option>pro2</option>
+                            <option>pro3</option>
+                            <option>pro4</option>
+                            <option>pro5</option>
+                        </select>
+                        <div class="select">
+                            <span class="value"></span>
+                            <ul class="optList hidden">
+                                <li class="option">品牌</li>
+                                <li class="option">pro2</li>
+                                <li class="option">pro3</li>
+                                <li class="option">pro4</li>
+                                <li class="option">pro5</li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-4 productname">
+                    <form class="widget productname">
+                        <select name="productname">
+                            <option>商品名稱</option>
+                            <option>pro2</option>
+                            <option>pro3</option>
+                            <option>pro4</option>
+                            <option>pro5</option>
+                        </select>
+
+                        <div class="select">
+                            <span class="value">品牌</span>
+                            <ul class="optList hidden">
+                                <li class="option">商品名稱</li>
+                                <li class="option">pro2</li>
+                                <li class="option">pro3</li>
+                                <li class="option">pro4</li>
+                                <li class="option">pro5</li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+                <div class="col itemprice">$0</div>
+                <div class="col amount">
+                    <form class="widget amount">
+                        <select name="amount">
+                            <option>商品名稱</option>
+                            <option>pro2</option>
+                            <option>pro3</option>
+                            <option>pro4</option>
+                            <option>pro5</option>
+                        </select>
+                        <div class="select">
+                            <span class="value">品牌</span>
+                            <ul class="optList hidden">
+                                <li class="option">0</li>
+                                <li class="option">1</li>
+                                <li class="option">2</li>
+                                <li class="option">3</li>
+                                <li class="option">4</li>
+                                <li class="option">5</li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+                <div class="col sub price">$0</div>
+                <div class="col add">
+                    <span>
+                        <i class="fas fa-plus-circle "></i>
+                    </span>
+                </div>
+            </div>
+            <!-- 固態硬碟 SSD -->
+            <div class="up-table row">
+                <div class="col-2 item">固態硬碟 SSD</div>
+                <div class="col-2 brand">
+                    <form class="widget brand">
+                        <select name="brand">
+                            <option>商品名稱</option>
+                            <option>pro2</option>
+                            <option>pro3</option>
+                            <option>pro4</option>
+                            <option>pro5</option>
+                        </select>
+                        <div class="select">
+                            <span class="value"></span>
+                            <ul class="optList hidden">
+                                <li class="option">品牌</li>
+                                <li class="option">pro2</li>
+                                <li class="option">pro3</li>
+                                <li class="option">pro4</li>
+                                <li class="option">pro5</li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-4 productname">
+                    <form class="widget productname">
+                        <select name="productname">
+                            <option>商品名稱</option>
+                            <option>pro2</option>
+                            <option>pro3</option>
+                            <option>pro4</option>
+                            <option>pro5</option>
+                        </select>
+
+                        <div class="select">
+                            <span class="value">品牌</span>
+                            <ul class="optList hidden">
+                                <li class="option">商品名稱</li>
+                                <li class="option">pro2</li>
+                                <li class="option">pro3</li>
+                                <li class="option">pro4</li>
+                                <li class="option">pro5</li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+                <div class="col itemprice">$0</div>
+                <div class="col amount">
+                    <form class="widget amount">
+                        <select name="amount">
+                            <option>商品名稱</option>
+                            <option>pro2</option>
+                            <option>pro3</option>
+                            <option>pro4</option>
+                            <option>pro5</option>
+                        </select>
+                        <div class="select">
+                            <span class="value">品牌</span>
+                            <ul class="optList hidden">
+                                <li class="option">0</li>
+                                <li class="option">1</li>
+                                <li class="option">2</li>
+                                <li class="option">3</li>
+                                <li class="option">4</li>
+                                <li class="option">5</li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+                <div class="col sub price">$0</div>
+                <div class="col add">
+                    <span>
+                        <i class="fas fa-plus-circle "></i>
+                    </span>
+                </div>
+            </div>
+            <!-- 顯示卡 VGA -->
+            <div class="up-table row">
+                <div class="col-2 item">顯示卡 VGA</div>
+                <div class="col-2 brand">
+                    <form class="widget brand">
+                        <select name="brand">
+                            <option>商品名稱</option>
+                            <option>pro2</option>
+                            <option>pro3</option>
+                            <option>pro4</option>
+                            <option>pro5</option>
+                        </select>
+                        <div class="select">
+                            <span class="value"></span>
+                            <ul class="optList hidden">
+                                <li class="option">品牌</li>
+                                <li class="option">pro2</li>
+                                <li class="option">pro3</li>
+                                <li class="option">pro4</li>
+                                <li class="option">pro5</li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-4 productname">
+                    <form class="widget productname">
+                        <select name="productname">
+                            <option>商品名稱</option>
+                            <option>pro2</option>
+                            <option>pro3</option>
+                            <option>pro4</option>
+                            <option>pro5</option>
+                        </select>
+
+                        <div class="select">
+                            <span class="value">品牌</span>
+                            <ul class="optList hidden">
+                                <li class="option">商品名稱</li>
+                                <li class="option">pro2</li>
+                                <li class="option">pro3</li>
+                                <li class="option">pro4</li>
+                                <li class="option">pro5</li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+                <div class="col itemprice">$0</div>
+                <div class="col amount">
+                    <form class="widget amount">
+                        <select name="amount">
+                            <option>商品名稱</option>
+                            <option>pro2</option>
+                            <option>pro3</option>
+                            <option>pro4</option>
+                            <option>pro5</option>
+                        </select>
+                        <div class="select">
+                            <span class="value">品牌</span>
+                            <ul class="optList hidden">
+                                <li class="option">0</li>
+                                <li class="option">1</li>
+                                <li class="option">2</li>
+                                <li class="option">3</li>
+                                <li class="option">4</li>
+                                <li class="option">5</li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+                <div class="col sub price">$0</div>
+                <div class="col add">
+                    <span>
+                        <i class="fas fa-plus-circle "></i>
+                    </span>
+                </div>
+            </div>
+            <!-- 電源供應器 -->
+            <div class="up-table row">
+                <div class="col-2 item">電源供應器</div>
+                <div class="col-2 brand">
+                    <form class="widget brand">
+                        <select name="brand">
+                            <option>商品名稱</option>
+                            <option>pro2</option>
+                            <option>pro3</option>
+                            <option>pro4</option>
+                            <option>pro5</option>
+                        </select>
+                        <div class="select">
+                            <span class="value"></span>
+                            <ul class="optList hidden">
+                                <li class="option">品牌</li>
+                                <li class="option">pro2</li>
+                                <li class="option">pro3</li>
+                                <li class="option">pro4</li>
+                                <li class="option">pro5</li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-4 productname">
+                    <form class="widget productname">
+                        <select name="productname">
+                            <option>商品名稱</option>
+                            <option>pro2</option>
+                            <option>pro3</option>
+                            <option>pro4</option>
+                            <option>pro5</option>
+                        </select>
+
+                        <div class="select">
+                            <span class="value">品牌</span>
+                            <ul class="optList hidden">
+                                <li class="option">商品名稱</li>
+                                <li class="option">pro2</li>
+                                <li class="option">pro3</li>
+                                <li class="option">pro4</li>
+                                <li class="option">pro5</li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+                <div class="col itemprice">$0</div>
+                <div class="col amount">
+                    <form class="widget amount">
+                        <select name="amount">
+                            <option>商品名稱</option>
+                            <option>pro2</option>
+                            <option>pro3</option>
+                            <option>pro4</option>
+                            <option>pro5</option>
+                        </select>
+                        <div class="select">
+                            <span class="value">品牌</span>
+                            <ul class="optList hidden">
+                                <li class="option">0</li>
+                                <li class="option">1</li>
+                                <li class="option">2</li>
+                                <li class="option">3</li>
+                                <li class="option">4</li>
+                                <li class="option">5</li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+                <div class="col sub price">$0</div>
+                <div class="col add">
+                    <span>
+                        <i class="fas fa-plus-circle "></i>
+                    </span>
+                </div>
+            </div>
+            <!-- 電腦機殼 CASE -->
+            <div class="up-table row">
+                <div class="col-2 item">電腦機殼 CASE</div>
+                <div class="col-2 brand">
+                    <form class="widget brand">
+                        <select name="brand">
+                            <option>商品名稱</option>
+                            <option>pro2</option>
+                            <option>pro3</option>
+                            <option>pro4</option>
+                            <option>pro5</option>
+                        </select>
+                        <div class="select">
+                            <span class="value"></span>
+                            <ul class="optList hidden">
+                                <li class="option">品牌</li>
+                                <li class="option">pro2</li>
+                                <li class="option">pro3</li>
+                                <li class="option">pro4</li>
+                                <li class="option">pro5</li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-4 productname">
+                    <form class="widget productname">
+                        <select name="productname">
+                            <option>商品名稱</option>
+                            <option>pro2</option>
+                            <option>pro3</option>
+                            <option>pro4</option>
+                            <option>pro5</option>
+                        </select>
+
+                        <div class="select">
+                            <span class="value">品牌</span>
+                            <ul class="optList hidden">
+                                <li class="option">商品名稱</li>
+                                <li class="option">pro2</li>
+                                <li class="option">pro3</li>
+                                <li class="option">pro4</li>
+                                <li class="option">pro5</li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+                <div class="col itemprice">$0</div>
+                <div class="col amount">
+                    <form class="widget amount">
+                        <select name="amount">
+                            <option>商品名稱</option>
+                            <option>pro2</option>
+                            <option>pro3</option>
+                            <option>pro4</option>
+                            <option>pro5</option>
+                        </select>
+                        <div class="select">
+                            <span class="value">品牌</span>
+                            <ul class="optList hidden">
+                                <li class="option">0</li>
+                                <li class="option">1</li>
+                                <li class="option">2</li>
+                                <li class="option">3</li>
+                                <li class="option">4</li>
+                                <li class="option">5</li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+                <div class="col sub price">$0</div>
+                <div class="col add">
+                    <span>
+                        <i class="fas fa-plus-circle "></i>
+                    </span>
+                </div>
+            </div>
+            <!-- 鍵盤 / 滑鼠 -->
+            <div class="up-table row">
+                <div class="col-2 item">鍵盤 / 滑鼠</div>
+                <div class="col-2 brand">
+                    <form class="widget brand">
+                        <select name="brand">
+                            <option>商品名稱</option>
+                            <option>pro2</option>
+                            <option>pro3</option>
+                            <option>pro4</option>
+                            <option>pro5</option>
+                        </select>
+                        <div class="select">
+                            <span class="value"></span>
+                            <ul class="optList hidden">
+                                <li class="option">品牌</li>
+                                <li class="option">pro2</li>
+                                <li class="option">pro3</li>
+                                <li class="option">pro4</li>
+                                <li class="option">pro5</li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-4 productname">
+                    <form class="widget productname">
+                        <select name="productname">
+                            <option>商品名稱</option>
+                            <option>pro2</option>
+                            <option>pro3</option>
+                            <option>pro4</option>
+                            <option>pro5</option>
+                        </select>
+
+                        <div class="select">
+                            <span class="value">品牌</span>
+                            <ul class="optList hidden">
+                                <li class="option">商品名稱</li>
+                                <li class="option">pro2</li>
+                                <li class="option">pro3</li>
+                                <li class="option">pro4</li>
+                                <li class="option">pro5</li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+                <div class="col itemprice">$0</div>
+                <div class="col amount">
+                    <form class="widget amount">
+                        <select name="amount">
+                            <option>商品名稱</option>
+                            <option>pro2</option>
+                            <option>pro3</option>
+                            <option>pro4</option>
+                            <option>pro5</option>
+                        </select>
+                        <div class="select">
+                            <span class="value">品牌</span>
+                            <ul class="optList hidden">
+                                <li class="option">0</li>
+                                <li class="option">1</li>
+                                <li class="option">2</li>
+                                <li class="option">3</li>
+                                <li class="option">4</li>
+                                <li class="option">5</li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+                <div class="col sub price">$0</div>
+                <div class="col add">
+                    <span>
+                        <i class="fas fa-plus-circle "></i>
+                    </span>
+                </div>
+            </div>
+            <!-- subtitle -->
+            <div class="up-table-subtitle row">
+                <div class="col-12 item">散熱模組</div>
+            </div>
+            <!-- 散熱器 -->
+            <div class="up-table row">
+                <div class="col-2 item">散熱器</div>
+                <div class="col-2 brand">
+                    <form class="widget brand">
+                        <select name="brand">
+                            <option>商品名稱</option>
+                            <option>pro2</option>
+                            <option>pro3</option>
+                            <option>pro4</option>
+                            <option>pro5</option>
+                        </select>
+                        <div class="select">
+                            <span class="value"></span>
+                            <ul class="optList hidden">
+                                <li class="option">品牌</li>
+                                <li class="option">pro2</li>
+                                <li class="option">pro3</li>
+                                <li class="option">pro4</li>
+                                <li class="option">pro5</li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-4 productname">
+                    <form class="widget productname">
+                        <select name="productname">
+                            <option>商品名稱</option>
+                            <option>pro2</option>
+                            <option>pro3</option>
+                            <option>pro4</option>
+                            <option>pro5</option>
+                        </select>
+
+                        <div class="select">
+                            <span class="value">品牌</span>
+                            <ul class="optList hidden">
+                                <li class="option">商品名稱</li>
+                                <li class="option">pro2</li>
+                                <li class="option">pro3</li>
+                                <li class="option">pro4</li>
+                                <li class="option">pro5</li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+                <div class="col itemprice">$0</div>
+                <div class="col amount">
+                    <form class="widget amount">
+                        <select name="amount">
+                            <option>商品名稱</option>
+                            <option>pro2</option>
+                            <option>pro3</option>
+                            <option>pro4</option>
+                            <option>pro5</option>
+                        </select>
+                        <div class="select">
+                            <span class="value">品牌</span>
+                            <ul class="optList hidden">
+                                <li class="option">0</li>
+                                <li class="option">1</li>
+                                <li class="option">2</li>
+                                <li class="option">3</li>
+                                <li class="option">4</li>
+                                <li class="option">5</li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+                <div class="col sub price">$0</div>
+                <div class="col add">
+                    <span>
+                        <i class="fas fa-plus-circle "></i>
+                    </span>
+                </div>
+            </div>
+            <!-- 散熱膏 -->
+            <div class="up-table row">
+                <div class="col-2 item">散熱膏</div>
+                <div class="col-2 brand">
+                    <form class="widget brand">
+                        <select name="brand">
+                            <option>商品名稱</option>
+                            <option>pro2</option>
+                            <option>pro3</option>
+                            <option>pro4</option>
+                            <option>pro5</option>
+                        </select>
+                        <div class="select">
+                            <span class="value"></span>
+                            <ul class="optList hidden">
+                                <li class="option">品牌</li>
+                                <li class="option">pro2</li>
+                                <li class="option">pro3</li>
+                                <li class="option">pro4</li>
+                                <li class="option">pro5</li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-4 productname">
+                    <form class="widget productname">
+                        <select name="productname">
+                            <option>商品名稱</option>
+                            <option>pro2</option>
+                            <option>pro3</option>
+                            <option>pro4</option>
+                            <option>pro5</option>
+                        </select>
+
+                        <div class="select">
+                            <span class="value">品牌</span>
+                            <ul class="optList hidden">
+                                <li class="option">商品名稱</li>
+                                <li class="option">pro2</li>
+                                <li class="option">pro3</li>
+                                <li class="option">pro4</li>
+                                <li class="option">pro5</li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+                <div class="col itemprice">$0</div>
+                <div class="col amount">
+                    <form class="widget amount">
+                        <select name="amount">
+                            <option>商品名稱</option>
+                            <option>pro2</option>
+                            <option>pro3</option>
+                            <option>pro4</option>
+                            <option>pro5</option>
+                        </select>
+                        <div class="select">
+                            <span class="value">品牌</span>
+                            <ul class="optList hidden">
+                                <li class="option">0</li>
+                                <li class="option">1</li>
+                                <li class="option">2</li>
+                                <li class="option">3</li>
+                                <li class="option">4</li>
+                                <li class="option">5</li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+                <div class="col sub price">$0</div>
+                <div class="col add">
+                    <span>
+                        <i class="fas fa-plus-circle "></i>
+                    </span>
+                </div>
+            </div>
+            <!-- 水冷 -->
+            <div class="up-table row">
+                <div class="col-2 item">水冷</div>
+                <div class="col-2 brand">
+                    <form class="widget brand">
+                        <select name="brand">
+                            <option>商品名稱</option>
+                            <option>pro2</option>
+                            <option>pro3</option>
+                            <option>pro4</option>
+                            <option>pro5</option>
+                        </select>
+                        <div class="select">
+                            <span class="value"></span>
+                            <ul class="optList hidden">
+                                <li class="option">品牌</li>
+                                <li class="option">pro2</li>
+                                <li class="option">pro3</li>
+                                <li class="option">pro4</li>
+                                <li class="option">pro5</li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-4 productname">
+                    <form class="widget productname">
+                        <select name="productname">
+                            <option>商品名稱</option>
+                            <option>pro2</option>
+                            <option>pro3</option>
+                            <option>pro4</option>
+                            <option>pro5</option>
+                        </select>
+
+                        <div class="select">
+                            <span class="value">品牌</span>
+                            <ul class="optList hidden">
+                                <li class="option">商品名稱</li>
+                                <li class="option">pro2</li>
+                                <li class="option">pro3</li>
+                                <li class="option">pro4</li>
+                                <li class="option">pro5</li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+                <div class="col itemprice">$0</div>
+                <div class="col amount">
+                    <form class="widget amount">
+                        <select name="amount">
+                            <option>商品名稱</option>
+                            <option>pro2</option>
+                            <option>pro3</option>
+                            <option>pro4</option>
+                            <option>pro5</option>
+                        </select>
+                        <div class="select">
+                            <span class="value">品牌</span>
+                            <ul class="optList hidden">
+                                <li class="option">0</li>
+                                <li class="option">1</li>
+                                <li class="option">2</li>
+                                <li class="option">3</li>
+                                <li class="option">4</li>
+                                <li class="option">5</li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+                <div class="col sub price">$0</div>
+                <div class="col add">
+                    <span>
+                        <i class="fas fa-plus-circle "></i>
+                    </span>
+                </div>
+            </div>
+            <!-- subtitle -->
+            <div class="up-table-subtitle row">
+                <div class="col-12 item">周邊零件</div>
+            </div>
+            <!-- 外接硬碟 -->
+            <div class="up-table row">
+                <div class="col-2 item">外接硬碟</div>
+                <div class="col-2 brand">
+                    <form class="widget brand">
+                        <select name="brand">
+                            <option>商品名稱</option>
+                            <option>pro2</option>
+                            <option>pro3</option>
+                            <option>pro4</option>
+                            <option>pro5</option>
+                        </select>
+                        <div class="select">
+                            <span class="value"></span>
+                            <ul class="optList hidden">
+                                <li class="option">品牌</li>
+                                <li class="option">pro2</li>
+                                <li class="option">pro3</li>
+                                <li class="option">pro4</li>
+                                <li class="option">pro5</li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-4 productname">
+                    <form class="widget productname">
+                        <select name="productname">
+                            <option>商品名稱</option>
+                            <option>pro2</option>
+                            <option>pro3</option>
+                            <option>pro4</option>
+                            <option>pro5</option>
+                        </select>
+
+                        <div class="select">
+                            <span class="value">品牌</span>
+                            <ul class="optList hidden">
+                                <li class="option">商品名稱</li>
+                                <li class="option">pro2</li>
+                                <li class="option">pro3</li>
+                                <li class="option">pro4</li>
+                                <li class="option">pro5</li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+                <div class="col itemprice">$0</div>
+                <div class="col amount">
+                    <form class="widget amount">
+                        <select name="amount">
+                            <option>商品名稱</option>
+                            <option>pro2</option>
+                            <option>pro3</option>
+                            <option>pro4</option>
+                            <option>pro5</option>
+                        </select>
+                        <div class="select">
+                            <span class="value">品牌</span>
+                            <ul class="optList hidden">
+                                <li class="option">0</li>
+                                <li class="option">1</li>
+                                <li class="option">2</li>
+                                <li class="option">3</li>
+                                <li class="option">4</li>
+                                <li class="option">5</li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+                <div class="col sub price">$0</div>
+                <div class="col add">
+                    <span>
+                        <i class="fas fa-plus-circle "></i>
+                    </span>
+                </div>
+            </div>
+            <!-- 隨身碟 USB -->
+            <div class="up-table row">
+                <div class="col-2 item">隨身碟 USB</div>
+                <div class="col-2 brand">
+                    <form class="widget brand">
+                        <select name="brand">
+                            <option>商品名稱</option>
+                            <option>pro2</option>
+                            <option>pro3</option>
+                            <option>pro4</option>
+                            <option>pro5</option>
+                        </select>
+                        <div class="select">
+                            <span class="value"></span>
+                            <ul class="optList hidden">
+                                <li class="option">品牌</li>
+                                <li class="option">pro2</li>
+                                <li class="option">pro3</li>
+                                <li class="option">pro4</li>
+                                <li class="option">pro5</li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-4 productname">
+                    <form class="widget productname">
+                        <select name="productname">
+                            <option>商品名稱</option>
+                            <option>pro2</option>
+                            <option>pro3</option>
+                            <option>pro4</option>
+                            <option>pro5</option>
+                        </select>
+
+                        <div class="select">
+                            <span class="value">品牌</span>
+                            <ul class="optList hidden">
+                                <li class="option">商品名稱</li>
+                                <li class="option">pro2</li>
+                                <li class="option">pro3</li>
+                                <li class="option">pro4</li>
+                                <li class="option">pro5</li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+                <div class="col itemprice">$0</div>
+                <div class="col amount">
+                    <form class="widget amount">
+                        <select name="amount">
+                            <option>商品名稱</option>
+                            <option>pro2</option>
+                            <option>pro3</option>
+                            <option>pro4</option>
+                            <option>pro5</option>
+                        </select>
+                        <div class="select">
+                            <span class="value">品牌</span>
+                            <ul class="optList hidden">
+                                <li class="option">0</li>
+                                <li class="option">1</li>
+                                <li class="option">2</li>
+                                <li class="option">3</li>
+                                <li class="option">4</li>
+                                <li class="option">5</li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+                <div class="col sub price">$0</div>
+                <div class="col add">
+                    <span>
+                        <i class="fas fa-plus-circle "></i>
+                    </span>
+                </div>
+            </div>
+            <!-- 記憶卡 -->
+            <div class="up-table row">
+                <div class="col-2 item">記憶卡</div>
+                <div class="col-2 brand">
+                    <form class="widget brand">
+                        <select name="brand">
+                            <option>商品名稱</option>
+                            <option>pro2</option>
+                            <option>pro3</option>
+                            <option>pro4</option>
+                            <option>pro5</option>
+                        </select>
+                        <div class="select">
+                            <span class="value"></span>
+                            <ul class="optList hidden">
+                                <li class="option">品牌</li>
+                                <li class="option">pro2</li>
+                                <li class="option">pro3</li>
+                                <li class="option">pro4</li>
+                                <li class="option">pro5</li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-4 productname">
+                    <form class="widget productname">
+                        <select name="productname">
+                            <option>商品名稱</option>
+                            <option>pro2</option>
+                            <option>pro3</option>
+                            <option>pro4</option>
+                            <option>pro5</option>
+                        </select>
+
+                        <div class="select">
+                            <span class="value">品牌</span>
+                            <ul class="optList hidden">
+                                <li class="option">商品名稱</li>
+                                <li class="option">pro2</li>
+                                <li class="option">pro3</li>
+                                <li class="option">pro4</li>
+                                <li class="option">pro5</li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+                <div class="col itemprice">$0</div>
+                <div class="col amount">
+                    <form class="widget amount">
+                        <select name="amount">
+                            <option>商品名稱</option>
+                            <option>pro2</option>
+                            <option>pro3</option>
+                            <option>pro4</option>
+                            <option>pro5</option>
+                        </select>
+                        <div class="select">
+                            <span class="value">品牌</span>
+                            <ul class="optList hidden">
+                                <li class="option">0</li>
+                                <li class="option">1</li>
+                                <li class="option">2</li>
+                                <li class="option">3</li>
+                                <li class="option">4</li>
+                                <li class="option">5</li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+                <div class="col sub price">$0</div>
+                <div class="col add">
+                    <span>
+                        <i class="fas fa-plus-circle "></i>
+                    </span>
+                </div>
+            </div>
+
+
 
         </div>
+        <!-- 商品清單 -->
+        <div class="col-lg-4 col-sm-12 up-card">
+            <h5>商品清單</h5>
+            <div id="upList" class="up-list-group">
+                <div class=" list-group-item d-flex">
+                    <div class="col-11">
+                        <p class="my-auto "> HyperX FURY DDR4 3200 8G x2 桌上型超頻記憶體 HX432C16FB3K2/16</p>
+                        <div class="d-flex justify-content-between">
+                            <form class="widget amount">
+                                <select name="amount">
+                                    <option>數量</option>
+                                    <option>pro2</option>
+                                    <option>pro3</option>
+                                    <option>pro4</option>
+                                    <option>pro5</option>
+                                </select>
+                                <div class="select">
+                                    <span class="value"></span>
+                                    <ul class="optList hidden">
+                                        <li class="option">0</li>
+                                        <li class="option">1</li>
+                                        <li class="option">2</li>
+                                        <li class="option">3</li>
+                                        <li class="option">4</li>
+                                        <li class="option">5</li>
+                                    </ul>
+                                </div>
+                            </form>
+                            <span class="price my-auto">$1000</span>
+                        </div>
+                    </div>
+                    <div class="col-1 my-auto trashcan">
+                        <i class=" fas fa-trash "></i>
+                    </div>
+                </div>
 
+            </div>
+
+            <div class="totalPrice d-flex justify-content-center">
+                <h5>
+                    總價
+                    <span class="price">
+                        $3000
+                    </span>
+                </h5>
+            </div>
+            <!-- 按鍵 -->
+            <div class="d-flex justify-content-around">
+                <a href="./upick-2-productlist.html"><button class="btn wp-button wBtnNGr">匯出清單</button>
+                </a>
+                <button class="btn wp-button wBtnNPk">結帳</button>
+            </div>
+        </div>
     </div>
 
 
 
     <!--SCRIPT-->
     <?php include __DIR__ . '/../../parts/scripts.php' ?>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script>
-    $(document).on('click', '.add', function() {
-        console.log('hi')
-        $("#menu").append(
-            '<li class="list-group-item d-flex"><p class= "col-9 my-auto" > HyperX FURY DDR4 3200 8G x2 桌上型超頻記憶體 HX432C16FB3K2 / 16 </p><h5 class="price col-3 my-auto">$1000</h5></li >'
-        );
-    })
+    
+      
+        // 下拉選單
+        NodeList.prototype.forEach = function (callback) {
+            Array.prototype.forEach.call(this, callback);
+        }
+        function deactivateSelect(select) {
+            if (!select.classList.contains('active')) return;
+
+            var optList = select.querySelector('.optList');
+
+            optList.classList.add('hidden');
+            select.classList.remove('active');
+        }
+
+        function activeSelect(select, selectList) {
+            if (select.classList.contains('active')) return;
+
+            selectList.forEach(deactivateSelect);
+            select.classList.add('active');
+        };
+
+        function toggleOptList(select, show) {
+            var optList = select.querySelector('.optList');
+
+            optList.classList.toggle('hidden');
+        }
+
+        function highlightOption(select, option) {
+            var optionList = select.querySelectorAll('.option');
+
+            optionList.forEach(function (other) {
+                other.classList.remove('highlight');
+            });
+
+            option.classList.add('highlight');
+        };
+
+        function updateValue(select, index) {
+            var nativeWidget = select.previousElementSibling;
+            var value = select.querySelector('.value');
+            var optionList = select.querySelectorAll('.option');
+
+            nativeWidget.selectedIndex = index;
+            value.innerHTML = optionList[index].innerHTML;
+            highlightOption(select, optionList[index]);
+        };
+
+        function getIndex(select) {
+            var nativeWidget = select.previousElementSibling;
+
+            return nativeWidget.selectedIndex;
+        };
+
+        window.addEventListener("load", function () {
+            var form = document.querySelector('form');
+
+            form.classList.remove("no-widget");
+            form.classList.add("widget");
+        });
+
+        window.addEventListener('load', function () {
+            var selectList = document.querySelectorAll('.select');
+
+            selectList.forEach(function (select) {
+                var optionList = select.querySelectorAll('.option');
+
+                optionList.forEach(function (option) {
+                    option.addEventListener('mouseover', function () {
+                        highlightOption(select, option);
+                    });
+                });
+
+                select.addEventListener('click', function (event) {
+                    toggleOptList(select);
+                });
+
+                select.addEventListener('focus', function (event) {
+                    activeSelect(select, selectList);
+                });
+
+                select.addEventListener('blur', function (event) {
+                    deactivateSelect(select);
+                });
+            });
+        });
+
+        window.addEventListener('load', function () {
+            var selectList = document.querySelectorAll('.select');
+
+            selectList.forEach(function (select) {
+                var optionList = select.querySelectorAll('.option'),
+                    selectedIndex = getIndex(select);
+
+                select.tabIndex = 0;
+                select.previousElementSibling.tabIndex = -1;
+
+                updateValue(select, selectedIndex);
+
+                optionList.forEach(function (option, index) {
+                    option.addEventListener('click', function (event) {
+                        updateValue(select, index);
+                    });
+                });
+
+                select.addEventListener('keyup', function (event) {
+                    var length = optionList.length,
+                        index = getIndex(select);
+
+                    if (event.keyCode === 27) { deactivateSelect(select); }
+                    if (event.keyCode === 40 && index < length - 1) { index++; }
+                    if (event.keyCode === 38 && index > 0) { index--; }
+
+                    updateValue(select, index);
+                });
+            });
+        });
+
+
+        // 新增
+
+        $(document).on('click', '.add', function () {
+            console.log('hi')
+            $("#upList").append('<div class=" list-group-item d-flex"><div class="col-11"><p class="my-auto "> HyperX FURY DDR4 3200 8G x2 桌上型超頻記憶體 HX432C16FB3K2/16</p><div class="d-flex justify-content-between"><form class="widget amount"><select name="amount"><option>數量</option><option>pro2</option><option>pro3</option><option>pro4</option><option>pro5</option></select><div class="select"><span class="value"></span><ul class="optList hidden"><li class="option">0</li><li class="option">1</li><li class="option">2</li><li class="option">3</li><li class="option">4</li><li class="option">5</li></ul></div></form><span class="price my-auto">$1000</span></div></div><div class="col-1 my-auto trashcan"><i class=" fas fa-trash "></i></div></div></div>');
+        })
+        // var upList = document.getElementById('upList');
+        // var newList = document.createElement('div');
+        // var textNode = document.createTextNode("Hello");
+        // newList.appendChild(textNode);
+        // upList.appendChild(newList);
+
+        $(document).on('click', '.trashcan', function () {
+            console.log('remove')
+            $(this).parent().remove()
+        })
     </script>
 </body>
 

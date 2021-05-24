@@ -11,8 +11,12 @@ $stmt = $pdo->prepare($sql);
 $stmt->execute([$pid]);
 $row = $stmt->fetch();
 
-//print_r(array_count_values($row));
-
+foreach ($row as $key => $value) {
+    echo '<br>';
+    echo $key;
+    echo '<br>';
+    echo $value;
+}
 
 
 // echo json_encode($row);
@@ -255,13 +259,99 @@ if (empty($row)) {
                             <h4><?= $row['name'] ?></h4>
                         </div>
                         <table>
-                            <?php foreach ($row as $key => $value) { ?>
-                                <tr>
-                                    <td><?= $key ?></td>
-                                    <td><?= $value ?></td>
-                                </tr>
-                            <?php } ?>
-
+                            <tr>
+                                <td>品牌</td>
+                                <td><?= isset($row['brand']) ? ($row['brand']) : 'N/A' ?></td>
+                            </tr>
+                            <tr>
+                                <td>名稱</td>
+                                <td><?= isset($row['name']) ? ($row['name']) : 'N/A' ?></td>
+                            </tr>
+                            <tr>
+                                <td>核心數</td>
+                                <td><?= isset($row['cores']) ? ($row['cores']) : 'N/A' ?></td>
+                            </tr>
+                            <tr>
+                                <td>執行緒數量</td>
+                                <td><?= isset($row['threads']) ? ($row['threads']) : 'N/A' ?></td>
+                            </tr>
+                            <tr>
+                                <td>型號</td>
+                                <td><?= isset($row['model']) ? ($row['model']) : 'N/A' ?></td>
+                            </tr>
+                            <tr>
+                                <td>系列</td>
+                                <td><?= isset($row['series']) ? ($row['series']) : 'N/A' ?></td>
+                            </tr>
+                            <tr>
+                                <td>處理器編號</td>
+                                <td><?= isset($row['processor number']) ? ($row['processor number']) : 'N/A' ?></td>
+                            </tr>
+                            <tr>
+                                <td>預設時脈(GHz)</td>
+                                <td><?= isset($row['base_frequency(GHz)']) ? ($row['base_frequency(GHz)']) : 'N/A' ?></td>
+                            </tr>
+                            <tr>
+                                <td>最大超頻(GHz)</td>
+                                <td><?= isset($row['max_turbo_frequency(GHz)']) ? ($row['max_turbo_frequency(GHz)']) : 'N/A' ?></td>
+                            </tr>
+                            <tr>
+                                <td>支援記憶體頻率(MHz)</td>
+                                <td><?= isset($row['support_memory_frequency(MHz)']) ? ($row['support_memory_frequency(MHz)']) : 'N/A' ?></td>
+                            </tr>
+                            <tr>
+                                <td>內建顯示晶片GPU</td>
+                                <td><?= isset($row['is_graphics']) ? ($row['is_graphics']) : 'N/A' ?></td>
+                            </tr>
+                            <tr>
+                                <td>內建顯示晶片GPU型號</td>
+                                <td><?= isset($row['processor_graphics']) ? ($row['processor_graphics']) : 'N/A' ?></td>
+                            </tr>
+                            <tr>
+                                <td>內建顯示晶片GPU頻率(MHz)</td>
+                                <td><?=
+                                    isset($row['processor_graphics_frequency']) ? ($row['processor_graphics_frequency']) : 'N/A'; ?></td>
+                            </tr>
+                            <tr>
+                                <td>晶片</td>
+                                <td><?= isset($row['chip']) ? ($row['chip']) : 'N/A' ?></td>
+                            </tr>
+                            <tr>
+                                <td>晶片組</td>
+                                <td><?= isset($row['chipset']) ? ($row['chipset']) : 'N/A' ?></td>
+                            </tr>
+                            <tr>
+                                <td>繪圖核心</td>
+                                <td><?= isset($row['graphics core']) ? ($row['graphics core']) : 'N/A' ?></td>
+                            </tr>
+                            <tr>
+                                <td>記憶體插槽數</td>
+                                <td><?= isset($row['number_memory solts']) ? ($row['number_memory solts']) : 'N/A' ?></td>
+                            </tr>
+                            <tr>
+                                <td>內建顯示支援</td>
+                                <td><?= isset($row['support_built-in display']) ? ($row['support_built-in display']) : 'N/A' ?></td>
+                            </tr>
+                            <tr>
+                                <td>主機板結構規格</td>
+                                <td><?= isset($row['vga_specification']) ? ($row['vga_specification']) : 'N/A' ?></td>
+                            </tr>
+                            <tr>
+                                <td>尺寸(長x寬)(mm)</td>
+                                <td><?= isset($row['size(L*W)']) ? ($row['size(L*W)']) : 'N/A' ?></td>
+                            </tr>
+                            <tr>
+                                <td>記憶體容量(GB)</td>
+                                <td><?= isset($row['memory capacity']) ? ($row['memory capacity']) : 'N/A' ?></td>
+                            </tr>
+                            <tr>
+                                <td>最大支援記憶體容量</td>
+                                <td><?= isset($row['max_support_memory capacity']) ? ($row['max_support_memory capacity']) : 'N/A' ?></td>
+                            </tr>
+                            <tr>
+                                <td>圖形記憶體類型</td>
+                                <td><?= isset($row['graphics memory_type']) ? ($row['graphics memory_type']) : 'N/A' ?></td>
+                            </tr>
 
 
 
@@ -303,7 +393,7 @@ if (empty($row)) {
                 $('.navSearch-CL').css('display', 'block');
                 //searchBar下滑效果
                 setTimeout(function() {
-                    $('.navSearch-CL').css('transform', 'translateY(0vh)').css('transition', '0.6s')
+                    $('.navSearch-CL').css('transform', 'translateY(0vh)').css('transition', '1s')
                         .css('opacity', '1');
                 }, 1000);
 

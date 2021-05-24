@@ -73,16 +73,18 @@
         }
 
         /*商品細節-頂部區域商品圖-大*/
-        .dtlTopImg-CL {
+        .dtlTopImg-CL img{
             width: 500px;
             height: 500px;
-            outline: 1px solid red;
+            border: 1px solid #9AA3AC;
         }
+
         .dtlTopImg-CL img {
             display: block;
             width: 500px;
             height: 500px;
         }
+
         /*手機版-面包屑不在WEB版出現*/
         .breadcrumb2 {
             display: none;
@@ -199,6 +201,15 @@
             text-align: center;
         }
 
+        /*金額*/
+        .dtlDollor-CL {
+            display: block;
+            color: #FD723C;
+            font-size: 38px;
+            font-weight: 700;
+            margin-top: 20px;
+        }
+
         /*加入追蹤清單與購物車*/
         .dtlAddCar-CL {
             display: flex;
@@ -304,13 +315,26 @@
             margin-left: 12px;
         }
 
- 
-
         /*商品詳細內容區*/
         .dtlItemContain-CL {
             width: 100%;
             padding-top: 10px;
         }
+
+        /*商品介紹圖片區*/
+        .dtlContainImg-CL {
+            padding-top: 20px;
+            height: 1600px;
+            margin-top: 40px;
+        }
+
+        .dtlContainImg-CL img {
+            display: block;
+            width: 800px;
+            height: 800px;
+            margin: 0 auto;
+        }
+
         /*商品說明切換btn*/
         .dtlSwitchBtn-CL {
             width: 430px;
@@ -349,12 +373,6 @@
             z-index: 500;
         }
 
-        /*商品詳細內容-圖片區*/
-        .dtlContainImg-CL {
-            height: 1600px;
-            outline: 1px solid blue;
-            margin-top: 40px;
-        }
         /*商品詳細內容-規格表格區*/
         .dtlContainTable-CL {
             border: 1px solid #383E44;
@@ -397,9 +415,9 @@
             padding-top: 15px;
             text-align: center;
         }
-
-
-
+        .dtlContainTable-CL tr td:nth-child(2) {
+            padding-left: 15px;
+        }
     
         /*此div撐開footer上方的留白空間*/
         .shpFooterSpace-CL {

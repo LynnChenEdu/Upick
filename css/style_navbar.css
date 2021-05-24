@@ -128,14 +128,21 @@
     .navSearchColor-CL {
         width: 0%;
         height: 30px;
-        background-color: #7FE0DC;
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
         opacity: 0.2;
         transition: 1s;
         transition-timing-function:cubic-bezier(0.075, 0.82, 0.165, 1);
-
     }
+
+    /*分類按鈕被選擇時顏色*/
+    .navBtnBg01cpu-CL, .navBtnBg02mb-CL, .navBtnBg04ram-CL, .navBtnBg05hdd-CL, .navBtnBg06ssd-CL, .navBtnBg03vga-CL, .navBtnBg07computercase-CL, .navBtnBg08powersupply-CL, .navBtnBg12fan-CL, .navBtnBg09screen-CL {
+        background-color: #7FE0DC;
+    }
+
+    
+
+  
 
 

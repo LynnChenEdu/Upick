@@ -8,9 +8,11 @@
     define('WEB_ROOT', '/UPICK');
     session_start();
 
+    $tableid = isset($_GET['classid']) ? ($_GET['classid']) : '';
+
     //取得cpu表格有資料欄位
-    $cpu1 = "SELECT * FROM 01cpu";
-    $cpurow1 = $pdo->query($cpu1)->fetchAll();
+    $cpu1 = "SELECT * FROM $tableid";
+    $cpurow1 = $pdo->prepare($cpu1)->fetchAll();
 
 
     // 分類
@@ -22,14 +24,14 @@
     // 用戶要看第幾頁的商品
     $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
 
-    $t_sql = "SELECT COUNT(id) FROM 01cpu";
+    $t_sql = "SELECT COUNT(id) FROM $tableid";
     $totalRows = $pdo->query($t_sql)->fetch(PDO::FETCH_NUM)[0];
     $totalPages = ceil($totalRows / $perPage);
 
     if ($page < 1) $page = 1;
     if ($page > $totalPages) $page = $totalPages;
 
-    $p_sql = sprintf("SELECT * FROM 01cpu $where LIMIT %s, %s ", ($page - 1) * $perPage, $perPage);
+    $p_sql = sprintf("SELECT * FROM $tableid $where LIMIT %s, %s ", ($page - 1) * $perPage, $perPage);
 
     $rows = $pdo->query($p_sql)->fetchAll();
 
@@ -306,8 +308,8 @@
                         <?php foreach ($rows as $r) : ?>
 
                             <div class="col-xl col-6">
-                                <a href="dtl_page.php" data-sid="<?= $r['sid'] ?>">
-                                    <img class="itemShowImg_CL" src="<?= WEB_ROOT ?>/images/product/01_CPU/<?= $r['imgs'] ?>.jpg" alt="">
+                                <a href="dtl_page.php?pid=<?= $r['sid'] ?>&classid=<?= $tableid ?>" data-sid="<?= $r['sid'] ?>">
+                                    <img class="itemShowImg_CL" src="<?= WEB_ROOT ?>/images/product/<?= $tableid ?>/<?= $r['imgs'] ?>.jpg" alt="">
                                     <p class="itemShowName_CL"><?= $r['name'] ?></p>
                                     <!--加入追蹤之愛心,購物車,金額-->
                                     <div class="shpHotCartInfo-CL"><i class="far fa-heart shpHeart-CL"></i><i class="fas fa-shopping-cart shpShopCar-CL"></i> <span class="shpItemDollor-CL"><?= $r['price'] ?></span></div>
@@ -339,7 +341,7 @@
                             $qs['page'] = $i;
                     ?>
                             <!--頁數號碼-->
-                            <li class="wWhitePgItem wWhitePGnumber <?= $i == $page ? 'wWhitePgColor' : '' ?>"><a class="wWhitePgLink" href="?<?= http_build_query($qs) ?>"><?= $i ?></a></li>
+                            <li class="wWhitePgItem wWhitePGnumber <?= $i == $page ? 'wWhitePgColor' : '' ?>"><a class="wWhitePgLink" href="?classid=<?= $tableid ?>&<?= http_build_query($qs) ?>"><?= $i ?></a></li>
 
                         <?php endif; ?>
                     <?php endfor; ?>
@@ -404,7 +406,7 @@
                 $('.navSearch-CL').css('display', 'block');
                 //searchBar下滑效果
                 setTimeout(function() {
-                    $('.navSearch-CL').css('transform', 'translateY(0vh)').css('transition', '1s')
+                    $('.navSearch-CL').css('transform', 'translateY(0vh)').css('transition', '0.6s')
                         .css('opacity', '1');
                 }, 1000);
                 $('.umaHelper-CL').css('display', 'none');

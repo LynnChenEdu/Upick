@@ -15,9 +15,9 @@ $action = isset($_GET['action']) ? $_GET['action'] : 'list'; // 操作的動作
 $itemid = isset($_GET['cardid']) ? ($_GET['cardid']) : 0; // 商品 id
 
 $dtlPage = "SELECT * FROM 01cpu WHERE sid = $itemid";
-$test = $pdo->query($dtlPage);
+$dtlPage2 = $pdo->query($dtlPage)->fetchAll();
 
-sprintf($dtlPage);
+echo $dtlPage2['id'];
 
 
 switch ($action) {

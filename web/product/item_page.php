@@ -10,10 +10,118 @@
 
     $tableid = isset($_GET['classid']) ? ($_GET['classid']) : '';
 
-    //取得cpu表格有資料欄位
-    $cpu1 = "SELECT * FROM $tableid";
-    $cpurow1 = $pdo->prepare($cpu1)->fetchAll();
+    //篩選區
+    //定義10項篩選條件
+    if ($tableid == '01cpu') {
+        $selector[0]['name'] = '品牌';
+        $selector[0]['option'] = "SELECT brand FROM 01cpu GROUP BY brand";
+        $option1data[0] = $pdo->query($selector[0]['option'])->fetchAll();
+        $selector[1]['name'] = '型號';
+        $selector[1]['option'] = "SELECT model FROM 01cpu GROUP BY model";
+        $option1data[1] = $pdo->query($selector[1]['option'])->fetchAll();
+        $selecount = 2;
+        $k = 0;
+    }
+    if ($tableid == '02mb') {
+        $selector[0]['name'] = '品牌';
+        $selector[0]['option'] = "SELECT brand FROM 02mb GROUP BY brand";
+        $option1data[0] = $pdo->query($selector[0]['option'])->fetchAll();
+        $selector[1]['name'] = '記憶體插槽數';
+        $selector[1]['option'] = "SELECT number_memory_solts FROM 02mb GROUP BY number_memory_solts";
+        $option1data[1] = $pdo->query($selector[1]['option'])->fetchAll();
+        $selecount = 2;
+        $k = 0;
+    }
+    if ($tableid == '04ram') {
+        $selector[0]['name'] = '品牌';
+        $selector[0]['option'] = "SELECT brand FROM 04ram GROUP BY brand";
+        $option1data[0] = $pdo->query($selector[0]['option'])->fetchAll();
+        $selector[1]['name'] = '單條容量';
+        $selector[1]['option'] = "SELECT single_capacity FROM 04ram GROUP BY single_capacity";
+        $option1data[1] = $pdo->query($selector[1]['option'])->fetchAll();
+        $selecount = 2;
+        $k = 0;
+    }
+    if ($tableid == '05hdd') {
+        $selector[0]['name'] = '品牌';
+        $selector[0]['option'] = "SELECT brand FROM 05hdd GROUP BY brand";
+        $option1data[0] = $pdo->query($selector[0]['option'])->fetchAll();
+        $selector[1]['name'] = '容量';
+        $selector[1]['option'] = "SELECT capacity FROM 05hdd GROUP BY capacity";
+        $option1data[1] = $pdo->query($selector[1]['option'])->fetchAll();
+        $selector[2]['name'] = '碟盤尺寸(吋)';
+        $selector[2]['option'] = "SELECT disk_size FROM 05hdd GROUP BY disk_size";
+        $option1data[2] = $pdo->query($selector[2]['option'])->fetchAll();
+        $selecount = 3;
+        $k = 0;
+    }
+    if ($tableid == '06ssd') {
+        $selector[0]['name'] = '品牌';
+        $selector[0]['option'] = "SELECT brand FROM 06ssd GROUP BY brand";
+        $option1data[0] = $pdo->query($selector[0]['option'])->fetchAll();
+        $selector[1]['name'] = '容量';
+        $selector[1]['option'] = "SELECT capacity FROM 06ssd GROUP BY capacity";
+        $option1data[1] = $pdo->query($selector[1]['option'])->fetchAll();
+        $selector[2]['name'] = '碟盤尺寸(吋)';
+        $selector[2]['option'] = "SELECT disk_size FROM 06ssd GROUP BY disk_size";
+        $option1data[2] = $pdo->query($selector[2]['option'])->fetchAll();
+        $selecount = 3;
+        $k = 0;
+    }
+    if ($tableid == '03vga') {
+        $selector[0]['name'] = '品牌';
+        $selector[0]['option'] = "SELECT brand FROM 03vga GROUP BY brand";
+        $option1data[0] = $pdo->query($selector[0]['option'])->fetchAll();
+        $selector[1]['name'] = '系列';
+        $selector[1]['option'] = "SELECT series FROM 03vga GROUP BY series";
+        $option1data[1] = $pdo->query($selector[1]['option'])->fetchAll();
+        $selecount = 2;
+        $k = 0;
+    }
+    if ($tableid == '07computercase') {
+        $selector[0]['name'] = '品牌';
+        $selector[0]['option'] = "SELECT brand FROM 07computercase GROUP BY brand";
+        $option1data[0] = $pdo->query($selector[0]['option'])->fetchAll();
+        $selector[1]['name'] = '適用主機板';
+        $selector[1]['option'] = "SELECT applicable_motherboard FROM 07computercase GROUP BY applicable_motherboard";
+        $option1data[1] = $pdo->query($selector[1]['option'])->fetchAll();
+        $selector[2]['name'] = '顏色';
+        $selector[2]['option'] = "SELECT color FROM 07computercase GROUP BY color";
+        $option1data[2] = $pdo->query($selector[2]['option'])->fetchAll();
+        $selecount = 3;
+        $k = 0;
+    }
+    if ($tableid == '08powersupply') {
+        $selector[0]['name'] = '品牌';
+        $selector[0]['option'] = "SELECT brand FROM 08powersupply GROUP BY brand";
+        $option1data[0] = $pdo->query($selector[0]['option'])->fetchAll();
+        $selector[1]['name'] = '80plus認證';
+        $selector[1]['option'] = "SELECT 80plus_certification FROM 08powersupply GROUP BY 80plus_certification";
+        $option1data[1] = $pdo->query($selector[1]['option'])->fetchAll();
+        $selecount = 2;
+        $k = 0;
+    }
+    if ($tableid == '12fan') {
+        $selector[0]['name'] = '品牌';
+        $selector[0]['option'] = "SELECT brand FROM 12fan GROUP BY brand";
+        $option1data[0] = $pdo->query($selector[0]['option'])->fetchAll();
+        $selecount = 1;
+        $k = 0;
+    }
+    if ($tableid == '09screen') {
+        $selector[0]['name'] = '品牌';
+        $selector[0]['option'] = "SELECT brand FROM 09screen GROUP BY brand";
+        $option1data[0] = $pdo->query($selector[0]['option'])->fetchAll();
+        $selector[1]['name'] = '面板類型';
+        $selector[1]['option'] = "SELECT panel_type FROM 09screen GROUP BY panel_type";
+        $option1data[1] = $pdo->query($selector[0]['option'])->fetchAll();
+        $selecount = 1;
+        $k = 0;
+    }
 
+    //取得cpu表格有資料欄位
+    $itemrow = "SELECT * FROM $tableid";
+    $rowfetch = $pdo->prepare($itemrow)->fetchAll();
 
     // 分類
     $qs = [];
@@ -189,75 +297,28 @@
                     </div>
                     <table class="table">
                         <tbody>
-                            <tr>
-                                <th scope="row">核心數<span>(cores(INT))</span></th>
-                                <td>
-                                    <div>
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                                        <label class="form-check-label" for="inlineCheckbox1">2 core</label>
-                                    </div>
-                                    <div>
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                                        <label class="form-check-label" for="inlineCheckbox1">4 core</label>
-                                    </div>
-                                    <div>
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                                        <label class="form-check-label" for="inlineCheckbox1">6 core</label>
-                                    </div>
-                                    <div>
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                                        <label class="form-check-label" for="inlineCheckbox1">8 core</label>
-                                    </div>
-                                    <div>
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                                        <label class="form-check-label" for="inlineCheckbox1">10 core</label>
-                                    </div>
-                                    <div>
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                                        <label class="form-check-label" for="inlineCheckbox1">12 core</label>
-                                    </div>
-                                    <div>
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                                        <label class="form-check-label" for="inlineCheckbox1">16 core</label>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">型號<span>model(VARCHAR)</span></th>
-                                <td>
-                                    <div>
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                                        <label class="form-check-label" for="inlineCheckbox1">AMD</label>
-                                    </div>
-                                    <div>
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                                        <label class="form-check-label" for="inlineCheckbox1">i3</label>
-                                    </div>
-                                    <div>
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                                        <label class="form-check-label" for="inlineCheckbox1">i5</label>
-                                    </div>
-                                    <div>
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                                        <label class="form-check-label" for="inlineCheckbox1">i7</label>
-                                    </div>
-                                    <div>
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                                        <label class="form-check-label" for="inlineCheckbox1">i9</label>
-                                    </div>
-                                </td>
-                            </tr>
+                            <?php for ($i = 0; $i < $selecount; $i++) { ?>
+                                <tr>
+                                    <th scope="row" calss="itemTh-CL"><?= $selector[$i]['name'] ?></th>
+                                    <td>
+                                        <?php foreach ($option1data[$i] as $key2 => $value2) { ?>
+                                            <div>
+                                                <?php
+                                                foreach ($value2 as $v3) {
+                                                    $k++; ?>
+                                                    <input type="checkbox" id="inlineCheckbox<?= $k ?>" value="option1">
+                                                    <label class="form-check-label" for="inlineCheckbox<?= $k ?>"><?= $v3 ?></label>
+                                                <?php } ?>
+                                            </div>
+                                        <?php } ?>
+                                    </td>
+                                </tr>
+                            <?php } ?>
+
 
                         </tbody>
                     </table>
-                    <div class="itemFilterBrandImg-CL">
-                        <a href="">
-                            <div class="itemFilterBrand-CL"><img src="" alt="">AMD</div>
-                        </a>
-                        <a href="">
-                            <div class="itemFilterBrand-CL"><img src="" alt="">Intel</div>
-                        </a>
-                    </div>
+
                     <!--篩選區收合btn-->
                     <div class="itemCollapse-CL">
                         <p>點擊以收合或開啟</p>
@@ -308,7 +369,7 @@
                         <?php foreach ($rows as $r) : ?>
 
                             <div class="col-xl col-6">
-                                <a href="dtl_page.php?pid=<?= $r['sid'] ?>&classid=<?= $tableid ?>" data-sid="<?= $r['sid'] ?>">
+                                <a href="dtl_page.php?classid=<?= $tableid ?>&pid=<?= $r['sid'] ?>" data-sid="<?= $r['sid'] ?>">
                                     <img class="itemShowImg_CL" src="<?= WEB_ROOT ?>/images/product/<?= $tableid ?>/<?= $r['imgs'] ?>.jpg" alt="">
                                     <p class="itemShowName_CL"><?= $r['name'] ?></p>
                                     <!--加入追蹤之愛心,購物車,金額-->

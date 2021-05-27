@@ -276,18 +276,24 @@
         /*設定篩選項目table裡第一欄顏色,寬度*/
         .itemFilter-CL .table th {
             background: #EDF0F3;
-            width: 250px;
+            width: 120px;
+            text-align: center;
+            line-height: 50px;
         }
         /*設定篩選項目table裡篩選label寬度*/
         .itemFilter-CL .table td {
-            padding-left: 40px;
             display: flex;
+            flex-wrap: wrap;
         }
         /*設定篩選項目table裡篩選label間距*/
         .itemFilter-CL .table td div {
-            margin-left: 10px;
             margin-right: 60px;
+            line-height: 50px;
         }
+
+        .itemFilter-CL input {
+            line-height: 50px;
+        }     
 
         /*設定篩選區下方品牌圖*/
         .itemFilterBrandImg-CL {

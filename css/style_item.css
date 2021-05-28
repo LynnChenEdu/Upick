@@ -253,26 +253,15 @@
             height: 50px;
             line-height: 50px;
         }
-        /*設定篩選項目移除列-btn*/
-        .itemFilterClear-CL button{
-            height: 30px;
-            width: 120px;
-            border: 1px solid #061127;
-            line-height: 30px;
-            margin: auto 20px;
-            text-align: left;
-            padding-left: 16px;
-            border-radius: 15px;
-            position: relative;
-            cursor: pointer;
-            
+        /*設定篩選項目移除列-span*/
+        .itemFilterClear-CL span {
+            display: block;
+            margin-left: 50%;
+            transform: translateX(-50%);
+            font-weight: 700;
+            color: #374052;
         }
-        .itemFilterClear-CL button::after {
-            position: absolute;
-            content:"X";
-            margin-left: 5px;
-        }
-
+        
         /*設定篩選項目table裡第一欄顏色,寬度*/
         .itemFilter-CL .table th {
             background: #EDF0F3;

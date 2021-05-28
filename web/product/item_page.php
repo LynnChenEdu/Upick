@@ -119,6 +119,14 @@
         $k = 0;
     }
 
+
+
+    //GET篩選項目
+
+
+
+
+
     //取得cpu表格有資料欄位
     $itemrow = "SELECT * FROM $tableid";
     $rowfetch = $pdo->prepare($itemrow)->fetchAll();
@@ -291,9 +299,7 @@
                 <!--零件篩選區-->
                 <div class="itemFilter-CL">
                     <div class="itemFilterClear-CL">
-                        <button>篩選項目</button>
-                        <button>篩選項目</button>
-                        <button>篩選項目</button>
+                        <span>您所選擇的關鍵字為：</span>
                     </div>
                     <table class="table">
                         <tbody>
@@ -304,10 +310,10 @@
                                         <?php foreach ($option1data[$i] as $key2 => $value2) { ?>
                                             <div>
                                                 <?php
-                                                foreach ($value2 as $v3) {
+                                                foreach ($value2 as $key3 => $optionitem) {
                                                     $k++; ?>
                                                     <input type="checkbox" id="inlineCheckbox<?= $k ?>" value="option1">
-                                                    <label class="form-check-label" for="inlineCheckbox<?= $k ?>"><?= $v3 ?></label>
+                                                    <label class="form-check-label" for="inlineCheckbox<?= $k ?>" data-key="<?= $key3 ?>"><?= $optionitem ?></label>
                                                 <?php } ?>
                                             </div>
                                         <?php } ?>
@@ -448,9 +454,6 @@
 
         })
 
-
-
-
         //網頁初始元件呈現
         $(document).ready(function() {
             //手機版-小於1200則searchbar不出現
@@ -513,12 +516,10 @@
                 //umahelper在超過輪播牆時出現,超過商品區第一列時消失
                 var itemTop = $('.shpItem-CL').offset().top;
                 if ((mouseScroll > itemCaroTop) && (mouseScroll < itemTop)) {
-                    console.log('hi already');
                     $('.umaHelper-CL').css('display', 'block');
                     $('.umaConvert-CL').css('display', 'block');
                 }
                 if ((mouseScroll >= itemTop) || (mouseScroll <= itemCaroTop)) {
-                    console.log('hi not yat');
                     $('.umaHelper-CL').css('display', 'none');
                     $('.umaConvert-CL').css('display', 'none');
                 }
@@ -554,6 +555,51 @@
             }, 500);
 
         });
+
+
+        //取得篩選項目文字
+        $(document).ready(function() {
+            let searchURL = window.location.search.substring(1);
+            console.log('search：', searchURL);
+
+            var optionitem = [searchURL, '&'];
+            if (!sessionStorage.getItem('optionitem')) {
+                $('.itemFilter-CL table td input').click(function() {
+                    $optiontext = $(this).next('label').text();
+                    $optionkey = $(this).next('label').attr('data-key');
+                    $optioncontent = $optionkey + `=` + $optiontext;
+                    optionitem.push($optioncontent);
+                    optionitem2 = optionitem.join('&');
+                    sessionStorage.setItem('optionitem', optionitem2);
+
+                    window.location.href = `http://localhost/Upick/web/product/item_page.php?` + optionitem2;
+
+                })
+            } else {
+                var optionitem = [sessionStorage.getItem('optionitem')];
+                $('.itemFilter-CL table td input').click(function() {
+                    $optiontext = $(this).next('label').text();
+                    $optionkey = $(this).next('label').attr('data-key');
+                    $optioncontent = $optionkey + `=` + $optiontext;
+                    optionitem.push($optioncontent);
+                    optionitem2 = optionitem.join('&');
+                    sessionStorage.setItem('optionitem', optionitem2);
+
+                    window.location.href = `http://localhost/Upick/web/product/item_page.php?` + optionitem2;
+                })
+            }
+        })
+
+        $('.navSearchText-CL').click(function() {
+            sessionStorage.removeItem('optionitem');
+        })
+
+
+
+
+
+
+
 
         //手機版-篩選功能
         $('.fa-chevron-up').toggle();

@@ -24,7 +24,6 @@ if (empty($row)) {
 
 
 
-
 ?>
 <!DOCTYPE html>
 <html lang="en">

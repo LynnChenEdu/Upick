@@ -278,11 +278,7 @@
         .itemFilter-CL .table td div {
             margin-right: 60px;
             line-height: 50px;
-        }
-
-        .itemFilter-CL input {
-            line-height: 50px;
-        }     
+        }   
 
         /*設定篩選區下方品牌圖*/
         .itemFilterBrandImg-CL {

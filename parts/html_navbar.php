@@ -180,7 +180,7 @@ if ($shparea == 'block') {
                                                 echo $tableid;
                                             } else {
                                                 echo '';
-                                            } ?>-CL">周邊零件</span>
+                                            } ?>-CL">週邊產品</span>
                 </div>
             </a>
         </div>

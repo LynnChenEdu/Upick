@@ -10,6 +10,11 @@
 
     $tableid = isset($_GET['classid']) ? ($_GET['classid']) : '';
 
+    $optionkey = isset($_GET['optionkey']) ? ($_GET['optionkey']) : '';
+    $optionvalue = isset($_GET['optionvalue']) ? ($_GET['optionvalue']) : '';
+    $optiontext = "$optionkey" . '=' . $optionvalue;
+
+
     //篩選區
     //定義10項篩選條件
     if ($tableid == '01cpu') {
@@ -21,6 +26,7 @@
         $option1data[1] = $pdo->query($selector[1]['option'])->fetchAll();
         $selecount = 2;
         $k = 0;
+        $classname = 'CPU';
     }
     if ($tableid == '02mb') {
         $selector[0]['name'] = '品牌';
@@ -31,6 +37,7 @@
         $option1data[1] = $pdo->query($selector[1]['option'])->fetchAll();
         $selecount = 2;
         $k = 0;
+        $classname = '主機板';
     }
     if ($tableid == '04ram') {
         $selector[0]['name'] = '品牌';
@@ -41,6 +48,7 @@
         $option1data[1] = $pdo->query($selector[1]['option'])->fetchAll();
         $selecount = 2;
         $k = 0;
+        $classname = '記憶體';
     }
     if ($tableid == '05hdd') {
         $selector[0]['name'] = '品牌';
@@ -54,6 +62,7 @@
         $option1data[2] = $pdo->query($selector[2]['option'])->fetchAll();
         $selecount = 3;
         $k = 0;
+        $classname = '傳統硬碟';
     }
     if ($tableid == '06ssd') {
         $selector[0]['name'] = '品牌';
@@ -67,6 +76,7 @@
         $option1data[2] = $pdo->query($selector[2]['option'])->fetchAll();
         $selecount = 3;
         $k = 0;
+        $classname = '固態硬碟';
     }
     if ($tableid == '03vga') {
         $selector[0]['name'] = '品牌';
@@ -77,6 +87,7 @@
         $option1data[1] = $pdo->query($selector[1]['option'])->fetchAll();
         $selecount = 2;
         $k = 0;
+        $classname = '顯示卡';
     }
     if ($tableid == '07computercase') {
         $selector[0]['name'] = '品牌';
@@ -90,6 +101,7 @@
         $option1data[2] = $pdo->query($selector[2]['option'])->fetchAll();
         $selecount = 3;
         $k = 0;
+        $classname = '電腦機殼';
     }
     if ($tableid == '08powersupply') {
         $selector[0]['name'] = '品牌';
@@ -100,6 +112,7 @@
         $option1data[1] = $pdo->query($selector[1]['option'])->fetchAll();
         $selecount = 2;
         $k = 0;
+        $classname = '電源供應器';
     }
     if ($tableid == '12fan') {
         $selector[0]['name'] = '品牌';
@@ -107,6 +120,7 @@
         $option1data[0] = $pdo->query($selector[0]['option'])->fetchAll();
         $selecount = 1;
         $k = 0;
+        $classname = '散熱產品';
     }
     if ($tableid == '09screen') {
         $selector[0]['name'] = '品牌';
@@ -117,20 +131,12 @@
         $option1data[1] = $pdo->query($selector[0]['option'])->fetchAll();
         $selecount = 1;
         $k = 0;
+        $classname = '週邊產品';
     }
 
 
 
-    //GET篩選項目
-
-
-
-
-
     //取得cpu表格有資料欄位
-    $itemrow = "SELECT * FROM $tableid";
-    $rowfetch = $pdo->prepare($itemrow)->fetchAll();
-
     // 分類
     $qs = [];
     $where = ' WHERE 1 ';
@@ -232,8 +238,7 @@
                     <ol class="breadcrumb">
                         <i class="fas fa-map-marker-alt"></i>
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item"><a href="#">Library</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Data</li>
+                        <li class="breadcrumb-item active" aria-current="page"><?= $classname ?></li>
                     </ol>
                 </nav>
 
@@ -310,10 +315,10 @@
                                         <?php foreach ($option1data[$i] as $key2 => $value2) { ?>
                                             <div>
                                                 <?php
-                                                foreach ($value2 as $key3 => $optionitem) {
-                                                    $k++; ?>
-                                                    <input type="checkbox" id="inlineCheckbox<?= $k ?>" value="option1">
-                                                    <label class="form-check-label" for="inlineCheckbox<?= $k ?>" data-key="<?= $key3 ?>"><?= $optionitem ?></label>
+                                                foreach ($value2 as $optionkey => $optionvalue) { ?>
+                                                    <a href="item_page.php?classid=<?= $tableid ?>&optionkey=<?= $optionkey ?>&optionvalue=<?= $optionvalue ?>">
+                                                        <label class="form-check-label" for="inlineCheckbox<?= $k ?>" data-key="<?= $optionkey ?>"><?= $optionvalue ?></label>
+                                                    </a>
                                                 <?php } ?>
                                             </div>
                                         <?php } ?>
@@ -555,49 +560,6 @@
             }, 500);
 
         });
-
-
-        //取得篩選項目文字
-        $(document).ready(function() {
-            let searchURL = window.location.search.substring(1);
-            console.log('search：', searchURL);
-
-            var optionitem = [searchURL, '&'];
-            if (!sessionStorage.getItem('optionitem')) {
-                $('.itemFilter-CL table td input').click(function() {
-                    $optiontext = $(this).next('label').text();
-                    $optionkey = $(this).next('label').attr('data-key');
-                    $optioncontent = $optionkey + `=` + $optiontext;
-                    optionitem.push($optioncontent);
-                    optionitem2 = optionitem.join('&');
-                    sessionStorage.setItem('optionitem', optionitem2);
-
-                    window.location.href = `http://localhost/Upick/web/product/item_page.php?` + optionitem2;
-
-                })
-            } else {
-                var optionitem = [sessionStorage.getItem('optionitem')];
-                $('.itemFilter-CL table td input').click(function() {
-                    $optiontext = $(this).next('label').text();
-                    $optionkey = $(this).next('label').attr('data-key');
-                    $optioncontent = $optionkey + `=` + $optiontext;
-                    optionitem.push($optioncontent);
-                    optionitem2 = optionitem.join('&');
-                    sessionStorage.setItem('optionitem', optionitem2);
-
-                    window.location.href = `http://localhost/Upick/web/product/item_page.php?` + optionitem2;
-                })
-            }
-        })
-
-        $('.navSearchText-CL').click(function() {
-            sessionStorage.removeItem('optionitem');
-        })
-
-
-
-
-
 
 
 

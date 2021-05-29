@@ -23,9 +23,6 @@
     }
 
 
-
-
-
     //篩選區
     //定義10項篩選條件
     if ($tableid == '01cpu') {
@@ -145,11 +142,6 @@
         $classname = '週邊產品';
     }
 
-
-
-
-
-    //GET篩選項目
 
     //取得cpu表格有資料欄位
     // 分類
@@ -319,7 +311,7 @@
                 <!--零件篩選區-->
                 <div class="itemFilter-CL">
                     <div class="itemFilterClear-CL">
-                        <span>您所選擇的關鍵字為：</span>
+                        <span>您所選擇的關鍵字為：<?= $optionvalue ?></span>
                     </div>
                     <table class="table">
                         <tbody>
@@ -384,7 +376,7 @@
                     <button>最新上架</button>
                     <button>價格 <i class="fas fa-chevron-up"></i></button>
                     <button>銷量</button>
-                    <button class="itemCount-CL">79</button>
+                    <button class="itemCount-CL"><?= $totalRows ?></button>
                 </div>
 
                 <!--商品展示區-->

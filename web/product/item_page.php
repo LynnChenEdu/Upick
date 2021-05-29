@@ -10,15 +10,20 @@
 
     $tableid = isset($_GET['classid']) ? ($_GET['classid']) : '';
 
-    $optionkey = isset($_GET['optionkey']) ? ($_GET['optionkey']) : '';
-    $optionvalue = isset($_GET['optionvalue']) ? ($_GET['optionvalue']) : '';
+    $optionkey = isset($_GET['optionkey']) ? ($_GET['optionkey']) : null;
+    $optionvalue = isset($_GET['optionvalue']) ? ($_GET['optionvalue']) : null;
     if (!empty($optionkey) && !empty($optionvalue)) {
         $optiontext = "AND $optionkey = '$optionvalue'";
-        $optionforpg = "optionkey=$optionkey&optionvalue=$optionvalue";
+        $optionforpg = "optionkey=$optionkey&optionvalue=$optionvalue&";
     }
+
     if (empty($optionkey) && empty($optionvalue)) {
         $optiontext = "";
+        $optionforpg = "";
     }
+
+
+
 
 
     //篩選區
@@ -423,7 +428,7 @@
                             $qs['page'] = $i;
                     ?>
                             <!--頁數號碼-->
-                            <li class="wWhitePgItem wWhitePGnumber <?= $i == $page ? 'wWhitePgColor' : '' ?>"><a class="wWhitePgLink" href="?classid=<?= $tableid ?>&<?= $optionforpg ?>&<?= http_build_query($qs) ?>"><?= $i ?></a></li>
+                            <li class="wWhitePgItem wWhitePGnumber <?= $i == $page ? 'wWhitePgColor' : '' ?>"><a class="wWhitePgLink" href="?classid=<?= $tableid ?>&<?= $optionforpg ?><?= http_build_query($qs) ?>"><?= $i ?></a></li>
 
                         <?php endif; ?>
                     <?php endfor; ?>

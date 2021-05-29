@@ -32,6 +32,17 @@ $totalPages = ceil($totalRows / $perPage);
 
 
 
+
+
+if ($page < 1) $page = 1;
+if ($page > $totalPages) $page = $totalPages;
+
+$p_sql = sprintf("SELECT * FROM $tableid $where LIMIT %s, %s ", ($page - 1) * $perPage, $perPage);
+
+$rows = $pdo->query($p_sql)->fetchAll();
+
+
+
 ?>
 
 <head>

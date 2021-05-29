@@ -12,7 +12,7 @@
 
     $optionkey = isset($_GET['optionkey']) ? ($_GET['optionkey']) : '';
     $optionvalue = isset($_GET['optionvalue']) ? ($_GET['optionvalue']) : '';
-    $optiontext = "$optionkey" . '=' . $optionvalue;
+    $optiontext = " AND $optionkey = $optionvalue";
 
 
     //篩選區
@@ -136,24 +136,32 @@
 
 
 
+
+
+    //GET篩選項目
+
+
+
+
+
     //取得cpu表格有資料欄位
     // 分類
     $qs = [];
-    $where = ' WHERE 1 ';
+    $where = ' WHERE 1';
 
     // 取得總筆數, 總頁數, 該頁的商品資料
     $perPage = 12; // 每一頁有幾筆
     // 用戶要看第幾頁的商品
     $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
 
-    $t_sql = "SELECT COUNT(id) FROM $tableid";
+    $t_sql = "SELECT COUNT(id) FROM $tableid $where $optiontext";
     $totalRows = $pdo->query($t_sql)->fetch(PDO::FETCH_NUM)[0];
     $totalPages = ceil($totalRows / $perPage);
 
     if ($page < 1) $page = 1;
     if ($page > $totalPages) $page = $totalPages;
 
-    $p_sql = sprintf("SELECT * FROM $tableid $where LIMIT %s, %s ", ($page - 1) * $perPage, $perPage);
+    $p_sql = sprintf("SELECT * FROM $tableid $where $optiontext LIMIT %s, %s ", ($page - 1) * $perPage, $perPage);
 
     $rows = $pdo->query($p_sql)->fetchAll();
 

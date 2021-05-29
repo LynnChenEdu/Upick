@@ -12,7 +12,13 @@
 
     $optionkey = isset($_GET['optionkey']) ? ($_GET['optionkey']) : '';
     $optionvalue = isset($_GET['optionvalue']) ? ($_GET['optionvalue']) : '';
-    $optiontext = " AND $optionkey = $optionvalue";
+    if (!empty($optionkey) && !empty($optionvalue)) {
+        $optiontext = "AND $optionkey = '$optionvalue'";
+        $optionforpg = "optionkey=$optionkey&optionvalue=$optionvalue";
+    }
+    if (empty($optionkey) && empty($optionvalue)) {
+        $optiontext = "";
+    }
 
 
     //篩選區
@@ -139,10 +145,6 @@
 
 
     //GET篩選項目
-
-
-
-
 
     //取得cpu表格有資料欄位
     // 分類
@@ -380,7 +382,7 @@
                     <button class="itemCount-CL">79</button>
                 </div>
 
-                <!--CPU零件區-->
+                <!--商品展示區-->
                 <section id="shpCpuSection_CL"></section>
                 <div class="shpItem-CL shpCpu-CL">
 
@@ -421,7 +423,7 @@
                             $qs['page'] = $i;
                     ?>
                             <!--頁數號碼-->
-                            <li class="wWhitePgItem wWhitePGnumber <?= $i == $page ? 'wWhitePgColor' : '' ?>"><a class="wWhitePgLink" href="?classid=<?= $tableid ?>&<?= http_build_query($qs) ?>"><?= $i ?></a></li>
+                            <li class="wWhitePgItem wWhitePGnumber <?= $i == $page ? 'wWhitePgColor' : '' ?>"><a class="wWhitePgLink" href="?classid=<?= $tableid ?>&<?= $optionforpg ?>&<?= http_build_query($qs) ?>"><?= $i ?></a></li>
 
                         <?php endif; ?>
                     <?php endfor; ?>

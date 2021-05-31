@@ -6,6 +6,8 @@ $shparea = isset($_GET['shparea']) ? ($_GET['shparea']) : '';
 if ($shparea == 'block') {
     $opacity = '1';
 }
+
+$search2 = "&classid=$tableid";
 ?>
 
 
@@ -67,12 +69,12 @@ if ($shparea == 'block') {
     <!--白色搜尋bar區-->
     <div class="navSearch-CL" style="display:<?= $shparea ?>; transform: translateY(0vh); opacity:<?= $opacity ?>;">
         <!--搜尋輸入框-->
-        <div class="wSearchInput">
+        <form class="wSearchInput" action="item_page.php?classid=<?= $tableid ?>&" method="get">
             <!--文字輸入框-->
-            <input class="wSearchInputBox wInputShare" type="text" placeholder="顯示卡、記憶體...">
+            <input class="wSearchInputBox wInputShare" type="search" placeholder="Search" name="search" value="" aria-label="Search">
             <!--搜尋按鈕-->
-            <button class="wSearcBtn"><i class="fas fa-search"></i> 搜尋</button>
-        </div>
+            <button class="wSearcBtn" type="submit"><i class="fas fa-search"></i> 分類搜尋</button>
+        </form>
         <div class="navSearchClass-CL">
             <div class="navSearchText-CL">
                 <div class="navSearchColor-CL"></div>

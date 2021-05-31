@@ -152,15 +152,17 @@
     $perPage = 12; // 每一頁有幾筆
     // 用戶要看第幾頁的商品
     $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
+    $sort = isset($_GET['sort']) ? ($_GET['sort']) : "id";
 
-    $t_sql = "SELECT COUNT(id) FROM $tableid $where $optiontext";
+    $t_sql = "SELECT COUNT(id) FROM $tableid $where $optiontext ORDER BY $sort ASC";
+
     $totalRows = $pdo->query($t_sql)->fetch(PDO::FETCH_NUM)[0];
     $totalPages = ceil($totalRows / $perPage);
 
     if ($page < 1) $page = 1;
     if ($page > $totalPages) $page = $totalPages;
 
-    $p_sql = sprintf("SELECT * FROM $tableid $where $optiontext LIMIT %s, %s ", ($page - 1) * $perPage, $perPage);
+    $p_sql = sprintf("SELECT * FROM $tableid $where $optiontext ORDER BY $sort ASC LIMIT %s, %s ", ($page - 1) * $perPage, $perPage);
 
     $rows = $pdo->query($p_sql)->fetchAll();
 
@@ -370,13 +372,12 @@
                 </div>
 
 
-
                 <!--排序按鈕-->
                 <div class="itemSort-CL">
-                    <button>最新上架</button>
-                    <button>價格 <i class="fas fa-chevron-up"></i></button>
-                    <button>銷量</button>
-                    <button class="itemCount-CL"><?= $totalRows ?></button>
+                    <button class="itemSortId-CL">最新上架</button>
+                    <button class="itemSortPrice-CL">價格<i class=" fas fa-chevron-up"></i></button>
+                    <button class="itemSortName-CL">名稱</button>
+                    <button class=" itemCount-CL"><?= $totalRows ?></button>
                 </div>
 
                 <!--商品展示區-->
@@ -396,12 +397,6 @@
                             </div>
                         <?php endforeach; ?>
                     </div>
-
-
-
-
-
-
                 </div>
 
 
@@ -420,7 +415,7 @@
                             $qs['page'] = $i;
                     ?>
                             <!--頁數號碼-->
-                            <li class="wWhitePgItem wWhitePGnumber <?= $i == $page ? 'wWhitePgColor' : '' ?>"><a class="wWhitePgLink" href="?classid=<?= $tableid ?>&<?= $optionforpg ?><?= http_build_query($qs) ?>"><?= $i ?></a></li>
+                            <li class="wWhitePgItem wWhitePGnumber <?= $i == $page ? 'wWhitePgColor' : '' ?>"><a class="wWhitePgLink" href="?classid=<?= $tableid ?>&<?= $optionforpg ?>&sort=<?= $sort ?>&<?= http_build_query($qs) ?>"><?= $i ?></a></li>
 
                         <?php endif; ?>
                     <?php endfor; ?>
@@ -565,8 +560,39 @@
             $('html,body,.aniContainerOut-CL').animate({
                 scrollTop: targetTop
             }, 500);
-
         });
+
+        //增加價錢排序標籤
+        var sort = 'sort=price';
+        var url = [window.location.href];
+        $('.itemSortPrice-CL').click(function() {
+            if (url.indexOf(sort) == -1) {
+                url = [window.location.href, sort];
+                url = url.join('&');
+                console.log('no, no have');
+            }
+            window.location.href = url;
+        })
+        var sort2 = 'sort=name';
+        $('.itemSortName-CL').click(function() {
+            if (url.indexOf(sort) == -1) {
+                url = [window.location.href, sort2];
+                url = url.join('&');
+                console.log('no, no have');
+            }
+            window.location.href = url;
+        })
+        var sort3 = 'sort=id';
+        $('.itemSortId-CL').click(function() {
+            if (url.indexOf(sort) == -1) {
+                url = [window.location.href, sort3];
+                url = url.join('&');
+                console.log('no, no have');
+            }
+            window.location.href = url;
+        })
+
+
 
 
 

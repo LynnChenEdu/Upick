@@ -84,7 +84,6 @@
         box-sizing: border-box;
         padding-top: 10px;
         border-bottom: 1px solid #b9b9b9;
-
         transform: translateY(-30vh);
         opacity: 0;
     }
@@ -92,6 +91,11 @@
     /*將搜尋輸入框置中*/
     .wSearchInput {
         margin: 0 auto;
+    }
+
+    /*分類搜尋按鈕*/
+    .wSearcBtn:hover {
+        background-color: #6d747c;
     }
 
     /*修改搜尋分類區的寬度置中*/

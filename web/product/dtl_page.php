@@ -5,6 +5,7 @@ session_start();
 
 $pid = isset($_GET['pid']) ? $_GET['pid'] : '';
 $tableid = isset($_GET['classid']) ? ($_GET['classid']) : '';
+$search = isset($_GET['search']) ? $_GET['search'] : '';
 
 $sql = "SELECT * FROM $tableid WHERE `sid`=?";
 $stmt = $pdo->prepare($sql);

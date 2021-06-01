@@ -246,7 +246,7 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <i class="fas fa-map-marker-alt"></i>
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="/Upick/shopHome.php">Home</a></li>
                         <li class="breadcrumb-item active" aria-current="page"><?= $classname ?></li>
                     </ol>
                 </nav>
@@ -334,8 +334,6 @@
                                     </td>
                                 </tr>
                             <?php } ?>
-
-
                         </tbody>
                     </table>
 
@@ -380,6 +378,16 @@
                     <button class=" itemCount-CL"><?= $totalRows ?></button>
                 </div>
 
+                <div class="itemSortOption-CL">目前排序方式依<span> '<?php if ($sort == 'price') {
+                                                                    echo '價格';
+                                                                }
+                                                                if ($sort == 'id') {
+                                                                    echo '上架日期';
+                                                                }
+                                                                if ($sort == 'name') {
+                                                                    echo '名稱';
+                                                                } ?>'</span></div>
+
                 <!--商品展示區-->
                 <section id="shpCpuSection_CL"></section>
                 <div class="shpItem-CL shpCpu-CL">
@@ -387,13 +395,14 @@
                     <div class="row">
                         <?php foreach ($rows as $r) : ?>
 
-                            <div class="col-xl col-6">
+                            <div class="col-xl col-6 mytest">
                                 <a href="dtl_page.php?classid=<?= $tableid ?>&pid=<?= $r['sid'] ?>" data-sid="<?= $r['sid'] ?>">
                                     <img class="itemShowImg_CL" src="<?= WEB_ROOT ?>/images/product/<?= $tableid ?>/<?= $r['imgs'] ?>.jpg" alt="">
                                     <p class="itemShowName_CL"><?= $r['name'] ?></p>
-                                    <!--加入追蹤之愛心,購物車,金額-->
-                                    <div class="shpHotCartInfo-CL"><i class="far fa-heart shpHeart-CL"></i><i class="fas fa-shopping-cart shpShopCar-CL"></i> <span class="shpItemDollor-CL"><?= $r['price'] ?></span></div>
                                 </a>
+                                <!--加入追蹤之愛心,購物車,金額-->
+                                <div class="shpHotCartInfo-CL"><i class="far fa-heart shpHeart-CL" value="1"></i><i class="fas fa-shopping-cart shpShopCar-CL"></i> <span class="shpItemDollor-CL"><?= $r['price'] ?></span></div>
+
                             </div>
                         <?php endforeach; ?>
                     </div>
@@ -562,7 +571,7 @@
             }, 500);
         });
 
-        //增加價錢排序標籤
+        //增加排序標籤
         var sort = 'sort=price';
         var url = [window.location.href];
         $('.itemSortPrice-CL').click(function() {

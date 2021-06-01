@@ -357,6 +357,17 @@
             content:"筆";
             margin-left: 8px;
         }
+        /*排序方式*/
+        .itemSortOption-CL {
+            display: flex;
+            color: #374052;
+            font-weight: 700;
+            font-size: 20px;
+        }
+        .itemSortOption-CL span {
+            display: block;
+            color: #FD723C;
+        }
 
         /*零件區*/
         .shpItem-CL {
@@ -396,7 +407,12 @@
         .itemPage-CL {
             margin-top: 50px;
             margin-left: 50%;
-            transform: translateX(-30%);
+            transform: translateX(-50%);
+        }
+
+        ul.wWhitePgArea.itemPage-CL {
+            width:310px;
+            padding-left: 30px;
         }
 
 
@@ -637,14 +653,15 @@
             }
             /*商品展示區*/
             .shpCpu-CL {
-                width: 1200px;
+                width: 355px;
                 border: none;
             }
             .shpItem-CL .col-6 {
                 margin: 0;
-            }
+
+            }  
             .shpItem-CL .col-6 img {
-                margin-left: -10px;
+                margin: 50px auto 10px auto;
             }
             /*card下的愛金購物車與金額*/
             .shpItem-CL .shpHotCartInfo-CL {

@@ -187,7 +187,6 @@ $search2 = "&classid=$tableid";
             </a>
         </div>
     </div>
-
 </div>
 
 <!--SCRIPT-->

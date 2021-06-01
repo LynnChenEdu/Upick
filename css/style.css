@@ -245,6 +245,8 @@
         .wWhitePgArea {
             display: flex;
             list-style-type: none;
+            margin: 0 auto;
+            width: 320px;
         }
 
         .wWhitePgItem {

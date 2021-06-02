@@ -1,3 +1,21 @@
+<?php
+//資料庫連結
+require __DIR__ . '/../../__connect_db.php';
+define('WEB_ROOT', '/UPICK');
+session_start();
+
+$cpu1 = "SELECT * FROM 01cpu";
+$stmt1 = $pdo->query($cpu1);
+$row1 = $stmt1->fetchall();
+
+
+
+
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,8 +30,7 @@
     <!-- up style -->
     <link rel="stylesheet" href="/Upick/css/up-color.css">
     <link rel="stylesheet" href="/Upick/css/upick-web.css">
-    <link rel="stylesheet" href="/Upick/css/upick-phone.css" type="text/css"
-        media="only screen and (min-width: 0px) and (max-width: 767px)" />
+    <link rel="stylesheet" href="/Upick/css/upick-phone.css" type="text/css" media="only screen and (min-width: 0px) and (max-width: 767px)" />
     <style>
 
     </style>
@@ -1251,15 +1268,13 @@
 
     <!--SCRIPT-->
     <?php include __DIR__ . '/../../parts/scripts.php' ?>
-    <script src="https://code.jquery.com/jquery-3.5.1.js"
-        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script>
-    
-      
         // 下拉選單
-        NodeList.prototype.forEach = function (callback) {
+        NodeList.prototype.forEach = function(callback) {
             Array.prototype.forEach.call(this, callback);
         }
+
         function deactivateSelect(select) {
             if (!select.classList.contains('active')) return;
 
@@ -1285,7 +1300,7 @@
         function highlightOption(select, option) {
             var optionList = select.querySelectorAll('.option');
 
-            optionList.forEach(function (other) {
+            optionList.forEach(function(other) {
                 other.classList.remove('highlight');
             });
 
@@ -1308,43 +1323,43 @@
             return nativeWidget.selectedIndex;
         };
 
-        window.addEventListener("load", function () {
+        window.addEventListener("load", function() {
             var form = document.querySelector('form');
 
             form.classList.remove("no-widget");
             form.classList.add("widget");
         });
 
-        window.addEventListener('load', function () {
+        window.addEventListener('load', function() {
             var selectList = document.querySelectorAll('.select');
 
-            selectList.forEach(function (select) {
+            selectList.forEach(function(select) {
                 var optionList = select.querySelectorAll('.option');
 
-                optionList.forEach(function (option) {
-                    option.addEventListener('mouseover', function () {
+                optionList.forEach(function(option) {
+                    option.addEventListener('mouseover', function() {
                         highlightOption(select, option);
                     });
                 });
 
-                select.addEventListener('click', function (event) {
+                select.addEventListener('click', function(event) {
                     toggleOptList(select);
                 });
 
-                select.addEventListener('focus', function (event) {
+                select.addEventListener('focus', function(event) {
                     activeSelect(select, selectList);
                 });
 
-                select.addEventListener('blur', function (event) {
+                select.addEventListener('blur', function(event) {
                     deactivateSelect(select);
                 });
             });
         });
 
-        window.addEventListener('load', function () {
+        window.addEventListener('load', function() {
             var selectList = document.querySelectorAll('.select');
 
-            selectList.forEach(function (select) {
+            selectList.forEach(function(select) {
                 var optionList = select.querySelectorAll('.option'),
                     selectedIndex = getIndex(select);
 
@@ -1353,19 +1368,25 @@
 
                 updateValue(select, selectedIndex);
 
-                optionList.forEach(function (option, index) {
-                    option.addEventListener('click', function (event) {
+                optionList.forEach(function(option, index) {
+                    option.addEventListener('click', function(event) {
                         updateValue(select, index);
                     });
                 });
 
-                select.addEventListener('keyup', function (event) {
+                select.addEventListener('keyup', function(event) {
                     var length = optionList.length,
                         index = getIndex(select);
 
-                    if (event.keyCode === 27) { deactivateSelect(select); }
-                    if (event.keyCode === 40 && index < length - 1) { index++; }
-                    if (event.keyCode === 38 && index > 0) { index--; }
+                    if (event.keyCode === 27) {
+                        deactivateSelect(select);
+                    }
+                    if (event.keyCode === 40 && index < length - 1) {
+                        index++;
+                    }
+                    if (event.keyCode === 38 && index > 0) {
+                        index--;
+                    }
 
                     updateValue(select, index);
                 });
@@ -1375,7 +1396,7 @@
 
         // 新增
 
-        $(document).on('click', '.add', function () {
+        $(document).on('click', '.add', function() {
             console.log('hi')
             $("#upList").append('<div class=" list-group-item d-flex"><div class="col-11"><p class="my-auto "> HyperX FURY DDR4 3200 8G x2 桌上型超頻記憶體 HX432C16FB3K2/16</p><div class="d-flex justify-content-between"><form class="widget amount"><select name="amount"><option>數量</option><option>pro2</option><option>pro3</option><option>pro4</option><option>pro5</option></select><div class="select"><span class="value"></span><ul class="optList hidden"><li class="option">0</li><li class="option">1</li><li class="option">2</li><li class="option">3</li><li class="option">4</li><li class="option">5</li></ul></div></form><span class="price my-auto">$1000</span></div></div><div class="col-1 my-auto trashcan"><i class=" fas fa-trash "></i></div></div></div>');
         })
@@ -1385,7 +1406,7 @@
         // newList.appendChild(textNode);
         // upList.appendChild(newList);
 
-        $(document).on('click', '.trashcan', function () {
+        $(document).on('click', '.trashcan', function() {
             console.log('remove')
             $(this).parent().remove()
         })

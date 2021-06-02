@@ -107,6 +107,10 @@
         .breadcrumb {
             background: transparent;
         }
+        /*將面包屑z-index設為最高避免手機板無法點選*/
+        .breadcrumb li {
+            z-index: 999;
+        }
 
         /*面包屑-修改ICLASS圖標margin*/
         .breadcrumb .fa-map-marker-alt {
@@ -363,6 +367,8 @@
             color: #374052;
             font-weight: 700;
             font-size: 20px;
+            justify-content: flex-end;
+            margin-top: 20px;
         }
         .itemSortOption-CL span {
             display: block;
@@ -651,6 +657,11 @@
                 margin-left: 0px;
                 margin-top: 20px;
             }
+            /*排序方式*/
+        .itemSortOption-CL {
+            justify-content: flex-start;
+            margin-top: 20px;
+        }
             /*商品展示區*/
             .shpCpu-CL {
                 width: 355px;

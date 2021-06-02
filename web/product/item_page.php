@@ -1,174 +1,173 @@
+<?php
+//資料庫連結
+require __DIR__ . '/../../__connect_db.php';
+define('WEB_ROOT', '/UPICK');
+session_start();
+
+$tableid = isset($_GET['classid']) ? ($_GET['classid']) : '';
+
+$optionkey = isset($_GET['optionkey']) ? ($_GET['optionkey']) : null;
+$optionvalue = isset($_GET['optionvalue']) ? ($_GET['optionvalue']) : null;
+if (!empty($optionkey) && !empty($optionvalue)) {
+    $optiontext = "AND $optionkey = '$optionvalue'";
+    $optionforpg = "optionkey=$optionkey&optionvalue=$optionvalue&";
+}
+
+if (empty($optionkey) && empty($optionvalue)) {
+    $optiontext = "";
+    $optionforpg = "";
+}
+
+
+//篩選區
+//定義10項篩選條件
+if ($tableid == '01cpu') {
+    $selector[0]['name'] = '品牌';
+    $selector[0]['option'] = "SELECT brand FROM 01cpu GROUP BY brand";
+    $option1data[0] = $pdo->query($selector[0]['option'])->fetchAll();
+    $selector[1]['name'] = '型號';
+    $selector[1]['option'] = "SELECT model FROM 01cpu GROUP BY model";
+    $option1data[1] = $pdo->query($selector[1]['option'])->fetchAll();
+    $selecount = 2;
+    $k = 0;
+    $classname = 'CPU';
+}
+if ($tableid == '02mb') {
+    $selector[0]['name'] = '品牌';
+    $selector[0]['option'] = "SELECT brand FROM 02mb GROUP BY brand";
+    $option1data[0] = $pdo->query($selector[0]['option'])->fetchAll();
+    $selector[1]['name'] = '記憶體插槽數';
+    $selector[1]['option'] = "SELECT number_memory_solts FROM 02mb GROUP BY number_memory_solts";
+    $option1data[1] = $pdo->query($selector[1]['option'])->fetchAll();
+    $selecount = 2;
+    $k = 0;
+    $classname = '主機板';
+}
+if ($tableid == '04ram') {
+    $selector[0]['name'] = '品牌';
+    $selector[0]['option'] = "SELECT brand FROM 04ram GROUP BY brand";
+    $option1data[0] = $pdo->query($selector[0]['option'])->fetchAll();
+    $selector[1]['name'] = '單條容量';
+    $selector[1]['option'] = "SELECT single_capacity FROM 04ram GROUP BY single_capacity";
+    $option1data[1] = $pdo->query($selector[1]['option'])->fetchAll();
+    $selecount = 2;
+    $k = 0;
+    $classname = '記憶體';
+}
+if ($tableid == '05hdd') {
+    $selector[0]['name'] = '品牌';
+    $selector[0]['option'] = "SELECT brand FROM 05hdd GROUP BY brand";
+    $option1data[0] = $pdo->query($selector[0]['option'])->fetchAll();
+    $selector[1]['name'] = '容量';
+    $selector[1]['option'] = "SELECT capacity FROM 05hdd GROUP BY capacity";
+    $option1data[1] = $pdo->query($selector[1]['option'])->fetchAll();
+    $selector[2]['name'] = '碟盤尺寸(吋)';
+    $selector[2]['option'] = "SELECT disk_size FROM 05hdd GROUP BY disk_size";
+    $option1data[2] = $pdo->query($selector[2]['option'])->fetchAll();
+    $selecount = 3;
+    $k = 0;
+    $classname = '傳統硬碟';
+}
+if ($tableid == '06ssd') {
+    $selector[0]['name'] = '品牌';
+    $selector[0]['option'] = "SELECT brand FROM 06ssd GROUP BY brand";
+    $option1data[0] = $pdo->query($selector[0]['option'])->fetchAll();
+    $selector[1]['name'] = '容量';
+    $selector[1]['option'] = "SELECT capacity FROM 06ssd GROUP BY capacity";
+    $option1data[1] = $pdo->query($selector[1]['option'])->fetchAll();
+    $selector[2]['name'] = '碟盤尺寸(吋)';
+    $selector[2]['option'] = "SELECT disk_size FROM 06ssd GROUP BY disk_size";
+    $option1data[2] = $pdo->query($selector[2]['option'])->fetchAll();
+    $selecount = 3;
+    $k = 0;
+    $classname = '固態硬碟';
+}
+if ($tableid == '03vga') {
+    $selector[0]['name'] = '品牌';
+    $selector[0]['option'] = "SELECT brand FROM 03vga GROUP BY brand";
+    $option1data[0] = $pdo->query($selector[0]['option'])->fetchAll();
+    $selector[1]['name'] = '系列';
+    $selector[1]['option'] = "SELECT series FROM 03vga GROUP BY series";
+    $option1data[1] = $pdo->query($selector[1]['option'])->fetchAll();
+    $selecount = 2;
+    $k = 0;
+    $classname = '顯示卡';
+}
+if ($tableid == '07computercase') {
+    $selector[0]['name'] = '品牌';
+    $selector[0]['option'] = "SELECT brand FROM 07computercase GROUP BY brand";
+    $option1data[0] = $pdo->query($selector[0]['option'])->fetchAll();
+    $selector[1]['name'] = '適用主機板';
+    $selector[1]['option'] = "SELECT applicable_motherboard FROM 07computercase GROUP BY applicable_motherboard";
+    $option1data[1] = $pdo->query($selector[1]['option'])->fetchAll();
+    $selector[2]['name'] = '顏色';
+    $selector[2]['option'] = "SELECT color FROM 07computercase GROUP BY color";
+    $option1data[2] = $pdo->query($selector[2]['option'])->fetchAll();
+    $selecount = 3;
+    $k = 0;
+    $classname = '電腦機殼';
+}
+if ($tableid == '08powersupply') {
+    $selector[0]['name'] = '品牌';
+    $selector[0]['option'] = "SELECT brand FROM 08powersupply GROUP BY brand";
+    $option1data[0] = $pdo->query($selector[0]['option'])->fetchAll();
+    $selector[1]['name'] = '80plus認證';
+    $selector[1]['option'] = "SELECT 80plus_certification FROM 08powersupply GROUP BY 80plus_certification";
+    $option1data[1] = $pdo->query($selector[1]['option'])->fetchAll();
+    $selecount = 2;
+    $k = 0;
+    $classname = '電源供應器';
+}
+if ($tableid == '12fan') {
+    $selector[0]['name'] = '品牌';
+    $selector[0]['option'] = "SELECT brand FROM 12fan GROUP BY brand";
+    $option1data[0] = $pdo->query($selector[0]['option'])->fetchAll();
+    $selecount = 1;
+    $k = 0;
+    $classname = '散熱產品';
+}
+if ($tableid == '09screen') {
+    $selector[0]['name'] = '品牌';
+    $selector[0]['option'] = "SELECT brand FROM 09screen GROUP BY brand";
+    $option1data[0] = $pdo->query($selector[0]['option'])->fetchAll();
+    $selector[1]['name'] = '面板類型';
+    $selector[1]['option'] = "SELECT panel_type FROM 09screen GROUP BY panel_type";
+    $option1data[1] = $pdo->query($selector[0]['option'])->fetchAll();
+    $selecount = 1;
+    $k = 0;
+    $classname = '週邊產品';
+}
+
+
+//取得cpu表格有資料欄位
+// 分類
+$qs = [];
+$where = ' WHERE 1';
+
+// 取得總筆數, 總頁數, 該頁的商品資料
+$perPage = 12; // 每一頁有幾筆
+// 用戶要看第幾頁的商品
+$page = isset($_GET['page']) ? intval($_GET['page']) : 1;
+$sort = isset($_GET['sort']) ? ($_GET['sort']) : "id";
+
+$t_sql = "SELECT COUNT(id) FROM $tableid $where $optiontext ORDER BY $sort ASC";
+
+$totalRows = $pdo->query($t_sql)->fetch(PDO::FETCH_NUM)[0];
+$totalPages = ceil($totalRows / $perPage);
+
+if ($page < 1) $page = 1;
+if ($page > $totalPages) $page = $totalPages;
+
+$p_sql = sprintf("SELECT * FROM $tableid $where $optiontext ORDER BY $sort ASC LIMIT %s, %s ", ($page - 1) * $perPage, $perPage);
+
+$rows = $pdo->query($p_sql)->fetchAll();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <!--資料庫連結-->
-    <?php
-    require __DIR__ . '/../../__connect_db.php';
-    define('WEB_ROOT', '/UPICK');
-    session_start();
-
-    $tableid = isset($_GET['classid']) ? ($_GET['classid']) : '';
-
-    $optionkey = isset($_GET['optionkey']) ? ($_GET['optionkey']) : null;
-    $optionvalue = isset($_GET['optionvalue']) ? ($_GET['optionvalue']) : null;
-    if (!empty($optionkey) && !empty($optionvalue)) {
-        $optiontext = "AND $optionkey = '$optionvalue'";
-        $optionforpg = "optionkey=$optionkey&optionvalue=$optionvalue&";
-    }
-
-    if (empty($optionkey) && empty($optionvalue)) {
-        $optiontext = "";
-        $optionforpg = "";
-    }
-
-
-    //篩選區
-    //定義10項篩選條件
-    if ($tableid == '01cpu') {
-        $selector[0]['name'] = '品牌';
-        $selector[0]['option'] = "SELECT brand FROM 01cpu GROUP BY brand";
-        $option1data[0] = $pdo->query($selector[0]['option'])->fetchAll();
-        $selector[1]['name'] = '型號';
-        $selector[1]['option'] = "SELECT model FROM 01cpu GROUP BY model";
-        $option1data[1] = $pdo->query($selector[1]['option'])->fetchAll();
-        $selecount = 2;
-        $k = 0;
-        $classname = 'CPU';
-    }
-    if ($tableid == '02mb') {
-        $selector[0]['name'] = '品牌';
-        $selector[0]['option'] = "SELECT brand FROM 02mb GROUP BY brand";
-        $option1data[0] = $pdo->query($selector[0]['option'])->fetchAll();
-        $selector[1]['name'] = '記憶體插槽數';
-        $selector[1]['option'] = "SELECT number_memory_solts FROM 02mb GROUP BY number_memory_solts";
-        $option1data[1] = $pdo->query($selector[1]['option'])->fetchAll();
-        $selecount = 2;
-        $k = 0;
-        $classname = '主機板';
-    }
-    if ($tableid == '04ram') {
-        $selector[0]['name'] = '品牌';
-        $selector[0]['option'] = "SELECT brand FROM 04ram GROUP BY brand";
-        $option1data[0] = $pdo->query($selector[0]['option'])->fetchAll();
-        $selector[1]['name'] = '單條容量';
-        $selector[1]['option'] = "SELECT single_capacity FROM 04ram GROUP BY single_capacity";
-        $option1data[1] = $pdo->query($selector[1]['option'])->fetchAll();
-        $selecount = 2;
-        $k = 0;
-        $classname = '記憶體';
-    }
-    if ($tableid == '05hdd') {
-        $selector[0]['name'] = '品牌';
-        $selector[0]['option'] = "SELECT brand FROM 05hdd GROUP BY brand";
-        $option1data[0] = $pdo->query($selector[0]['option'])->fetchAll();
-        $selector[1]['name'] = '容量';
-        $selector[1]['option'] = "SELECT capacity FROM 05hdd GROUP BY capacity";
-        $option1data[1] = $pdo->query($selector[1]['option'])->fetchAll();
-        $selector[2]['name'] = '碟盤尺寸(吋)';
-        $selector[2]['option'] = "SELECT disk_size FROM 05hdd GROUP BY disk_size";
-        $option1data[2] = $pdo->query($selector[2]['option'])->fetchAll();
-        $selecount = 3;
-        $k = 0;
-        $classname = '傳統硬碟';
-    }
-    if ($tableid == '06ssd') {
-        $selector[0]['name'] = '品牌';
-        $selector[0]['option'] = "SELECT brand FROM 06ssd GROUP BY brand";
-        $option1data[0] = $pdo->query($selector[0]['option'])->fetchAll();
-        $selector[1]['name'] = '容量';
-        $selector[1]['option'] = "SELECT capacity FROM 06ssd GROUP BY capacity";
-        $option1data[1] = $pdo->query($selector[1]['option'])->fetchAll();
-        $selector[2]['name'] = '碟盤尺寸(吋)';
-        $selector[2]['option'] = "SELECT disk_size FROM 06ssd GROUP BY disk_size";
-        $option1data[2] = $pdo->query($selector[2]['option'])->fetchAll();
-        $selecount = 3;
-        $k = 0;
-        $classname = '固態硬碟';
-    }
-    if ($tableid == '03vga') {
-        $selector[0]['name'] = '品牌';
-        $selector[0]['option'] = "SELECT brand FROM 03vga GROUP BY brand";
-        $option1data[0] = $pdo->query($selector[0]['option'])->fetchAll();
-        $selector[1]['name'] = '系列';
-        $selector[1]['option'] = "SELECT series FROM 03vga GROUP BY series";
-        $option1data[1] = $pdo->query($selector[1]['option'])->fetchAll();
-        $selecount = 2;
-        $k = 0;
-        $classname = '顯示卡';
-    }
-    if ($tableid == '07computercase') {
-        $selector[0]['name'] = '品牌';
-        $selector[0]['option'] = "SELECT brand FROM 07computercase GROUP BY brand";
-        $option1data[0] = $pdo->query($selector[0]['option'])->fetchAll();
-        $selector[1]['name'] = '適用主機板';
-        $selector[1]['option'] = "SELECT applicable_motherboard FROM 07computercase GROUP BY applicable_motherboard";
-        $option1data[1] = $pdo->query($selector[1]['option'])->fetchAll();
-        $selector[2]['name'] = '顏色';
-        $selector[2]['option'] = "SELECT color FROM 07computercase GROUP BY color";
-        $option1data[2] = $pdo->query($selector[2]['option'])->fetchAll();
-        $selecount = 3;
-        $k = 0;
-        $classname = '電腦機殼';
-    }
-    if ($tableid == '08powersupply') {
-        $selector[0]['name'] = '品牌';
-        $selector[0]['option'] = "SELECT brand FROM 08powersupply GROUP BY brand";
-        $option1data[0] = $pdo->query($selector[0]['option'])->fetchAll();
-        $selector[1]['name'] = '80plus認證';
-        $selector[1]['option'] = "SELECT 80plus_certification FROM 08powersupply GROUP BY 80plus_certification";
-        $option1data[1] = $pdo->query($selector[1]['option'])->fetchAll();
-        $selecount = 2;
-        $k = 0;
-        $classname = '電源供應器';
-    }
-    if ($tableid == '12fan') {
-        $selector[0]['name'] = '品牌';
-        $selector[0]['option'] = "SELECT brand FROM 12fan GROUP BY brand";
-        $option1data[0] = $pdo->query($selector[0]['option'])->fetchAll();
-        $selecount = 1;
-        $k = 0;
-        $classname = '散熱產品';
-    }
-    if ($tableid == '09screen') {
-        $selector[0]['name'] = '品牌';
-        $selector[0]['option'] = "SELECT brand FROM 09screen GROUP BY brand";
-        $option1data[0] = $pdo->query($selector[0]['option'])->fetchAll();
-        $selector[1]['name'] = '面板類型';
-        $selector[1]['option'] = "SELECT panel_type FROM 09screen GROUP BY panel_type";
-        $option1data[1] = $pdo->query($selector[0]['option'])->fetchAll();
-        $selecount = 1;
-        $k = 0;
-        $classname = '週邊產品';
-    }
-
-
-    //取得cpu表格有資料欄位
-    // 分類
-    $qs = [];
-    $where = ' WHERE 1';
-
-    // 取得總筆數, 總頁數, 該頁的商品資料
-    $perPage = 12; // 每一頁有幾筆
-    // 用戶要看第幾頁的商品
-    $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
-    $sort = isset($_GET['sort']) ? ($_GET['sort']) : "id";
-
-    $t_sql = "SELECT COUNT(id) FROM $tableid $where $optiontext ORDER BY $sort ASC";
-
-    $totalRows = $pdo->query($t_sql)->fetch(PDO::FETCH_NUM)[0];
-    $totalPages = ceil($totalRows / $perPage);
-
-    if ($page < 1) $page = 1;
-    if ($page > $totalPages) $page = $totalPages;
-
-    $p_sql = sprintf("SELECT * FROM $tableid $where $optiontext ORDER BY $sort ASC LIMIT %s, %s ", ($page - 1) * $perPage, $perPage);
-
-    $rows = $pdo->query($p_sql)->fetchAll();
-
-    ?>
-
-
     <?php include __DIR__ . '/../../parts/html_head.php' ?>
     <!--固定元件:UMA小幫手style-->
     <link rel="stylesheet" href="/Upick/css/style_fixed_element.css">
@@ -239,7 +238,7 @@
 
                 <!--精選熱銷標題-->
                 <div class="shpHotTitle-CL">
-                    <h1>主機板 / CPU</h1>
+                    <h1><?= $classname ?></h1>
                 </div>
 
                 <!--面包屑-->
@@ -343,30 +342,26 @@
                     </div>
                 </div>
 
-
                 <!--手機版-零件篩選-->
                 <div class="itemFilterPhone-CL">
                     <h4>請選擇商品篩選條件</h3>
-                        <ul>核心數(cores(INT)) <i class="fas  fa-chevron-up"></i>
-                            <li>2 core</li>
-                            <li>4 core</li>
-                            <li>6 core</li>
-                            <li>8 core</li>
-                            <li>10 core</li>
-                            <li>12 core</li>
-                            <li>16 core</li>
-                        </ul>
-                        <ul>型號model(VARCHAR) <i class="fas fa-chevron-up"></i>
-                            <li>AMD</li>
-                            <li>i3</li>
-                            <li>i5</li>
-                            <li>i7</li>
-                            <li>i9</li>
-                        </ul>
-                        <ul>品牌 <i class="fas fa-chevron-up"></i>
-                            <li>AMD</li>
-                            <li>Intel</li>
-                        </ul>
+                        <span>您所選擇的關鍵字為：<?= $optionvalue ?></span>
+                        <?php for ($i = 0; $i < $selecount; $i++) { ?>
+                            <ul><?= $selector[$i]['name'] ?><i class="fas  fa-chevron-up"></i>
+                                <?php foreach ($option1data[$i] as $key2 => $value2) { ?>
+                                    <?php
+                                    foreach ($value2 as $optionkey => $optionvalue) { ?>
+
+                                        <li>
+                                            <a href="item_page.php?classid=<?= $tableid ?>&optionkey=<?= $optionkey ?>&optionvalue=<?= $optionvalue ?>">
+                                                <label class="form-check-label" for="inlineCheckbox<?= $k ?>" data-key="<?= $optionkey ?>"><?= $optionvalue ?></label>
+                                            </a>
+                                        </li>
+
+                                    <?php } ?>
+                                <?php } ?>
+                            </ul>
+                        <?php } ?>
                 </div>
 
 
@@ -578,7 +573,6 @@
             if (url.indexOf(sort) == -1) {
                 url = [window.location.href, sort];
                 url = url.join('&');
-                console.log('no, no have');
             }
             window.location.href = url;
         })
@@ -587,7 +581,6 @@
             if (url.indexOf(sort) == -1) {
                 url = [window.location.href, sort2];
                 url = url.join('&');
-                console.log('no, no have');
             }
             window.location.href = url;
         })
@@ -596,7 +589,6 @@
             if (url.indexOf(sort) == -1) {
                 url = [window.location.href, sort3];
                 url = url.join('&');
-                console.log('no, no have');
             }
             window.location.href = url;
         })

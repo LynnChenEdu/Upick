@@ -501,9 +501,17 @@
             width: 100px;
         }
 
+        /*修改輪播牆圖片大小*/
+        .shpCaroImg_CL {
+            display: block;
+            width: 150px;
+            height: 150px;
+        }
+
         /*商品輪播牆單頁內容p文字格式-修改寬度*/
-        .shpHotItemCaro-CL p {
+        .shpCaroName_CL {
             width: 140px;
+            height: 75px;
             margin-left: 12px;
             font-size: 14px;
             line-height: 24px;

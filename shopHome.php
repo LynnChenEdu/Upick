@@ -15,6 +15,14 @@
         $shpTopSpace = '120';
     }
 
+    //熱銷商品sql query
+    $hotsale1 = "SELECT * FROM 06ssd WHERE id BETWEEN 11 AND 14";
+    $hsrow1 = $pdo->query($hotsale1)->fetchAll();
+    $hotsale2 = "SELECT * FROM 01cpu WHERE id BETWEEN 21 AND 24";
+    $hsrow2 = $pdo->query($hotsale2)->fetchAll();
+    $hotsale3 = "SELECT * FROM 03vga WHERE id BETWEEN 15 AND 18";
+    $hsrow3 = $pdo->query($hotsale3)->fetchAll();
+
     //零件區sql query
     $cpu1 = "SELECT * FROM 01cpu WHERE id BETWEEN 1 AND 4";
     $cpurow1 = $pdo->query($cpu1)->fetchAll();
@@ -265,36 +273,49 @@
                             <!--商品輪播牆單頁內容-->
                             <div class="carousel-item active shpHotItemCaro-CL">
                                 <div class="row">
-                                    <div class="col-lg">
-                                        <a href="">
-                                            <img src="./images/item_01.png" alt="" class="shpCaroImg_CL">
-                                            <p class="shpCaroName_CL">Corsair HX1200 80Plus白金牌電源供應器白金牌電源供應器</p>
+                                    <?php foreach ($hsrow1 as $r) { ?>
+                                        <div class="col-lg">
+                                            <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=06ssd">
+                                                <img src="<?= WEB_ROOT ?>/images/product/06ssd/<?= $r['imgs'] ?>.jpg" alt="" class="shpCaroImg_CL">
+                                                <p class="shpCaroName_CL"><?= $r['name'] ?></p>
+                                            </a>
                                             <!--加入追蹤之愛心,購物車,金額-->
-                                            <div class="shpHotCartInfo-CL"><i class="far fa-heart shpHeart-CL"></i><i class="fas fa-shopping-cart shpShopCar-CL"></i> <span class="shpItemDollor-CL">8790</span></div>
-                                        </a>
-                                    </div>
-                                    <div class="col-lg">
-                                        <img src="./images/item_01.png" alt="">
-                                        <p>Corsair HX1200 80Plus白金牌電源供應器白金牌電源供應器</p>
-                                        <!--加入追蹤之愛心,購物車,金額-->
-                                        <div class="shpHotCartInfo-CL"><i class="far fa-heart shpHeart-CL"></i><i class="fas fa-shopping-cart shpShopCar-CL"></i> <span class="shpItemDollor-CL">8790</span></div>
-                                    </div>
-                                    <div class="col-lg">
-                                        <img src="./images/item_01.png" alt="">
-                                        <p>Corsair HX1200 80Plus白金牌電源供應器白金牌電源供應器</p>
-                                        <!--加入追蹤之愛心,購物車,金額-->
-                                        <div class="shpHotCartInfo-CL"><i class="far fa-heart shpHeart-CL"></i><i class="fas fa-shopping-cart shpShopCar-CL"></i> <span class="shpItemDollor-CL">8790</span></div>
-                                    </div>
-                                    <div class="col-lg">
-                                        <img src="./images/item_01.png" alt="">
-                                        <p>Corsair HX1200 80Plus白金牌電源供應器白金牌電源供應器</p>
-                                        <!--加入追蹤之愛心,購物車,金額-->
-                                        <div class="shpHotCartInfo-CL"><i class="far fa-heart shpHeart-CL"></i><i class="fas fa-shopping-cart shpShopCar-CL"></i> <span class="shpItemDollor-CL">8790</span></div>
-                                    </div>
+                                            <div class="shpHotCartInfo-CL"><i class="far fa-heart shpHeart-CL"></i><i class="fas fa-shopping-cart shpShopCar-CL"></i> <span class="shpItemDollor-CL"><?= $r['price'] ?></span></div>
+                                        </div>
+                                    <?php } ?>
                                 </div>
                             </div>
 
-                            <div class="carousel-item">
+                            <div class="carousel-item shpHotItemCaro-CL">
+                                <div class="row">
+                                    <?php foreach ($hsrow2 as $r) { ?>
+                                        <div class="col-lg">
+                                            <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=01cpu">
+                                                <img src="<?= WEB_ROOT ?>/images/product/01cpu/<?= $r['imgs'] ?>.jpg" alt="" class="shpCaroImg_CL">
+                                                <p class="shpCaroName_CL"><?= $r['name'] ?></p>
+                                            </a>
+                                            <!--加入追蹤之愛心,購物車,金額-->
+                                            <div class="shpHotCartInfo-CL"><i class="far fa-heart shpHeart-CL"></i><i class="fas fa-shopping-cart shpShopCar-CL"></i> <span class="shpItemDollor-CL"><?= $r['price'] ?></span></div>
+                                        </div>
+                                    <?php } ?>
+                                </div>
+                            </div>
+
+
+
+                            <div class="carousel-item shpHotItemCaro-CL">
+                                <div class="row">
+                                    <?php foreach ($hsrow3 as $r) { ?>
+                                        <div class="col-lg">
+                                            <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=03vga">
+                                                <img src="<?= WEB_ROOT ?>/images/product/03vga/<?= $r['imgs'] ?>.jpg" alt="" class="shpCaroImg_CL">
+                                                <p class="shpCaroName_CL"><?= $r['name'] ?></p>
+                                            </a>
+                                            <!--加入追蹤之愛心,購物車,金額-->
+                                            <div class="shpHotCartInfo-CL"><i class="far fa-heart shpHeart-CL"></i><i class="fas fa-shopping-cart shpShopCar-CL"></i> <span class="shpItemDollor-CL"><?= $r['price'] ?></span></div>
+                                        </div>
+                                    <?php } ?>
+                                </div>
 
                             </div>
 

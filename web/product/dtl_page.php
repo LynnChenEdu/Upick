@@ -7,6 +7,48 @@ $pid = isset($_GET['pid']) ? $_GET['pid'] : '';
 $tableid = isset($_GET['classid']) ? ($_GET['classid']) : '';
 $search = isset($_GET['search']) ? $_GET['search'] : '';
 
+$tableid = isset($_GET['classid']) ? ($_GET['classid']) : '';
+
+if ($tableid == '01cpu') {
+    $classname = 'CPU';
+}
+
+if ($tableid == '02mb') {
+    $classname = '主機板';
+}
+
+if ($tableid == '04ram') {
+    $classname = '記憶體';
+}
+
+if ($tableid == '05hdd') {
+    $classname = '傳統硬碟';
+}
+
+if ($tableid == '06ssd') {
+    $classname = '固態硬碟';
+}
+
+if ($tableid == '03vga') {
+    $classname = '顯示卡';
+}
+
+if ($tableid == '07computercase') {
+    $classname = '電腦機殼';
+}
+
+if ($tableid == '08powersupply') {
+    $classname = '電源供應器';
+}
+
+if ($tableid == '12fan') {
+    $classname = '散熱產品';
+}
+
+if ($tableid == '09screen') {
+    $classname = '週邊產品';
+}
+
 $sql = "SELECT * FROM $tableid WHERE `sid`=?";
 $stmt = $pdo->prepare($sql);
 $stmt->execute([$pid]);
@@ -61,7 +103,7 @@ if (empty($row)) {
 
     <!--手機版-加入追蹤清單與購物車-->
     <div class="dtlAddCarPhone-CL">
-        <span>19,800</span>
+        <span>售價$<?= $row['price'] ?></span>
         <button><i class="far fa-heart"></i> 加入追蹤清單</button>
         <button><i class="fas fa-shopping-cart"></i> 加入購物車</button>
     </div>
@@ -81,9 +123,9 @@ if (empty($row)) {
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <i class="fas fa-map-marker-alt"></i>
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item"><a href="#">Library</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Data</li>
+                        <li class="breadcrumb-item"><a href="/Upick/shopHome.php?aniarea=none&shparea=block">Home</a></li>
+                        <li class="breadcrumb-item"><a href="item_page.php?classid=<?= $tableid ?>"><?= $classname ?></a></li>
+                        <li class="breadcrumb-item active" aria-current="page"><?= $row['name'] ?></li>
                     </ol>
                 </nav>
                 <!--細節頁頂部區域(圖片商品標題金額等資訊區)-->
@@ -98,9 +140,9 @@ if (empty($row)) {
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb2">
                                 <i class="fas fa-map-marker-alt"></i>
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item"><a href="#">Library</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Data</li>
+                                <li class="breadcrumb-item"><a href="/Upick/shopHome.php">Home</a></li>
+                                <li class="breadcrumb-item"><a href="item_page.php?classid=<?= $tableid ?>"><?= $classname ?></a></li>
+                                <li class="breadcrumb-item active" aria-current="page"><?= $row['name'] ?></li>
                             </ol>
                         </nav>
                         <!--頂部區域商品圖-小-->
@@ -163,7 +205,7 @@ if (empty($row)) {
                                     <i class="fas fa-plus"></i>
                                 </div>
                                 <div class="dtlDollor-CL">
-                                    $ <?= $row['price'] ?>
+                                    售價 $<?= $row['price'] ?>
                                 </div>
                             </div>
                         </div>

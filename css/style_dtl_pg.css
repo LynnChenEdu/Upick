@@ -414,6 +414,7 @@
             background-color: #E4E8EE;
             padding-top: 15px;
             text-align: center;
+            word-wrap:break-word;
         }
         .dtlContainTable-CL tr td:nth-child(2) {
             padding-left: 15px;
@@ -580,7 +581,7 @@
             }
             /*商品編號*/
             .dtlTop-CL .col-lg-6 span {
-               margin-left: 120px;
+               margin-left: -80px;
 
             }
             /*熱銷商品輪播牆消失*/
@@ -601,8 +602,9 @@
                 display: block;
                 height: 600px;
             }
+            /*設這寬度是為了不在手機版爆版*/
             .dtlTop-CL .col-lg-6 {
-                width: 355px;
+                width: 290px;
             }
             /*保固文字*/
             .dtlItemWarranty-CL {
@@ -630,15 +632,10 @@
             .dtlAddCarPhone-CL span {
                 display: block;
                 color: #FD723C;
-                font-size: 18px;
+                font-size: 20px;
                 line-height: 50px;
                 text-align: center;
                 position: relative;
-            }
-            .dtlAddCarPhone-CL span::before {
-                position: absolute;
-                content: "$";
-                margin-left: -20px;
             }
             .dtlAddCarPhone-CL button {
                 border: 0;
@@ -661,19 +658,29 @@
             /*詳細商品說明-表格*/
             .dtlContainTable-CL {
                 display: block;
-                margin-top: 550px;
+                margin-top: 580px;
                 width: 355px;
             }
             .dtlContainTbHead-CL {
-                height: 100px; 
+                height: 50px; 
             }
             .dtlContainTbHead-CL h4 {
                 font-size: 16px;
-                line-height: 30px;
+                line-height: 50px;
+            }
+            .dtlContainTable-CL table {
+                width: 355px;
+                word-wrap: break-word;
             }
             .dtlContainTable-CL tr td:nth-child(1) {
-                width: 130px;
+                width: 120px;
                 font-size: 16px;
+       
+                text-align: center;
+                word-wrap: break-word;
+            }
+            .dtlContainTable-CL tr td:nth-child(2){
+                word-wrap: break-word;
             }
 
             /*手機版gotop按鈕*/

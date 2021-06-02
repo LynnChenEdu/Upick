@@ -18,7 +18,7 @@
     //熱銷商品sql query
     $hotsale1 = "SELECT * FROM 06ssd WHERE id BETWEEN 11 AND 14";
     $hsrow1 = $pdo->query($hotsale1)->fetchAll();
-    $hotsale2 = "SELECT * FROM 01cpu WHERE id BETWEEN 21 AND 24";
+    $hotsale2 = "SELECT * FROM 01cpu WHERE id BETWEEN 6 AND 9";
     $hsrow2 = $pdo->query($hotsale2)->fetchAll();
     $hotsale3 = "SELECT * FROM 03vga WHERE id BETWEEN 15 AND 18";
     $hsrow3 = $pdo->query($hotsale3)->fetchAll();

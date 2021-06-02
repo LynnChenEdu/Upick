@@ -109,7 +109,7 @@
         }
         /*將面包屑z-index設為最高避免手機板無法點選*/
         .breadcrumb li {
-            z-index: 999;
+            z-index: 10;
         }
 
         /*面包屑-修改ICLASS圖標margin*/
@@ -183,9 +183,16 @@
             width: 100px;
         }
 
+        /*修改熱銷輪播圖片*/
+        .itemShopCaroImg_CL {
+            width: 150px;
+            height: 150px;
+        }
+
         /*商品輪播牆單頁內容p文字格式-修改寬度*/
         .shpHotItemCaro-CL p {
             width: 140px;
+            height: 75px;
             margin-left: 12px;
             font-size: 14px;
             line-height: 24px;
@@ -628,6 +635,9 @@
                 text-align: center;
                 border-bottom: 2px solid #bebebe;
             }
+            .itemFilterPhone-CL span {
+                color: #bebebe;
+            }
             .itemFilterPhone-CL ul {
                 width: 100%;
                 color: white;
@@ -650,6 +660,9 @@
                 background-color: #525d72; 
                 font-weight: 100; 
                 font-size: 16px;
+            }
+            .itemFilterPhone-CL a {
+                color: white;
             }
             /*排序按鈕*/
             .itemSort-CL {

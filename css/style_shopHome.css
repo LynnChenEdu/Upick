@@ -756,7 +756,7 @@
 
         /*設定零件區-heart, car, dollor的間距*/
         .shpItem-CL .shpHotCartInfo-CL {
-            margin-left: 10px;
+            margin-left: 8px;
             margin-top: -8px;
         }
         .shpItem-CL .shpHeart-CL {

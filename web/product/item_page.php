@@ -31,6 +31,12 @@ if ($tableid == '01cpu') {
     $selecount = 2;
     $k = 0;
     $classname = 'CPU';
+    $hotsale1 = "SELECT * FROM 01cpu WHERE id BETWEEN 6 AND 9";
+    $hotsalerow1 = $pdo->query($hotsale1)->fetchAll();
+    $hotsale2 = "SELECT * FROM 01cpu WHERE id BETWEEN 11 AND 14";
+    $hotsalerow2 = $pdo->query($hotsale2)->fetchAll();
+    $hotsale3 = "SELECT * FROM 01cpu WHERE id BETWEEN 34 AND 37";
+    $hotsalerow3 = $pdo->query($hotsale3)->fetchAll();
 }
 if ($tableid == '02mb') {
     $selector[0]['name'] = '品牌';
@@ -42,6 +48,12 @@ if ($tableid == '02mb') {
     $selecount = 2;
     $k = 0;
     $classname = '主機板';
+    $hotsale1 = "SELECT * FROM 02mb WHERE id BETWEEN 21 AND 24";
+    $hotsalerow1 = $pdo->query($hotsale1)->fetchAll();
+    $hotsale2 = "SELECT * FROM 02mb WHERE id BETWEEN 16 AND 19";
+    $hotsalerow2 = $pdo->query($hotsale2)->fetchAll();
+    $hotsale3 = "SELECT * FROM 02mb WHERE id BETWEEN 6 AND 9";
+    $hotsalerow3 = $pdo->query($hotsale3)->fetchAll();
 }
 if ($tableid == '04ram') {
     $selector[0]['name'] = '品牌';
@@ -53,6 +65,12 @@ if ($tableid == '04ram') {
     $selecount = 2;
     $k = 0;
     $classname = '記憶體';
+    $hotsale1 = "SELECT * FROM 04ram WHERE id BETWEEN 14 AND 17";
+    $hotsalerow1 = $pdo->query($hotsale1)->fetchAll();
+    $hotsale2 = "SELECT * FROM 04ram WHERE id BETWEEN 26 AND 29";
+    $hotsalerow2 = $pdo->query($hotsale2)->fetchAll();
+    $hotsale3 = "SELECT * FROM 04ram WHERE id BETWEEN 34 AND 37";
+    $hotsalerow3 = $pdo->query($hotsale3)->fetchAll();
 }
 if ($tableid == '05hdd') {
     $selector[0]['name'] = '品牌';
@@ -67,6 +85,12 @@ if ($tableid == '05hdd') {
     $selecount = 3;
     $k = 0;
     $classname = '傳統硬碟';
+    $hotsale1 = "SELECT * FROM 05hdd WHERE id BETWEEN 13 AND 16";
+    $hotsalerow1 = $pdo->query($hotsale1)->fetchAll();
+    $hotsale2 = "SELECT * FROM 05hdd WHERE id BETWEEN 17 AND 20";
+    $hotsalerow2 = $pdo->query($hotsale2)->fetchAll();
+    $hotsale3 = "SELECT * FROM 05hdd WHERE id BETWEEN 26 AND 29";
+    $hotsalerow3 = $pdo->query($hotsale3)->fetchAll();
 }
 if ($tableid == '06ssd') {
     $selector[0]['name'] = '品牌';
@@ -81,6 +105,12 @@ if ($tableid == '06ssd') {
     $selecount = 3;
     $k = 0;
     $classname = '固態硬碟';
+    $hotsale1 = "SELECT * FROM 06ssd WHERE id BETWEEN 23 AND 26";
+    $hotsalerow1 = $pdo->query($hotsale1)->fetchAll();
+    $hotsale2 = "SELECT * FROM 06ssd WHERE id BETWEEN 16 AND 19";
+    $hotsalerow2 = $pdo->query($hotsale2)->fetchAll();
+    $hotsale3 = "SELECT * FROM 06ssd WHERE id BETWEEN 31 AND 34";
+    $hotsalerow3 = $pdo->query($hotsale3)->fetchAll();
 }
 if ($tableid == '03vga') {
     $selector[0]['name'] = '品牌';
@@ -92,6 +122,12 @@ if ($tableid == '03vga') {
     $selecount = 2;
     $k = 0;
     $classname = '顯示卡';
+    $hotsale1 = "SELECT * FROM 03vga WHERE id BETWEEN 26 AND 29";
+    $hotsalerow1 = $pdo->query($hotsale1)->fetchAll();
+    $hotsale2 = "SELECT * FROM 03vga WHERE id BETWEEN 21 AND 24";
+    $hotsalerow2 = $pdo->query($hotsale2)->fetchAll();
+    $hotsale3 = "SELECT * FROM 03vga WHERE id BETWEEN 12 AND 15";
+    $hotsalerow3 = $pdo->query($hotsale3)->fetchAll();
 }
 if ($tableid == '07computercase') {
     $selector[0]['name'] = '品牌';
@@ -106,6 +142,12 @@ if ($tableid == '07computercase') {
     $selecount = 3;
     $k = 0;
     $classname = '電腦機殼';
+    $hotsale1 = "SELECT * FROM 07computercase WHERE id BETWEEN 19 AND 22";
+    $hotsalerow1 = $pdo->query($hotsale1)->fetchAll();
+    $hotsale2 = "SELECT * FROM 07computercase WHERE id BETWEEN 9 AND 12";
+    $hotsalerow2 = $pdo->query($hotsale2)->fetchAll();
+    $hotsale3 = "SELECT * FROM 07computercase WHERE id BETWEEN 12 AND 15";
+    $hotsalerow3 = $pdo->query($hotsale3)->fetchAll();
 }
 if ($tableid == '08powersupply') {
     $selector[0]['name'] = '品牌';
@@ -117,6 +159,12 @@ if ($tableid == '08powersupply') {
     $selecount = 2;
     $k = 0;
     $classname = '電源供應器';
+    $hotsale1 = "SELECT * FROM 08powersupply WHERE id BETWEEN 21 AND 24";
+    $hotsalerow1 = $pdo->query($hotsale1)->fetchAll();
+    $hotsale2 = "SELECT * FROM 08powersupply WHERE id BETWEEN 13 AND 16";
+    $hotsalerow2 = $pdo->query($hotsale2)->fetchAll();
+    $hotsale3 = "SELECT * FROM 08powersupply WHERE id BETWEEN 17 AND 20";
+    $hotsalerow3 = $pdo->query($hotsale3)->fetchAll();
 }
 if ($tableid == '12fan') {
     $selector[0]['name'] = '品牌';
@@ -125,6 +173,12 @@ if ($tableid == '12fan') {
     $selecount = 1;
     $k = 0;
     $classname = '散熱產品';
+    $hotsale1 = "SELECT * FROM 12fan WHERE id BETWEEN 11 AND 14";
+    $hotsalerow1 = $pdo->query($hotsale1)->fetchAll();
+    $hotsale2 = "SELECT * FROM 12fan WHERE id BETWEEN 6 AND 9";
+    $hotsalerow2 = $pdo->query($hotsale2)->fetchAll();
+    $hotsale3 = "SELECT * FROM 12fan WHERE id BETWEEN 19 AND 22";
+    $hotsalerow3 = $pdo->query($hotsale3)->fetchAll();
 }
 if ($tableid == '09screen') {
     $selector[0]['name'] = '品牌';
@@ -136,6 +190,12 @@ if ($tableid == '09screen') {
     $selecount = 1;
     $k = 0;
     $classname = '週邊產品';
+    $hotsale1 = "SELECT * FROM 09screen WHERE id BETWEEN 11 AND 14";
+    $hotsalerow1 = $pdo->query($hotsale1)->fetchAll();
+    $hotsale2 = "SELECT * FROM 09screen WHERE id BETWEEN 6 AND 9";
+    $hotsalerow2 = $pdo->query($hotsale2)->fetchAll();
+    $hotsale3 = "SELECT * FROM 09screen WHERE id BETWEEN 2 AND 5";
+    $hotsalerow3 = $pdo->query($hotsale3)->fetchAll();
 }
 
 
@@ -264,37 +324,50 @@ $rows = $pdo->query($p_sql)->fetchAll();
                             <!--商品輪播牆單頁內容-->
                             <div class="carousel-item active shpHotItemCaro-CL">
                                 <div class="row">
-                                    <div class="col">
-                                        <a href="">
-                                            <img class="itemShopCaroImg_CL" src="/Upick/images/item_01.png" alt="">
-                                            <p class="itemShopCaroName_CL">Corsair HX1200 80Plus白金牌電源供應器白金牌電源供應器</p>
+                                    <?php foreach ($hotsalerow1 as $r) { ?>
+                                        <div class="col">
+                                            <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=<?= $tableid ?>">
+                                                <img class="itemShopCaroImg_CL" src="<?= WEB_ROOT ?>/images/product/<?= $tableid ?>/<?= $r['imgs'] ?>.jpg" alt="">
+                                                <p class="itemShopCaroName_CL"><?= $r['name'] ?></p>
+                                            </a>
                                             <!--加入追蹤之愛心,購物車,金額-->
-                                            <div class="shpHotCartInfo-CL"><i class="far fa-heart shpHeart-CL"></i><i class="fas fa-shopping-cart shpShopCar-CL"></i> <span class="shpItemDollor-CL itemShopCaroDollor_CL">8790</span></div>
-                                        </a>
-                                    </div>
-                                    <div class="col">
-                                        <img src="/Upick/images/item_01.png" alt="">
-                                        <p>Corsair HX1200 80Plus白金牌電源供應器白金牌電源供應器</p>
-                                        <!--加入追蹤之愛心,購物車,金額-->
-                                        <div class="shpHotCartInfo-CL"><i class="far fa-heart shpHeart-CL"></i><i class="fas fa-shopping-cart shpShopCar-CL"></i> <span class="shpItemDollor-CL">8790</span></div>
-                                    </div>
-                                    <div class="col">
-                                        <img src="/Upick/images/item_01.png" alt="">
-                                        <p>Corsair HX1200 80Plus白金牌電源供應器白金牌電源供應器</p>
-                                        <!--加入追蹤之愛心,購物車,金額-->
-                                        <div class="shpHotCartInfo-CL"><i class="far fa-heart shpHeart-CL"></i><i class="fas fa-shopping-cart shpShopCar-CL"></i> <span class="shpItemDollor-CL">8790</span></div>
-                                    </div>
-                                    <div class="col">
-                                        <img src="/Upick/images/item_01.png" alt="">
-                                        <p>Corsair HX1200 80Plus白金牌電源供應器白金牌電源供應器</p>
-                                        <!--加入追蹤之愛心,購物車,金額-->
-                                        <div class="shpHotCartInfo-CL"><i class="far fa-heart shpHeart-CL"></i><i class="fas fa-shopping-cart shpShopCar-CL"></i> <span class="shpItemDollor-CL">8790</span></div>
-                                    </div>
+                                            <div class="shpHotCartInfo-CL"><i class="far fa-heart shpHeart-CL"></i><i class="fas fa-shopping-cart shpShopCar-CL"></i> <span class="shpItemDollor-CL itemShopCaroDollor_CL"><?= $r['price'] ?></span></div>
+
+                                        </div>
+                                    <?php } ?>
                                 </div>
                             </div>
 
-                            <div class="carousel-item">
+                            <div class="carousel-item shpHotItemCaro-CL">
+                                <div class="row">
+                                    <?php foreach ($hotsalerow2 as $r) { ?>
+                                        <div class="col">
+                                            <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=<?= $tableid ?>">
+                                                <img class="itemShopCaroImg_CL" src="<?= WEB_ROOT ?>/images/product/<?= $tableid ?>/<?= $r['imgs'] ?>.jpg" alt="">
+                                                <p class="itemShopCaroName_CL"><?= $r['name'] ?></p>
+                                            </a>
+                                            <!--加入追蹤之愛心,購物車,金額-->
+                                            <div class="shpHotCartInfo-CL"><i class="far fa-heart shpHeart-CL"></i><i class="fas fa-shopping-cart shpShopCar-CL"></i> <span class="shpItemDollor-CL itemShopCaroDollor_CL"><?= $r['price'] ?></span></div>
 
+                                        </div>
+                                    <?php } ?>
+                                </div>
+                            </div>
+
+                            <div class="carousel-item shpHotItemCaro-CL">
+                                <div class="row">
+                                    <?php foreach ($hotsalerow3 as $r) { ?>
+                                        <div class="col">
+                                            <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=<?= $tableid ?>">
+                                                <img class="itemShopCaroImg_CL" src="<?= WEB_ROOT ?>/images/product/<?= $tableid ?>/<?= $r['imgs'] ?>.jpg" alt="">
+                                                <p class="itemShopCaroName_CL"><?= $r['name'] ?></p>
+                                            </a>
+                                            <!--加入追蹤之愛心,購物車,金額-->
+                                            <div class="shpHotCartInfo-CL"><i class="far fa-heart shpHeart-CL"></i><i class="fas fa-shopping-cart shpShopCar-CL"></i> <span class="shpItemDollor-CL itemShopCaroDollor_CL"><?= $r['price'] ?></span></div>
+
+                                        </div>
+                                    <?php } ?>
+                                </div>
                             </div>
 
                         </div>

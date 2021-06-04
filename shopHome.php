@@ -11,11 +11,11 @@ if ($shparea == 'block') {
 }
 
 //熱銷商品sql query
-$hotsale1 = "SELECT * FROM 06ssd WHERE id BETWEEN 11 AND 14";
+$hotsale1 = "SELECT * FROM 01cpu WHERE id BETWEEN 6 AND 9";
 $hsrow1 = $pdo->query($hotsale1)->fetchAll();
-$hotsale2 = "SELECT * FROM 01cpu WHERE id BETWEEN 6 AND 9";
+$hotsale2 = "SELECT * FROM 03vga WHERE id BETWEEN 15 AND 18";
 $hsrow2 = $pdo->query($hotsale2)->fetchAll();
-$hotsale3 = "SELECT * FROM 03vga WHERE id BETWEEN 15 AND 18";
+$hotsale3 = "SELECT * FROM 06ssd WHERE id BETWEEN 11 AND 14";
 $hsrow3 = $pdo->query($hotsale3)->fetchAll();
 
 //零件區sql query
@@ -227,13 +227,13 @@ $screenrow2 = $pdo->query($screen2)->fetchAll();
                     <!--修改輪播牆內容高度-->
                     <div class="carousel-inner shpCarousel-CL">
                         <div class="carousel-item active">
-                            <img src="images/topCaro_01.png" class="d-block w-100" alt="...">
+                            <img src="images/topCaro_01.jpg" class="d-block w-100" alt="...">
                         </div>
                         <div class="carousel-item">
-                            <img src="images/topCaro_01.png" class="d-block w-100" alt="...">
+                            <img src="images/topCaro_02.jpg" class="d-block w-100" alt="...">
                         </div>
                         <div class="carousel-item">
-                            <img src="images/topCaro_01.png" class="d-block w-100" alt="...">
+                            <img src="images/topCaro_03.jpg" class="d-block w-100" alt="...">
                         </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
@@ -275,8 +275,8 @@ $screenrow2 = $pdo->query($screen2)->fetchAll();
                                 <div class="row">
                                     <?php foreach ($hsrow1 as $r) { ?>
                                         <div class="col-lg">
-                                            <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=06ssd">
-                                                <img src="<?= WEB_ROOT ?>/images/product/06ssd/<?= $r['imgs'] ?>.jpg" alt="" class="shpCaroImg_CL">
+                                            <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=01cpu">
+                                                <img src="<?= WEB_ROOT ?>/images/product/01cpu/<?= $r['imgs'] ?>.jpg" alt="" class="shpCaroImg_CL">
                                                 <p class="shpCaroName_CL"><?= $r['name'] ?></p>
                                             </a>
                                             <!--加入追蹤之愛心,購物車,金額-->
@@ -290,8 +290,8 @@ $screenrow2 = $pdo->query($screen2)->fetchAll();
                                 <div class="row">
                                     <?php foreach ($hsrow2 as $r) { ?>
                                         <div class="col-lg">
-                                            <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=01cpu">
-                                                <img src="<?= WEB_ROOT ?>/images/product/01cpu/<?= $r['imgs'] ?>.jpg" alt="" class="shpCaroImg_CL">
+                                            <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=03vga">
+                                                <img src="<?= WEB_ROOT ?>/images/product/03vga/<?= $r['imgs'] ?>.jpg" alt="" class="shpCaroImg_CL">
                                                 <p class="shpCaroName_CL"><?= $r['name'] ?></p>
                                             </a>
                                             <!--加入追蹤之愛心,購物車,金額-->
@@ -307,8 +307,8 @@ $screenrow2 = $pdo->query($screen2)->fetchAll();
                                 <div class="row">
                                     <?php foreach ($hsrow3 as $r) { ?>
                                         <div class="col-lg">
-                                            <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=03vga">
-                                                <img src="<?= WEB_ROOT ?>/images/product/03vga/<?= $r['imgs'] ?>.jpg" alt="" class="shpCaroImg_CL">
+                                            <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=06ssd">
+                                                <img src="<?= WEB_ROOT ?>/images/product/06ssd/<?= $r['imgs'] ?>.jpg" alt="" class="shpCaroImg_CL">
                                                 <p class="shpCaroName_CL"><?= $r['name'] ?></p>
                                             </a>
                                             <!--加入追蹤之愛心,購物車,金額-->

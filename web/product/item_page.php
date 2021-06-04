@@ -277,13 +277,13 @@ $rows = $pdo->query($p_sql)->fetchAll();
                     <!--修改輪播牆內容高度-->
                     <div class="carousel-inner shpCarousel-CL">
                         <div class="carousel-item active">
-                            <img src="/Upick/images/topCaro_01.png" class="d-block w-100" alt="...">
+                            <img src="/Upick/images/topCaro_01.jpg" class="d-block w-100" alt="...">
                         </div>
                         <div class="carousel-item">
-                            <img src="/Upick/images/topCaro_01.png" class="d-block w-100" alt="...">
+                            <img src="/Upick/images/topCaro_02.jpg" class="d-block w-100" alt="...">
                         </div>
                         <div class="carousel-item">
-                            <img src="/Upick/images/topCaro_01.png" class="d-block w-100" alt="...">
+                            <img src="/Upick/images/topCaro_03.jpg" class="d-block w-100" alt="...">
                         </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">

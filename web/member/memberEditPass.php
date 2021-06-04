@@ -1,3 +1,19 @@
+<?php require __DIR__.'/../../__connect_db.php';
+
+define('WEB_ROOT', '/UPICK');
+session_start();
+
+$email = $_SESSION['loginUser'];
+$sql = "SELECT password FROM members WHERE email=?";
+$stmt = $pdo->prepare($sql);
+$stmt->execute([$email]);
+
+if($stmt->rowCount()){
+    $row = $stmt->fetch();
+    
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,12 +63,12 @@
                     </div>
                 </div>
                 <div class="memEditPassArea_HC">
-                    <form action="">
+                    <form action="##" onsubmit="return false" id="form1" method="post">
                         <div class="memColumnWhite_HC memOldPassword_HC">
                             <!-- 舊密碼 -->
                             <p>舊密碼</p>
                             <input id="memOldPassword_HC" type="password" placeholder="請輸入舊密碼" name="password"
-                                class="memPassWord_HC">
+                                class="memPassWord_HC" required>
                             <i toggle="#memOldPassword_HC"
                                 class="far fa-eye-slash memPassIcon_HC memToggleOldPassword_HC"></i>
                         </div>
@@ -60,7 +76,7 @@
                             <!-- 新密碼 -->
                             <p>新密碼</p>
                             <input onkeyup="checkPass()" id="memNewPassword_HC" type="password" placeholder="請輸入新密碼"
-                                name="password" class="memCheckPswrd1_HC memPassWord_HC">
+                                name="password" class="memCheckPswrd1_HC memPassWord_HC" required>
                             <i toggle="#memNewPassword_HC"
                                 class="far fa-eye-slash memPassIcon_HC memToggleNewPassword_HC"></i>
                         </div>
@@ -68,14 +84,14 @@
                             <!-- 確認新密碼 -->
                             <p>確認新密碼</p>
                             <input onkeyup="checkPass()" id="memCheckPassword_HC" type="password" placeholder="請再次輸入新密碼"
-                                name="password" class="memCheckPswrd2_HC">
+                                name="password" class="memCheckPswrd2_HC" required>
                             <i toggle="#memCheckPassword_HC"
                                 class="far fa-eye-slash memPassIcon_HC memToggleCheckPassword_HC"></i>
                         </div>
                         <div class="memErroCSS_HC memCheckErro_HC">
                             <i class="fas fa-exclamation-circle"> 密碼不符！</i>
                         </div>
-                        <button class="wBtnNGr memEditPassBtnShare_HC">確認修改</button>
+                        <button class="wBtnNGr memEditPassBtnShare_HC" onclick="EditPassword()">確認修改</button>
                     </form>
                 </div>
             </div>
@@ -138,6 +154,27 @@ $(".memToggleCheckPassword_HC").click(function() {
         input.attr("type", "password");
     }
 });
+
+function EditPassword() {
+    $.ajax({
+        type: "POST", //方法
+        url: "data-edit-password-api.php", //表單接收url
+        data: $('#form1').serialize(),
+        dataType: "json",
+        success: function(data) {
+            console.log("OK")
+            if (data.success == true) {
+                alert("修改成功！");
+                // location.href = '../../shopHome.php';
+            } else if (data.success == false) {
+                WrongLog.style.display = "block";
+            }
+        },
+        error: function(data) {
+            console.log("NOK");
+        }
+    });
+};
 </script>
 
 </html>

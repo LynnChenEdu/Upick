@@ -1,4 +1,4 @@
-    .navbarAll {
+.navbarAll {
     position: fixed;
     z-index: 999;
 
@@ -64,6 +64,18 @@
     .upick-navbar-container a:hover {
         color: #7FE0DC;
         transition: .5s;
+    }
+
+    .form-inline>.navbar-nav>a{
+        color: #FFF;
+        text-align: center;
+        line-height: 35px;
+    }
+
+    .form-inline>.navbar-nav>a:hover{
+        background-color: #7FE0DC;
+        color: #383E44;
+        text-decoration: none;
     }
 
     /* 彩虹條 */
@@ -144,9 +156,3 @@
     .navBtnBg01cpu-CL, .navBtnBg02mb-CL, .navBtnBg04ram-CL, .navBtnBg05hdd-CL, .navBtnBg06ssd-CL, .navBtnBg03vga-CL, .navBtnBg07computercase-CL, .navBtnBg08powersupply-CL, .navBtnBg12fan-CL, .navBtnBg09screen-CL {
         background-color: #7FE0DC;
     }
-
-    
-
-  
-
-

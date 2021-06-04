@@ -147,7 +147,7 @@
             width: 910px;
             margin: 0 auto;
             background-color: #FFF;
-            border-radius: 8px;
+            border-radius: 4px;
             box-shadow: 3px 3px 10px #E4E8EE;
             padding: 20px;
         }
@@ -214,7 +214,7 @@
             background-color: #FFF;
             box-shadow: 3px 3px 10px #E4E8EE;
             padding: 10px;
-            border-radius: 8px;
+            border-radius: 4px;
         }
 
         .memQABox_HC {
@@ -296,11 +296,27 @@
             display: none;
         }
 
+        .shpFooterOut-CL {
+            width: 100%;
+        }
+
+        .navSearch-CL{
+            display: none;
+        }
+
         /* 手機板 */
         @media screen and (max-width: 375px) {
             .container {
                 width: 355px;
                 margin: 0 auto;
+            }
+
+            .navbarAll{
+                display: none;
+            }
+
+            .shpFooterSpace-CL{
+                width: 355px;
             }
 
             /* 左側Menu */
@@ -312,6 +328,7 @@
             .memberCen_HC {
                 width: 355px;
                 margin-top: 50px;
+                padding-top: 0;
                 position: relative;
             }
 

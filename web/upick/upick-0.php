@@ -4,14 +4,15 @@ require __DIR__ . '/../../__connect_db.php';
 define('WEB_ROOT', '/UPICK');
 session_start();
 
-$cpu1 = "SELECT * FROM 01cpu";
+//取得cpu品牌名稱
+$cpu1 = "SELECT `brand` FROM 01cpu GROUP BY brand";
 $stmt1 = $pdo->query($cpu1);
 $row1 = $stmt1->fetchall();
 
-
-
-
-
+//取得主機板品牌名稱
+$mb1 = "SELECT `brand` FROM 02mb GROUP BY brand";
+$stmt2 = $pdo->query($mb1);
+$row2 = $stmt2->fetchall();
 
 ?>
 
@@ -56,27 +57,6 @@ $row1 = $stmt1->fetchall();
             <!-- 主題機 -->
             <div class="up-table row">
                 <div class="col-2 item">主題機</div>
-                <div class="col-2 brand">
-                    <form class="widget brand">
-                        <select name="brand">
-                            <option>商品名稱</option>
-                            <option>pro2</option>
-                            <option>pro3</option>
-                            <option>pro4</option>
-                            <option>pro5</option>
-                        </select>
-                        <div class="select">
-                            <span class="value"></span>
-                            <ul class="optList hidden">
-                                <li class="option">品牌</li>
-                                <li class="option">pro2</li>
-                                <li class="option">pro3</li>
-                                <li class="option">pro4</li>
-                                <li class="option">pro5</li>
-                            </ul>
-                        </div>
-                    </form>
-                </div>
                 <div class="col-4 productname">
                     <form class="widget productname">
                         <select name="productname">
@@ -149,10 +129,12 @@ $row1 = $stmt1->fetchall();
                             <span class="value"></span>
                             <ul class="optList hidden">
                                 <li class="option">品牌</li>
-                                <li class="option">pro2</li>
-                                <li class="option">pro3</li>
-                                <li class="option">pro4</li>
-                                <li class="option">pro5</li>
+                                <?php foreach ($row1 as $key => $value) {
+                                    foreach ($value as $key2 => $value2) {
+                                ?>
+                                        <li class="option"><?= $value2 ?></li>
+                                    <?php } ?>
+                                <?php } ?>
                             </ul>
                         </div>
                     </form>
@@ -225,10 +207,13 @@ $row1 = $stmt1->fetchall();
                             <span class="value"></span>
                             <ul class="optList hidden">
                                 <li class="option">品牌</li>
-                                <li class="option">pro2</li>
-                                <li class="option">pro3</li>
-                                <li class="option">pro4</li>
-                                <li class="option">pro5</li>
+                                <?php foreach ($row2 as $key => $value) {
+                                    foreach ($value as $key2 => $value2) {
+                                ?>
+                                        <li class="option"><?= $value2 ?></li>
+
+                                <?php }
+                                } ?>
                             </ul>
                         </div>
                     </form>

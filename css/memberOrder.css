@@ -186,11 +186,27 @@
             display: none;
         }
 
+        .shpFooterOut-CL{
+            width: 100%;
+        }
+
+        .navSearch-CL{
+            display: none;
+        }
+
         /* 手機板 */
         @media screen and (max-width: 375px) {
             .container {
                 width: 355px;
                 margin: 0 auto;
+            }
+
+            .navbarAll{
+                display: none;
+            }
+
+            .shpFooterSpace-CL{
+                width: 355px;
             }
 
             /* 左側Menu */
@@ -202,6 +218,7 @@
             .memberCen_HC {
                 width: 355px;
                 margin-top: 50px;
+                padding-top: 0;
                 position: relative;
             }
 

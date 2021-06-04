@@ -1,3 +1,7 @@
+<?php
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,15 +15,15 @@
 
     <!-- google font 'Freckle Face', cursive-->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Freckle+Face&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Freckle+Face&display=swap" rel="stylesheet">
 
     <!-- wp-1.css -->
     <link rel="stylesheet" href="/Upick/css/wp-1.css">
     <!-- style -->
     <style>
-    .wp-button:hover {
-        background-color: #FF98C9;
-    }
+        .wp-button:hover {
+            background-color: #FF98C9;
+        }
     </style>
 </head>
 
@@ -40,8 +44,10 @@
                 繪圖設計
             </h2>
             <div class="mx-auto wp-design wp-button-group">
-                <button class="wp-button wp-design">一鍵組機</button>
-                <a href="/Upick/web/wepick/wepick-2.php"><button class="wp-button wp-design">自選品牌</button></a>
+                <a href="/Upick/web/wepick/wepick-2.php?classid=18drawing_com">
+                    <button class="wp-button wp-design">一鍵組機</button></a>
+                <a href="/Upick/web/wepick/wepick-2.php?step=1">
+                    <button class="wp-button wp-design">自選品牌</button></a>
             </div>
         </div>
 

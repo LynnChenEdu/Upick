@@ -1,81 +1,81 @@
+<?php
+require __DIR__ . '/__connect_db.php';
+define('WEB_ROOT', '/UPICK');
+session_start();
+
+//若點擊navbar商場btn,則首頁動畫區消失
+$aniarea = isset($_GET['aniarea']) ? ($_GET['aniarea']) : 'block';
+$shparea = isset($_GET['shparea']) ? ($_GET['shparea']) : 'none';
+if ($shparea == 'block') {
+    $shpTopSpace = '120';
+}
+
+//熱銷商品sql query
+$hotsale1 = "SELECT * FROM 06ssd WHERE id BETWEEN 11 AND 14";
+$hsrow1 = $pdo->query($hotsale1)->fetchAll();
+$hotsale2 = "SELECT * FROM 01cpu WHERE id BETWEEN 6 AND 9";
+$hsrow2 = $pdo->query($hotsale2)->fetchAll();
+$hotsale3 = "SELECT * FROM 03vga WHERE id BETWEEN 15 AND 18";
+$hsrow3 = $pdo->query($hotsale3)->fetchAll();
+
+//零件區sql query
+$cpu1 = "SELECT * FROM 01cpu WHERE id BETWEEN 1 AND 4";
+$cpurow1 = $pdo->query($cpu1)->fetchAll();
+$cpu2 = "SELECT * FROM 01cpu WHERE id BETWEEN 5 AND 8";
+$cpurow2 = $pdo->query($cpu2)->fetchAll();
+
+$mb1 = "SELECT * FROM 02mb WHERE id BETWEEN 1 AND 4";
+$mbrow1 = $pdo->query($mb1)->fetchAll();
+$mb2 = "SELECT * FROM 02mb WHERE id BETWEEN 5 AND 8";
+$mbrow2 = $pdo->query($mb2)->fetchAll();
+
+$ram1 = "SELECT * FROM 04ram WHERE id BETWEEN 1 AND 4";
+$ramrow1 = $pdo->query($ram1)->fetchAll();
+$ram2 = "SELECT * FROM 04ram WHERE id BETWEEN 5 AND 8";
+$ramrow2 = $pdo->query($ram2)->fetchAll();
+
+$hdd1 = "SELECT * FROM 05hdd WHERE id BETWEEN 1 AND 4";
+$hddrow1 = $pdo->query($hdd1)->fetchAll();
+$hdd2 = "SELECT * FROM 05hdd WHERE id BETWEEN 5 AND 8";
+$hddrow2 = $pdo->query($hdd2)->fetchAll();
+
+$ssd1 = "SELECT * FROM 06ssd WHERE id BETWEEN 1 AND 4";
+$ssdrow1 = $pdo->query($ssd1)->fetchAll();
+$ssd2 = "SELECT * FROM 06ssd WHERE id BETWEEN 5 AND 8";
+$ssdrow2 = $pdo->query($ssd2)->fetchAll();
+
+$vga1 = "SELECT * FROM 03vga WHERE id BETWEEN 1 AND 4";
+$vgarow1 = $pdo->query($vga1)->fetchAll();
+$vga2 = "SELECT * FROM 03vga WHERE id BETWEEN 5 AND 8";
+$vgarow2 = $pdo->query($vga2)->fetchAll();
+
+$shell1 = "SELECT * FROM 07computercase WHERE id BETWEEN 1 AND 4";
+$shellrow1 = $pdo->query($shell1)->fetchAll();
+$shell2 = "SELECT * FROM 07computercase WHERE id BETWEEN 5 AND 8";
+$shellrow2 = $pdo->query($shell2)->fetchAll();
+
+$power1 = "SELECT * FROM 08powersupply WHERE id BETWEEN 1 AND 4";
+$powerrow1 = $pdo->query($power1)->fetchAll();
+$power2 = "SELECT * FROM 08powersupply WHERE id BETWEEN 5 AND 8";
+$powerrow2 = $pdo->query($power2)->fetchAll();
+
+$fan1 = "SELECT * FROM 12fan WHERE id BETWEEN 1 AND 4";
+$fanrow1 = $pdo->query($fan1)->fetchAll();
+$fan2 = "SELECT * FROM 12fan WHERE id BETWEEN 5 AND 8";
+$fanrow2 = $pdo->query($fan2)->fetchAll();
+
+$screen1 = "SELECT * FROM 09screen WHERE id BETWEEN 1 AND 4";
+$screenrow1 = $pdo->query($screen1)->fetchAll();
+$screen2 = "SELECT * FROM 09screen WHERE id BETWEEN 5 AND 8";
+$screenrow2 = $pdo->query($screen2)->fetchAll();
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <!--資料庫連結-->
-    <?php
-    require __DIR__ . '/__connect_db.php';
-    define('WEB_ROOT', '/UPICK');
-    session_start();
-
-    //若點擊navbar商場btn,則首頁動畫區消失
-    $aniarea = isset($_GET['aniarea']) ? ($_GET['aniarea']) : 'block';
-    $shparea = isset($_GET['shparea']) ? ($_GET['shparea']) : 'none';
-    if ($shparea == 'block') {
-        $shpTopSpace = '120';
-    }
-
-    //熱銷商品sql query
-    $hotsale1 = "SELECT * FROM 06ssd WHERE id BETWEEN 11 AND 14";
-    $hsrow1 = $pdo->query($hotsale1)->fetchAll();
-    $hotsale2 = "SELECT * FROM 01cpu WHERE id BETWEEN 6 AND 9";
-    $hsrow2 = $pdo->query($hotsale2)->fetchAll();
-    $hotsale3 = "SELECT * FROM 03vga WHERE id BETWEEN 15 AND 18";
-    $hsrow3 = $pdo->query($hotsale3)->fetchAll();
-
-    //零件區sql query
-    $cpu1 = "SELECT * FROM 01cpu WHERE id BETWEEN 1 AND 4";
-    $cpurow1 = $pdo->query($cpu1)->fetchAll();
-    $cpu2 = "SELECT * FROM 01cpu WHERE id BETWEEN 5 AND 8";
-    $cpurow2 = $pdo->query($cpu2)->fetchAll();
-
-    $mb1 = "SELECT * FROM 02mb WHERE id BETWEEN 1 AND 4";
-    $mbrow1 = $pdo->query($mb1)->fetchAll();
-    $mb2 = "SELECT * FROM 02mb WHERE id BETWEEN 5 AND 8";
-    $mbrow2 = $pdo->query($mb2)->fetchAll();
-
-    $ram1 = "SELECT * FROM 04ram WHERE id BETWEEN 1 AND 4";
-    $ramrow1 = $pdo->query($ram1)->fetchAll();
-    $ram2 = "SELECT * FROM 04ram WHERE id BETWEEN 5 AND 8";
-    $ramrow2 = $pdo->query($ram2)->fetchAll();
-
-    $hdd1 = "SELECT * FROM 05hdd WHERE id BETWEEN 1 AND 4";
-    $hddrow1 = $pdo->query($hdd1)->fetchAll();
-    $hdd2 = "SELECT * FROM 05hdd WHERE id BETWEEN 5 AND 8";
-    $hddrow2 = $pdo->query($hdd2)->fetchAll();
-
-    $ssd1 = "SELECT * FROM 06ssd WHERE id BETWEEN 1 AND 4";
-    $ssdrow1 = $pdo->query($ssd1)->fetchAll();
-    $ssd2 = "SELECT * FROM 06ssd WHERE id BETWEEN 5 AND 8";
-    $ssdrow2 = $pdo->query($ssd2)->fetchAll();
-
-    $vga1 = "SELECT * FROM 03vga WHERE id BETWEEN 1 AND 4";
-    $vgarow1 = $pdo->query($vga1)->fetchAll();
-    $vga2 = "SELECT * FROM 03vga WHERE id BETWEEN 5 AND 8";
-    $vgarow2 = $pdo->query($vga2)->fetchAll();
-
-    $shell1 = "SELECT * FROM 07computercase WHERE id BETWEEN 1 AND 4";
-    $shellrow1 = $pdo->query($shell1)->fetchAll();
-    $shell2 = "SELECT * FROM 07computercase WHERE id BETWEEN 5 AND 8";
-    $shellrow2 = $pdo->query($shell2)->fetchAll();
-
-    $power1 = "SELECT * FROM 08powersupply WHERE id BETWEEN 1 AND 4";
-    $powerrow1 = $pdo->query($power1)->fetchAll();
-    $power2 = "SELECT * FROM 08powersupply WHERE id BETWEEN 5 AND 8";
-    $powerrow2 = $pdo->query($power2)->fetchAll();
-
-    $fan1 = "SELECT * FROM 12fan WHERE id BETWEEN 1 AND 4";
-    $fanrow1 = $pdo->query($fan1)->fetchAll();
-    $fan2 = "SELECT * FROM 12fan WHERE id BETWEEN 5 AND 8";
-    $fanrow2 = $pdo->query($fan2)->fetchAll();
-
-    $screen1 = "SELECT * FROM 09screen WHERE id BETWEEN 1 AND 4";
-    $screenrow1 = $pdo->query($screen1)->fetchAll();
-    $screen2 = "SELECT * FROM 09screen WHERE id BETWEEN 5 AND 8";
-    $screenrow2 = $pdo->query($screen2)->fetchAll();
-
-    ?>
-
 
     <?php include __DIR__ . '../parts/html_head.php' ?>
     <!--固定元件:UMA小幫手style-->

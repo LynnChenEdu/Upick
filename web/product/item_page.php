@@ -238,6 +238,7 @@ $rows = $pdo->query($p_sql)->fetchAll();
 
 <body>
     <?php include __DIR__ . '/../../parts/html_navbar.php' ?>
+    <?php include __DIR__ . '/../../parts/html_navbar_phone.php' ?>
     <!--固定元件:UMA小幫手html-->
     <?php include __DIR__ . '/../../parts/html_fixed_element.php' ?>
 
@@ -458,9 +459,9 @@ $rows = $pdo->query($p_sql)->fetchAll();
 
                 <!--商品展示區-->
                 <section id="shpCpuSection_CL"></section>
-                <div class="shpItem-CL shpCpu-CL">
+                <div class="shpItem-CL">
 
-                    <div class="row">
+                    <div class="row myuse">
                         <?php foreach ($rows as $r) : ?>
 
                             <div class="col-xl col-6 mytest">

@@ -156,3 +156,11 @@
     .navBtnBg01cpu-CL, .navBtnBg02mb-CL, .navBtnBg04ram-CL, .navBtnBg05hdd-CL, .navBtnBg06ssd-CL, .navBtnBg03vga-CL, .navBtnBg07computercase-CL, .navBtnBg08powersupply-CL, .navBtnBg12fan-CL, .navBtnBg09screen-CL {
         background-color: #7FE0DC;
     }
+
+
+    /*手機版*/
+    @media (max-width:419px) and (min-width: 300px) {
+        .navbarAll {
+            display: none;
+        }
+    }

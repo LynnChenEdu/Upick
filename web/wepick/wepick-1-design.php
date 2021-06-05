@@ -46,7 +46,7 @@
             <div class="mx-auto wp-design wp-button-group">
                 <a href="/Upick/web/wepick/wepick-2.php?classid=18drawing_com">
                     <button class="wp-button wp-design">一鍵組機</button></a>
-                <a href="/Upick/web/wepick/wepick-2.php?step=1">
+                <a href="/Upick/web/wepick/wepick-2.php">
                     <button class="wp-button wp-design">自選品牌</button></a>
             </div>
         </div>

@@ -78,6 +78,7 @@ $screenrow2 = $pdo->query($screen2)->fetchAll();
 <head>
 
     <?php include __DIR__ . '../parts/html_head.php' ?>
+    <?php include __DIR__ . '../parts/html_navbar_phone.php' ?>
     <!--固定元件:UMA小幫手style-->
     <link rel="stylesheet" href="/Upick/css/style_fixed_element.css">
 

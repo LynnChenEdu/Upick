@@ -259,6 +259,12 @@
         .shpHotSale-CL .shpHotItemCaro-CL .col {
             width: 100px;
         }
+        /*熱銷輪播牆圖片大小修改*/
+        .shpHotItemCaro-CL img {
+            display: block;
+            height: 150px;
+            width: 150px;
+        }
 
         /*商品輪播牆單頁內容p文字格式-修改寬度*/
         .shpHotItemCaro-CL p {
@@ -266,6 +272,7 @@
             margin-left: 12px;
             font-size: 14px;
             line-height: 24px;
+            height: 75px;
         }
 
         /*修改商品輪播牆上下頁之btn範圍與大小*/

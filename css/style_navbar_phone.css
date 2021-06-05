@@ -285,7 +285,7 @@ body{
         align-items: center;
     }
 
-    .navBreadCrumb_ZY i{
+    p.navBreadCrumb_ZY i{
         font-size: 18px;
         color: white;
     }
@@ -351,10 +351,12 @@ body{
         z-index:999;
     }
 
-    .navSearch_ZY{
+    #navSearch_ZY{
     width: 100%;
     height: 50px;
     text-align: center;
+    color: white;
+    line-height: 50px;
     }
 
     .navBtn_ZY{

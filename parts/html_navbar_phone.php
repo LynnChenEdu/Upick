@@ -45,7 +45,7 @@
             <div class="navUnderscore_ZY"></div>
         </div>
         <div class="navbarLinkLi_ZY">
-            <a class="" href="#">商場</a>
+            <a class="" href="/Upick/shopHome.php">商場</a>
             <div class="navUnderscore_ZY"></div>
         </div>
         <div class="navbarLinkLi_ZY">

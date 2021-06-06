@@ -1,3 +1,14 @@
+<?php
+//資料庫連結
+require __DIR__ . '/../../__connect_db.php';
+define('WEB_ROOT', '/UPICK');
+session_start();
+
+$title = '購物車';
+$pageName = 'cart';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,13 +19,11 @@
     <title>UPICK電腦零件購物網-購物車</title>
 
     <link rel="stylesheet" href="/Upick/css/reset.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="/Upick/css/shopcart_origin_stepbar.css">
     <link rel="stylesheet" href="/Upick/css/shopcart_origin_item.css">
 
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous">
 
     <!--navbar style-->
     <link rel="stylesheet" href="/Upick/css/style_navbar.css">
@@ -352,6 +361,7 @@
 
         <!--SCRIPT-->
         <?php include __DIR__ . '/../../parts/scripts.php' ?>
+        <?php include __DIR__ . 'cart-scripts.php' ?>
 </body>
 
 </html>

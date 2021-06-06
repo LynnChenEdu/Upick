@@ -391,11 +391,12 @@
         }
 
         .shpItem-CL .row {
-            margin: 10px auto 10px auto;
+            margin: 10px 20px 10px 40px;
         }
 
         .shpItem-CL .col-xl {
             margin: 30px 50px 15px 50px;
+            flex-grow: 0;
         }
 
         .shpItem-CL img {
@@ -680,7 +681,9 @@
                 width: 355px;
                 border: none;
             }
-    
+            .shpItem-CL .row {
+                margin: 10px auto 10px auto;
+            }
             .shpItem-CL .col-6 {
                 margin: 0;
             }  
@@ -717,7 +720,7 @@
                 width: 50px;
                 height: 50px;
                 border-radius: 25px;
-                z-index: 999;
+                z-index: 800;
                 background: #374052;
                 border: 1px solid #ffffff;
                 position: fixed;

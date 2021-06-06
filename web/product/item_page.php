@@ -461,16 +461,16 @@ $rows = $pdo->query($p_sql)->fetchAll();
                 <section id="shpCpuSection_CL"></section>
                 <div class="shpItem-CL">
 
-                    <div class="row myuse">
+                    <div class="row">
                         <?php foreach ($rows as $r) : ?>
+                            <div class="col-xl col-6">
 
-                            <div class="col-xl col-6 mytest">
-                                <a href="dtl_page.php?classid=<?= $tableid ?>&pid=<?= $r['sid'] ?>" data-sid="<?= $r['sid'] ?>">
+                                <a href="dtl_page.php?classid=<?= $tableid ?>&pid=<?= $r['sid'] ?>" data-sid="<?= $r['sid'] ?>" data-tbid="<?= $tableid ?>">
                                     <img class="itemShowImg_CL" src="<?= WEB_ROOT ?>/images/product/<?= $tableid ?>/<?= $r['imgs'] ?>.jpg" alt="">
                                     <p class="itemShowName_CL"><?= $r['name'] ?></p>
                                 </a>
                                 <!--加入追蹤之愛心,購物車,金額-->
-                                <div class="shpHotCartInfo-CL"><i class="far fa-heart shpHeart-CL" value="1"></i><i class="fas fa-shopping-cart shpShopCar-CL"></i> <span class="shpItemDollor-CL"><?= $r['price'] ?></span></div>
+                                <div class="shpHotCartInfo-CL"><i class="far fa-heart shpHeart-CL" value="1"></i><i class="fas fa-shopping-cart shpShopCar-CL" value="1"></i> <span class="shpItemDollor-CL"><?= $r['price'] ?></span></div>
 
                             </div>
                         <?php endforeach; ?>
@@ -522,6 +522,8 @@ $rows = $pdo->query($p_sql)->fetchAll();
 
     <!--SCRIPT-->
     <?php include __DIR__ . '/../../parts/scripts.php' ?>
+    <?php include __DIR__ . '/../../web/shopcar/cart-script.php' ?>
+
     <script>
         //開啟商品細節頁
         const openDtlPgBtn = $('.itemShowImg_CL');
@@ -666,6 +668,33 @@ $rows = $pdo->query($p_sql)->fetchAll();
             }
             window.location.href = url;
         })
+
+
+
+
+
+        //加入購物車
+        const addToCartBtn = $('.shpShopCar-CL');
+        addToCartBtn.click(function() {
+            const card = $(this).parent().prev('a');
+            const pid = card.attr('data-sid');
+            const classid = card.attr('data-tbid');
+            const qty = 1;
+            $.get('/Upick/web/shopcar/cart-api.php', {
+                action: 'add',
+                pid,
+                classid,
+                qty
+            }, function(data) {
+                console.log(data);
+                showCartCount(data); // 更新選單上數量的提示
+            }, 'json');
+        })
+
+
+
+
+
 
 
 

@@ -13,11 +13,19 @@
         '#這邊放購物車網址';">
             <i class="fas fa-shopping-cart"></i>
         </div>
-
-        <div class="navmember_ZY" onclick="location.href=
-        '#這邊放會員中心網址';">
-            <i class="fas fa-user"></i>
-        </div>
+        <?php if (isset($_SESSION['loginUser'])) : ?>
+            <!-- 已登入 -->
+            <div class="navmember_ZY" onclick="location.href=
+        '/Upick/web/member/memberCentre.php';">
+                <i class="fas fa-user"></i>
+            </div>
+        <?php else : ?>
+            <!-- 未登入 -->
+            <div class="navmember_ZY" onclick="location.href=
+        '/Upick/web/member/login.php';">
+                <i class="fas fa-user"></i>
+            </div>
+        <?php endif; ?>
     </div>
 
     <div class="navbarLinkUl_ZY">
@@ -38,38 +46,63 @@
             </div> -->
 
         </div>
+        <?php if (isset($_SESSION['loginUser'])) : ?>
+            <!-- 已登入 -->
+            <div class="navbarLinkLi_ZY">
+                <a class="" href="#">
+                    首頁</a>
+                <div class="navUnderscore_ZY"></div>
+            </div>
+            <div class="navbarLinkLi_ZY">
+                <a class="" href="/Upick/shopHome.php">商場</a>
+                <div class="navUnderscore_ZY"></div>
+            </div>
+            <div class="navbarLinkLi_ZY">
+                <a class="" href="/Upick/web/wepick/wepick-0.php">WePick</a>
+                <div class="navUnderscore_ZY"></div>
+            </div>
+            <div class="navbarLinkLi_ZY">
+                <a class="" href="/Upick/web/upick/upick-0.php">UPick</a>
+                <div class="navUnderscore_ZY"></div>
+            </div>
+            <div class="navbarLinkLi_ZY">
+                <a class="" href="/Upick/web/member/memberCentre.php">會員中心</a>
+                <div class="navUnderscore_ZY"></div>
+            </div>
+            <div class="navbarLinkLi_ZY">
+                <a class="" href="logout.php">登出</a>
+                <div class="navUnderscore_ZY"></div>
+            </div>
 
-        <div class="navbarLinkLi_ZY">
-            <a class="" href="#">
-                首頁</a>
-            <div class="navUnderscore_ZY"></div>
-        </div>
-        <div class="navbarLinkLi_ZY">
-            <a class="" href="/Upick/shopHome.php">商場</a>
-            <div class="navUnderscore_ZY"></div>
-        </div>
-        <div class="navbarLinkLi_ZY">
-            <a class="" href="#">WePick</a>
-            <div class="navUnderscore_ZY"></div>
-        </div>
-        <div class="navbarLinkLi_ZY">
-            <a class="" href="#">UPick</a>
-            <div class="navUnderscore_ZY"></div>
-        </div>
-        <div class="navbarLinkLi_ZY">
-            <a class="" href="#">會員中心</a>
-            <div class="navUnderscore_ZY"></div>
-        </div>
+        <?php else : ?>
+            <!-- 未登入 -->
+            <div class="navbarLinkLi_ZY">
+                <a class="" href="#">
+                    首頁</a>
+                <div class="navUnderscore_ZY"></div>
+            </div>
+            <div class="navbarLinkLi_ZY">
+                <a class="" href="/Upick/shopHome.php">商場</a>
+                <div class="navUnderscore_ZY"></div>
+            </div>
+            <div class="navbarLinkLi_ZY">
+                <a class="" href="/Upick/web/wepick/wepick-0.php">WePick</a>
+                <div class="navUnderscore_ZY"></div>
+            </div>
+            <div class="navbarLinkLi_ZY">
+                <a class="" href="/Upick/web/upick/upick-0.php">UPick</a>
+                <div class="navUnderscore_ZY"></div>
+            </div>
+            <div class="navbarLinkLi_ZY">
+                <a class="" href="/Upick/web/member/login.php">會員中心</a>
+                <div class="navUnderscore_ZY"></div>
+            </div>
+            <div class="navbarLinkLi_ZY navHidden_ZY">
+                <a class="" href="/Upick/web/member/login.php">登入/註冊</a>
+                <div class="navUnderscore_ZY"></div>
+            </div>
+        <?php endif; ?>
 
-        <!-- 這裡同上判斷是否登入會員 更改navHidden_ZY標籤 -->
-        <div class="navbarLinkLi_ZY navHidden_ZY">
-            <a class="" href="#">登入/註冊</a>
-            <div class="navUnderscore_ZY"></div>
-        </div>
-        <div class="navbarLinkLi_ZY">
-            <a class="" href="#">登出</a>
-            <div class="navUnderscore_ZY"></div>
-        </div>
     </div>
 </nav>
 
@@ -82,7 +115,6 @@
                 <li class="navBreadCrumbItem_ZY">home</li>
                 <li class="navBreadCrumbItem_ZY">Library</li>
                 <li class="navBreadCrumbItem_ZY">Data</li>
-
             </ol> -->
         </div>
         <div class="navDownBar_ZY">

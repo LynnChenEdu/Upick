@@ -163,4 +163,8 @@
         .navbarAll {
             display: none;
         }
+
+        .navSearch-CL {
+            display: none;
+        }
     }

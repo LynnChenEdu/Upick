@@ -260,7 +260,7 @@ body{
         width: 100%;
         background-color: #42474d;
         border: 1px solid #818181;
-        z-index: 999;
+        z-index: 800;
         cursor: pointer;
     }
 

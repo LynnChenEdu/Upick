@@ -148,13 +148,13 @@ body{
         transform: translateX(-100%);
         transition: .5s ;
         pointer-events: none;
-        z-index: 999;
+        z-index: 998;
     }
 
     .navbarLinkUl_ZY.open {
         transform: translateX(0);
         pointer-events: all;
-        z-index:9;
+        z-index:998;
 
     }
 
@@ -322,7 +322,7 @@ body{
         color: white;
         padding: 0;
         margin-right: 10px;
-        z-index: 999;
+        z-index: 801;
     }
 
     .navBottom_ZY{
@@ -334,11 +334,12 @@ body{
         align-content:start;
         list-style: none;
         position: fixed;
+        z-index: 1;
         top: -1000px;
         left: 0;
         margin-left: auto;
         background-color: #383e44e3;
-        /* transform: translateX(-100%); */
+        /* transform: translateX(-1%); */
         transition: .5s ;
     }
     .navBottom_ZY a:active{
@@ -348,7 +349,7 @@ body{
     .navOpen_ZY{
         top: 88px;
         left: 0;
-        z-index:999;
+        z-index:799;
     }
 
     #navSearch_ZY{

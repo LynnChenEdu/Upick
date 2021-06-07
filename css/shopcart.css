@@ -1,30 +1,55 @@
-*{
-    /* outline:1px solid; */
+.row{
+    margin-right: 0;
+    margin-left: 0;
 }
 
 button:focus{
     outline: none;
-    box-shadow: 0 0 2px 3px #01FFC3;
+    /* box-shadow: 0 0 2px 3px #01FFC3; */
     
 }
+.carCantainerOut_ZY{
+    margin: 0 auto;
+    padding-top: 80px ;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .carContainer_ZY{
-    background-color: #D2D8E2;
+    /* background-color: #D2D8E2; */
     max-width: 1200px;
     margin: 0px auto;
-    border-radius: 8px;
-    padding-top: 200px;
+    /* border-radius: 8px; */
+    /* padding-top: 150px; */
+
+}
+
+.carContent_HC{
+    background-color: #E4E8EE;
+    width: 100%;
+    height: 600px;
+    margin: 0px auto;
+    border-radius: 8px;   
+    padding: 200px 120px; 
 }
 
 .carNoThing_ZY{
-    width: 450px;
+    /* width: 450px;
     height: 200px;
     background-color: #d9b073;
-    margin: 100px auto 50px;
+    margin: 100px auto 50px; */
+    display: none;
 }
 
 .carNoThingText_ZY{
-    margin: 0 auto;
-    
+    margin: 0 auto;    
+}
+
+.carNoThingText_ZY>h5{
+    font-size: 28px;
+    font-weight: bold;
+    color: #383E44;
 }
 
 .carNoThingText_ZY h5{
@@ -36,32 +61,50 @@ button:focus{
 
 .carNoThingBtnGroup_ZY{
     margin: 0 auto;
-    width: 80%;
+    width: 800px;
     display: flex;
     justify-content: space-around;
 }
-.carNoThingBtnGroupM_ZY{
+/* .carNoThingBtnGroupM_ZY{
+    display: none;
+} */
+
+.carNoThingBtnGroupBoxM_ZY{
     display: none;
 }
 
 .carGO_ZY{
-    margin-top: 30px;
-    margin-bottom: 100px;
+    margin-top: 80px;
+    /* margin-bottom: 100px; */
     display: flex;
     justify-content: center;
     width: 180px;
-    height: 40px;
-    border:3px solid #061127;
+    height: 40px;    
     border-radius: 40px;
     font-size: 16px;
     font-weight: bold;
     align-items: center;
+    cursor: pointer;
+}
 
+.Shop_ZY{
+    border:1px solid #383E44;
+    background-color: #FFF;
+}
+
+.Shop_ZY:hover{
+    background-color: #383E44;
+    color: #FFF;
 }
 
 .carGoWp_ZY{
+    border: none;
     color: white;
-    background:#061127;
+    background:#383E44;
+}
+
+.carGoWp_ZY:hover{
+    background-color: #9AA3AC;
 }
 
 .carGoWp_ZY i{
@@ -71,8 +114,13 @@ button:focus{
 }
 
 .carGoUp_ZY{
+    border: none;
     color: white;
-    background:#061127;
+    background:#383E44;
+}
+
+.carGoUp_ZY:hover{
+    background-color: #9AA3AC;
 }
 
 .carGoUp_ZY i{
@@ -86,10 +134,35 @@ button:focus{
     width: 1300px;
 }
 
+.shpFooterOut-CL{
+    width: 100%;
+}
+
+.carfooter_ZY{
+
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+
 @media screen and (max-width:375px) {
-    .carContainer_ZY{
-        margin: 50px auto 200px;
+    .navbarAll{
+        display: none;
     }
+
+    .carContainer_ZY{
+        max-width: 355px;
+        /* margin: 50px auto 200px; */
+        padding-top: 70px;
+    }
+
+    .carContent_HC{
+        height: 300px;
+        padding: 70px 20px;
+    }
+
     .carNoThing_ZY{
         width: 200px;
         height: 100px;
@@ -97,6 +170,7 @@ button:focus{
     }
     .carNoThingBtnGroupBoxM_ZY{
         display: block;
+        width: 100%;
         margin: 20px auto;
     }
     .carNoThingBtnGroupBox_ZY{
@@ -106,5 +180,33 @@ button:focus{
         margin: 10px auto;
         width: 120px;
         font-size: 16px;
+    }
+
+    .carNoThingBtnGroup_ZY{
+        width: 100%;
+    }
+
+    .shpFooterSpace-CL {
+        height: 60px;
+        width: 100%;
+    }
+
+    .shpFooterOut-CL
+    {
+        height:150px !important;
+    }
+    .shpFooter-CL{
+        height:150px !important;
+        padding-top:10px !important;
+    }
+
+    .shpFooterStor-CL{
+        display: none;
+    }
+    .shpFooterTelinfoSocial-CL{
+        display: none;
+    }
+    .shpCopyright-CL{
+        margin-top: 0px !important;
     }
 }

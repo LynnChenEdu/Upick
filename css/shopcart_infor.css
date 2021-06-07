@@ -1,12 +1,17 @@
-* {
-    /* outline: 1px solid #000; */
-}
+/* * {
+    outline: 1px solid #000;
+} */
 .row,
 p,
 h1,h2,h3,h4,h5,
 label,ul
 {
     margin: 0;
+}
+
+.navTwo_ZY,
+.navBottom_ZY {
+    display: none;
 }
 
 .boxhideZY{
@@ -19,7 +24,6 @@ label,ul
 .invoiceinforhideZY{
     display: none;
 }
-
 
 .carCreditbox{}
 .carMobileBox{}
@@ -378,6 +382,7 @@ margin: 10px auto 5px;
 .carInforcontainer_ZY{
     width: 100%;
     margin: 30px auto;
+    padding-bottom: 80px;
 }
 
 .carInforPaycontainer_ZY{
@@ -472,8 +477,8 @@ input[type="checkbox"]:checked::after{
 
 .carOrdererName_ZY table{
     width: 100%;
-    background-color: #383e442a;
-    color: #7e7e7e;
+    background-color: #afafaf15;
+    color: #646464;
     
 }
 
@@ -627,7 +632,7 @@ text-align: center;
     height: 8px;
     top: 30%;
     right: 10%;
-    background: url(../icon/upickdownbar.png) no-repeat center;
+    background: url(../images/shopCartSelect.png) no-repeat center;
     pointer-events: none;
 }
 
@@ -767,6 +772,9 @@ text-align: center;
 .carInforRemarkTitle_ZY span{
     color: #f48f89;
 }
+.carFixedInforM_ZY{
+    display: none;
+}
 @media screen and (max-width:375px){
     button:focus {
         outline: none;
@@ -775,6 +783,7 @@ text-align: center;
     }
     .carInforcontainer_ZY{
         margin: 10px auto;
+        padding-bottom: 50px;
     }
     .container{
         max-width: 375px;
@@ -831,9 +840,8 @@ text-align: center;
         flex-wrap: wrap;
         align-items: center;
         width: 100%;
-
         margin: 0  ;
-        padding:0 ;
+        padding:5px 10px ;
         bottom: 0px;
         left: 0;
         background-color: #383E44;
@@ -886,7 +894,7 @@ text-align: center;
         display: none;
     }
     .carInforRemarkBox_ZY{
-        margin-bottom: 50px;
+        margin-bottom: 10px;
     }
 
 }

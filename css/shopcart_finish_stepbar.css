@@ -6,21 +6,27 @@ body {
     overflow-x: hidden;
 }
 
+
+
 /* 按鈕按下後的邊框 */
 button:focus {
     outline: none;
     box-shadow: 0 0 2px 3px #01FFC3;
 }
 
+.carStepContainer_ZY{
+    margin: 0px auto;
+    padding-top: 100px;
+}
+
+
 .carStepRow_ZY {
     width: 100%;
     margin: 0px auto;
-    padding-top: 200px;
+    
+
 }
 
-.carStepContainer_ZY{
-    margin: 0px auto;
-}
 
 .carStepGroup_ZY {
     width: 70%;
@@ -87,6 +93,7 @@ button:focus {
 @media screen and (max-width:375px) {
     .carStepContainer_ZY{
         margin: 5px auto;
+        padding-top: 60px;
     }
     .carStepGroup_ZY{
         width: 100%;

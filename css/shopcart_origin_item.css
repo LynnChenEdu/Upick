@@ -1,13 +1,12 @@
-* {
-    /* outline: 1px solid #ccc; */
-}
+
 
 .carItemBtnM_ZY{
     display: none;
 }
 button:focus {
     outline: none;
-    box-shadow: 0 0 2px 3px #01FFC3;
+    /* box-shadow: 0 0 2px 3px #bdbdbd; */
+
 }
 
 .container {
@@ -111,7 +110,7 @@ button:focus {
     height: 8px;
     top: 35%;
     right: 10%;
-    background: url(../icon/upickdownbar.png) no-repeat center;
+    background: url(../images/shopCartSelect.png) no-repeat center;
     pointer-events: none;
 }
 
@@ -220,7 +219,8 @@ button:focus {
 }
 
 .carCheckout_ZY button {
-    width: 120px;
+    width: 140px;
+    height: 40px;
     margin: 10px auto;
     padding: 2px auto;
     border-radius: 30px;
@@ -314,17 +314,18 @@ margin: 10px auto 5px;
 
 .carGoToShopRow_ZY{
     display: flex;
-    margin: 20px 0 ;
+    margin: 20px 25px ;
     flex-direction: row-reverse;
 }
 
 .carGoToShopBtn_ZY{
-    width: 130px;
+    width: 150px;
+    height: 40px;
     background-color: #ff8888;
     color: white;
     font-size: 20px;
     font-weight: bold;
-    border-radius: 12px;
+    border-radius: 20px;
     border: none;
     letter-spacing: 2px;
     text-indent: 2px;
@@ -360,6 +361,7 @@ margin: 10px auto 5px;
 
 .carNoticeInfor_ZY ul{
     list-style-type: decimal;
+    padding: 0 15px 0 25px;
 }
 .carNoticeInfor_ZY li{
     margin: 5px auto;
@@ -464,6 +466,10 @@ margin: 10px auto 5px;
         padding: 0;
         font-size: 20px;
         color: #383E44;
+        background-color: white;
+    }
+    .carRemoveBtnM_ZY:focus{
+        background-color:#383E44;
     }
     .carItemBtn_ZY{
         display: none;

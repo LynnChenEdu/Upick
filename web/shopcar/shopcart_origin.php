@@ -7,6 +7,9 @@ session_start();
 $title = '購物車';
 $pageName = 'cart';
 
+$row0 = "SELECT * FROM 09screen WHERE id BETWEEN 11 and 14";
+$row1 = $pdo->query($row0)->fetchAll();
+
 ?>
 
 <!DOCTYPE html>
@@ -29,11 +32,21 @@ $pageName = 'cart';
     <link rel="stylesheet" href="/Upick/css/style_navbar.css">
     <!--footer style-->
     <link rel="stylesheet" href="/Upick/css/style_footer.css">
+    <link rel="stylesheet" href="/Upick/css/style_navbar_phone.css">
+    <style>
+        * {
+            /* outline: 1px solid #000; */
+        }
 
+        .navSearch-CL {
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
     <?php include __DIR__ . '/../../parts/html_navbar.php' ?>
+    <?php include __DIR__ . '/../../parts/html_navbar_phone.php' ?>
     <div class="wrapper">
         <div class="main-wrapper">
 
@@ -84,71 +97,14 @@ $pageName = 'cart';
             </div>
             <!-- 商品1 -->
             <div class="container">
-                <div class="row cartItemRow_ZY" value="1">
-                    <div class="carItem_ZY">
-                        <div class="carItemName_ZY col-10 col-lg-7">
-                            <div class="carItemImg_ZY col-3 col-lg-2">
-                                <img src="/Upick/images/item_01.png" alt="">
-                            </div>
-                            <div class="carItemWord_ZY col-9 col-lg-10">
-                                Antec 安鈦克 NE550 TUF聯名款 550W 80+銅牌 (全日系電容/長140mm/五年保固二年換新)
-                            </div>
-
-                        </div>
-                        <div class="carItemBtnM_ZY col-2">
-                            <button class="carRemoveBtnM_ZY col-12">
-                                <i class="fas fa-times"></i>
-
-                            </button>
-                            <button class="carRemoveBtnM_ZY col-12">
-                                <i class="far fa-heart"></i>
-
-                            </button>
-                        </div>
-                        <div class="carItemPrice_ZY col-lg-1">$99999</div>
-
-                        <div class="carItemQuantityOut_Zy col-lg-1">
-                            <div class="carItemQuantity_Zy">
-                                <select class="carItemQuantitySelect_ZY" name="carItemQuantitySelect_ZY">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                </select>
-                            </div>
-                            <div class="carItemTotlePriceMobile_ZY ">
-                                <p>小計<span>$99999</span></p>
-                            </div>
-                        </div>
-                        <div class="carItemTotlePrice_ZY col-4 col-lg-1">
-                            $99999
-                        </div>
-
-                        <div class="carItemBtn_ZY col-2">
-                            <button class="carRemoveBtn_ZY ">
-                                <i class="fas fa-times"></i>
-                                移除商品
-                            </button>
-                            <button class="carRemoveBtn_ZY">
-                                <i class="far fa-heart"></i>
-                                追蹤清單
-                            </button>
-                        </div>
-                    </div>
-                    <div class="row carBorderBottom_ZY"></div>
-                </div>
-                <!-- 商品一結束 -->
-                <!-- 商品1 -->
-                <div class="container">
+                <?php foreach ($_SESSION['cart'] as $v) { ?>
                     <div class="row cartItemRow_ZY" value="1">
                         <div class="carItem_ZY">
                             <div class="carItemName_ZY col-10 col-lg-7">
                                 <div class="carItemImg_ZY col-3 col-lg-2">
-                                    <img src="/Upick/images/item_01.png" alt="">
+                                    <img src="<?= WEB_ROOT ?>/images/product/<?= $v['tableid'] ?>/<?= $v['imgs'] ?>.jpg" alt="">
                                 </div>
-                                <div class="carItemWord_ZY col-9 col-lg-10">
-                                    Antec 安鈦克 NE550 TUF聯名款 550W 80+銅牌 (全日系電容/長140mm/五年保固二年換新)
+                                <div class="carItemWord_ZY col-9 col-lg-10"><?= $v['name'] ?>
                                 </div>
 
                             </div>
@@ -162,7 +118,7 @@ $pageName = 'cart';
 
                                 </button>
                             </div>
-                            <div class="carItemPrice_ZY col-lg-1">$99999</div>
+                            <div class="carItemPrice_ZY col-lg-1">$<?= $v['price'] ?></div>
 
                             <div class="carItemQuantityOut_Zy col-lg-1">
                                 <div class="carItemQuantity_Zy">
@@ -176,8 +132,6 @@ $pageName = 'cart';
                                 </div>
                                 <div class="carItemTotlePriceMobile_ZY ">
                                     <p>小計<span>$99999</span></p>
-
-
                                 </div>
                             </div>
                             <div class="carItemTotlePrice_ZY col-4 col-lg-1">
@@ -185,7 +139,7 @@ $pageName = 'cart';
                             </div>
 
                             <div class="carItemBtn_ZY col-2">
-                                <button class="carRemoveBtn_ZY ">
+                                <button class="carRemoveBtn_ZY">
                                     <i class="fas fa-times"></i>
                                     移除商品
                                 </button>
@@ -197,27 +151,27 @@ $pageName = 'cart';
                         </div>
                         <div class="row carBorderBottom_ZY"></div>
                     </div>
-                    <!-- 商品一結束 -->
+                <?php } ?>
+                <!-- 商品一結束 -->
 
+                <!-- 商品下方結帳資訊攔 -->
 
-                    <!-- 商品下方結帳資訊攔 -->
+                <div class="row carFooterInfor_ZY">
+                    <div class="carTotalQuti_ZY col-8">
+                        <p>本次結帳共</p>
+                        <span>3</span>
+                        <p>項商品</p>
+                    </div>
+                    <div class="carTotalPrice_ZY col-2">
+                        <p>結帳金額:</p>
+                        <span>$99999</span>
+                    </div>
 
-                    <div class="row carFooterInfor_ZY">
-                        <div class="carTotalQuti_ZY col-8">
-                            <p>本次結帳共</p>
-                            <span>3</span>
-                            <p>項商品</p>
-                        </div>
-                        <div class="carTotalPrice_ZY col-2">
-                            <p>結帳金額:</p>
-                            <span>$99999</span>
-                        </div>
-
-                        <div class="carCheckout_ZY col-2">
-                            <button>結帳去</button>
-                        </div>
+                    <div class="carCheckout_ZY col-2">
+                        <button>結帳去</button>
                     </div>
                 </div>
+
 
             </div>
 
@@ -242,81 +196,27 @@ $pageName = 'cart';
             <div class="row carRecommendBox_ZY">
                 <div class="row carRecommend_ZY">
                     <!-- 加購商品 -->
-                    <div class="carRecommendItem_ZY col-3 ">
-                        <div class="carRecommendImg_ZY">
-                            <img src="/Upick/images/item_01.png" alt="">
-                        </div>
-                        <div class="carRecommendInfor_ZY">
-                            <p>Antec 安鈦克 NE550 TUF聯名款 550W 80+銅牌 (全日系電容/長140mm/五年保固二年換新)</p>
-                            <div class="carRecommendBtn_ZY">
-                                <button class="carRecommendCatBtn_ZY">
-                                    <i class="fas fa-cart-plus"></i>
-                                </button>
-                                <button class="carRecommendCatBtn_ZY">
-                                    <i class="far fa-heart"></i>
-                                </button>
-                                <p>$99999</p>
+                    <?php foreach ($row1 as $r1) { ?>
+                        <div class="carRecommendItem_ZY col-3 ">
+                            <div class="carRecommendImg_ZY">
+                                <img src="<?= WEB_ROOT ?>/images/product/09screen/<?= $r1['imgs'] ?>.jpg" alt="">
+                            </div>
+                            <div class="carRecommendInfor_ZY">
+                                <p><?= $r1['name'] ?></p>
+                                <div class="carRecommendBtn_ZY">
+                                    <button class="carRecommendCatBtn_ZY carAddCar_ZY">
+                                        <i class="fas fa-cart-plus" data-sid="<?= $r1['sid'] ?>"></i>
+                                    </button>
+                                    <button class="carRecommendCatBtn_ZY">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                    <p>$<?= $r1['price'] ?></p>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    <?php } ?>
                     <!-- 結束 -->
-                    <!-- 加購商品 -->
-                    <div class="carRecommendItem_ZY col-3 ">
-                        <div class="carRecommendImg_ZY">
-                            <img src="/Upick/images/item_01.png" alt="">
-                        </div>
-                        <div class="carRecommendInfor_ZY">
-                            <p>Antec 安鈦克 NE550 TUF聯名款 550W 80+銅牌 (全日系電容/長140mm/五年保固二年換新)</p>
-                            <div class="carRecommendBtn_ZY">
-                                <button class="carRecommendCatBtn_ZY">
-                                    <i class="fas fa-cart-plus"></i>
-                                </button>
-                                <button class="carRecommendCatBtn_ZY">
-                                    <i class="far fa-heart"></i>
-                                </button>
-                                <p>$99999</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- 結束 -->
-                    <!-- 加購商品 -->
-                    <div class="carRecommendItem_ZY col-3 ">
-                        <div class="carRecommendImg_ZY">
-                            <img src="/Upick/images/item_01.png" alt="">
-                        </div>
-                        <div class="carRecommendInfor_ZY">
-                            <p>Antec 安鈦克 NE550 TUF聯名款 550W 80+銅牌 (全日系電容/長140mm/五年保固二年換新)</p>
-                            <div class="carRecommendBtn_ZY">
-                                <button class="carRecommendCatBtn_ZY">
-                                    <i class="fas fa-cart-plus"></i>
-                                </button>
-                                <button class="carRecommendCatBtn_ZY">
-                                    <i class="far fa-heart"></i>
-                                </button>
-                                <p>$99999</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- 結束 -->
-                    <!-- 加購商品 -->
-                    <div class="carRecommendItem_ZY col-3 ">
-                        <div class="carRecommendImg_ZY">
-                            <img src="/Upick/images/item_01.png" alt="">
-                        </div>
-                        <div class="carRecommendInfor_ZY">
-                            <p>Antec 安鈦克 NE550 TUF聯名款 550W 80+銅牌 (全日系電容/長140mm/五年保固二年換新)</p>
-                            <div class="carRecommendBtn_ZY">
-                                <button class="carRecommendCatBtn_ZY">
-                                    <i class="fas fa-cart-plus"></i>
-                                </button>
-                                <button class="carRecommendCatBtn_ZY">
-                                    <i class="far fa-heart"></i>
-                                </button>
-                                <p>$99999</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- 結束 -->
+
 
                 </div>
             </div>
@@ -335,17 +235,17 @@ $pageName = 'cart';
                 </div>
                 <div class="row carNoticeInfor_ZY">
                     <ul>
-                        <li>本購物須知是欣亞購物網服務條款的補充條款，當您使用欣亞購物網時，即表示您已閱讀、瞭解並同意接受本購物須知所訂之所有內容。本須知得隨時修訂並公告於欣亞購物網上，修訂後之內容自公告時起生效。
+                        <li>本購物須知是UPICK購物網服務條款的補充條款，當您使用UPICK購物網時，即表示您已閱讀、瞭解並同意接受本購物須知所訂之所有內容。本須知得隨時修訂並公告於UPICK購物網上，修訂後之內容自公告時起生效。
                         </li>
-                        <li>若您未滿二十歲，您應於您的家長（或監護人）閱讀、瞭解並同意本購物須知之所有內容及其後修改變更後，方得使用或繼續使用欣亞購物網。當您使用或繼續使用欣亞購物網時，即推定您的家長（或監護人）已閱讀、瞭解並同意接受本購物須知之所有內容及其後修改變更。
+                        <li>若您未滿二十歲，您應於您的家長（或監護人）閱讀、瞭解並同意本購物須知之所有內容及其後修改變更後，方得使用或繼續使用UPICK購物網。當您使用或繼續使用UPICK購物網時，即推定您的家長（或監護人）已閱讀、瞭解並同意接受本購物須知之所有內容及其後修改變更。
                         </li>
-                        <li>當您訂購多筆商品並選擇以信用卡或信用卡分期付款，可能會因信用卡額度不足或系統因素等問題，導致發生當次訂購之商品無法全部取得銀行授權之情形。有此種情形發生時，欣亞購物網將會就已成功取得授權部分之商品繼續處理您的訂單，若您就其他商品仍有需要時，請重新訂購。但若當次訂購享有跨產品優惠、滿額/滿件優惠者，欣亞購物網將視為授權全部失敗，請您重新選擇付款方式。
+                        <li>當您訂購多筆商品並選擇以信用卡或信用卡分期付款，可能會因信用卡額度不足或系統因素等問題，導致發生當次訂購之商品無法全部取得銀行授權之情形。有此種情形發生時，UPICK購物網將會就已成功取得授權部分之商品繼續處理您的訂單，若您就其他商品仍有需要時，請重新訂購。但若當次訂購享有跨產品優惠、滿額/滿件優惠者，UPICK購物網將視為授權全部失敗，請您重新選擇付款方式。
                         </li>
-                        <li>當您完成商品訂購程序後，欣亞購物網將自動發送電子郵件於您所留存的電子郵件信箱，但此一郵件僅係通知您欣亞購物網已經收到您的訂購需求，並不表示交易已經完成或契約已經成立，欣亞購物網保留接受您的訂單與否之權利。
+                        <li>當您完成商品訂購程序後，UPICK購物網將自動發送電子郵件於您所留存的電子郵件信箱，但此一郵件僅係通知您UPICK購物網已經收到您的訂購需求，並不表示交易已經完成或契約已經成立，UPICK購物網保留接受您的訂單與否之權利。
                         </li>
-                        <li>當您完成付款程序後，欣亞購物網將自動發送電子郵件於您所留存的電子郵件信箱，但此一郵件僅係通知您欣亞購物網已經收到您的付款，並不表示交易已經完成或契約已經成立，欣亞購物網保留接受您的訂單與否之權利。
+                        <li>當您完成付款程序後，UPICK購物網將自動發送電子郵件於您所留存的電子郵件信箱，但此一郵件僅係通知您UPICK購物網已經收到您的付款，並不表示交易已經完成或契約已經成立，UPICK購物網保留接受您的訂單與否之權利。
                         </li>
-                        <li>欣亞購物網將在確認交易條件無誤、付款完成且仍有庫存後，直接通知配合宅配出貨，或者簡訊/mail通知您到店取貨，商品寄出時我們會寄一封出貨通知信給您。您可隨時至「訂單查詢」確認訂單最新資料，並可點選該筆訂單的「訂單明細」確認付款/訂購/出貨資訊等資料。若交易條件有誤、商品無庫存或有其他欣亞購物網無法接受訂單之情形，欣亞購物網得主動通知您訂單不成立/取消訂單，並為您辦理退款，買方並同意賣方將以收的貨款價金如數退還，買方不得請求加倍退還或其他賠償。
+                        <li>UPICK購物網將在確認交易條件無誤、付款完成且仍有庫存後，直接通知配合宅配出貨，或者簡訊/mail通知您到店取貨，商品寄出時我們會寄一封出貨通知信給您。您可隨時至「訂單查詢」確認訂單最新資料，並可點選該筆訂單的「訂單明細」確認付款/訂購/出貨資訊等資料。若交易條件有誤、商品無庫存或有其他UPICK購物網無法接受訂單之情形，UPICK購物網得主動通知您訂單不成立/取消訂單，並為您辦理退款，買方並同意賣方將以收的貨款價金如數退還，買方不得請求加倍退還或其他賠償。
                         </li>
                     </ul>
                 </div>
@@ -361,7 +261,27 @@ $pageName = 'cart';
 
         <!--SCRIPT-->
         <?php include __DIR__ . '/../../parts/scripts.php' ?>
-        <?php include __DIR__ . 'cart-scripts.php' ?>
+        <?php include __DIR__ . '/cart-script.php' ?>
+
+        <script>
+            //加購商品(目前失敗)
+            const addToCartBtn = $('.carAddCar_ZY');
+            addToCartBtn.click(function() {
+                const card = $(this).children('.fa-cart-plus');
+                const sid = card.attr('data-sid');
+                const classid = '09screen';
+                const qty = 1;
+                $.get('cart-api.php', {
+                    action: 'add',
+                    sid,
+                    classid,
+                    qty
+                }, function(data) {
+                    console.log(data);
+                    showCartCount(data); // 更新選單上數量的提示
+                }, 'json');
+            })
+        </script>
 </body>
 
 </html>

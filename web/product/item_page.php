@@ -267,7 +267,6 @@ $rows = $pdo->query($p_sql)->fetchAll();
             <div class="shpTopSpace-CL"></div>
             <!--商場內容區-->
             <div class="container shpContainer-CL">
-
                 <!--頂部輪播牆-修改輪播牆寬度-->
                 <div id="carouselExampleIndicators" class="carousel slide shpCarouselOut-CL" data-bs-ride="carousel">
                     <ol class="carousel-indicators">
@@ -327,12 +326,12 @@ $rows = $pdo->query($p_sql)->fetchAll();
                                 <div class="row">
                                     <?php foreach ($hotsalerow1 as $r) { ?>
                                         <div class="col">
-                                            <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=<?= $tableid ?>">
+                                            <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=<?= $tableid ?>" data-sid="<?= $r['sid'] ?>">
                                                 <img class="itemShopCaroImg_CL" src="<?= WEB_ROOT ?>/images/product/<?= $tableid ?>/<?= $r['imgs'] ?>.jpg" alt="">
                                                 <p class="itemShopCaroName_CL"><?= $r['name'] ?></p>
                                             </a>
                                             <!--加入追蹤之愛心,購物車,金額-->
-                                            <div class="shpHotCartInfo-CL"><i class="far fa-heart shpHeart-CL"></i><i class="fas fa-shopping-cart shpShopCar-CL"></i> <span class="shpItemDollor-CL itemShopCaroDollor_CL"><?= $r['price'] ?></span></div>
+                                            <div class="shpHotCartInfo-CL"><i class="far fa-heart shpHeart-CL"></i><i class="fas fa-shopping-cart shpShopCar-CL" value="1"></i> <span class="shpItemDollor-CL itemShopCaroDollor_CL"><?= $r['price'] ?></span></div>
 
                                         </div>
                                     <?php } ?>
@@ -343,7 +342,7 @@ $rows = $pdo->query($p_sql)->fetchAll();
                                 <div class="row">
                                     <?php foreach ($hotsalerow2 as $r) { ?>
                                         <div class="col">
-                                            <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=<?= $tableid ?>">
+                                            <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=<?= $tableid ?>" data-sid="<?= $r['sid'] ?>">
                                                 <img class="itemShopCaroImg_CL" src="<?= WEB_ROOT ?>/images/product/<?= $tableid ?>/<?= $r['imgs'] ?>.jpg" alt="">
                                                 <p class="itemShopCaroName_CL"><?= $r['name'] ?></p>
                                             </a>
@@ -359,7 +358,7 @@ $rows = $pdo->query($p_sql)->fetchAll();
                                 <div class="row">
                                     <?php foreach ($hotsalerow3 as $r) { ?>
                                         <div class="col">
-                                            <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=<?= $tableid ?>">
+                                            <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=<?= $tableid ?>" data-sid="<?= $r['sid'] ?>">
                                                 <img class="itemShopCaroImg_CL" src="<?= WEB_ROOT ?>/images/product/<?= $tableid ?>/<?= $r['imgs'] ?>.jpg" alt="">
                                                 <p class="itemShopCaroName_CL"><?= $r['name'] ?></p>
                                             </a>
@@ -671,18 +670,16 @@ $rows = $pdo->query($p_sql)->fetchAll();
 
 
 
-
-
         //加入購物車
         const addToCartBtn = $('.shpShopCar-CL');
         addToCartBtn.click(function() {
             const card = $(this).parent().prev('a');
-            const pid = card.attr('data-sid');
+            const sid = card.attr('data-sid');
             const classid = card.attr('data-tbid');
             const qty = 1;
             $.get('/Upick/web/shopcar/cart-api.php', {
                 action: 'add',
-                pid,
+                sid,
                 classid,
                 qty
             }, function(data) {
@@ -690,13 +687,6 @@ $rows = $pdo->query($p_sql)->fetchAll();
                 showCartCount(data); // 更新選單上數量的提示
             }, 'json');
         })
-
-
-
-
-
-
-
 
 
 

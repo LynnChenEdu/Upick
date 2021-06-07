@@ -1,7 +1,3 @@
-* {
-    /* outline: 1px solid #000; */
-}
-
 body {
     overflow-x: hidden;
 }
@@ -12,6 +8,8 @@ button:focus {
     box-shadow: 0 0 2px 3px #01FFC3;
 }
 
+
+
 .carStepContainer_ZY{
     margin: 0px auto;
 }
@@ -19,7 +17,7 @@ button:focus {
 .carStepRow_ZY {
     width: 100%;
     margin: 0 auto;
-    padding-top: 200px;
+    padding-top: 100px;
 }
 
 .carStepGroup_ZY {
@@ -87,7 +85,7 @@ button:focus {
 
 @media screen and (max-width:375px) {
     .carStepContainer_ZY{
-        margin: 5px auto;
+        margin: 0 auto;
     }
     .carStepGroup_ZY{
         width: 100%;
@@ -105,13 +103,13 @@ button:focus {
         font-size: 12px;
     }
 
-
     .navbarAll {
         display: none;
     }
     .carStepRow_ZY {
         width: 100%;
-    margin: 10px auto;
+        margin: 0 auto;
+        padding-top: 60px;
     }
     .shpFooterSpace-CL {
         display: none;

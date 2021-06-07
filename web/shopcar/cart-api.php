@@ -88,10 +88,10 @@ function SelectTable($res)
                $sql = "SELECT * FROM 07computercase WHERE `sid` = $res";
                break;
           case "power":
-               $sql = "SELECT * FROM 09screen WHERE `sid` = $res";
+               $sql = "SELECT * FROM 08powersupply WHERE `sid` = $res";
                break;
           case "screen":
-               $sql = "SELECT * FROM 08powersupply WHERE `sid` = $res";
+               $sql = "SELECT * FROM 09screen WHERE `sid` = $res";
                break;
           case "radi":
                $sql = "SELECT * FROM 10radiator WHERE `sid` = $res";

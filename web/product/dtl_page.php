@@ -257,11 +257,11 @@ if (empty($row)) {
                                 <div class="dtlQt-CL">
                                     <i class="fas fa-minus"></i>
                                     <select name="dtlQtSelec-CL" id="dtlQtSelec-CL">
-                                        <option value="">1</option>
-                                        <option value="">2</option>
-                                        <option value="">3</option>
-                                        <option value="">4</option>
-                                        <option value="">5</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
                                     </select>
                                     <i class="fas fa-plus"></i>
                                 </div>
@@ -271,10 +271,10 @@ if (empty($row)) {
                             </div>
                         </div>
                         <!--加入追蹤清單與購物車-->
-                        <div class="dtlAddCar-CL">
+                        <div class="dtlAddCar-CL" data-sid="<?= $row['sid'] ?>" data-tbid="<?= $tableid ?>">
                             <button class="wBtnAddTrace btnShare"><i class="far fa-heart shpHeart"></i> 加入追蹤清單</button>
                             <br>
-                            <button class="wBtnAddCar btnShare"><i class="fas fa-shopping-cart"></i> 加入購物車</button>
+                            <button class="wBtnAddCar btnShare dtlAddCarBtn-CL"><i class="fas fa-shopping-cart"></i> 加入購物車</button>
                         </div>
                     </div>
                 </div>
@@ -403,6 +403,7 @@ if (empty($row)) {
 
     <!--SCRIPT-->
     <?php include __DIR__ . '/../../parts/scripts.php' ?>
+    <?php include __DIR__ . '/../../web/shopcar/cart-script.php' ?>
     <script>
         $(document).ready(function() {
             //手機版-小於1200則searchbar不出現
@@ -525,6 +526,25 @@ if (empty($row)) {
             }, 500);
 
         });
+
+
+        //加入購物車
+        const addToCartBtn = $('.dtlAddCarBtn-CL');
+        addToCartBtn.click(function() {
+            const card = $(this).parent('.dtlAddCar-CL');
+            const sid = card.attr('data-sid');
+            const classid = card.attr('data-tbid');
+            const qty = document.getElementById("dtlQtSelec-CL").value;
+            $.get('/Upick/web/shopcar/cart-api.php', {
+                action: 'add',
+                sid,
+                classid,
+                qty
+            }, function(data) {
+                console.log(data);
+                showCartCount(data); // 更新選單上數量的提示
+            }, 'json');
+        })
     </script>
 
 

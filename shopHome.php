@@ -276,7 +276,7 @@ $screenrow2 = $pdo->query($screen2)->fetchAll();
                                 <div class="row">
                                     <?php foreach ($hsrow1 as $r) { ?>
                                         <div class="col-lg">
-                                            <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=01cpu">
+                                            <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=01cpu" data-sid="<?= $r['sid'] ?>" data-tbid="01cpu">
                                                 <img src="<?= WEB_ROOT ?>/images/product/01cpu/<?= $r['imgs'] ?>.jpg" alt="" class="shpCaroImg_CL">
                                                 <p class="shpCaroName_CL"><?= $r['name'] ?></p>
                                             </a>
@@ -291,7 +291,7 @@ $screenrow2 = $pdo->query($screen2)->fetchAll();
                                 <div class="row">
                                     <?php foreach ($hsrow2 as $r) { ?>
                                         <div class="col-lg">
-                                            <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=03vga">
+                                            <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=03vga" data-sid="<?= $r['sid'] ?>" data-tbid="03vga">
                                                 <img src="<?= WEB_ROOT ?>/images/product/03vga/<?= $r['imgs'] ?>.jpg" alt="" class="shpCaroImg_CL">
                                                 <p class="shpCaroName_CL"><?= $r['name'] ?></p>
                                             </a>
@@ -308,7 +308,7 @@ $screenrow2 = $pdo->query($screen2)->fetchAll();
                                 <div class="row">
                                     <?php foreach ($hsrow3 as $r) { ?>
                                         <div class="col-lg">
-                                            <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=06ssd">
+                                            <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=06ssd" data-sid="<?= $r['sid'] ?>" data-tbid="06ssd">
                                                 <img src="<?= WEB_ROOT ?>/images/product/06ssd/<?= $r['imgs'] ?>.jpg" alt="" class="shpCaroImg_CL">
                                                 <p class="shpCaroName_CL"><?= $r['name'] ?></p>
                                             </a>
@@ -346,7 +346,7 @@ $screenrow2 = $pdo->query($screen2)->fetchAll();
                     <div class="row">
                         <?php foreach ($cpurow1 as $r) : ?>
                             <div class="col">
-                                <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=01cpu">
+                                <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=01cpu" data-sid="<?= $r['sid'] ?>" data-tbid="01cpu">
                                     <img class="shpProductImg_CL" src="<?= WEB_ROOT ?>/images/product/01cpu/<?= $r['imgs'] ?>.jpg" alt="">
                                     <div class="shpItemInfo-CL data-sid=" <?= $r['item'] & $r['id'] ?>">
                                         <p class="shpItemInfoP-CL"><?= $r['name'] ?></p>
@@ -359,7 +359,7 @@ $screenrow2 = $pdo->query($screen2)->fetchAll();
                 <div class="row">
                     <?php foreach ($cpurow2 as $r) : ?>
                         <div class="col">
-                            <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=01cpu">
+                            <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=01cpu" data-sid="<?= $r['sid'] ?>" data-tbid="01cpu">
                                 <img src="<?= WEB_ROOT ?>/images/product/01cpu/<?= $r['imgs'] ?>.jpg" alt="">
                                 <div class="shpItemInfo-CL">
                                     <p><?= $r['name'] ?></p>
@@ -382,7 +382,7 @@ $screenrow2 = $pdo->query($screen2)->fetchAll();
             <div class="row">
                 <?php foreach ($mbrow1 as $r) : ?>
                     <div class="col">
-                        <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=02mb">
+                        <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=02mb" data-sid="<?= $r['sid'] ?>" data-tbid="02mb">
                             <img src="<?= WEB_ROOT ?>/images/product/02mb/<?= $r['imgs'] ?>.jpg" alt="">
                             <div class="shpItemInfo-CL">
                                 <p class="shpItemInfoP-CL"><?= $r['name'] ?></p>
@@ -395,7 +395,7 @@ $screenrow2 = $pdo->query($screen2)->fetchAll();
         <div class="row">
             <?php foreach ($mbrow2 as $r) : ?>
                 <div class="col">
-                    <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=02mb">
+                    <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=02mb" data-sid="<?= $r['sid'] ?>" data-tbid="02mb">
                         <img src="<?= WEB_ROOT ?>/images/product/02mb/<?= $r['imgs'] ?>.jpg" alt="">
                         <div class="shpItemInfo-CL">
                             <p><?= $r['name'] ?></p>
@@ -418,7 +418,7 @@ $screenrow2 = $pdo->query($screen2)->fetchAll();
         <div class="row">
             <?php foreach ($ramrow1 as $r) : ?>
                 <div class="col">
-                    <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=04ram">
+                    <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=04ram" data-sid="<?= $r['sid'] ?>" data-tbid="04ram">
                         <img src="<?= WEB_ROOT ?>/images/product/04ram/<?= $r['imgs'] ?>.jpg" alt="">
                         <div class="shpItemInfo-CL">
                             <p class="shpItemInfoP-CL"><?= $r['name'] ?></p>
@@ -431,7 +431,7 @@ $screenrow2 = $pdo->query($screen2)->fetchAll();
     <div class="row">
         <?php foreach ($ramrow2 as $r) : ?>
             <div class="col">
-                <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=04ram">
+                <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=04ram" data-sid="<?= $r['sid'] ?>" data-tbid="04ram">
                     <img src="<?= WEB_ROOT ?>/images/product/04ram/<?= $r['imgs'] ?>.jpg" alt="">
                     <div class="shpItemInfo-CL">
                         <p><?= $r['name'] ?></p>
@@ -454,7 +454,7 @@ $screenrow2 = $pdo->query($screen2)->fetchAll();
     <div class="row">
         <?php foreach ($hddrow1 as $r) : ?>
             <div class="col">
-                <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=05hdd">
+                <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=05hdd" data-sid="<?= $r['sid'] ?>" data-tbid="05hdd">
                     <img src="<?= WEB_ROOT ?>/images/product/05hdd/<?= $r['imgs'] ?>.jpg" alt="">
                     <div class="shpItemInfo-CL">
                         <p class="shpItemInfoP-CL"><?= $r['name'] ?></p>
@@ -467,7 +467,7 @@ $screenrow2 = $pdo->query($screen2)->fetchAll();
 <div class="row">
     <?php foreach ($hddrow2 as $r) : ?>
         <div class="col">
-            <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=05hdd">
+            <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=05hdd" data-sid="<?= $r['sid'] ?>" data-tbid="05hdd">
                 <img src="<?= WEB_ROOT ?>/images/product/05hdd/<?= $r['imgs'] ?>.jpg" alt="">
                 <div class="shpItemInfo-CL">
                     <p><?= $r['name'] ?></p>
@@ -491,7 +491,7 @@ $screenrow2 = $pdo->query($screen2)->fetchAll();
     <div class="row">
         <?php foreach ($ssdrow1 as $r) : ?>
             <div class="col">
-                <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=06ssd">
+                <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=06ssd" data-sid="<?= $r['sid'] ?>" data-tbid="06ssd">
                     <img src="<?= WEB_ROOT ?>/images/product/06ssd/<?= $r['imgs'] ?>.jpg" alt="">
                     <div class="shpItemInfo-CL">
                         <p class="shpItemInfoP-CL"><?= $r['name'] ?></p>
@@ -504,7 +504,7 @@ $screenrow2 = $pdo->query($screen2)->fetchAll();
 <div class="row">
     <?php foreach ($ssdrow2 as $r) : ?>
         <div class="col">
-            <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=06ssd">
+            <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=06ssd" data-sid="<?= $r['sid'] ?>" data-tbid="06ssd">
                 <img src="<?= WEB_ROOT ?>/images/product/06ssd/<?= $r['imgs'] ?>.jpg" alt="">
                 <div class="shpItemInfo-CL">
                     <p><?= $r['name'] ?></p>
@@ -528,7 +528,7 @@ $screenrow2 = $pdo->query($screen2)->fetchAll();
     <div class="row">
         <?php foreach ($vgarow1 as $r) : ?>
             <div class="col">
-                <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=03vga">
+                <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=03vga" data-sid="<?= $r['sid'] ?>" data-tbid="03vga">
                     <img src="<?= WEB_ROOT ?>/images/product/03vga/<?= $r['imgs'] ?>.jpg" alt="">
                     <div class="shpItemInfo-CL">
                         <p class="shpItemInfoP-CL"><?= $r['name'] ?></p>
@@ -541,7 +541,7 @@ $screenrow2 = $pdo->query($screen2)->fetchAll();
 <div class="row">
     <?php foreach ($vgarow1 as $r) : ?>
         <div class="col">
-            <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=03vga">
+            <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=03vga" data-sid="<?= $r['sid'] ?>" data-tbid="03vga">
                 <img src="<?= WEB_ROOT ?>/images/product/03vga/<?= $r['imgs'] ?>.jpg" alt="">
                 <div class="shpItemInfo-CL">
                     <p><?= $r['name'] ?></p>
@@ -566,7 +566,7 @@ $screenrow2 = $pdo->query($screen2)->fetchAll();
     <div class="row">
         <?php foreach ($shellrow1 as $r) : ?>
             <div class="col">
-                <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=07computercase">
+                <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=07computercase" data-sid="<?= $r['sid'] ?>" data-tbid="07computercase">
                     <img src="<?= WEB_ROOT ?>/images/product/07computercase/<?= $r['imgs'] ?>.jpg" alt="">
                     <div class="shpItemInfo-CL">
                         <p class="shpItemInfoP-CL"><?= $r['name'] ?></p>
@@ -579,7 +579,7 @@ $screenrow2 = $pdo->query($screen2)->fetchAll();
 <div class="row">
     <?php foreach ($shellrow2 as $r) : ?>
         <div class="col">
-            <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=07computercase">
+            <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=07computercase" data-sid="<?= $r['sid'] ?>" data-tbid="07computercase">
                 <img src="<?= WEB_ROOT ?>/images/product/07computercase/<?= $r['imgs'] ?>.jpg" alt="">
                 <div class="shpItemInfo-CL">
                     <p><?= $r['name'] ?></p>
@@ -603,12 +603,12 @@ $screenrow2 = $pdo->query($screen2)->fetchAll();
     <div class="row">
         <?php foreach ($powerrow1 as $r) : ?>
             <div class="col">
-                <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=08powersupply">
+                <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=08powersupply" data-sid="<?= $r['sid'] ?>" data-tbid="08powersupply">
                     <img src="<?= WEB_ROOT ?>/images/product/08powersupply/<?= $r['imgs'] ?>.jpg" alt="">
                     <div class="shpItemInfo-CL">
                         <p class="shpItemInfoP-CL"><?= $r['name'] ?></p>
                 </a>
-                <div class="shpHotCartInfo-CL"><i class="far fa-heart shpHeart-CL"></i><i class="fas fa-shopping-cart shpShopCar-CL"></i> <span class="shpItemDollor-CL"><?= $r['price'] ?></span></div>
+                <div class="shpHotCartInfo-CL"><i class="far fa-heart shpHeart-CL"></i><i class="fas fa-shopping-cart shpShopCar-CL"></i><span class="shpItemDollor-CL"><?= $r['price'] ?></span></div>
             </div>
     </div>
 <?php endforeach; ?>
@@ -616,7 +616,7 @@ $screenrow2 = $pdo->query($screen2)->fetchAll();
 <div class="row">
     <?php foreach ($powerrow2 as $r) : ?>
         <div class="col">
-            <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=08powersupply">
+            <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=08powersupply" data-sid="<?= $r['sid'] ?>" data-tbid="08powersupply">
                 <img src="<?= WEB_ROOT ?>/images/product/08powersupply/<?= $r['imgs'] ?>.jpg" alt="">
                 <div class="shpItemInfo-CL">
                     <p><?= $r['name'] ?></p>
@@ -640,7 +640,7 @@ $screenrow2 = $pdo->query($screen2)->fetchAll();
     <div class="row">
         <?php foreach ($fanrow1 as $r) : ?>
             <div class="col">
-                <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=12fan">
+                <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=12fan" data-sid="<?= $r['sid'] ?>" data-tbid="12fan">
                     <img src="<?= WEB_ROOT ?>/images/product/12fan/<?= $r['imgs'] ?>.jpg" alt="">
                     <div class="shpItemInfo-CL">
                         <p class="shpItemInfoP-CL"><?= $r['name'] ?></p>
@@ -653,7 +653,7 @@ $screenrow2 = $pdo->query($screen2)->fetchAll();
 <div class="row">
     <?php foreach ($fanrow2 as $r) : ?>
         <div class="col">
-            <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=12fan">
+            <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=12fan" data-sid="<?= $r['sid'] ?>" data-tbid="12fan">
                 <img src="<?= WEB_ROOT ?>/images/product/12fan/<?= $r['imgs'] ?>.jpg" alt="">
                 <div class="shpItemInfo-CL">
                     <p><?= $r['name'] ?></p>
@@ -677,7 +677,7 @@ $screenrow2 = $pdo->query($screen2)->fetchAll();
     <div class="row">
         <?php foreach ($screenrow1 as $r) : ?>
             <div class="col">
-                <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=09screen">
+                <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=09screen" data-sid="<?= $r['sid'] ?>" data-tbid="09screen">
                     <img src="<?= WEB_ROOT ?>/images/product/09screen/<?= $r['imgs'] ?>.jpg" alt="">
                     <div class="shpItemInfo-CL">
                         <p class="shpItemInfoP-CL"><?= $r['name'] ?></p>
@@ -690,7 +690,7 @@ $screenrow2 = $pdo->query($screen2)->fetchAll();
 <div class="row">
     <?php foreach ($screenrow2 as $r) : ?>
         <div class="col">
-            <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=09screen">
+            <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=09screen" data-sid="<?= $r['sid'] ?>" data-tbid="09screen">
                 <img src="<?= WEB_ROOT ?>/images/product/09screen/<?= $r['imgs'] ?>.jpg" alt="">
                 <div class="shpItemInfo-CL">
                     <p><?= $r['name'] ?></p>
@@ -718,23 +718,27 @@ $screenrow2 = $pdo->query($screen2)->fetchAll();
 
 <!--SCRIPT-->
 <?php include __DIR__ . '../parts/scripts.php' ?>
+<?php include __DIR__ . '/web/shopcar/cart-script.php' ?>
 <script>
-    //加入購物車後端JS
+    //加入購物車
     const addToCartBtn = $('.shpShopCar-CL');
     addToCartBtn.click(function() {
-        const card = $(this).closest('.shpItemInfo-CL');
-        const pid = card.attr('data-sid');
+        const card = $(this).parent().prev('a');
+        const sid = card.attr('data-sid');
+        const classid = card.attr('data-tbid');
         const qty = 1;
-        // console.log({pid, qty}, card.find('.card-title').text());
-        $.get('cart-api.php', {
+        $.get('/Upick/web/shopcar/cart-api.php', {
             action: 'add',
-            pid,
+            sid,
+            classid,
             qty
         }, function(data) {
             console.log(data);
             showCartCount(data); // 更新選單上數量的提示
         }, 'json');
     })
+
+
 
 
 

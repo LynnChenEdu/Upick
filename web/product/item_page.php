@@ -326,7 +326,7 @@ $rows = $pdo->query($p_sql)->fetchAll();
                                 <div class="row">
                                     <?php foreach ($hotsalerow1 as $r) { ?>
                                         <div class="col">
-                                            <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=<?= $tableid ?>" data-sid="<?= $r['sid'] ?>">
+                                            <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=<?= $tableid ?>" data-sid="<?= $r['sid'] ?>" data-tbid="<?= $tableid ?>">
                                                 <img class="itemShopCaroImg_CL" src="<?= WEB_ROOT ?>/images/product/<?= $tableid ?>/<?= $r['imgs'] ?>.jpg" alt="">
                                                 <p class="itemShopCaroName_CL"><?= $r['name'] ?></p>
                                             </a>
@@ -342,7 +342,7 @@ $rows = $pdo->query($p_sql)->fetchAll();
                                 <div class="row">
                                     <?php foreach ($hotsalerow2 as $r) { ?>
                                         <div class="col">
-                                            <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=<?= $tableid ?>" data-sid="<?= $r['sid'] ?>">
+                                            <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=<?= $tableid ?>" data-sid="<?= $r['sid'] ?>" data-tbid="<?= $tableid ?>">
                                                 <img class="itemShopCaroImg_CL" src="<?= WEB_ROOT ?>/images/product/<?= $tableid ?>/<?= $r['imgs'] ?>.jpg" alt="">
                                                 <p class="itemShopCaroName_CL"><?= $r['name'] ?></p>
                                             </a>
@@ -358,7 +358,7 @@ $rows = $pdo->query($p_sql)->fetchAll();
                                 <div class="row">
                                     <?php foreach ($hotsalerow3 as $r) { ?>
                                         <div class="col">
-                                            <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=<?= $tableid ?>" data-sid="<?= $r['sid'] ?>">
+                                            <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=<?= $tableid ?>" data-sid="<?= $r['sid'] ?>" data-tbid="<?= $tableid ?>">
                                                 <img class="itemShopCaroImg_CL" src="<?= WEB_ROOT ?>/images/product/<?= $tableid ?>/<?= $r['imgs'] ?>.jpg" alt="">
                                                 <p class="itemShopCaroName_CL"><?= $r['name'] ?></p>
                                             </a>

@@ -97,61 +97,68 @@ $row1 = $pdo->query($row0)->fetchAll();
             </div>
             <!-- 商品1 -->
             <div class="container">
-                <?php foreach ($_SESSION['cart'] as $v) { ?>
-                    <div class="row cartItemRow_ZY" value="1">
-                        <div class="carItem_ZY">
-                            <div class="carItemName_ZY col-10 col-lg-7">
-                                <div class="carItemImg_ZY col-3 col-lg-2">
-                                    <img src="<?= WEB_ROOT ?>/images/product/<?= $v['tableid'] ?>/<?= $v['imgs'] ?>.jpg" alt="">
-                                </div>
-                                <div class="carItemWord_ZY col-9 col-lg-10"><?= $v['name'] ?>
-                                </div>
-
-                            </div>
-                            <div class="carItemBtnM_ZY col-2">
-                                <button class="carRemoveBtnM_ZY col-12">
-                                    <i class="fas fa-times"></i>
-
-                                </button>
-                                <button class="carRemoveBtnM_ZY col-12">
-                                    <i class="far fa-heart"></i>
-
-                                </button>
-                            </div>
-                            <div class="carItemPrice_ZY col-lg-1">$<?= $v['price'] ?></div>
-
-                            <div class="carItemQuantityOut_Zy col-lg-1">
-                                <div class="carItemQuantity_Zy">
-                                    <select class="carItemQuantitySelect_ZY" name="carItemQuantitySelect_ZY">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                    </select>
-                                </div>
-                                <div class="carItemTotlePriceMobile_ZY ">
-                                    <p>小計<span>$99999</span></p>
-                                </div>
-                            </div>
-                            <div class="carItemTotlePrice_ZY col-4 col-lg-1">
-                                $99999
-                            </div>
-
-                            <div class="carItemBtn_ZY col-2">
-                                <button class="carRemoveBtn_ZY">
-                                    <i class="fas fa-times"></i>
-                                    移除商品
-                                </button>
-                                <button class="carRemoveBtn_ZY">
-                                    <i class="far fa-heart"></i>
-                                    追蹤清單
-                                </button>
-                            </div>
-                        </div>
-                        <div class="row carBorderBottom_ZY"></div>
+                <?php if (empty($_SESSION['cart'])) : ?>
+                    <div class="alert alert-danger" role="alert">
+                        目前購物車裡沒有商品, 請至商品列表選購
                     </div>
-                <?php } ?>
+                <?php else : ?>
+                    <?php foreach ($_SESSION['cart'] as $v) { ?>
+                        <div class="row cartItemRow_ZY" value="1">
+                            <div class="carItem_ZY">
+                                <div class="carItemName_ZY col-10 col-lg-7">
+                                    <div class="carItemImg_ZY col-3 col-lg-2">
+                                        <img src="<?= WEB_ROOT ?>/images/product/<?= $v['tableid'] ?>/<?= $v['imgs'] ?>.jpg" alt="">
+                                    </div>
+                                    <div class="carItemWord_ZY col-9 col-lg-10"><?= $v['name'] ?>
+                                    </div>
+
+                                </div>
+                                <div class="carItemBtnM_ZY col-2">
+                                    <button class="carRemoveBtnM_ZY col-12">
+                                        <i class="fas fa-times"></i>
+
+                                    </button>
+                                    <button class="carRemoveBtnM_ZY col-12">
+                                        <i class="far fa-heart"></i>
+
+                                    </button>
+                                </div>
+                                <div class="carItemPrice_ZY col-lg-1">$<?= $v['price'] ?></div>
+
+                                <div class="carItemQuantityOut_Zy col-lg-1">
+                                    <div class="carItemQuantity_Zy">
+                                        <select class="carItemQuantitySelect_ZY" name="carItemQuantitySelect_ZY">
+                                            <option value="<?= $v['quantity'] ?>"><?= $v['quantity'] ?></option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                        </select>
+                                    </div>
+                                    <div class="carItemTotlePriceMobile_ZY ">
+                                        <p>小計<span>$99999</span></p>
+                                    </div>
+                                </div>
+                                <div class="carItemTotlePrice_ZY col-4 col-lg-1">
+                                    $99999
+                                </div>
+
+                                <div class="carItemBtn_ZY col-2">
+                                    <button class="carRemoveBtn_ZY">
+                                        <i class="fas fa-times"></i>
+                                        移除商品
+                                    </button>
+                                    <button class="carRemoveBtn_ZY">
+                                        <i class="far fa-heart"></i>
+                                        追蹤清單
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="row carBorderBottom_ZY"></div>
+                        </div>
+                    <?php } ?>
+                <?php endif; ?>
                 <!-- 商品一結束 -->
 
                 <!-- 商品下方結帳資訊攔 -->
@@ -159,7 +166,7 @@ $row1 = $pdo->query($row0)->fetchAll();
                 <div class="row carFooterInfor_ZY">
                     <div class="carTotalQuti_ZY col-8">
                         <p>本次結帳共</p>
-                        <span>3</span>
+                        <span class="shopCount-CL">3</span>
                         <p>項商品</p>
                     </div>
                     <div class="carTotalPrice_ZY col-2">

@@ -10,8 +10,9 @@
         </div>
         <!-- 這裡I標籤請塞入網址 -->
         <div class="navShopCart_ZY" onclick="location.href=
-        '#這邊放購物車網址';">
-            <i class="fas fa-shopping-cart"></i>
+        '/Upick/web/shopcar/shopcart_origin.php';">
+            <i class="fas fa-shopping-cart"><span class="badge badge-pill badge-danger cart-count">0</span></i>
+
         </div>
         <?php if (isset($_SESSION['loginUser'])) : ?>
             <!-- 已登入 -->

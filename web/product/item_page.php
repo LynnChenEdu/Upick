@@ -8,6 +8,7 @@ $tableid = isset($_GET['classid']) ? ($_GET['classid']) : '';
 
 $optionkey = isset($_GET['optionkey']) ? ($_GET['optionkey']) : null;
 $optionvalue = isset($_GET['optionvalue']) ? ($_GET['optionvalue']) : null;
+$optionvalue2 = isset($_GET['optionvalue']) ? ($_GET['optionvalue']) : null;
 if (!empty($optionkey) && !empty($optionvalue)) {
     $optiontext = "AND $optionkey = '$optionvalue'";
     $optionforpg = "optionkey=$optionkey&optionvalue=$optionvalue&";
@@ -418,18 +419,18 @@ $rows = $pdo->query($p_sql)->fetchAll();
                 <!--手機版-零件篩選-->
                 <div class="itemFilterPhone-CL">
                     <h4>請選擇商品篩選條件</h3>
-                        <span>您所選擇的關鍵字為：<?= $optionvalue ?></span>
+                        <span>您所選擇的關鍵字為：<?= $optionvalue2 ?></span>
                         <?php for ($i = 0; $i < $selecount; $i++) { ?>
                             <ul><?= $selector[$i]['name'] ?><i class="fas  fa-chevron-up"></i>
                                 <?php foreach ($option1data[$i] as $key2 => $value2) { ?>
                                     <?php
                                     foreach ($value2 as $optionkey => $optionvalue) { ?>
-
-                                        <li>
+                                        <div>
                                             <a href="item_page.php?classid=<?= $tableid ?>&optionkey=<?= $optionkey ?>&optionvalue=<?= $optionvalue ?>">
                                                 <label class="form-check-label" for="inlineCheckbox<?= $k ?>" data-key="<?= $optionkey ?>"><?= $optionvalue ?></label>
                                             </a>
-                                        </li>
+                                        </div>
+
 
                                     <?php } ?>
                                 <?php } ?>
@@ -694,7 +695,7 @@ $rows = $pdo->query($p_sql)->fetchAll();
         $('.fa-chevron-up').toggle();
         $('.itemFilterPhone-CL ul').click(function() {
             $(this).children('i.fa-chevron-up').toggle();
-            $(this).children('li').toggle(function() {
+            $(this).children('div').toggle(function() {
                 $('.itemFilterPhone-CL li').click(function() {
                     $(this).css('display', 'block').siblings().css('display', 'none');
                     return false;

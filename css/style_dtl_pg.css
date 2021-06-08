@@ -557,6 +557,16 @@
                 display: flex;
                 margin-top: 20px;
             }
+            .dtlMarker-CL {
+                margin-left:-12px;
+                margin-right:5px;
+            }
+            .breadcrumb2 {
+                width:350px;
+            }
+            .breadcrumb-item+.breadcrumb-item {
+                padding-left:0;
+            }
             /*其他商品標題消失*/
             .dtlOther-CL {
                 display: none;

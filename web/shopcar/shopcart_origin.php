@@ -99,7 +99,7 @@ $row1 = $pdo->query($row0)->fetchAll();
             <div class="container">
                 <?php if (empty($_SESSION['cart'])) : ?>
                     <div class="alert alert-danger" role="alert">
-                        目前購物車裡沒有商品, 請至商品列表選購
+                        目前購物車裡沒有商品
                     </div>
                 <?php else : ?>
                     <?php foreach ($_SESSION['cart'] as $v) { ?>
@@ -115,7 +115,7 @@ $row1 = $pdo->query($row0)->fetchAll();
                                 </div>
                                 <div class="carItemBtnM_ZY col-2">
                                     <button class="carRemoveBtnM_ZY col-12">
-                                        <i class="fas fa-times"></i>
+                                        <i class="fas fa-times cardeletePhone-CL" data-sid="<?= $v['sid'] ?>"></i>
 
                                     </button>
                                     <button class="carRemoveBtnM_ZY col-12">
@@ -144,8 +144,8 @@ $row1 = $pdo->query($row0)->fetchAll();
                                     $99999
                                 </div>
 
-                                <div class="carItemBtn_ZY col-2">
-                                    <button class="carRemoveBtn_ZY">
+                                <div class="carItemBtn_ZY col-2" data-sid="<?= $v['sid'] ?>">
+                                    <button class="carRemoveBtn_ZY carDeleteBtn-CL">
                                         <i class="fas fa-times"></i>
                                         移除商品
                                     </button>
@@ -184,7 +184,7 @@ $row1 = $pdo->query($row0)->fetchAll();
 
             <div class="row carFixedInforM_ZY">
                 <div class="carFixedInforFontM_ZY">
-                    <p>共1項商品</p>
+                    <p>共<span class="carCount-CL">0</span>項商品</p>
                     <p>合計：<span>$99999</span></p>
                 </div>
                 <div class="carFixedInforFontBtnBoxM_ZY">
@@ -271,7 +271,7 @@ $row1 = $pdo->query($row0)->fetchAll();
         <?php include __DIR__ . '/cart-script.php' ?>
 
         <script>
-            //加購商品(目前失敗)
+            //加購商品
             const addToCartBtn = $('.carAddCar_ZY');
             addToCartBtn.click(function() {
                 const card = $(this).children('.fa-cart-plus');
@@ -287,6 +287,39 @@ $row1 = $pdo->query($row0)->fetchAll();
                     console.log(data);
                     showCartCount(data); // 更新選單上數量的提示
                 }, 'json');
+                location.reload();
+            })
+            //移除商品
+            const deleteFromCartBtn = $('.carDeleteBtn-CL');
+            deleteFromCartBtn.click(function() {
+                if (confirm('確定要移除此商品?')) {
+                    const sid = $(this).parent('.carItemBtn_ZY').attr('data-sid');
+                    const qty = 1;
+                    $.get('cart-api.php', {
+                        action: 'delete',
+                        sid
+                    }, function(data) {
+                        console.log(data);
+                        showCartCount(data); // 更新選單上數量的提示
+                    }, 'json');
+                } else {}
+                location.reload();
+            })
+            //手機版-移除商品
+            const deleteFromCartBtnPhone = $('.cardeletePhone-CL');
+            deleteFromCartBtnPhone.click(function() {
+                if (confirm('確定要移除此商品?')) {
+                    const sid = $(this).attr('data-sid');
+                    $.get('cart-api.php', {
+                        action: 'delete',
+                        sid,
+                    }, function(data) {
+                        console.log(data);
+                        showCartCount(data); // 更新選單上數量的提示
+                    }, 'json');
+                } else {}
+                location.reload();
+
             })
         </script>
 </body>

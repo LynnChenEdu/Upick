@@ -456,6 +456,11 @@ body{
         transform: rotate(45deg) translate(3px , -3px);
         background: #7fffe1;
     }
+    /*購物車計數*/
+    .cart-count {
+        position: absolute;
+        right: 40px;
+    }
     }
 
 

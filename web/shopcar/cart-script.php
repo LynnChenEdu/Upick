@@ -7,6 +7,7 @@
         }
         $('.cart-count').text(total);
         $('.shopCount-CL').text(total);
+        $('.carCount-CL').text(total);
     }
     $.get('/Upick/web/shopcar/cart-api.php', function(data) {
         showCartCount(data);

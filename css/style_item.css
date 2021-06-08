@@ -577,6 +577,7 @@
             .breadcrumb {
                 margin-top: -80px;
             }
+            
             /*面包屑下標題區*/
             .shpHotTitle-CL {
                 width: 320px;
@@ -653,7 +654,7 @@
                 color: #bebebe;
                 margin-left: 10px;
             }
-            .itemFilterPhone-CL li {
+            .itemFilterPhone-CL div {
                 width: 100%;
                 padding-left: 10%;
                 border-top: 1px solid #838485;

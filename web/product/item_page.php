@@ -523,6 +523,7 @@ $rows = $pdo->query($p_sql)->fetchAll();
     <!--SCRIPT-->
     <?php include __DIR__ . '/../../parts/scripts.php' ?>
     <?php include __DIR__ . '/../../web/shopcar/cart-script.php' ?>
+    <?php include __DIR__ . '/../../web/member/follow-script.php' ?>
 
     <script>
         //開啟商品細節頁
@@ -531,7 +532,6 @@ $rows = $pdo->query($p_sql)->fetchAll();
             const card = $(this).closest('a');
             const cardid = card.attr('data-sid');
             console.log('cardid is ', cardid);
-
             $.get('dtl_api.php', {
                 action: 'list',
                 cardid
@@ -689,7 +689,22 @@ $rows = $pdo->query($p_sql)->fetchAll();
             }, 'json');
         })
 
-
+        //加入追蹤
+        const addToFollowtBtn = $('.shpHeart-CL');
+        addToFollowtBtn.click(function() {
+            const card = $(this).parent().prev('a');
+            const sid = card.attr('data-sid');
+            const classid = card.attr('data-tbid');
+            const qty = 1;
+            $.get('/Upick/web/member/follow-api.php', {
+                action: 'add',
+                sid,
+                classid,
+                qty
+            }, function(data) {
+                console.log(data);
+            }, 'json');
+        })
 
         //手機版-篩選功能
         $('.fa-chevron-up').toggle();

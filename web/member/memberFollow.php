@@ -1,7 +1,10 @@
-<?php require __DIR__.'/../../__connect_db.php';
+<?php require __DIR__ . '/../../__connect_db.php';
 
 define('WEB_ROOT', '/UPICK');
 session_start();
+
+$title = '會員中心';
+$pageName = 'member';
 
 ?>
 
@@ -15,6 +18,7 @@ session_start();
     <title>追蹤清單</title>
     <!--檔頭外掛-->
     <?php include __DIR__ . '/../../parts/html_head.php' ?>
+    <?php include __DIR__ . '/../../parts/html_navbar_phone.php' ?>
     <!-- memberFollow.css -->
     <link rel="stylesheet" href="/Upick/css/memberFollow.css">
 
@@ -67,41 +71,43 @@ session_start();
                             </tr>
                         </thead>
                         <tbody>
-                            <tr id="memNoFollow_HC">
-                                <td colspan="5">
-                                    <h3>目前尚無追蹤商品</h3>
-                                </td>
-                            </tr>
-                            <tr class="memFollow_HC">
-                                <!-- 追蹤商品 -->
-                                <td class="memProductTd_HC">
-                                    <img src="/Upick/images/item_01.png" alt="">
-                                    <a href="#" class="memProductTitle_HC">
-                                        Antec 安鈦克 NE550 TUF聯名款 550W 80+銅牌
-                                        (全日系電容/長140mm/五年保固二年換新)
-                                    </a>
-                                </td>
-                                <!-- 庫存狀態 -->
-                                <td>
-                                    <p class="memStock_HC">貨量充足</p>
-                                </td>
-                                <!-- 商品價格 -->
-                                <td>
-                                    <p class="memUPrice_HC">$2,029</p>
-                                </td>
-                                <!-- 購買狀態 -->
-                                <td>
-                                    <a href="#">加入購物車</a>
-                                    <br>
-                                    <a href="#">立即購買</a>
-                                </td>
-                                <!-- 取消追蹤 -->
-                                <td>
-                                    <a href="#">
-                                        <i class="fas fa-trash"></i>
-                                    </a>
-                                </td>
-
+                            <?php if (empty($_SESSION['follow'])) : ?>
+                                <tr id="memNoFollow_HC">
+                                    <td colspan="5">
+                                        <h3>目前尚無追蹤商品</h3>
+                                    </td>
+                                </tr>
+                            <?php else : ?>
+                                <?php foreach ($_SESSION['follow'] as $v) { ?>
+                                    <tr class="memFollow_HC" data-sid="<?= $v['sid'] ?>">
+                                        <!-- 追蹤商品 -->
+                                        <td class="memProductTd_HC">
+                                            <img src="<?= WEB_ROOT ?>/images/product/<?= $v['tableid'] ?>/<?= $v['imgs'] ?>.jpg" alt="">
+                                            <a href="#" class="memProductTitle_HC"><?= $v['name'] ?></a>
+                                        </td>
+                                        <!-- 庫存狀態 -->
+                                        <td>
+                                            <p class="memStock_HC">貨量充足</p>
+                                        </td>
+                                        <!-- 商品價格 -->
+                                        <td>
+                                            <p class="memUPrice_HC">$<?= $v['price'] ?></p>
+                                        </td>
+                                        <!-- 購買狀態 -->
+                                        <td>
+                                            <a href="#">加入購物車</a>
+                                            <br>
+                                            <a href="#">立即購買</a>
+                                        </td>
+                                        <!-- 取消追蹤 -->
+                                        <td>
+                                            <a href="#">
+                                                <i class="fas fa-trash"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                <?php } ?>
+                            <?php endif; ?>
                         </tbody>
                     </table>
                     <!-- 分頁 -->
@@ -187,13 +193,30 @@ session_start();
 </body>
 <!--SCRIPT-->
 <?php include __DIR__ . '/../../parts/scripts.php' ?>
+<?php include __DIR__ . '/../../web/shopcar/cart-script.php' ?>
+<?php include __DIR__ . '/../../web/member/follow-script.php' ?>
 <script>
-function topMove() {
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-}
+    function topMove() {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }
+    //移除追蹤商品
+    const deleteFollowBtn = $('.fa-trash');
+    deleteFollowBtn.click(function() {
+        const card = $(this).closest('.memFollow_HC');
+        const sid = card.attr('data-sid');
+        $.get('/Upick/web/member/follow-api.php', {
+            action: 'delete',
+            sid
+        }, function(data) {
+            console.log(data);
+            showCartCount(data); // 更新選單上數量的提示
+            location.reload();
+        }, 'json');
+
+    })
 </script>
 
 </html>

@@ -719,6 +719,7 @@ $screenrow2 = $pdo->query($screen2)->fetchAll();
 <!--SCRIPT-->
 <?php include __DIR__ . '../parts/scripts.php' ?>
 <?php include __DIR__ . '/web/shopcar/cart-script.php' ?>
+<?php include __DIR__ . '/../../web/member/follow-script.php' ?>
 <script>
     //加入購物車
     const addToCartBtn = $('.shpShopCar-CL');
@@ -735,6 +736,23 @@ $screenrow2 = $pdo->query($screen2)->fetchAll();
         }, function(data) {
             console.log(data);
             showCartCount(data); // 更新選單上數量的提示
+        }, 'json');
+    })
+
+    //加入追蹤
+    const addToFollowtBtn = $('.shpHeart-CL');
+    addToFollowtBtn.click(function() {
+        const card = $(this).parent().prev('a');
+        const sid = card.attr('data-sid');
+        const classid = card.attr('data-tbid');
+        const qty = 1;
+        $.get('/Upick/web/member/follow-api.php', {
+            action: 'add',
+            sid,
+            classid,
+            qty
+        }, function(data) {
+            console.log(data);
         }, 'json');
     })
 

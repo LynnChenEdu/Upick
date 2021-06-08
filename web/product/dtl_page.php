@@ -272,7 +272,7 @@ if (empty($row)) {
                         </div>
                         <!--加入追蹤清單與購物車-->
                         <div class="dtlAddCar-CL" data-sid="<?= $row['sid'] ?>" data-tbid="<?= $tableid ?>">
-                            <button class="wBtnAddTrace btnShare"><i class="far fa-heart shpHeart"></i> 加入追蹤清單</button>
+                            <button class="wBtnAddTrace btnShare dtlAddFollow-CL"><i class="far fa-heart shpHeart"></i> 加入追蹤清單</button>
                             <br>
                             <button class="wBtnAddCar btnShare dtlAddCarBtn-CL"><i class="fas fa-shopping-cart"></i> 加入購物車</button>
                         </div>
@@ -293,12 +293,13 @@ if (empty($row)) {
                                 <div class="row">
                                     <?php foreach ($hotsalerow1 as $r) { ?>
                                         <div class="col">
-                                            <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=<?= $tableid ?>">
+                                            <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=<?= $tableid ?>" data-sid="<?= $r['sid'] ?>" data-tbid="<?= $tableid ?>">
                                                 <img src="<?= WEB_ROOT ?>/images/product/<?= $tableid ?>/<?= $r['imgs'] ?>.jpg" alt="">
                                                 <p><?= $r['name'] ?></p>
-                                                <!--加入追蹤之愛心,購物車,金額-->
-                                                <div class="shpHotCartInfo-CL"><i class="far fa-heart shpHeart-CL"></i><i class="fas fa-shopping-cart shpShopCar-CL"></i> <span class="shpItemDollor-CL"><?= $r['price'] ?></span></div>
                                             </a>
+                                            <!--加入追蹤之愛心,購物車,金額-->
+                                            <div class="shpHotCartInfo-CL"><i class="far fa-heart shpHeart-CL"></i><i class="fas fa-shopping-cart shpShopCar-CL"></i> <span class="shpItemDollor-CL"><?= $r['price'] ?></span></div>
+
                                         </div>
                                     <?php } ?>
                                 </div>
@@ -308,12 +309,12 @@ if (empty($row)) {
                                 <div class="row">
                                     <?php foreach ($hotsalerow2 as $r) { ?>
                                         <div class="col">
-                                            <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=<?= $tableid ?>">
+                                            <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=<?= $tableid ?>" data-sid="<?= $r['sid'] ?>" data-tbid="<?= $tableid ?>">
                                                 <img src="<?= WEB_ROOT ?>/images/product/<?= $tableid ?>/<?= $r['imgs'] ?>.jpg" alt="">
                                                 <p><?= $r['name'] ?></p>
-                                                <!--加入追蹤之愛心,購物車,金額-->
-                                                <div class="shpHotCartInfo-CL"><i class="far fa-heart shpHeart-CL"></i><i class="fas fa-shopping-cart shpShopCar-CL"></i> <span class="shpItemDollor-CL"><?= $r['price'] ?></span></div>
                                             </a>
+                                            <!--加入追蹤之愛心,購物車,金額-->
+                                            <div class="shpHotCartInfo-CL"><i class="far fa-heart shpHeart-CL"></i><i class="fas fa-shopping-cart shpShopCar-CL"></i> <span class="shpItemDollor-CL"><?= $r['price'] ?></span></div>
                                         </div>
                                     <?php } ?>
                                 </div>
@@ -325,12 +326,12 @@ if (empty($row)) {
                                 <div class="row">
                                     <?php foreach ($hotsalerow3 as $r) { ?>
                                         <div class="col">
-                                            <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=<?= $tableid ?>">
+                                            <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=<?= $tableid ?>" data-sid="<?= $r['sid'] ?>" data-tbid="<?= $tableid ?>">
                                                 <img src="<?= WEB_ROOT ?>/images/product/<?= $tableid ?>/<?= $r['imgs'] ?>.jpg" alt="">
                                                 <p><?= $r['name'] ?></p>
-                                                <!--加入追蹤之愛心,購物車,金額-->
-                                                <div class="shpHotCartInfo-CL"><i class="far fa-heart shpHeart-CL"></i><i class="fas fa-shopping-cart shpShopCar-CL"></i> <span class="shpItemDollor-CL"><?= $r['price'] ?></span></div>
                                             </a>
+                                            <!--加入追蹤之愛心,購物車,金額-->
+                                            <div class="shpHotCartInfo-CL"><i class="far fa-heart shpHeart-CL"></i><i class="fas fa-shopping-cart shpShopCar-CL"></i> <span class="shpItemDollor-CL"><?= $r['price'] ?></span></div>
                                         </div>
                                     <?php } ?>
                                 </div>
@@ -404,6 +405,7 @@ if (empty($row)) {
     <!--SCRIPT-->
     <?php include __DIR__ . '/../../parts/scripts.php' ?>
     <?php include __DIR__ . '/../../web/shopcar/cart-script.php' ?>
+    <?php include __DIR__ . '/../../web/member/follow-script.php' ?>
     <script>
         $(document).ready(function() {
             //手機版-小於1200則searchbar不出現
@@ -543,6 +545,39 @@ if (empty($row)) {
             }, function(data) {
                 console.log(data);
                 showCartCount(data); // 更新選單上數量的提示
+            }, 'json');
+        })
+        //加入追蹤
+        const addToFollowtBtn = $('.dtlAddFollow-CL');
+        addToFollowtBtn.click(function() {
+            const card = $(this).parent('.dtlAddCar-CL');
+            const sid = card.attr('data-sid');
+            const classid = card.attr('data-tbid');
+            const qty = 1;
+            $.get('/Upick/web/member/follow-api.php', {
+                action: 'add',
+                sid,
+                classid,
+                qty
+            }, function(data) {
+                console.log(data);
+                showCartCount(data); // 更新選單上數量的提示
+            }, 'json');
+        })
+        //加入追蹤2
+        const addToFollowtBtn2 = $('.shpHeart-CL');
+        addToFollowtBtn2.click(function() {
+            const card = $(this).parent().prev('a');
+            const sid = card.attr('data-sid');
+            const classid = card.attr('data-tbid');
+            const qty = 1;
+            $.get('/Upick/web/member/follow-api.php', {
+                action: 'add',
+                sid,
+                classid,
+                qty
+            }, function(data) {
+                console.log(data);
             }, 'json');
         })
         //手機版-加入購物車

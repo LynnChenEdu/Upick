@@ -348,7 +348,7 @@ $screenrow2 = $pdo->query($screen2)->fetchAll();
                             <div class="col">
                                 <a href="/Upick/web/product/dtl_page.php?pid=<?= $r['sid'] ?>&classid=01cpu" data-sid="<?= $r['sid'] ?>" data-tbid="01cpu">
                                     <img class="shpProductImg_CL" src="<?= WEB_ROOT ?>/images/product/01cpu/<?= $r['imgs'] ?>.jpg" alt="">
-                                    <div class="shpItemInfo-CL data-sid=" <?= $r['item'] & $r['id'] ?>">
+                                    <div class="shpItemInfo-CL" data-sid=" <?= $r['item'] & $r['id'] ?>">
                                         <p class="shpItemInfoP-CL"><?= $r['name'] ?></p>
                                 </a>
                                 <div class="shpHotCartInfo-CL"><i class="far fa-heart shpHeart-CL"></i><i class="fas fa-shopping-cart shpShopCar-CL"></i> <span class="shpItemDollor-CL"><?= $r['price'] ?></span></div>
@@ -710,16 +710,16 @@ $screenrow2 = $pdo->query($screen2)->fetchAll();
 
 </div>
 <!--頁尾-->
-<?php include __DIR__ . '../parts/html_footer.php' ?>
+<?php include __DIR__ . '/parts/html_footer.php' ?>
 </div>
 </div>
 
 
 
 <!--SCRIPT-->
-<?php include __DIR__ . '../parts/scripts.php' ?>
+<?php include __DIR__ . '/parts/scripts.php' ?>
 <?php include __DIR__ . '/web/shopcar/cart-script.php' ?>
-<?php include __DIR__ . '/../../web/member/follow-script.php' ?>
+<?php include __DIR__ . '/web/member/follow-script.php' ?>
 <script>
     //加入購物車
     const addToCartBtn = $('.shpShopCar-CL');

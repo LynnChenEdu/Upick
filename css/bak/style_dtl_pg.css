@@ -1,4 +1,4 @@
-/*將body的內建scrollbar隱藏*/
+        /*將body的內建scrollbar隱藏*/
         /*body::-webkit-scrollbar {*/
         /*display: none;*/
         /*}*/
@@ -31,7 +31,7 @@
 
         .shpTop-CL {
             width: 100vw;
-            background:#F5F6F8;
+            background:#ffffff;
             margin: 0 auto 0 auto;
         }
 
@@ -58,21 +58,10 @@
             margin-right: 12px;
         }
 
-        .breadcrumb-item>a{
-            color: #4AC8C2;
-        }
-
-        .breadcrumb-item>a:hover{
-            color: #383E44;
-            text-decoration: underline;
-        }
-
         /*商場內容區*/
         .shpContainer-CL {
-            width: 1200px;
-            background-color: #FFF;
-            box-shadow: 3px 3px 10px #E4E8EE;
-            padding: 0 10px;       
+            width: 1200px;   
+            padding: 0;       
         }
 
         /*細節頁頂部區域*/
@@ -87,8 +76,7 @@
         .dtlTopImg-CL img{
             width: 500px;
             height: 500px;
-            border-radius: 4px;
-            box-shadow: 3px 3px 10px #E4E8EE;
+            border: 1px solid #9AA3AC;
         }
 
         .dtlTopImg-CL img {
@@ -242,20 +230,19 @@
         /*標題*/
         .dtlOther-CL {
             margin-top: 40px;
-            padding-left: 10px;
         }
 
         /*其他熱銷商品區*/
         .shpHotSale-CL {
             height: 330px;
-            width: 1180px;
+            width: 1200px;
         }
 
 
         /*商品輪播牆*/
         .shpHotSaleContain-CL {
-            width: 1180px;
-            margin-top: 10px;
+            width: 1200px;
+            margin-top: 20px;
         }
 
         /*商品輪播牆內容-修改商品內容顯示區總高度*/
@@ -395,7 +382,7 @@
 
         /*商品詳細內容-規格表格區*/
         .dtlContainTable-CL {
-            /* border: 1px solid #383E44; */
+            border: 1px solid #383E44;
             border-radius: 8px;
             margin-top: 40px;
         }
@@ -405,8 +392,7 @@
             height: 50px;
             text-align: center;
             background-color: #E4E8EE;
-            border-radius: 4px 4px 0 0;
-            border-bottom: 2px solid #FFF;
+            border-radius: 8px 8px 0 0;
         }
         .dtlContainTbHead-CL h4 {
             line-height: 50px;
@@ -420,34 +406,25 @@
         }
         /*表格左下角圓角*/
         .dtlContainTable-CL table tr:last-child td:first-child {
-            /* border-bottom-left-radius: 8px; */
-            border-bottom: 1px solid #9AA3AC;
+            border-bottom-left-radius: 8px;
         }        
 
         .dtlContainTable-CL tr td {
-            height: 40px;
+            height: 50px;
             font-size: 18px;
-            font-weight: 600;
+            font-weight: 600;  
+            border-top: 1px solid #9AA3AC;
         }
-
+        
         .dtlContainTable-CL tr td:nth-child(1) {
-            width: 350px;
+            width: 300px;
             background-color: #E4E8EE;
-            line-height: 40px;
-            /* padding-top: 15px; */
-            border-bottom: 1px solid #FFF;
+            padding-top: 15px;
             text-align: center;
             word-wrap:break-word;
         }
         .dtlContainTable-CL tr td:nth-child(2) {
-            line-height: 40px;
-            border-bottom: 1px solid #9AA3AC;
             padding-left: 15px;
-            font-weight: 500;
-        }
-
-        .dtlContainTable-CL tr td:nth-child(2):hover{
-            background-color: #F5F6F8;
         }
     
         /*此div撐開footer上方的留白空間*/
@@ -520,10 +497,6 @@
             color: #ffffff;
         }
 
-        .siteBtn-CL2{
-            display: none;
-        }
-
 
 
          /*手機版*/
@@ -566,36 +539,25 @@
             }
             /*商品圖區margin-top*/
             .dtlTop-CL {
-                /* margin-top: 20px; */
+                margin-top: 20px;
                 display: block;
             }
             /*大商品圖*/
             .dtlTopImg-CL {
-                width: 335px;
-                height: 335px;
-                padding-top: 10px;
+                width: 355px;
+                height: 355px;
                 margin-left: -15px;
             }
             .dtlTopImg-CL img {
-                width: 335px;
-                height: 335px;
+                width: 355px;
+                height: 355px;
             }
             /*手機版面包屑出現*/
             .breadcrumb2 {
                 display: flex;
                 margin-top: 20px;
             }
-
-            .breadcrumb2>li{
-                font-size: 12px;
-            }
-
-            .breadcrumb-item+.breadcrumb-item::before{
-                padding-right: 3px;
-            }
-
             .dtlMarker-CL {
-                margin-top: 2px;
                 margin-left:-12px;
                 margin-right:5px;
             }
@@ -615,12 +577,12 @@
             }
             /*小商品圖輪播牆*/
             .dtlTopImgMore-CL {
-                width: 335px;
+                width: 355px;
                 height: 90px;
                 margin-left: -15px;
             }
             .dtlImgBtn-CL, .dtlImgCaro-CL {
-                width: 335px;
+                width: 355px;
                 height: 90px;
             }
             .dtlImgCaro-CL img {
@@ -636,8 +598,8 @@
             }
             /*商品編號*/
             .dtlTop-CL .col-lg-6 span {
-                margin-left: -80px;
-                font-size: 16px;
+               margin-left: -80px;
+
             }
             /*熱銷商品輪播牆消失*/
             .shpHotSaleContain-CL {
@@ -714,7 +676,7 @@
             .dtlContainTable-CL {
                 display: block;
                 margin-top: 580px;
-                width: 335px;
+                width: 355px;
             }
             .dtlContainTbHead-CL {
                 height: 50px; 
@@ -724,31 +686,18 @@
                 line-height: 50px;
             }
             .dtlContainTable-CL table {
-                width: 335px;
+                width: 355px;
                 word-wrap: break-word;
-                border-bottom: 1px solid #E4E8EE;
-            }
-            .dtlContainTable-CL tr td{
-                display: flex;
-                justify-content: center;
             }
             .dtlContainTable-CL tr td:nth-child(1) {
-                width: 335px;
-                font-size: 14px;
-                line-height: 20px;
-                padding: 5px;
-                padding-top: 10px;
-                border-bottom: none;
+                width: 120px;
+                font-size: 16px;
+       
+                text-align: center;
+                word-wrap: break-word;
             }
             .dtlContainTable-CL tr td:nth-child(2){
-                font-size: 14px;
-                line-height: 20px;
-                padding: 10px 15px;
                 word-wrap: break-word;
-                border-bottom: none;
-            }
-            .dtlContainTable-CL table tr:last-child td:first-child{
-                border-bottom: none;
             }
 
             /*手機版gotop按鈕*/
@@ -772,3 +721,8 @@
                 text-decoration: none;
             }
          }
+
+            
+
+
+    

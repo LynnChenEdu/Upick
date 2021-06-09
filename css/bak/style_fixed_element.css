@@ -1,3 +1,4 @@
+
 /*對話區*/
 .umaConvert-CL {
     width: 250px;
@@ -37,7 +38,7 @@
 .umaHelper-CL {
     width: 290px;
     height: 450px;
-    background: #F5F6F8;
+    background: #ffffff;
     position: fixed;
     z-index: 999;
     top: 78%;
@@ -133,3 +134,4 @@
     text-align: center;
     margin-top: 5px;
 }
+

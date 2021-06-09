@@ -167,14 +167,14 @@ $pageName = 'member';
                                     <!-- 商品名稱 -->
                                     <a href="<?= WEB_ROOT ?>/web/product/dtl_page.php?classid=<?= $v['tableid'] ?>&pid=<?= $v['sid'] ?>" class="memProductTitle_HC"><?= $v['name'] ?>
                                     </a>
-                                    <div class="memMbFollowCardDown_HC memFollow_HC" data-sid="<?= $v['sid'] ?>">
+                                    <div class="memMbFollowCardDown_HC memFollow_HC" data-sid="<?= $v['sid'] ?>" data-tbid="<?= $v['tableid'] ?>">
                                         <!-- 手機 庫存狀態 -->
                                         <p class="memStock_HC">貨量充足</p>
                                         <!-- 手機 商品價格 -->
                                         <p class="memUPrice_HC">$<?= $v['price'] ?></p>
                                         <!-- 手機 加入購物車 -->
-                                        <a href="#">
-                                            <i class="fas fa-shopping-cart"></i>
+                                        <a href="">
+                                            <i class="fas fa-shopping-cart memAddCartPhone-CL"></i>
                                         </a>
                                         <!-- 手機 取消追蹤 -->
                                         <a href="#">
@@ -227,6 +227,24 @@ $pageName = 'member';
     //加入購物車
     const addToCartBtn = $('.memAddCart-CL');
     addToCartBtn.click(function() {
+        const card = $(this).closest('.memFollow_HC');
+        const sid = card.attr('data-sid');
+        const classid = card.attr('data-tbid');
+        const qty = 1;
+        $.get('/Upick/web/shopcar/cart-api.php', {
+            action: 'add',
+            sid,
+            classid,
+            qty
+        }, function(data) {
+            console.log(data);
+            showCartCount(data); // 更新選單上數量的提示
+        }, 'json');
+    })
+
+    //手機版-加入購物車
+    const addToCartBtn2 = $('.memAddCartPhone-CL');
+    addToCartBtn2.click(function() {
         const card = $(this).closest('.memFollow_HC');
         const sid = card.attr('data-sid');
         const classid = card.attr('data-tbid');

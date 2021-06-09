@@ -165,8 +165,8 @@ if (empty($row)) {
     <!--手機版-加入追蹤清單與購物車-->
     <div class="dtlAddCarPhone-CL" data-sid="<?= $row['sid'] ?>" data-tbid="<?= $tableid ?>">
         <span>售價$<?= $row['price'] ?></span>
-        <button><i class="far fa-heart"></i> 加入追蹤清單</button>
-        <button><i class="fas fa-shopping-cart dtaAddShopCar-CL"></i> 加入購物車</button>
+        <button class="dtlAddFollowPhoneBtn-CL"><i class="far fa-heart"></i> 加入追蹤清單</button>
+        <button class="dtlAddShopCarPhoneBtn-CL"><i class="fas fa-shopping-cart"></i> 加入購物車</button>
     </div>
 
 
@@ -580,8 +580,9 @@ if (empty($row)) {
                 console.log(data);
             }, 'json');
         })
+
         //手機版-加入購物車
-        const addToCartBtnPhone = $('.dtaAddShopCar-CL');
+        const addToCartBtnPhone = $('.dtlAddShopCarPhoneBtn-CL');
         addToCartBtnPhone.click(function() {
             const card = $(this).closest('.dtlAddCarPhone-CL');
             const sid = card.attr('data-sid');
@@ -596,8 +597,23 @@ if (empty($row)) {
                 console.log(data);
                 showCartCount(data); // 更新選單上數量的提示
             }, 'json');
+        })
 
-
+        //手機版-加入追蹤
+        const addToFollowPhone = $('.dtlAddFollowPhoneBtn-CL');
+        addToFollowPhone.click(function() {
+            const card = $(this).closest('.dtlAddCarPhone-CL');
+            const sid = card.attr('data-sid');
+            const classid = card.attr('data-tbid');
+            const qty = 1;
+            $.get('/Upick/web/member/follow-api.php', {
+                action: 'add',
+                sid,
+                classid,
+                qty
+            }, function(data) {
+                console.log(data);
+            }, 'json');
         })
     </script>
 

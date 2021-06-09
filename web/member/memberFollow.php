@@ -79,11 +79,11 @@ $pageName = 'member';
                                 </tr>
                             <?php else : ?>
                                 <?php foreach ($_SESSION['follow'] as $v) { ?>
-                                    <tr class="memFollow_HC" data-sid="<?= $v['sid'] ?>">
+                                    <tr class="memFollow_HC" data-sid="<?= $v['sid'] ?>" data-tbid="<?= $v['tableid'] ?>">
                                         <!-- 追蹤商品 -->
                                         <td class="memProductTd_HC">
                                             <img src="<?= WEB_ROOT ?>/images/product/<?= $v['tableid'] ?>/<?= $v['imgs'] ?>.jpg" alt="">
-                                            <a href="#" class="memProductTitle_HC"><?= $v['name'] ?></a>
+                                            <a href="<?= WEB_ROOT ?>/web/product/dtl_page.php?classid=<?= $v['tableid'] ?>&pid=<?= $v['sid'] ?>" class="memProductTitle_HC"><?= $v['name'] ?></a>
                                         </td>
                                         <!-- 庫存狀態 -->
                                         <td>
@@ -95,13 +95,13 @@ $pageName = 'member';
                                         </td>
                                         <!-- 購買狀態 -->
                                         <td>
-                                            <a href="#">加入購物車</a>
+                                            <a href="" class="memAddCart-CL">加入購物車</a>
                                             <br>
-                                            <a href="#">立即購買</a>
+                                            <a href="/Upick/web/shopcar/shopcart_origin.php" class="memAddCart-CL">立即購買</a>
                                         </td>
                                         <!-- 取消追蹤 -->
                                         <td>
-                                            <a href="#">
+                                            <a href="#" class="memAddCart-CL">
                                                 <i class="fas fa-trash"></i>
                                             </a>
                                         </td>
@@ -155,29 +155,36 @@ $pageName = 'member';
                 </div>
                 <!-- 手機追蹤清單 -->
                 <div class="memMobileFollowArea_HC">
-                    <div class="memMbFollowCardArea_HC">
-                        <img src="/Upick/images/item_01.png" alt="">
-                        <div class="memMbFollowCardCon_HC">
-                            <!-- 商品名稱 -->
-                            <a href="#" class="memProductTitle_HC">
-                                Antec 安鈦克 NE550 TUF聯名款 550W 80+銅牌 (全日系電容/長140mm/五年保固二年換新)
-                            </a>
-                            <div class="memMbFollowCardDown_HC">
-                                <!-- 手機 庫存狀態 -->
-                                <p class="memStock_HC">貨量充足</p>
-                                <!-- 手機 商品價格 -->
-                                <p class="memUPrice_HC">$2,029</p>
-                                <!-- 手機 加入購物車 -->
-                                <a href="#">
-                                    <i class="fas fa-shopping-cart"></i>
-                                </a>
-                                <!-- 手機 取消追蹤 -->
-                                <a href="#">
-                                    <i class="fas fa-trash"></i>
-                                </a>
-                            </div>
+                    <?php if (empty($_SESSION['follow'])) : ?>
+                        <div>
+                            目前追蹤清單裡沒有商品
                         </div>
-                    </div>
+                    <?php else : ?>
+                        <?php foreach ($_SESSION['follow'] as $v) { ?>
+                            <div class="memMbFollowCardArea_HC">
+                                <img src="<?= WEB_ROOT ?>/images/product/<?= $v['tableid'] ?>/<?= $v['imgs'] ?>.jpg" alt="">
+                                <div class="memMbFollowCardCon_HC">
+                                    <!-- 商品名稱 -->
+                                    <a href="<?= WEB_ROOT ?>/web/product/dtl_page.php?classid=<?= $v['tableid'] ?>&pid=<?= $v['sid'] ?>" class="memProductTitle_HC"><?= $v['name'] ?>
+                                    </a>
+                                    <div class="memMbFollowCardDown_HC memFollow_HC" data-sid="<?= $v['sid'] ?>">
+                                        <!-- 手機 庫存狀態 -->
+                                        <p class="memStock_HC">貨量充足</p>
+                                        <!-- 手機 商品價格 -->
+                                        <p class="memUPrice_HC">$<?= $v['price'] ?></p>
+                                        <!-- 手機 加入購物車 -->
+                                        <a href="#">
+                                            <i class="fas fa-shopping-cart"></i>
+                                        </a>
+                                        <!-- 手機 取消追蹤 -->
+                                        <a href="#">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php } ?>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
@@ -215,7 +222,24 @@ $pageName = 'member';
             showCartCount(data); // 更新選單上數量的提示
             location.reload();
         }, 'json');
+    })
 
+    //加入購物車
+    const addToCartBtn = $('.memAddCart-CL');
+    addToCartBtn.click(function() {
+        const card = $(this).closest('.memFollow_HC');
+        const sid = card.attr('data-sid');
+        const classid = card.attr('data-tbid');
+        const qty = 1;
+        $.get('/Upick/web/shopcar/cart-api.php', {
+            action: 'add',
+            sid,
+            classid,
+            qty
+        }, function(data) {
+            console.log(data);
+            showCartCount(data); // 更新選單上數量的提示
+        }, 'json');
     })
 </script>
 

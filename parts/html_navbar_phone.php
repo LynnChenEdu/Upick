@@ -50,12 +50,7 @@
         <?php if (isset($_SESSION['loginUser'])) : ?>
             <!-- 已登入 -->
             <div class="navbarLinkLi_ZY">
-                <a class="" href="#">
-                    首頁</a>
-                <div class="navUnderscore_ZY"></div>
-            </div>
-            <div class="navbarLinkLi_ZY">
-                <a class="" href="/Upick/shopHome.php">商場</a>
+                <a class="" href="/Upick/shopHome.php?aniarea=none&shparea=block">商場</a>
                 <div class="navUnderscore_ZY"></div>
             </div>
             <div class="navbarLinkLi_ZY">
@@ -78,12 +73,7 @@
         <?php else : ?>
             <!-- 未登入 -->
             <div class="navbarLinkLi_ZY">
-                <a class="" href="#">
-                    首頁</a>
-                <div class="navUnderscore_ZY"></div>
-            </div>
-            <div class="navbarLinkLi_ZY">
-                <a class="" href="/Upick/shopHome.php">商場</a>
+                <a class="" href="/Upick/shopHome.php?aniarea=none&shparea=block">商場</a>
                 <div class="navUnderscore_ZY"></div>
             </div>
             <div class="navbarLinkLi_ZY">

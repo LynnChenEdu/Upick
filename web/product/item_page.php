@@ -9,6 +9,7 @@ $tableid = isset($_GET['classid']) ? ($_GET['classid']) : '';
 $optionkey = isset($_GET['optionkey']) ? ($_GET['optionkey']) : null;
 $optionvalue = isset($_GET['optionvalue']) ? ($_GET['optionvalue']) : null;
 $optionvalue2 = isset($_GET['optionvalue']) ? ($_GET['optionvalue']) : null;
+$search = isset($_GET['search']) ? ($_GET['search']) : "";
 if (!empty($optionkey) && !empty($optionvalue)) {
     $optiontext = "AND $optionkey = '$optionvalue'";
     $optionforpg = "optionkey=$optionkey&optionvalue=$optionvalue&";
@@ -18,6 +19,17 @@ if (empty($optionkey) && empty($optionvalue)) {
     $optiontext = "";
     $optionforpg = "";
 }
+
+if (!empty($search)) {
+    $optiontext = " AND `name` LIKE '%$search%'";
+}
+if (empty($search)) {
+    $optiontext = "";
+}
+
+echo $optiontext;
+
+
 
 
 //篩選區
@@ -219,7 +231,7 @@ $totalPages = ceil($totalRows / $perPage);
 if ($page < 1) $page = 1;
 if ($page > $totalPages) $page = $totalPages;
 
-$p_sql = sprintf("SELECT * FROM $tableid $where $optiontext ORDER BY $sort ASC LIMIT %s, %s ", ($page - 1) * $perPage, $perPage);
+$p_sql = "SELECT * FROM $tableid $where $optiontext ORDER BY $sort ASC LIMIT 1,12";
 
 $rows = $pdo->query($p_sql)->fetchAll();
 
@@ -713,12 +725,6 @@ $rows = $pdo->query($p_sql)->fetchAll();
                     return false;
                 })
             });
-        })
-
-        //分類文字搜尋
-        const itemTextSearch = $('.wSearcBtn');
-        itemTextSearch.click(function() {
-
         })
     </script>
 

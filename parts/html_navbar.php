@@ -95,9 +95,11 @@ $search2 = "&classid=$tableid";
     <!--白色搜尋bar區-->
     <div class="navSearch-CL" style="display:<?= $shparea ?>; transform: translateY(0vh); opacity:<?= $opacity ?>;">
         <!--搜尋輸入框-->
-        <form class="wSearchInput" action="item_page.php?classid=<?= $tableid ?>&" method="get">
+        <form class="wSearchInput" action="item_page.php?" method="">
             <!--文字輸入框-->
             <input class="wSearchInputBox wInputShare" type="search" placeholder="Search" name="search" value="" aria-label="Search">
+            <!--隱藏欄位-->
+            <input type="hidden" name="classid" value="<?= $tableid ?>">
             <!--搜尋按鈕-->
             <button class="wSearcBtn" type="submit"><i class="fas fa-search"></i> 分類搜尋</button>
         </form>

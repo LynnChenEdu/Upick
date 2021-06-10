@@ -613,15 +613,12 @@ $rows = $pdo->query($p_sql)->fetchAll();
             })
         }
 
-
-
         //點選零件篩選區收合btn,則收合至只剩下已選擇之篩選項目
         let uP = 0;
         $('.itemCollapse-CL').click(function() {
             $('.itemFilterBrandImg-CL').toggle();
             $('.itemFilter-CL table').toggle();
         })
-
 
         //siteBtn按鈕選擇效果
         $('.siteBtnInner-CL').click(function() {
@@ -716,6 +713,12 @@ $rows = $pdo->query($p_sql)->fetchAll();
                     return false;
                 })
             });
+        })
+
+        //分類文字搜尋
+        const itemTextSearch = $('.wSearcBtn');
+        itemTextSearch.click(function() {
+
         })
     </script>
 

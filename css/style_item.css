@@ -507,11 +507,16 @@
             text-align: center;
         }
 
+        /*文字搜尋結果無資料時*/
+        .shpSearchNon-CL {
+            margin: 0 auto;
+            font-size: 22px;
+        }
+
         /*頁碼*/
         .itemPage-CL {
             margin-top: 50px;
-            margin-left: 50%;
-            transform: translateX(-50%);
+            margin-left: 39%;
         }
 
         ul.wWhitePgArea.itemPage-CL {
@@ -798,6 +803,9 @@
             /*手機版頁碼排版*/
             .itemPage-CL {
                 width: 355px;
+                margin-top: 50px;
+                margin-left: 50%;
+                transform: translateX(-50%);
             }
             /*頁碼文字:跳轉至*/
             .wWhiteText {

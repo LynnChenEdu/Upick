@@ -21,16 +21,13 @@ if (empty($optionkey) && empty($optionvalue)) {
 }
 
 if (!empty($search)) {
-    $optiontext = " AND `name` LIKE '%$search%'";
+    $optiontext2 = " AND `name` LIKE '%$search%'";
+    $optionforpg2 = "search=$search&";
 }
 if (empty($search)) {
-    $optiontext = "";
+    $optiontext2 = "";
+    $optionforpg2 = "";
 }
-
-echo $optiontext;
-
-
-
 
 //篩選區
 //定義10項篩選條件
@@ -223,17 +220,22 @@ $perPage = 12; // 每一頁有幾筆
 $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
 $sort = isset($_GET['sort']) ? ($_GET['sort']) : "id";
 
-$t_sql = "SELECT COUNT(id) FROM $tableid $where $optiontext ORDER BY $sort ASC";
+$t_sql = "SELECT COUNT(id) FROM $tableid $where $optiontext $optiontext2 ORDER BY $sort ASC";
 
 $totalRows = $pdo->query($t_sql)->fetch(PDO::FETCH_NUM)[0];
-$totalPages = ceil($totalRows / $perPage);
 
-if ($page < 1) $page = 1;
-if ($page > $totalPages) $page = $totalPages;
+if ($totalRows > 0) {
+    $totalPages = ceil($totalRows / $perPage);
 
-$p_sql = "SELECT * FROM $tableid $where $optiontext ORDER BY $sort ASC LIMIT 1,12";
+    if ($page < 1) $page = 1;
+    if ($page > $totalPages) $page = $totalPages;
 
-$rows = $pdo->query($p_sql)->fetchAll();
+    $pg2 = ($page - 1) * $perPage;
+
+    $p_sql = "SELECT * FROM $tableid $where $optiontext $optiontext2 ORDER BY $sort ASC LIMIT $pg2, $perPage";
+
+    $rows = $pdo->query($p_sql)->fetchAll();
+}
 
 ?>
 
@@ -474,18 +476,24 @@ $rows = $pdo->query($p_sql)->fetchAll();
                 <div class="shpItem-CL">
 
                     <div class="row">
-                        <?php foreach ($rows as $r) : ?>
-                            <div class="col-xl col-6">
-
-                                <a href="dtl_page.php?classid=<?= $tableid ?>&pid=<?= $r['sid'] ?>" data-sid="<?= $r['sid'] ?>" data-tbid="<?= $tableid ?>">
-                                    <img class="itemShowImg_CL" src="<?= WEB_ROOT ?>/images/product/<?= $tableid ?>/<?= $r['imgs'] ?>.jpg" alt="">
-                                    <p class="itemShowName_CL"><?= $r['name'] ?></p>
-                                </a>
-                                <!--加入追蹤之愛心,購物車,金額-->
-                                <div class="shpHotCartInfo-CL"><i class="far fa-heart shpHeart-CL" value="1"></i><i class="fas fa-shopping-cart shpShopCar-CL" value="1"></i> <span class="shpItemDollor-CL"><?= $r['price'] ?></span></div>
-
+                        <?php if ($totalRows < 1) : ?>
+                            <div class="shpSearchNon-CL">
+                                此分類查詢不到相關資料!!
                             </div>
-                        <?php endforeach; ?>
+                        <?php else : ?>
+                            <?php foreach ($rows as $r) : ?>
+                                <div class="col-xl col-6">
+
+                                    <a href="dtl_page.php?classid=<?= $tableid ?>&pid=<?= $r['sid'] ?>" data-sid="<?= $r['sid'] ?>" data-tbid="<?= $tableid ?>">
+                                        <img class="itemShowImg_CL" src="<?= WEB_ROOT ?>/images/product/<?= $tableid ?>/<?= $r['imgs'] ?>.jpg" alt="">
+                                        <p class="itemShowName_CL"><?= $r['name'] ?></p>
+                                    </a>
+                                    <!--加入追蹤之愛心,購物車,金額-->
+                                    <div class="shpHotCartInfo-CL"><i class="far fa-heart shpHeart-CL" value="1"></i><i class="fas fa-shopping-cart shpShopCar-CL" value="1"></i> <span class="shpItemDollor-CL"><?= $r['price'] ?></span></div>
+
+                                </div>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
                     </div>
                 </div>
 
@@ -500,15 +508,19 @@ $rows = $pdo->query($p_sql)->fetchAll();
 
 
                     <!--橫向顯示頁碼-->
-                    <?php for ($i = $page - 2; $i <= $page + 2; $i++) :
-                        if ($i >= 1 and $i <= $totalPages) :
-                            $qs['page'] = $i;
-                    ?>
-                            <!--頁數號碼-->
-                            <li class="wWhitePgItem wWhitePGnumber <?= $i == $page ? 'wWhitePgColor' : '' ?>"><a class="wWhitePgLink" href="?classid=<?= $tableid ?>&<?= $optionforpg ?>&sort=<?= $sort ?>&<?= http_build_query($qs) ?>"><?= $i ?></a></li>
+                    <?php if ($totalRows < 1) : ?>
+                        <li class="wWhitePgItem wWhitePGnumber">0</li>
+                    <?php else : ?>
+                        <?php for ($i = $page - 2; $i <= $page + 2; $i++) :
+                            if ($i >= 1 and $i <= $totalPages) :
+                                $qs['page'] = $i;
+                        ?>
+                                <!--頁數號碼-->
+                                <li class=" wWhitePgItem wWhitePGnumber <?= $i == $page ? 'wWhitePgColor' : '' ?>"><a class="wWhitePgLink" href="?classid=<?= $tableid ?>&<?= $optionforpg ?>&<?= $optionforpg2 ?>&sort=<?= $sort ?>&<?= http_build_query($qs) ?>"><?= $i ?></a></li>
 
-                        <?php endif; ?>
-                    <?php endfor; ?>
+                            <?php endif; ?>
+                        <?php endfor; ?>
+                    <?php endif; ?>
 
 
                     <!--橫向顯示頁碼終止-->
@@ -517,7 +529,6 @@ $rows = $pdo->query($p_sql)->fetchAll();
                     <!--最後一頁button-->
                     <li class="wWhitePgItem"><a class="wWhitePgLink" href="#"><i class="fas fa-angle-double-right"></i></a>
                     </li>
-
                 </ul>
 
                 <!--區隔撐開頁尾的空間-->

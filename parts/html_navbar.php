@@ -67,7 +67,7 @@ $search2 = "&classid=$tableid";
                             <a class="nav-link" href="/Upick/web/member/login.php"><i class="fas fa-heart"></i> 追蹤清單</a>
                         </li>
                         <li class="nav-item up-nav-right <?= $pageName == 'cart' ? 'active' : '' ?>">
-                            <a class="nav-link" href="/Upick/web/shopcar/shopcart_origin.php"><i class="fas fa-shopping-cart "></i> 購物車
+                            <a class="nav-link" href="/Upick/web/member/login.php"><i class="fas fa-shopping-cart "></i> 購物車
                                 <span class="badge badge-pill badge-danger cart-count">0</span>
                             </a>
                         </li>
@@ -97,7 +97,7 @@ $search2 = "&classid=$tableid";
         <!--搜尋輸入框-->
         <form class="wSearchInput" action="item_page.php?" method="">
             <!--文字輸入框-->
-            <input class="wSearchInputBox wInputShare" type="search" placeholder="Search" name="search" value="" aria-label="Search">
+            <input id="wSearchText-CL" class="wSearchInputBox wInputShare" type="search" placeholder="Search" name="search" value="" aria-label="Search">
             <!--隱藏欄位-->
             <input type="hidden" name="classid" value="<?= $tableid ?>">
             <!--搜尋按鈕-->

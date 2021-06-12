@@ -9,11 +9,19 @@
             <img src="/UPICK/icon/logo-w.svg" alt="">
         </div>
         <!-- 這裡I標籤請塞入網址 -->
-        <div class="navShopCart_ZY" onclick="location.href=
+        <?php if (isset($_SESSION['loginUser'])) : ?>
+            <!-- 已登入 -->
+            <div class="navShopCart_ZY" onclick="location.href=
         '/Upick/web/shopcar/shopcart_origin.php';">
-            <i class="fas fa-shopping-cart"><span class="badge badge-pill badge-danger cart-count">0</span></i>
-
-        </div>
+                <i class="fas fa-shopping-cart"><span class="badge badge-pill badge-danger cart-count">0</span></i>
+            </div>
+        <?php else : ?>
+            <!-- 未登入 -->
+            <div class="navShopCart_ZY" onclick="location.href=
+        '/Upick/web/member/login.php';">
+                <i class="fas fa-shopping-cart"><span class="badge badge-pill badge-danger cart-count">0</span></i>
+            </div>
+        <?php endif; ?>
         <?php if (isset($_SESSION['loginUser'])) : ?>
             <!-- 已登入 -->
             <div class="navmember_ZY" onclick="location.href=

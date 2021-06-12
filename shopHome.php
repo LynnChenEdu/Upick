@@ -828,6 +828,13 @@ $screenrow2 = $pdo->query($screen2)->fetchAll();
         }
     })
 
+    //文字搜尋按鈕不可點擊
+    $(".wSearcBtn").attr('disabled', true);
+    document.getElementById("wSearchText-CL").value = '此頁面不可進行文字搜尋';
+    $('.wSearchInputBox').css('border', '1px solid #383E44');
+    $('.wSearcBtn').css('backgroundColor', '#a3a3a3');
+
+
 
 
     //動態更新scrollbar高度

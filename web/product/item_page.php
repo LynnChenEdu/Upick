@@ -400,7 +400,7 @@ if ($totalRows > 0) {
                 <!--零件篩選區-->
                 <div class="itemFilter-CL">
                     <div class="itemFilterClear-CL">
-                        <span>您所選擇的關鍵字為：<?= $optionvalue ?></span>
+                        <span>您所選擇的關鍵字為：<?= $optionvalue ?><?= $search ?></span>
                     </div>
                     <table class="table">
                         <tbody>

@@ -615,6 +615,12 @@ if (empty($row)) {
                 console.log(data);
             }, 'json');
         })
+
+        //文字搜尋按鈕在此頁面不可點擊
+        $(".wSearcBtn").attr('disabled', true);
+        document.getElementById("wSearchText-CL").value = '此頁面不可進行文字搜尋';
+        $('.wSearchInputBox').css('border', '1px solid #383E44');
+        $('.wSearcBtn').css('backgroundColor', '#a3a3a3');
     </script>
 
 

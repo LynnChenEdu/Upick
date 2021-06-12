@@ -29,6 +29,7 @@ if (empty($search)) {
     $optionforpg2 = "";
 }
 
+
 //篩選區
 //定義10項篩選條件
 if ($tableid == '01cpu') {

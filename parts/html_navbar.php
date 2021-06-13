@@ -43,7 +43,7 @@ $search2 = "&classid=$tableid";
                     <?php if (isset($_SESSION['loginUser'])) : ?>
                         <!-- 已登入 -->
                         <li class="nav-item up-nav-right">
-                            <a class="nav-link" href="/Upick/web/member/memberFollow.php"><i class="fas fa-heart"></i> 追蹤清單</a>
+                            <a class="nav-link nav-follow-CL" href="/Upick/web/member/memberFollow.php"><i class="fas fa-heart"></i> 追蹤清單</a>
                         </li>
                         <li class="nav-item up-nav-right <?= $pageName == 'cart' ? 'active' : '' ?>">
                             <a class="nav-link" href="/Upick/web/shopcar/shopcart_origin.php"><i class="fas fa-shopping-cart "></i> 購物車
@@ -64,7 +64,7 @@ $search2 = "&classid=$tableid";
                     <?php else : ?>
                         <!-- 未登入 -->
                         <li class="nav-item up-nav-right">
-                            <a class="nav-link" href="/Upick/web/member/login.php"><i class="fas fa-heart"></i> 追蹤清單</a>
+                            <a class="nav-link nav-follow-CL" href="/Upick/web/member/login.php"><i class="fas fa-heart"></i> 追蹤清單</a>
                         </li>
                         <li class="nav-item up-nav-right <?= $pageName == 'cart' ? 'active' : '' ?>">
                             <a class="nav-link" href="/Upick/web/member/login.php"><i class="fas fa-shopping-cart "></i> 購物車

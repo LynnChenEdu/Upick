@@ -2,7 +2,7 @@
     <div class="umaHelper-CL">
 
         <div class="umaCircle-CL">
-            <div class="umaCircleBG-CL"></div>
+            <div class="umaCircleBG-CL">UPICK</div>
             <div class="umaCircleDoor-CL umaDoorAnima-CL"></div>
         </div>
         <span>需要幫忙嗎?</span>

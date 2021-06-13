@@ -66,6 +66,10 @@
     background-position: 25px 20px;
     background-size: 100px;
     overflow: hidden;
+    font-size: 28px;
+    text-align: center;
+    line-height: 115px;
+    font-weight: 700;
 }
 
 /*UMA圓門*/

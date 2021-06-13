@@ -754,6 +754,14 @@ $screenrow2 = $pdo->query($screen2)->fetchAll();
         }, function(data) {
             console.log(data);
         }, 'json');
+        setTimeout(function() {
+            $('.nav-follow-CL').css('color', '#7FE0DC');
+        }, 100);
+        setTimeout(function() {
+            $('.nav-follow-CL').css('color', 'white');
+        }, 500);
+        $(this).removeClass('far');
+        $(this).addClass('fas');
     })
 
 
@@ -771,6 +779,7 @@ $screenrow2 = $pdo->query($screen2)->fetchAll();
             $('.aniContainer-CL').css('display', 'none');
             $('.umaHelper-CL').css('display', 'none');
             $('.umaConvert-CL').css('display', 'none');
+            $('.siteBtn-CL').css('display', 'none');
         }
 
         //WEB版-各區域在初始顯示方式
@@ -925,12 +934,6 @@ $screenrow2 = $pdo->query($screen2)->fetchAll();
         setTimeout(function() {
             $('.aniWepickOut-CL').css('width', finalWidth)
         }, 20);
-    })
-
-
-    //點擊navBar首頁button即導回首頁
-    $('.navHome-CL').click(function() {
-        location.reload();
     })
 
 

@@ -160,7 +160,8 @@
         /*商品細節-頂部右邊區*/
         /*整體margin-left:40*/
         .dtlTop-CL .col-lg-6 {
-            margin-left: 70px;
+            margin-left: 60px;
+            width: 290px;
         }
         /*商品標題*/
         .dtlTopName-CL {
@@ -528,6 +529,9 @@
 
          /*手機版*/
          @media (max-width:419px) and (min-width: 300px) {
+            body {
+                width: 375px;
+            }
             .aniContainerOut-CL {
                 max-width: 355px;
             }
@@ -584,6 +588,7 @@
             .breadcrumb2 {
                 display: flex;
                 margin-top: 20px;
+                width: 290px;
             }
 
             .breadcrumb2>li{
@@ -599,9 +604,7 @@
                 margin-left:-12px;
                 margin-right:5px;
             }
-            .breadcrumb2 {
-                width:350px;
-            }
+
             .breadcrumb-item+.breadcrumb-item {
                 padding-left:0;
             }
@@ -629,7 +632,7 @@
             }
             /*商品標題*/
             .dtlTop-CL h1 {
-                width: 355px;
+                width: 335px;
                 margin-left: -80px;
                 margin-top: 20px;
                 font-size: 18px;
@@ -645,7 +648,7 @@
             }
             /*簡版商品規格*/
             .dtlSpec-CL {
-                width: 355px;
+                width: 335px;
                 margin-left: -80px;
             }
             /*WEB版加入追蹤,購物車消失*/

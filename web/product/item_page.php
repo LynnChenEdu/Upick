@@ -625,7 +625,7 @@ if ($totalRows > 0) {
 
 
                 //umahelper在超過輪播牆時出現,超過商品區第一列時消失
-                var itemTop = $('.shpItem-CL').offset().top;
+                var itemTop = $('.shpHotTitle-CL').offset().top;
                 if ((mouseScroll > itemCaroTop) && (mouseScroll < itemTop)) {
                     $('.umaHelper-CL').css('display', 'block');
                     $('.umaConvert-CL').css('display', 'block');
@@ -712,6 +712,7 @@ if ($totalRows > 0) {
 
         //加入追蹤
         const addToFollowtBtn = $('.shpHeart-CL');
+        let count1 = 0;
         addToFollowtBtn.click(function() {
             const card = $(this).parent().prev('a');
             const sid = card.attr('data-sid');
@@ -725,7 +726,17 @@ if ($totalRows > 0) {
             }, function(data) {
                 console.log(data);
             }, 'json');
+            setTimeout(function() {
+                $('.nav-follow-CL').css('color', '#7FE0DC');
+            }, 100);
+            setTimeout(function() {
+                $('.nav-follow-CL').css('color', 'white');
+            }, 500);
+            $(this).removeClass('far');
+            $(this).addClass('fas');
         })
+
+
 
         //手機版-篩選功能
         $('.fa-chevron-up').toggle();

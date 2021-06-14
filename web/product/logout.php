@@ -4,4 +4,6 @@ session_start();
 
 unset($_SESSION['loginUser']);
 
-header('Location: ./UPICK/web/member/login.php');
+header("Location: ../member/login.php");
+
+// 商場item+dtl 登出

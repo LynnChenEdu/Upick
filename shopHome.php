@@ -178,7 +178,7 @@ $screenrow2 = $pdo->query($screen2)->fetchAll();
                 <div class="aniUpick-CL">
                     <h1>UPICK</h1>
                     <h4>想組裝適合自己的電腦嗎？</h4>
-                    <h4 class="aniUpickWord-CL">那就交給UPICK吧！ <i class="fas fa-angle-double-right"></i></h4>
+                    <h4 class="aniUpickWord-CL"><a href="/Upick/web/upick/upick-0.php" style="color:#7FE0DC;"> 那就交給UPICK吧！ <i class="fas fa-angle-double-right"></i></a></h4>
 
                     <!--upick大LOGO圖-->
                     <div class="aniLogoU-CL">
@@ -193,7 +193,7 @@ $screenrow2 = $pdo->query($screen2)->fetchAll();
                 <div class="aniWepick-CL">
                     <h1>WEPICK</h1>
                     <h4> 覺得組裝電腦跟挑選適合自己的筆電很困難嗎？</h4>
-                    <h4 class="aniWepickWord-CL"><i class="fas fa-angle-double-left"></i> 讓WEPICK來幫助你吧！</h4>
+                    <h4 class="aniWepickWord-CL"><a href="/Upick/web/wepick/wepick-0.php" style="color:#FF8888;"><i class="fas fa-angle-double-left"></i> 讓WEPICK來幫助你吧！</a> </h4>
 
                     <!--wepick大LOGO圖-->
                     <div class="aniLogoW-CL">

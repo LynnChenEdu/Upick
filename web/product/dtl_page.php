@@ -547,6 +547,24 @@ if (empty($row)) {
                 showCartCount(data); // 更新選單上數量的提示
             }, 'json');
         })
+        //加入購物車2-其他熱銷
+        const addToCartBtn2 = $('.shpShopCar-CL');
+        addToCartBtn2.click(function() {
+            const card = $(this).parent().prev('a');
+            const sid = card.attr('data-sid');
+            const classid = card.attr('data-tbid');
+            const qty = 1;
+            $.get('/Upick/web/shopcar/cart-api.php', {
+                action: 'add',
+                sid,
+                classid,
+                qty
+            }, function(data) {
+                console.log(data);
+                showCartCount(data); // 更新選單上數量的提示
+            }, 'json');
+        })
+
         //加入追蹤
         const addToFollowtBtn = $('.dtlAddFollow-CL');
         addToFollowtBtn.click(function() {
@@ -563,16 +581,8 @@ if (empty($row)) {
                 console.log(data);
                 showCartCount(data); // 更新選單上數量的提示
             }, 'json');
-            setTimeout(function() {
-                $('.nav-follow-CL').css('color', '#7FE0DC');
-            }, 100);
-            setTimeout(function() {
-                $('.nav-follow-CL').css('color', 'white');
-            }, 500);
-            $(this).removeClass('far');
-            $(this).addClass('fas');
         })
-        //加入追蹤2
+        //加入追蹤2-其他熱銷
         const addToFollowtBtn2 = $('.shpHeart-CL');
         addToFollowtBtn2.click(function() {
             const card = $(this).parent().prev('a');
@@ -630,6 +640,14 @@ if (empty($row)) {
             }, function(data) {
                 console.log(data);
             }, 'json');
+            setTimeout(function() {
+                $('.nav-follow-CL').css('color', '#7FE0DC');
+            }, 100);
+            setTimeout(function() {
+                $('.nav-follow-CL').css('color', 'white');
+            }, 500);
+            $(this).children('.fa-heart').removeClass('far');
+            $(this).children('.fa-heart').addClass('fas');
         })
 
         //文字搜尋按鈕在此頁面不可點擊

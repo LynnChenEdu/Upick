@@ -6,6 +6,10 @@
         body {
             overflow-x: hidden;
         }
+
+        .shpScrollCtrl-CL {
+            overflow-y: hidden;
+        }
         
         /*首頁互動特效區*/
         /*撐高頂部的navbar區塊*/

@@ -230,20 +230,20 @@ if (empty($row)) {
                         <?php ?>
                         <div class="dtlSpec-CL">
                             <div class="dtlItemInfo-CL">
-                                商品特色<br>
-                                RAZER CYNOSA LITE<br>
-                                • 柔軟緩衝的電競級按鍵<br>
-                                • 10鍵齊發不衝突防鬼鍵<br>
-                                • 1000Hz超快輪詢率<br>
-                                • 防潑水耐用設計<br>
+                                ※活動優惠<br>
+                                • 畢業季全商城下殺75折<br>
+                                • 購買後七日內不滿意可享全額退費<br>
+                                (產品需無損)<br>
+                                • 防疫期間商城運費半價<br>
+                                • 即日起凡購買ASUS、INTEL系列產品<br>
+                                可享同系列第二件半價優惠<br>
+                                活動期間到6月30日為止<br>
                                 <br>
-                                RAZER VIPER<br>
-                                • RAZER™ 光學滑鼠按鍵軸<br>
-                                • RAZER 5G 光學感測器<br>
-                                • 69 公克輕量設計<br>
-                                •RAZER™ SPEEDFLEX 纜線<br>
-                                •內建 DPI 儲存<br>
-                                • 8 顆可編程按鍵<br>
+                                ※此為全新系列<br>
+                                請確認主機板是否有支援該產品再行購買<br>
+                                若商品已被拆封<br>
+                                恐會影響您的退貨權益<br>
+                                請特別留意<br>
                                 <br>
                                 優惠　--<br>
                                 贈品　--<br>
@@ -563,6 +563,14 @@ if (empty($row)) {
                 console.log(data);
                 showCartCount(data); // 更新選單上數量的提示
             }, 'json');
+            setTimeout(function() {
+                $('.nav-follow-CL').css('color', '#7FE0DC');
+            }, 100);
+            setTimeout(function() {
+                $('.nav-follow-CL').css('color', 'white');
+            }, 500);
+            $(this).removeClass('far');
+            $(this).addClass('fas');
         })
         //加入追蹤2
         const addToFollowtBtn2 = $('.shpHeart-CL');
@@ -579,6 +587,14 @@ if (empty($row)) {
             }, function(data) {
                 console.log(data);
             }, 'json');
+            setTimeout(function() {
+                $('.nav-follow-CL').css('color', '#7FE0DC');
+            }, 100);
+            setTimeout(function() {
+                $('.nav-follow-CL').css('color', 'white');
+            }, 500);
+            $(this).removeClass('far');
+            $(this).addClass('fas');
         })
 
         //手機版-加入購物車

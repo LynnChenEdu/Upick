@@ -87,7 +87,7 @@ $screenrow2 = $pdo->query($screen2)->fetchAll();
 
 </head>
 
-<body>
+<body class="shpScrollCtrl-CL">
     <?php include __DIR__ . '../parts/html_navbar.php' ?>
     <!--固定元件:UMA小幫手html-->
     <?php include __DIR__ . '../parts/html_fixed_element.php' ?>
@@ -765,6 +765,25 @@ $screenrow2 = $pdo->query($screen2)->fetchAll();
     })
 
 
+    //點擊商場btn後的應顯示區塊
+    var url = [window.location.href];
+    if (url == 'http://localhost/Upick/shopHome.php?aniarea=none&shparea=block') {
+
+        $('body').removeClass('shpScrollCtrl-CL');
+        //商場出現
+        $('.shpTop-CL').css('display', 'block');
+        //頁尾出現
+        $('.shpFooterOut-CL').css('display', 'block');
+        $('.shpFooterColor-CL').css('display', 'block');
+
+        //scrollBar出現
+        $('.scrollBar-CL').css('display', 'block');
+        //searchBar出現
+        $('.navSearch-CL').css('display', 'block');
+
+        $('body').css('height', '100vh');
+    }
+
 
 
 
@@ -787,8 +806,8 @@ $screenrow2 = $pdo->query($screen2)->fetchAll();
             //商場不出現
             //$('.shpTop-CL').css('display', 'none');
             //頁尾不出現
-            $('.shpFooterOut-CL').css('display', 'none');
-            $('.shpFooterColor-CL').css('display', 'none');
+            //$('.shpFooterOut-CL').css('display', 'none');
+            //$('.shpFooterColor-CL').css('display', 'none');
             //scroll不出現
             $('.scrollBar-CL').css('display', 'none');
             //搜尋BAR不出現
@@ -808,6 +827,7 @@ $screenrow2 = $pdo->query($screen2)->fetchAll();
 
             //按下向下滑動之btn後
             $('.aniScroll-CL').click(function() {
+                $('body').removeClass('shpScrollCtrl-CL');
                 //商場出現
                 $('.shpTop-CL').css('display', 'block');
                 //頁尾出現
@@ -829,6 +849,11 @@ $screenrow2 = $pdo->query($screen2)->fetchAll();
                         .css('opacity', '1');
                 }, 1000);
             })
+
+
+
+
+
             //UPICK熱銷商品頁籤預設顯示
             $('.shpUpHot-CL .shpPageMartBtn-CL:nth-child(1)').css('backgroundColor', '#7FE0DC');
 
@@ -837,13 +862,18 @@ $screenrow2 = $pdo->query($screen2)->fetchAll();
         }
     })
 
+    $('.nav-link').click(function() {
+        $('body').removeClass('shpScrollCtrl-CL');
+        //商場出現
+        $('.shpTop-CL').css('display', 'block');
+
+    })
+
     //文字搜尋按鈕在此頁面不可點擊
     $(".wSearcBtn").attr('disabled', true);
     document.getElementById("wSearchText-CL").value = '此頁面不可進行文字搜尋';
     $('.wSearchInputBox').css('border', '1px solid #383E44');
     $('.wSearcBtn').css('backgroundColor', '#a3a3a3');
-
-
 
 
     //動態更新scrollbar高度

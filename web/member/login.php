@@ -15,6 +15,7 @@ session_start();
     <title>會員登入</title>
     <!--檔頭外掛-->
     <?php include __DIR__ . '/../../parts/html_head.php' ?>
+    <?php include __DIR__ . '/../../parts/html_navbar_phone.php' ?>
     <!-- login.css -->
     <link rel="stylesheet" href="/Upick/css/login.css">
 </head>
@@ -55,9 +56,9 @@ session_start();
                         <i toggle="#memLoginPassword_HC" class="far fa-eye-slash memPassIcon_HC memTogglePassword_HC"></i>                        
                     </div>
                     <!-- 忘記密碼 -->
-                    <div class="memForgetArea_HC">
+                    <!-- <div class="memForgetArea_HC">
                         <a class="memForget_HC" href="./forget.php">忘記密碼</a>
-                    </div>
+                    </div> -->
                     <!-- 登入按鈕 -->
                     <button class="wBtnNGr memBtnShare_HC memLoginBtn" onclick="LoginUser()">登入</button>
                     <div class="memErroCSS_HC memLogNoInput_HC">
@@ -67,10 +68,10 @@ session_start();
                             <i class="fas fa-exclamation-circle"> 帳號或密碼輸入錯誤！</i>
                     </div>
                 </form>
-                <div id="memQuickLog_HC">
+                <!-- <div id="memQuickLog_HC">
                     <a href="#" class="memDivider_HC"><i class="fab fa-facebook-f"></i>使用Facebook登入</a>
                     <a href="#"><i class="fab fa-google"></i>使用Google登入</a>
-                </div>
+                </div> -->
             </div>
             <!-- 加入會員 -->
             <div id="tab02_HC" class="memTabCon_HC memTabClass_HC">
@@ -115,10 +116,10 @@ session_start();
                 <div class="memErroCSS_HC memNoInput_HC">
                     <i class="fas fa-exclamation-circle"> 帳號/密碼/確認密碼 未填寫！</i>
                 </div>
-                <div id="memQuickLog_HC">
+                <!-- <div id="memQuickLog_HC">
                     <a href="#" class="memDivider_HC"><i class="fab fa-facebook-f"></i>使用Facebook登入</a>
                     <a href="#"><i class="fab fa-google"></i>使用Google登入</a>
-                </div>
+                </div> -->
             </div>            
             <!-- 服務條款 -->
             <div class="memTermsBox_HC">                

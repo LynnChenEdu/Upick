@@ -60,6 +60,11 @@ $pageName = 'member';
                 </div>
                 <!-- 網頁追蹤清單 -->
                 <div class="memWebFollowArea_HC">
+                <?php if (empty($_SESSION['follow'])) : ?>                                
+                    <div class="memNoFollow_HC">
+                        <h1>目前尚無追蹤商品</h1>
+                    </div>
+                <?php else : ?>
                     <table id="memWebTable_HC">
                         <thead>
                             <tr>
@@ -71,93 +76,44 @@ $pageName = 'member';
                             </tr>
                         </thead>
                         <tbody>
-                            <?php if (empty($_SESSION['follow'])) : ?>
-                                <tr id="memNoFollow_HC">
-                                    <td colspan="5">
-                                        <h3>目前尚無追蹤商品</h3>
+                            <?php foreach ($_SESSION['follow'] as $v) { ?>
+                                <tr class="memFollow_HC" data-sid="<?= $v['sid'] ?>" data-tbid="<?= $v['tableid'] ?>">
+                                    <!-- 追蹤商品 -->
+                                    <td class="memProductTd_HC">
+                                        <img src="<?= WEB_ROOT ?>/images/product/<?= $v['tableid'] ?>/<?= $v['imgs'] ?>.jpg" alt="">
+                                        <a href="<?= WEB_ROOT ?>/web/product/dtl_page.php?classid=<?= $v['tableid'] ?>&pid=<?= $v['sid'] ?>" class="memProductTitle_HC"><?= $v['name'] ?></a>
+                                    </td>
+                                    <!-- 庫存狀態 -->
+                                    <td>
+                                        <p class="memStock_HC">貨量充足</p>
+                                    </td>
+                                    <!-- 商品價格 -->
+                                    <td>
+                                        <p class="memUPrice_HC">$<?= $v['price'] ?></p>
+                                    </td>
+                                    <!-- 購買狀態 -->
+                                    <td>
+                                        <a href="" class="memAddCart-CL">加入購物車</a>
+                                        <br>
+                                        <a href="/Upick/web/shopcar/shopcart_origin.php" class="memAddCart-CL">立即購買</a>
+                                    </td>
+                                    <!-- 取消追蹤 -->
+                                    <td>
+                                        <a href="#" class="memAddCart-CL">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
                                     </td>
                                 </tr>
-                            <?php else : ?>
-                                <?php foreach ($_SESSION['follow'] as $v) { ?>
-                                    <tr class="memFollow_HC" data-sid="<?= $v['sid'] ?>" data-tbid="<?= $v['tableid'] ?>">
-                                        <!-- 追蹤商品 -->
-                                        <td class="memProductTd_HC">
-                                            <img src="<?= WEB_ROOT ?>/images/product/<?= $v['tableid'] ?>/<?= $v['imgs'] ?>.jpg" alt="">
-                                            <a href="<?= WEB_ROOT ?>/web/product/dtl_page.php?classid=<?= $v['tableid'] ?>&pid=<?= $v['sid'] ?>" class="memProductTitle_HC"><?= $v['name'] ?></a>
-                                        </td>
-                                        <!-- 庫存狀態 -->
-                                        <td>
-                                            <p class="memStock_HC">貨量充足</p>
-                                        </td>
-                                        <!-- 商品價格 -->
-                                        <td>
-                                            <p class="memUPrice_HC">$<?= $v['price'] ?></p>
-                                        </td>
-                                        <!-- 購買狀態 -->
-                                        <td>
-                                            <a href="" class="memAddCart-CL">加入購物車</a>
-                                            <br>
-                                            <a href="/Upick/web/shopcar/shopcart_origin.php" class="memAddCart-CL">立即購買</a>
-                                        </td>
-                                        <!-- 取消追蹤 -->
-                                        <td>
-                                            <a href="#" class="memAddCart-CL">
-                                                <i class="fas fa-trash"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                <?php } ?>
-                            <?php endif; ?>
+                            <?php } ?>
+                <?php endif; ?>
                         </tbody>
-                    </table>
-                    <!-- 分頁 -->
-                    <div class="memPagenation_HC">
-                        <div class="wWhitePgAreaHTML1">
-                            <ul class="wWhitePgArea">
-                                <!--最前頁button-->
-                                <li class="wWhitePgItem">
-                                    <a class="wWhitePgLink" href="#">
-                                        <i class="fas fa-angle-double-left"></i>
-                                    </a>
-                                </li>
-                                <!--前一頁button-->
-                                <li class="wWhitePgItem">
-                                    <a class="wWhitePgLink" href="#">
-                                        <i class="fas fa-angle-left"></i>
-                                    </a>
-                                </li>
-                                <!--橫向顯示頁碼-->
-                                <li class="wWhitePgItem wWhitePGnumber">
-                                    <a class="wWhitePgLink" href="#">1</a>
-                                </li>
-                                <li class="wWhitePgItem wWhitePGnumber">
-                                    <a class="wWhitePgLink" href="#">2</a>
-                                </li>
-                                <li class="wWhitePgItem wWhitePGnumber">
-                                    <a class="wWhitePgLink" href="#">3</a>
-                                </li>
-                                <!--橫向顯示頁碼終止-->
-                                <!--下一頁button-->
-                                <li class="wWhitePgItem">
-                                    <a class="wWhitePgLink" href="#">
-                                        <i class="fas fa-angle-right"></i>
-                                    </a>
-                                </li>
-                                <!--最後一頁button-->
-                                <li class="wWhitePgItem">
-                                    <a class="wWhitePgLink" href="#">
-                                        <i class="fas fa-angle-double-right"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                    </table>                    
                 </div>
                 <!-- 手機追蹤清單 -->
                 <div class="memMobileFollowArea_HC">
                     <?php if (empty($_SESSION['follow'])) : ?>
-                        <div>
-                            目前追蹤清單裡沒有商品
+                        <div class="memNoFollow_HC">
+                            <h5>目前尚無追蹤商品</h5>
                         </div>
                     <?php else : ?>
                         <?php foreach ($_SESSION['follow'] as $v) { ?>
@@ -167,14 +123,14 @@ $pageName = 'member';
                                     <!-- 商品名稱 -->
                                     <a href="<?= WEB_ROOT ?>/web/product/dtl_page.php?classid=<?= $v['tableid'] ?>&pid=<?= $v['sid'] ?>" class="memProductTitle_HC"><?= $v['name'] ?>
                                     </a>
-                                    <div class="memMbFollowCardDown_HC memFollow_HC" data-sid="<?= $v['sid'] ?>" data-tbid="<?= $v['tableid'] ?>">
+                                    <div class="memMbFollowCardDown_HC memFollow_HC" data-sid="<?= $v['sid'] ?>">
                                         <!-- 手機 庫存狀態 -->
                                         <p class="memStock_HC">貨量充足</p>
                                         <!-- 手機 商品價格 -->
                                         <p class="memUPrice_HC">$<?= $v['price'] ?></p>
                                         <!-- 手機 加入購物車 -->
-                                        <a href="">
-                                            <i class="fas fa-shopping-cart memAddCartPhone-CL"></i>
+                                        <a href="#">
+                                            <i class="fas fa-shopping-cart"></i>
                                         </a>
                                         <!-- 手機 取消追蹤 -->
                                         <a href="#">
@@ -227,24 +183,6 @@ $pageName = 'member';
     //加入購物車
     const addToCartBtn = $('.memAddCart-CL');
     addToCartBtn.click(function() {
-        const card = $(this).closest('.memFollow_HC');
-        const sid = card.attr('data-sid');
-        const classid = card.attr('data-tbid');
-        const qty = 1;
-        $.get('/Upick/web/shopcar/cart-api.php', {
-            action: 'add',
-            sid,
-            classid,
-            qty
-        }, function(data) {
-            console.log(data);
-            showCartCount(data); // 更新選單上數量的提示
-        }, 'json');
-    })
-
-    //手機版-加入購物車
-    const addToCartBtn2 = $('.memAddCartPhone-CL');
-    addToCartBtn2.click(function() {
         const card = $(this).closest('.memFollow_HC');
         const sid = card.attr('data-sid');
         const classid = card.attr('data-tbid');

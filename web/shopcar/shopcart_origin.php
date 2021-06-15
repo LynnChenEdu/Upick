@@ -10,6 +10,15 @@ $pageName = 'cart';
 $row0 = "SELECT * FROM 09screen WHERE id BETWEEN 11 and 14";
 $row1 = $pdo->query($row0)->fetchAll();
 
+$total = 0;
+foreach ($_SESSION['cart'] as $v) {
+    //echo $v['price'], ' ';
+    $subTotal = $v['price'] * $v['quantity'];
+    //echo $subTotal, ' ';
+    $total = $total + $subTotal;
+}
+//echo $total;
+
 ?>
 
 <!DOCTYPE html>
@@ -102,7 +111,8 @@ $row1 = $pdo->query($row0)->fetchAll();
                         目前購物車裡沒有商品
                     </div>
                 <?php else : ?>
-                    <?php foreach ($_SESSION['cart'] as $v) { ?>
+                    <?php foreach ($_SESSION['cart'] as $v) {
+                        $subTotal = $v['price'] * $v['quantity']; ?>
                         <div class="row cartItemRow_ZY" value="1">
                             <div class="carItem_ZY">
                                 <div class="carItemName_ZY col-10 col-lg-7">
@@ -127,7 +137,7 @@ $row1 = $pdo->query($row0)->fetchAll();
 
                                 <div class="carItemQuantityOut_Zy col-lg-1">
                                     <div class="carItemQuantity_Zy">
-                                        <select class="carItemQuantitySelect_ZY" name="carItemQuantitySelect_ZY">
+                                        <select class="carItemQuantitySelect_ZY" name="carItemQuantitySelect_ZY" id="cartSelectQty-CL" onchange="changeQty(event)" data-sid="<?= $v['sid'] ?>">
                                             <option value="<?= $v['quantity'] ?>"><?= $v['quantity'] ?></option>
                                             <option value="1">1</option>
                                             <option value="2">2</option>
@@ -141,7 +151,7 @@ $row1 = $pdo->query($row0)->fetchAll();
                                     </div>
                                 </div>
                                 <div class="carItemTotlePrice_ZY col-4 col-lg-1">
-                                    $99999
+                                    $<?= $subTotal ?>
                                 </div>
 
                                 <div class="carItemBtn_ZY col-2" data-sid="<?= $v['sid'] ?>">
@@ -171,11 +181,11 @@ $row1 = $pdo->query($row0)->fetchAll();
                     </div>
                     <div class="carTotalPrice_ZY col-2">
                         <p>結帳金額:</p>
-                        <span>$99999</span>
+                        <span>$<?= $total ?></span>
                     </div>
 
                     <div class="carCheckout_ZY col-2">
-                        <button>結帳去</button>
+                        <button onclick="location.href='shopcar_infor.php'">結帳去</button>
                     </div>
                 </div>
 
@@ -305,6 +315,23 @@ $row1 = $pdo->query($row0)->fetchAll();
                 } else {}
                 location.reload();
             })
+            //更改商品數量
+            const changeQty = function(event) {
+                const el = $(event.currentTarget);
+                const qty = el.val();
+                const sid = el.closest('.carItemQuantitySelect_ZY').attr('data-sid');
+                $.get('cart-api.php', {
+                    action: 'add',
+                    sid,
+                    qty
+                }, function(data) {
+                    console.log(data);
+                    showCartCount(data); // 更新選單上數量的提示
+                }, 'json');
+                location.reload();
+            };
+
+
             //手機版-移除商品
             const deleteFromCartBtnPhone = $('.cardeletePhone-CL');
             deleteFromCartBtnPhone.click(function() {

@@ -1,3 +1,52 @@
+<?php
+//資料庫連結
+require __DIR__ . '/../../__connect_db.php';
+define('WEB_ROOT', '/UPICK');
+session_start();
+
+$title = '感謝購買';
+
+// 判斷是否登入
+if (!isset($_SESSION['loginUser']) or empty($_SESSION['cart'])) {
+    header('Location: shopHome.php'); //回首頁
+    exit;
+}
+
+$total = 0;
+foreach ($_SESSION['cart'] as $v) {
+    $total += $v['price'] * $v['quantity'];
+}
+
+$o_sql = "INSERT INTO `orders`
+(`member_id`, `amount`, `order_date`) 
+VALUES 
+(?, ?,NOW() )";
+$o_stmt = $pdo->prepare($o_sql);
+$o_stmt->execute([
+    $_SESSION['loginUser'],
+    $total,
+]);
+
+$order_id = $pdo->lastInsertId();
+
+$d_sql = "INSERT INTO `order_details`(`order_id`,`sid`, `price`, `quantity` , `name`) 
+VALUES 
+(?, ?, ?, ?, ?)";
+$d_stmt = $pdo->prepare($d_sql);
+
+foreach ($_SESSION['cart'] as $v) {
+    $d_stmt->execute([
+        $order_id,
+        $v['sid'],
+        $v['price'],
+        $v['quantity'],
+        $v['name'],
+    ]);
+}
+
+//unset($_SESSION['cart']); // 清除購物車
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -58,59 +107,7 @@
         </div>
     </div>
 
-    <div class="container carContainerM_ZY">
-        <!-- 上面title -->
-        <div class="row cartTitleRow_ZY">
-            <div class="carheaderItem_ZY">
-                <div class="carTitleName_ZY col-9">
-                    商品
-                </div>
-                <div class="carTitlePrice_ZY col-1">
-                    單價
-                </div>
-                <div class="carTitleQuantity_ZY col-1">數量</div>
-                <div class="carTitleTotlePrice_ZY col-1">小計</div>
-            </div>
-        </div>
-        <!-- 商品1 -->
-        <div class="row cartItemRow_ZY" value="1">
-            <div class="carItem_ZY">
-                <div class="carItemName_ZY ">
-                    <div class="carItemImg_ZY col-2">
-                        <img src="/Upick/images/item_01.png" alt="">
-                    </div>
-                    <div class="carItemWord_ZY ">
-                        Antec 安鈦克 NE550 TUF聯名款 550W 80+銅牌 (全日系電容/長140mm/五年保固二年換新)
-                    </div>
-                </div>
-                <div class="carItemPrice_ZY col-1">$99999</div>
-                <div class="carItemQuantityOut_Zy col-1">
-                    <div class="carInforItemQuantity_Zy">
-                        <p>
-                            1
-                        </p>
-                    </div>
-                </div>
-                <div class="carItemTotlePrice_ZY col-1">$99999</div>
-            </div>
-        </div>
-        <div class="row carBorderBottom_ZY"></div>
 
-
-        <!-- 商品下方結帳資訊攔 -->
-        <div class="row carFooterInfor_ZY">
-            <div class="carTotalQuti_ZY col-10">
-                <p>本次結帳共</p>
-                <span>3</span>
-                <p>項商品</p>
-            </div>
-            <div class="carTotalPrice_ZY col-2">
-                <p>結帳金額:</p>
-                <span>$99999</span>
-            </div>
-
-        </div>
-    </div>
 
 
     <!-- 表單開始 -->
@@ -206,7 +203,7 @@
                 <div class="carInputContainer_ZY  col-12 col-lg-12">
                     <p>配送地址</p>
                     <div class="form-group">
-                        <input type="text" class="input" placeholder="台北市文山區信義路四段123號" data-error="請填寫正確的配送地址" required="required" minlength="13">
+                        <input id="address" type="text" class="input" placeholder="台北市文山區信義路四段123號" data-error="請填寫正確的配送地址" required="required" minlength="13">
                         <div class="help-block with-errors "></div>
                     </div>
                 </div>
@@ -214,7 +211,7 @@
             </div>
             <div class="row carInforPaycontainer_ZY">
                 <div class="carInforTitle_ZY">
-                    <h5>付款資訊</h5>
+                    <h5 id="mytest">付款資訊</h5>
                 </div>
 
                 <div class="carInforPayGroup_ZY">
@@ -367,12 +364,13 @@
                 </div>
                 <div class="container carSubmitBtnBox_ZY">
 
-                    <button type="submit" class="carSubmitBtn_ZY" name="submitbtn" value="註冊">完成購買</button>
+                    <button type="" class="carSubmitBtn_ZY" name="submitbtn" value="註冊" onclick="location.href='shopcar_finish.php?orderid=<?= $order_id ?>'">完成購買</button>
                 </div>
+
             </div>
         </div>
 
-        <div class="row carFixedInforM_ZY">
+        <div class=" row carFixedInforM_ZY">
             <div class="carFixedInforFontM_ZY">
                 <p>共1項商品</p>
                 <p>合計：<span>$99999</span></p>
@@ -396,7 +394,7 @@
     <!--頁尾-->
     <?php include __DIR__ . '/../../parts/html_footer.php' ?>
 
-
+    <?php include __DIR__ . '/cart-script.php' ?>
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous">
     </script>
@@ -416,6 +414,14 @@
             e.preventDefault(); // 防止原始 form 提交表单
         });
     </script> -->
+
+    <script>
+        const test = document.getElementById("address").value;
+        $('#mytest').click(function() {
+
+            alert(test);
+        })
+    </script>
 </body>
 
 </html>

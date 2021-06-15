@@ -1,3 +1,25 @@
+<?php
+//資料庫連結
+require __DIR__ . '/../../__connect_db.php';
+define('WEB_ROOT', '/UPICK');
+session_start();
+
+$orderid = isset($_GET['orderid']) ? ($_GET['orderid']) : "";
+
+$orderDtl = "SELECT * FROM `order_details` WHERE `order_id`='$orderid'";
+$orderDtl2 = $pdo->query($orderDtl)->fetchAll();
+
+$total = 0;
+foreach ($orderDtl2 as $v) {
+    //echo $v['price'], ' ';
+    $subTotal = $v['price'] * $v['quantity'];
+    //echo $subTotal, ' ';
+    $total = $total + $subTotal;
+}
+
+unset($_SESSION['cart']); // 清除購物車
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -126,7 +148,7 @@
                                 </tr>
                                 <tr>
                                     <th>結帳金額:</th>
-                                    <td>$99999</td>
+                                    <td>$<?= $total ?></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -147,21 +169,24 @@
                         <!-- 這是條線 -->
                         <div class="row carlinebold_ZY"></div>
                         <!-- 這是條線 -->
-                        <div class="row carRecipientItem_ZY carRecipientItemMobile_ZY">
-                            <div class="col-8 col-lg-6 carRecipientItemText_ZY carMarginPadding0_ZY ">
-                                <p class="">Antec 安鈦克 NE550 TUF聯名款 550W 80+銅牌 (全日系電容/長140mm/五年保固二年換新)</p>
+                        <?php foreach ($orderDtl2 as $v) {
+                            $subTotal = $v['price'] * $v['quantity']; ?>
+                            <div class="row carRecipientItem_ZY carRecipientItemMobile_ZY">
+                                <div class="col-8 col-lg-6 carRecipientItemText_ZY carMarginPadding0_ZY ">
+                                    <p class=""><?= $v['name'] ?></p>
+                                </div>
+                                <div class="col-lg-2 carListFont_ZY carlistMobileHide_ZY carListFont_ZY"><?= $v['price'] ?></div>
+                                <div class="col-2 col-lg-2 carMarginPadding0_ZY carListFont_ZY"><?= $v['quantity'] ?></div>
+                                <div class="col-2 col-lg-2 carMarginPadding0_ZY carListFont_ZY"><?= $subTotal ?></div>
                             </div>
-                            <div class="col-lg-2 carListFont_ZY carlistMobileHide_ZY carListFont_ZY">99999</div>
-                            <div class="col-2 col-lg-2 carMarginPadding0_ZY carListFont_ZY">1</div>
-                            <div class="col-2 col-lg-2 carMarginPadding0_ZY carListFont_ZY">99999</div>
-                        </div>
-                        <!-- 這是條線 -->
-                        <div class="row carlinebold_ZY"></div>
-                        <!-- 這是條線 -->
+                            <!-- 這是條線 -->
+                            <div class="row carlinebold_ZY"></div>
+                            <!-- 這是條線 -->
+                        <?php } ?>
                         <div class=" carRecipientTotleprice">
                             <div>結帳金額</div>
                             <div>
-                                <p>$99999</p>
+                                <p>$<?= $total ?></p>
                             </div>
 
                         </div>
@@ -181,6 +206,7 @@
     <!--頁尾-->
     <?php include __DIR__ . '/../../parts/html_footer.php' ?>
 
+    <?php include __DIR__ . '/cart-script.php' ?>
 
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous">

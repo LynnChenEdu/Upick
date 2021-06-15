@@ -15,6 +15,7 @@ session_start();
     <title>服務條款</title>
     <!--檔頭外掛-->
     <?php include __DIR__ . '/../../parts/html_head.php' ?>
+    <?php include __DIR__ . '/../../parts/html_navbar_phone.php' ?>
     <!-- memService.css -->
     <link rel="stylesheet" href="/Upick/css/memService.css">
 </head>

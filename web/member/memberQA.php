@@ -15,6 +15,7 @@ session_start();
     <title>客服中心</title>
     <!--檔頭外掛-->
     <?php include __DIR__ . '/../../parts/html_head.php' ?>
+    <?php include __DIR__ . '/../../parts/html_navbar_phone.php' ?>
     <!-- memberQA.css -->
     <link rel="stylesheet" href="/Upick/css/memberQA.css">
 

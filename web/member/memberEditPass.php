@@ -4,7 +4,7 @@ define('WEB_ROOT', '/UPICK');
 session_start();
 
 $email = $_SESSION['loginUser'];
-$sql = "SELECT password FROM members WHERE email=?";
+$sql = "SELECT `password` FROM members WHERE email=?";
 $stmt = $pdo->prepare($sql);
 $stmt->execute([$email]);
 
@@ -24,6 +24,7 @@ if($stmt->rowCount()){
     <title>修改密碼</title>
     <!--檔頭外掛-->
     <?php include __DIR__ . '/../../parts/html_head.php' ?>
+    <?php include __DIR__ . '/../../parts/html_navbar_phone.php' ?>
     <!-- memberEditPass.css -->
     <link rel="stylesheet" href="/Upick/css/memberEditPass.css">
 </head>
@@ -52,7 +53,7 @@ if($stmt->rowCount()){
             <div class="memRightCon">
                 <div class="memberTitle_HC">
                     <div class="memBackBtn_HC">
-                        <a href="./memberCentre.html">
+                        <a href="/Upick/web/member/memberCentre.php">
                             <i class="fas fa-angle-left"></i>
                         </a>
                     </div>
@@ -67,8 +68,8 @@ if($stmt->rowCount()){
                         <div class="memColumnWhite_HC memOldPassword_HC">
                             <!-- 舊密碼 -->
                             <p>舊密碼</p>
-                            <input id="memOldPassword_HC" type="password" placeholder="請輸入舊密碼" name="password"
-                                class="memPassWord_HC" required>
+                            <input id="memOldPassword_HC" type="password" placeholder="請輸入舊密碼" name="oldpassword"
+                                class="memPassWord_HC memOldPass_HC" required>
                             <i toggle="#memOldPassword_HC"
                                 class="far fa-eye-slash memPassIcon_HC memToggleOldPassword_HC"></i>
                         </div>
@@ -76,7 +77,7 @@ if($stmt->rowCount()){
                             <!-- 新密碼 -->
                             <p>新密碼</p>
                             <input onkeyup="checkPass()" id="memNewPassword_HC" type="password" placeholder="請輸入新密碼"
-                                name="password" class="memCheckPswrd1_HC memPassWord_HC" required>
+                                name="checkpassword" class="memCheckPswrd1_HC memPassWord_HC" required>
                             <i toggle="#memNewPassword_HC"
                                 class="far fa-eye-slash memPassIcon_HC memToggleNewPassword_HC"></i>
                         </div>
@@ -90,6 +91,9 @@ if($stmt->rowCount()){
                         </div>
                         <div class="memErroCSS_HC memCheckErro_HC">
                             <i class="fas fa-exclamation-circle"> 密碼不符！</i>
+                        </div>
+                        <div class="memErroCSS_HC memWrongPass_HC">
+                            <i class="fas fa-exclamation-circle"> 舊密碼輸入錯誤！</i>
                         </div>
                         <button class="wBtnNGr memEditPassBtnShare_HC" onclick="EditPassword()">確認修改</button>
                     </form>
@@ -111,16 +115,21 @@ if($stmt->rowCount()){
 const CP1 = document.querySelector('.memCheckPswrd1_HC');
 const CP2 = document.querySelector('.memCheckPswrd2_HC');
 const passErro = document.querySelector('.memCheckErro_HC');
+const passErroBtn = document.querySelector('.memEditPassBtnShare_HC');
 
 function checkPass() {
     if (CP1.value != CP2.value) {
         passErro.style.display = "block";
         CP1.style.borderColor = "#FF8888";
         CP2.style.borderColor = "#FF8888";
+        passErroBtn.style.background = "#E4E8EE";
+        $(".memEditPassBtnShare_HC").attr("disabled",true);
     } else {
         passErro.style.display = "none";
         CP1.style.borderColor = "#7FFFE1";
         CP2.style.borderColor = "#7FFFE1";
+        passErroBtn.style.background = "#7FE0DC";
+        $(".memEditPassBtnShare_HC").attr("disabled",false);
     }
 }
 
@@ -155,6 +164,9 @@ $(".memToggleCheckPassword_HC").click(function() {
     }
 });
 
+const WrongPass = document.querySelector('.memWrongPass_HC');
+const WrongOldPass = document.querySelector('.memOldPass_HC');
+
 function EditPassword() {
     $.ajax({
         type: "POST", //方法
@@ -165,9 +177,11 @@ function EditPassword() {
             console.log("OK")
             if (data.success == true) {
                 alert("修改成功！");
-                // location.href = '../../shopHome.php';
+                WrongOldPass.style.borderColor = "#7FE0DC";
+                WrongPass.style.display = "none";
             } else if (data.success == false) {
-                WrongLog.style.display = "block";
+                WrongPass.style.display = "block";
+                WrongOldPass.style.borderColor = "#FF8888";
             }
         },
         error: function(data) {

@@ -1253,8 +1253,27 @@ $row2 = $stmt2->fetchall();
 
     <!--SCRIPT-->
     <?php include __DIR__ . '/../../parts/scripts.php' ?>
+    <?php include __DIR__ . '/../../web/shopcar/cart-script.php' ?>
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script>
+        //加入購物車
+        const addToCartBtn = $('.wBtnNPk');
+        addToCartBtn.click(function() {
+            const sid = 'vga011';
+            const classid = '03vga';
+            const qty = 1;
+            $.get('/Upick/web/shopcar/cart-api.php', {
+                action: 'add',
+                sid,
+                classid,
+                qty
+            }, function(data) {
+                console.log(data);
+                showCartCount(data); // 更新選單上數量的提示
+            }, 'json');
+        })
+
+
         // 下拉選單
         NodeList.prototype.forEach = function(callback) {
             Array.prototype.forEach.call(this, callback);

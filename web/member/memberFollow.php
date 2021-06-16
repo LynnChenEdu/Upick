@@ -176,8 +176,9 @@ $pageName = 'member';
         }, function(data) {
             console.log(data);
             showCartCount(data); // 更新選單上數量的提示
+            location.reload();
         }, 'json');
-        location.reload();
+
     })
 
     //加入購物車
@@ -195,9 +196,10 @@ $pageName = 'member';
         }, function(data) {
             console.log(data);
             showCartCount(data); // 更新選單上數量的提示
+            location.reload();
         }, 'json');
-        location.reload();
+
     })
-</script>
+</script>s
 
 </html>

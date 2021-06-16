@@ -314,6 +314,7 @@
             color: #383E44;
             font-size: 22px;
             margin-left: 8px;
+            cursor:pointer;
         }
 
         /*修改商品輪播牆-金額文字的顏色與新增錢字符號並調整間距*/

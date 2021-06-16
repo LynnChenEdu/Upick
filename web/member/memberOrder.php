@@ -201,6 +201,7 @@ if ($stmt->rowCount()) {
 
 <!--SCRIPT-->
 <?php include __DIR__ . '/../../parts/scripts.php' ?>
+<?php include __DIR__ . '/../../web/shopcar/cart-script.php' ?>
 
 
 <script>

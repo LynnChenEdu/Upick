@@ -15,8 +15,6 @@
         if (total == 0) {
             $('.cart-count').css('display', 'none');
         }
-        ㄈ
-
     }
     $.get('/Upick/web/shopcar/cart-api.php', function(data) {
         showCartCount(data);

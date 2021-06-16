@@ -248,7 +248,7 @@ if (empty($row)) {
                                 優惠　--<br>
                                 贈品　--<br>
                                 配送　宅配 UPICK門市取貨<br>
-                                付款　信用卡 / LinePay / 街口支付 / 門市付款<br>
+                                付款　信用卡 / LinePay / 街口支付<br>
                             </div>
                             <!--商品保固與數量選擇區-->
                             <div class="dtlItemWarranty-CL">
@@ -545,6 +545,7 @@ if (empty($row)) {
             }, function(data) {
                 console.log(data);
                 showCartCount(data); // 更新選單上數量的提示
+                location.reload();
             }, 'json');
         })
         //加入購物車2-其他熱銷
@@ -562,6 +563,7 @@ if (empty($row)) {
             }, function(data) {
                 console.log(data);
                 showCartCount(data); // 更新選單上數量的提示
+                location.reload();
             }, 'json');
         })
 

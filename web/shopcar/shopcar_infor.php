@@ -45,7 +45,6 @@ foreach ($_SESSION['cart'] as $v) {
     ]);
 }
 
-echo $_SESSION['loginUser'];
 //unset($_SESSION['cart']); // 清除購物車
 ?>
 

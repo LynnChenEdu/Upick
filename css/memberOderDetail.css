@@ -259,8 +259,12 @@
                 display: none;
             }
 
-            .shpFooterSpace-CL{
-                width: 355px;
+            .navTwo_ZY{
+                display: none;
+            }
+
+            .shpFooterSpace-CL, .colorspace, .shpFooterOut-CL{
+                display: none;
             }
 
             /* 左側Menu */
@@ -271,14 +275,14 @@
             /* 會員中心title */
             .memberCen_HC {
                 width: 355px;
-                margin-top: 50px;
-                padding-top: 0;
+                padding-top: 50px;
                 position: relative;
             }
 
             .memberTitle_HC {
                 width: 375px;
                 background-color: #383E44;
+                opacity: 70%;
                 border-bottom: none;
                 left: 0;
                 position: fixed;
@@ -332,6 +336,7 @@
 
             .memDetailTitle_HC {
                 width: 100px;
+                margin-bottom: 0;
             }
 
             .memDetailTitle_HC>li {
@@ -343,6 +348,10 @@
                 line-height: 40px;
                 font-weight: 700;
                 text-align: center;
+            }
+
+            .memDetailCon_HC{
+                margin-bottom: 0;
             }
 
             .memDetailCon_HC>li {
@@ -366,6 +375,11 @@
             .memDisplayMe_HC {
                 display: flex;
                 justify-content: space-between;
+                margin-bottom: 0;
+            }
+
+            .memDisplayMe_HC>li>p{
+                margin-bottom: 0;
             }
 
             .memDtailTitleReverse_HC {
@@ -389,10 +403,10 @@
 
             .memDetailTr_HC {
                 padding: 0 10px;
-                border-bottom: 1px solid #E4E8EE;
+                border-bottom: 1px solid #9AA3AC;
             }
 
-            /* 手機用回會員中心紐 */
+            /* 手機用回訂單列表紐 */
             .memBackBtn_HC {
                 display: block;
                 position: absolute;
@@ -408,11 +422,16 @@
                 color: #FFF;
             }
 
+            .memMobileDetail_HC>.memDetailBtnShare_HC{
+                margin-top: 20px;
+            }
+
             /* TOP按鈕樣式 */
             .memTop_HC {
                 right: 20px;
-                bottom: 20px;
+                bottom: 50px;
                 background-color: #383e44ad;
+                border: 1px solid #FFF;
                 width: 50px;
                 height: 50px;
                 line-height: 50px;

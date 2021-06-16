@@ -162,11 +162,28 @@
             display: none;
         }
 
+
+        .shpFooterSpace-CL{
+            width: 100%;
+        }
+
         /* 手機板 */
         @media screen and (max-width: 375px) {
             .container {
                 width: 355px;
                 margin: 0 auto;
+            }
+
+            .navbarAll{
+                display: none;
+            }
+
+            .navTwo_ZY{
+                display: none;
+            }
+
+            .shpFooterSpace-CL, .colorspace, .shpFooterOut-CL{
+                display: none;
             }
 
             /* 左側Menu */
@@ -177,13 +194,14 @@
             /* 會員中心title */
             .memberCen_HC {
                 width: 355px;
-                margin-top: 50px;
+                padding-top: 50px;
                 position: relative;
             }
 
             .memberTitle_HC {
                 width: 375px;
                 background-color: #383E44;
+                opacity: 70%;
                 border-bottom: none;
                 left: 0;
                 position: fixed;

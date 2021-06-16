@@ -68,7 +68,7 @@ $search2 = "&classid=$tableid";
                         </li>
                         <li class="nav-item up-nav-right <?= $pageName == 'cart' ? 'active' : '' ?>">
                             <a class="nav-link" href="/Upick/web/member/login.php"><i class="fas fa-shopping-cart "></i> 購物車
-                                <span class="badge badge-pill badge-danger cart-count">0</span>
+                                <span class="badge badge-pill badge-danger cart-count" style="display:none;">0</span>
                             </a>
                         </li>
 

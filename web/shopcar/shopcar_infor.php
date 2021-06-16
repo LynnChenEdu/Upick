@@ -18,11 +18,12 @@ foreach ($_SESSION['cart'] as $v) {
 }
 
 $o_sql = "INSERT INTO `orders`
-(`member_id`, `amount`, `order_date`) 
+(`member_id`,`email`, `amount`, `order_date`) 
 VALUES 
-(?, ?,NOW() )";
+(?, ?, ?,NOW() )";
 $o_stmt = $pdo->prepare($o_sql);
 $o_stmt->execute([
+    $_SESSION['loginUser'],
     $_SESSION['loginUser'],
     $total,
 ]);
@@ -44,6 +45,7 @@ foreach ($_SESSION['cart'] as $v) {
     ]);
 }
 
+echo $_SESSION['loginUser'];
 //unset($_SESSION['cart']); // 清除購物車
 ?>
 

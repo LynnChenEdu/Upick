@@ -97,6 +97,16 @@
             display: none;
         }
 
+        /*此div撐開footer上方的留白空間*/
+        .shpFooterSpace-CL {
+            height: 100px;
+            width: 100%;
+        }
+
+        .shpFooterOut-CL{
+            width: 100%;
+        }
+
         /* 手機板 */
         @media screen and (max-width: 375px) {
             .container {
@@ -108,18 +118,25 @@
                 display: none;
             }
 
+            .navTwo_ZY{
+                display: none;
+            }
+
+            .shpFooterSpace-CL, .colorspace, .shpFooterOut-CL{
+                display: none;
+            }
+
             /* 會員中心title */
             .memberCen_HC {
                 width: 355px;
-                margin-top: 50px;
-                padding-top: 0;
+                padding-top: 50px;
                 position: relative;
-
             }
 
             .memberTitle_HC {
                 width: 375px;
                 background-color: #383E44;
+                opacity: 70%;
                 border-bottom: none;
                 position: fixed;
                 left: 0;

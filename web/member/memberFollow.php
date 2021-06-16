@@ -60,54 +60,54 @@ $pageName = 'member';
                 </div>
                 <!-- 網頁追蹤清單 -->
                 <div class="memWebFollowArea_HC">
-                <?php if (empty($_SESSION['follow'])) : ?>                                
-                    <div class="memNoFollow_HC">
-                        <h1>目前尚無追蹤商品</h1>
-                    </div>
-                <?php else : ?>
-                    <table id="memWebTable_HC">
-                        <thead>
-                            <tr>
-                                <th class="memProductTh_HC">追蹤商品</th>
-                                <th>庫存狀態</th>
-                                <th>商品價格</th>
-                                <th>購買狀態</th>
-                                <th class="memTrashTh_HC"><i class="fas fa-trash"></i></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php foreach ($_SESSION['follow'] as $v) { ?>
-                                <tr class="memFollow_HC" data-sid="<?= $v['sid'] ?>" data-tbid="<?= $v['tableid'] ?>">
-                                    <!-- 追蹤商品 -->
-                                    <td class="memProductTd_HC">
-                                        <img src="<?= WEB_ROOT ?>/images/product/<?= $v['tableid'] ?>/<?= $v['imgs'] ?>.jpg" alt="">
-                                        <a href="<?= WEB_ROOT ?>/web/product/dtl_page.php?classid=<?= $v['tableid'] ?>&pid=<?= $v['sid'] ?>" class="memProductTitle_HC"><?= $v['name'] ?></a>
-                                    </td>
-                                    <!-- 庫存狀態 -->
-                                    <td>
-                                        <p class="memStock_HC">貨量充足</p>
-                                    </td>
-                                    <!-- 商品價格 -->
-                                    <td>
-                                        <p class="memUPrice_HC">$<?= $v['price'] ?></p>
-                                    </td>
-                                    <!-- 購買狀態 -->
-                                    <td>
-                                        <a href="" class="memAddCart-CL">加入購物車</a>
-                                        <br>
-                                        <a href="/Upick/web/shopcar/shopcart_origin.php" class="memAddCart-CL">立即購買</a>
-                                    </td>
-                                    <!-- 取消追蹤 -->
-                                    <td>
-                                        <a href="#" class="memAddCart-CL">
-                                            <i class="fas fa-trash"></i>
-                                        </a>
-                                    </td>
+                    <?php if (empty($_SESSION['follow'])) : ?>
+                        <div class="memNoFollow_HC">
+                            <h1>目前尚無追蹤商品</h1>
+                        </div>
+                    <?php else : ?>
+                        <table id="memWebTable_HC">
+                            <thead>
+                                <tr>
+                                    <th class="memProductTh_HC">追蹤商品</th>
+                                    <th>庫存狀態</th>
+                                    <th>商品價格</th>
+                                    <th>購買狀態</th>
+                                    <th class="memTrashTh_HC"><i class="fas fa-trash"></i></th>
                                 </tr>
-                            <?php } ?>
-                <?php endif; ?>
-                        </tbody>
-                    </table>                    
+                            </thead>
+                            <tbody>
+                                <?php foreach ($_SESSION['follow'] as $v) { ?>
+                                    <tr class="memFollow_HC" data-sid="<?= $v['sid'] ?>" data-tbid="<?= $v['tableid'] ?>">
+                                        <!-- 追蹤商品 -->
+                                        <td class="memProductTd_HC">
+                                            <img src="<?= WEB_ROOT ?>/images/product/<?= $v['tableid'] ?>/<?= $v['imgs'] ?>.jpg" alt="">
+                                            <a href="<?= WEB_ROOT ?>/web/product/dtl_page.php?classid=<?= $v['tableid'] ?>&pid=<?= $v['sid'] ?>" class="memProductTitle_HC"><?= $v['name'] ?></a>
+                                        </td>
+                                        <!-- 庫存狀態 -->
+                                        <td>
+                                            <p class="memStock_HC">貨量充足</p>
+                                        </td>
+                                        <!-- 商品價格 -->
+                                        <td>
+                                            <p class="memUPrice_HC">$<?= $v['price'] ?></p>
+                                        </td>
+                                        <!-- 購買狀態 -->
+                                        <td>
+                                            <a href="" class="memAddCart-CL">加入購物車</a>
+                                            <br>
+                                            <a href="/Upick/web/shopcar/shopcart_origin.php" class="memAddCart-CL">立即購買</a>
+                                        </td>
+                                        <!-- 取消追蹤 -->
+                                        <td>
+                                            <a href="#" class="memAddCart-CL">
+                                                <i class="fas fa-trash"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                <?php } ?>
+                            <?php endif; ?>
+                            </tbody>
+                        </table>
                 </div>
                 <!-- 手機追蹤清單 -->
                 <div class="memMobileFollowArea_HC">
@@ -176,8 +176,8 @@ $pageName = 'member';
         }, function(data) {
             console.log(data);
             showCartCount(data); // 更新選單上數量的提示
-            location.reload();
         }, 'json');
+        location.reload();
     })
 
     //加入購物車
@@ -196,6 +196,7 @@ $pageName = 'member';
             console.log(data);
             showCartCount(data); // 更新選單上數量的提示
         }, 'json');
+        location.reload();
     })
 </script>
 

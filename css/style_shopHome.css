@@ -44,7 +44,7 @@
             width:1500px;
             margin: 0 auto 0 1340px;
             font-size: 96px;
-            color: #FD2081;
+            color: rgb(253, 32, 129);
             letter-spacing: 20px;
             box-sizing: border-box;
             padding-top: 20vh;
@@ -87,7 +87,7 @@
         }
 
         h4.aniUpickWord-CL, .aniUpickWord-CL .fa-angle-double-right{
-            color: #7FE0DC;
+            color: rgb(127, 224, 220);
             text-decoration: underline;
             margin-top: 10px;
             cursor: pointer;

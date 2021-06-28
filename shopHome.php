@@ -334,7 +334,7 @@ $screenrow2 = $pdo->query($screen2)->fetchAll();
 
 
                 <!--全站熱銷零組件圖片-->
-                <div class="shpHotItemImg-CL"><img src="./images/img_03.png" alt=""></div>
+                <div class="shpHotItemImg-CL"><img src="./images/web_title_img.jpg" alt=""></div>
 
 
                 <!--CPU零件區-->

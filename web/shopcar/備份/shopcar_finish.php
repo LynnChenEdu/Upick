@@ -91,8 +91,8 @@ unset($_SESSION['cart']); // 清除購物車
             <p>或到會員中心 > 訂單查詢查看最新的物流進度</p>
         </div>
         <div class="row carFinishContainerBtnGroup_ZY">
-            <button class="carFinishContainerBtn_ZY" onclick="location.href='http://localhost/Upick/shopHome.php?aniarea=none&shparea=block'"><i class="fas fa-chevron-left"></i><i class="fas fa-chevron-left"></i>繼續購物</button>
-            <button class="carFinishContainerBtn_ZY" onclick="location.href='http://localhost/Upick/web/member/memberOrder.php'"></i>前往訂單<i class="fas fa-chevron-right"></i><i class="fas fa-chevron-right"></i></button>
+            <button class="carFinishContainerBtn_ZY"><i class="fas fa-chevron-left"></i><i class="fas fa-chevron-left"></i>繼續購物</button>
+            <button class="carFinishContainerBtn_ZY"></i>前往訂單<i class="fas fa-chevron-right"></i><i class="fas fa-chevron-right"></i></button>
         </div>
         <div class="row carFinishInforContainer_ZY">
             <div class="row carRecipientInforBox_ZY">
@@ -136,7 +136,7 @@ unset($_SESSION['cart']); // 清除購物車
                                 </tr>
                                 <tr>
                                     <th>訂單編號:</th>
-                                    <td>1000<?= $orderid ?></td>
+                                    <td>202104120123456</td>
                                 </tr>
                                 <tr>
                                     <th>付款方式:</th>

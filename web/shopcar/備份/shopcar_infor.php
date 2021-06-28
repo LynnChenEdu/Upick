@@ -45,8 +45,6 @@ foreach ($_SESSION['cart'] as $v) {
     ]);
 }
 
-
-
 //unset($_SESSION['cart']); // 清除購物車
 ?>
 
@@ -131,7 +129,7 @@ foreach ($_SESSION['cart'] as $v) {
                                 姓名：
                             </th>
                             <td>
-                                王小明
+                                王小名
                             </td>
                         </tr>
                         <tr>
@@ -139,7 +137,7 @@ foreach ($_SESSION['cart'] as $v) {
                                 信箱：
                             </th>
                             <td>
-                                sss@gmail.com
+                                123456798@gmail.com
                             </td>
                         </tr>
                         <tr>
@@ -147,7 +145,7 @@ foreach ($_SESSION['cart'] as $v) {
                                 手機：
                             </th>
                             <td>
-                                0983066666
+                                0912345678
                             </td>
                         </tr>
                         <tr>
@@ -155,7 +153,7 @@ foreach ($_SESSION['cart'] as $v) {
                                 地址：
                             </th>
                             <td>
-                                台北市大安區復興南路一段390號2樓
+                                台北市大安區復興南路一段
                             </td>
                         </tr>
                     </tbody>
@@ -375,12 +373,12 @@ foreach ($_SESSION['cart'] as $v) {
 
         <div class=" row carFixedInforM_ZY">
             <div class="carFixedInforFontM_ZY">
-                <p>共<span class="carCount-CL">1</span>項商品</p>
-                <p>合計 <span>$ <?= $total ?></span></p>
+                <p>共1項商品</p>
+                <p>合計：<span>$<?= $total ?></span></p>
             </div>
             <div class="carFixedInforFontBtnBoxM_ZY">
                 <button class="carFixedButtonM1_ZY">回購物車</button>
-                <button class="carFixedButtonM2_ZY" type="" name="submitbtn" value="註冊" onclick="location.href='shopcar_finish.php?orderid=<?= $order_id ?>'">確定結帳</button>
+                <button class="carFixedButtonM2_ZY" type="submit" name="submitbtn" value="註冊">確定結帳</button>
             </div>
 
         </div>

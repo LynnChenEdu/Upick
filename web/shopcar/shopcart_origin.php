@@ -147,7 +147,7 @@ foreach ($_SESSION['cart'] as $v) {
                                         </select>
                                     </div>
                                     <div class="carItemTotlePriceMobile_ZY ">
-                                        <p>小計<span>$99999</span></p>
+                                        <p>小計<span>$<?= $subTotal ?></span></p>
                                     </div>
                                 </div>
                                 <div class="carItemTotlePrice_ZY col-4 col-lg-1">
@@ -168,26 +168,27 @@ foreach ($_SESSION['cart'] as $v) {
                             <div class="row carBorderBottom_ZY"></div>
                         </div>
                     <?php } ?>
-                <?php endif; ?>
-                <!-- 商品一結束 -->
 
-                <!-- 商品下方結帳資訊攔 -->
+                    <!-- 商品一結束 -->
 
-                <div class="row carFooterInfor_ZY">
-                    <div class="carTotalQuti_ZY col-8">
-                        <p>本次結帳共</p>
-                        <span class="shopCount-CL">3</span>
-                        <p>項商品</p>
-                    </div>
-                    <div class="carTotalPrice_ZY col-2">
-                        <p>結帳金額:</p>
-                        <span>$<?= $total ?></span>
+                    <!-- 商品下方結帳資訊攔 -->
+
+                    <div class="row carFooterInfor_ZY">
+                        <div class="carTotalQuti_ZY col-8">
+                            <p>本次結帳共</p>
+                            <span class="shopCount-CL carCount-CL">3</span>
+                            <p>項商品</p>
+                        </div>
+                        <div class="carTotalPrice_ZY col-2">
+                            <p>結帳金額:</p>
+                            <span>$<?= $total ?></span>
+                        </div>
+
+                        <div class="carCheckout_ZY col-2">
+                            <button onclick="location.href='shopcar_infor.php'">結帳去</button>
+                        </div>
                     </div>
 
-                    <div class="carCheckout_ZY col-2">
-                        <button onclick="location.href='shopcar_infor.php'">結帳去</button>
-                    </div>
-                </div>
 
 
             </div>
@@ -195,17 +196,18 @@ foreach ($_SESSION['cart'] as $v) {
             <div class="row carFixedInforM_ZY">
                 <div class="carFixedInforFontM_ZY">
                     <p>共<span class="carCount-CL">0</span>項商品</p>
-                    <p>合計：<span>$99999</span></p>
+                    <p>合計：<span>$<?= $total ?></span></p>
                 </div>
                 <div class="carFixedInforFontBtnBoxM_ZY">
                     <button class="carFixedButtonM1_ZY">繼續購物</button>
-                    <button class="carFixedButtonM2_ZY">結帳去</button>
+                    <button class="carFixedButtonM2_ZY" onclick="location.href='shopcar_infor.php'">結帳去</button>
                 </div>
 
             </div>
+        <?php endif; ?>
         </div>
         <!--  -->
-        <div class="container carRecommendContainer">
+        <div class=" container carRecommendContainer">
             <!-- 加購商品區 -->
             <div class="row carRecommendTitle_ZY">
                 <p>加購商品</p>
